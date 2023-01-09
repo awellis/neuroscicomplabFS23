@@ -1,8 +1,8 @@
 # Neurowissenschaft im Computerlab FS22 - Quarto
 
-Website and slides for the course "Neurowissenschaft im Computerlab FS 22".
+Website and slides for the course "Neurowissenschaft im Computerlab FS 23".
 
-[Online script](https://kogpsy.github.io/neuroscicomplabFS22/)
+[Online script](https://awellis.github.io/neuroscicomplabFS23/)
 
 
 ## Development
@@ -57,7 +57,7 @@ Contains style sheets which customize the (light and dark) themes.
 
 [![CC-BY](https://i.creativecommons.org/l/by/4.0/88x31.png)](https://creativecommons.org/licenses/by/4.0/)
 
-[1]: https://github.com/kogpsy/neuroscicomplabFS22
+[1]: https://github.com/awellis/neuroscicomplabFS23
 [2]: https://pkgs.rstudio.com/distill/
 [3]: https://quarto.org/
 [4]: https://quarto.org/docs/get-started/
