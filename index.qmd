@@ -5,7 +5,7 @@ about:
     image: assets/logo_landing.png
     links:
     - text: Zulip Forum
-      href: https://neuroscicomplab2022.zulipchat.com/
+      href: https://neuroscicomplab2023.zulipchat.com/
     - text: Mail
       href: mailto:andrew.ellis@unibe.ch
 ---
