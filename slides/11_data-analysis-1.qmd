@@ -1,0 +1,64 @@
+---
+title: "11. Sitzung"
+subtitle: "Data analysis I: Combining information from multiple participants and introduction to Bayesian data analysis."
+author: "Andrew Ellis"
+institute: "Neurowissenschaft Computerlab FS 22"
+format:
+  revealjs:
+    theme: [simple, ../styles/reveal.scss]
+    logo: ../assets/logo.png
+    footer: <a href="/">🏠 Neurowissenschaft Computerlab FS22</a>
+    # smaller: true
+    slide-number: c/t
+    chalkboard: true
+    scrollable: true 
+    code-fold: true
+    code-summary: "Show code"
+    code-tools: true
+execute:
+  echo: true
+  include: true
+date: "2022-05-10"
+---
+
+```{r}
+#| echo: true
+#| include: false
+
+library(tidyverse)
+```
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="35%"}
+::: topic-number
+1
+:::
+:::
+
+::: {.column width="65%"}
+::: topic-text
+Combining information from multiple participants
+:::
+:::
+:::
+
+
+
+------------------------------------------------------------------------
+
+::: columns
+::: {.column width="35%"}
+::: topic-number
+2
+:::
+:::
+
+::: {.column width="65%"}
+::: topic-text
+Bayesian data analysis
+:::
+:::
+:::
+

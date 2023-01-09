@@ -1,0 +1,330 @@
+---
+title: "Übung 4: Lösung"
+description: | 
+    Signal Detection Kennzahlen zusammenfassen.
+date: "2022-04-05"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+license: CC BY
+citation: true
+bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+        code-link: true
+---
+
+```{r}
+#| include: false
+
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data/session_6')
+```
+
+In dieser Übung berechnen Sie aus den Daten von 15 Versuchspersonen aus dem PsychoPy Experiment die Signal Detection Kennzahlen $d'$, $k$ und $c$. Anschliessen berechnen Sie Mittelwerte der drei Bedingungen für $d'$ und $c$ unter Berücksichtigung der Messwiederholung.
+
+
+
+# Vorbereitung
+
+```{r}
+#| message: false
+#| warning: false
+
+library(tidyverse)
+d <- read_csv("data/session-6.csv")
+```
+
+## Variablen bearbeiten
+
+Zu `factor` konvertieren, etc.
+
+```{r}
+d <- d |>
+    select(ID, condition, cue, direction, choice) |>
+    mutate(across(where(is.character), ~as_factor(.)),
+           cue = fct_relevel(cue, "left", "none", "right")) |>
+    drop_na()
+```
+
+Wir definieren nun eine Antowrt als "Hit", wenn die Vp "rechts" gesagt, und die Richtung war tatsächlich "rechts" (also eine korrekte "rechts" Antowrt). Ein "False Alarm" ist dann eine inkorrekte "rechts" Antwort.
+
+```{r}
+sdt <- d |>
+    mutate(type = case_when(
+        direction == "right" & choice == "right" ~ "Hit",
+        direction == "right" & choice == "left" ~ "Miss",
+        direction == "left" & choice == "left" ~ "CR",
+        direction == "left" & choice == "right" ~ "FA"))
+```
+
+Für jede Vpn in jeder der drei `cue` Bedingungen die verschiedenen Antworttypen zählen.
+
+```{r}
+sdt_summary <- sdt |>
+    group_by(ID, cue) |>
+    count(type)
+```
+
+```{r}
+sdt_summary
+```
+
+## Von `wide` zu `long` konvertieren
+
+Nun wollen wir die 4 Antworttypen in jeweils eigenen Variablen.
+
+```{r}
+sdt_summary <- sdt_summary |>
+    pivot_wider(names_from = type, values_from = n)
+```
+
+```{r}
+sdt_summary
+```
+
+## Funktionen definieren
+
+Die erste Funktion ersetzt alle fehlenden Werte (`NA`) durch 0, die zweite Funktion ersetzt bei den Hit und False Alarm Rates alle 0 und 1 Werte durch 0.001 oder 0.999. Dies machen wir, damit wir bei der Berechnung der z-Werte nicht $\pm \infty$ erhalten. 
+
+```{r}
+replace_NA <- function(x) {
+    x = ifelse(is.na(x), 0, x)
+    x
+}
+
+correct_zero_one <- function(x) {
+    if (identical(x, 0)) {
+        x = x + 0.001
+    } else if (identical(x, 1)) {
+        x = x - 0.001
+    }
+    x
+}
+```
+
+## NAs ersetzen
+
+```{r}
+sdt_summary <- sdt_summary |>
+    mutate(across(c(Hit, Miss, FA, CR), replace_NA))
+```
+
+```{r}
+sdt_summary
+```
+
+## Hit Rate und False Alarm Rate berechnen
+
+
+```{r}
+sdt_summary <- sdt_summary |>
+    mutate(hit_rate = Hit/(Hit + Miss),
+           fa_rate = FA/(FA + CR))
+```
+
+## Werte 0 und 1 korrigieren
+
+```{r}
+sdt_summary <- sdt_summary |>
+    mutate(across(c(hit_rate, fa_rate), correct_zero_one))
+```
+
+```{r}
+sdt_summary
+```
+
+## Z-Transformation
+
+Als nächstes berechnen wir die z-Werte der Hit Rate und der False Alarm Rate.
+
+```{r}
+sdt_summary <- sdt_summary |>
+    mutate(zhr = qnorm(hit_rate),
+           zfa = qnorm(fa_rate))
+```
+
+```{r}
+sdt_summary
+```
+
+## SDT Kennzahlen berechnen
+
+```{r}
+sdt_summary <- sdt_summary |>
+    mutate(dprime = zhr - zfa,
+           k = -zfa,
+           c = -0.5 * (zhr + zfa)) |>
+    mutate(across(c(dprime, k, c), round, 2))
+```
+
+## Variablen auswählen
+
+```{r}
+sdt_final <- sdt_summary |>
+    select(ID, cue, dprime, k, c)
+```
+
+Im finalen Datensatz haben wir nun `d'`, `k` und `c` für jede Person in jeder Bedingung.
+
+```{r}
+sdt_final
+```
+
+:::{.callout-note}
+Wir erwarten, dass sich `d'` zwischen den Bedingungen nicht unterscheidet. `k` und `c` (bias) sollte sich hingegen zwischen den `cue` Bedingungen unterscheiden. Uns interessiert hier vor allem `c`: in der neutralen Bedingung sollte `c` etwa 0 sein, in der 'left' Bedingung sollte $c > 0$ sein, und in der 'right' Bedingung sollte $c < 0$ sein.
+
+Versuchen Sie die untenstehende Grafiken für `d'` und `c` zu reproduzieren.
+:::
+
+```{r}
+#| echo: false
+
+dprimes <- sdt_final |>
+    select(ID, cue, dprime) |>
+    Rmisc::summarySEwithin(measurevar = "dprime",
+                           withinvars = "cue",
+                           idvar = "ID",
+                           na.rm = FALSE,
+                           conf.interval = 0.95)
+
+cs <- sdt_final |>
+    select(ID, cue, c) |>
+    Rmisc::summarySEwithin(measurevar = "c",
+                           withinvars = "cue",
+                           idvar = "ID",
+                           na.rm = FALSE,
+                           conf.interval = 0.95)
+
+library(patchwork)
+
+p1 <- dprimes |>
+    ggplot(aes(x = cue, y = dprime, group = 1)) +
+    geom_line() +
+    geom_errorbar(width = 0.1, aes(ymin = dprime - ci,
+                                   ymax = dprime + ci)) +
+    geom_point(shape = 21, size = 3, fill = "white") +
+  ggtitle("D'")
+
+p3 <- cs |>
+    ggplot(aes(x = cue, y = c, group = 1)) + 
+    geom_hline(yintercept = 0, 
+               linetype = "dashed",
+               color = "grey60") +
+    geom_line() +
+    geom_errorbar(width = 0.1, aes(ymin = c - ci,
+                                   ymax = c + ci)) +
+    geom_point(shape = 21, size = 3, fill = "white") +
+    ggtitle("Bias")
+
+p1 / p3
+```
+
+Sie brauchen zuerst eine (separate) Zusammenfassung der `d'` und `c` Werte, welche die Messwiederholung respektiert. Sie können dazu die Funktion `summarySEwithin` aus dem `Rmisc` Package verwenden.
+
+Die Funktion braucht die Argumente `measurevar`, `withinvars` und `idvar`. 
+
+| Argument | Beschreibung                                                          |
+|------------|--------------------------------------------------------------------|
+| `measurevar`     | Variable, für welche eine Messwiederholung vorliegt          |
+| `withinvars`     | Messwiederholung                                                |
+| `idvar`    | Identität der messwiederholten Einheit|
+
+
+
+```{r}
+cs <- sdt_final |>
+    select(ID, cue, c) |>
+    Rmisc::summarySEwithin(measurevar = "c",
+                           withinvars = "cue",
+                           idvar = "ID",
+                           na.rm = FALSE,
+                           conf.interval = 0.95)
+```
+
+
+```{r}
+dprimes <- sdt_final |>
+    select(ID, cue, dprime) |>
+    Rmisc::summarySEwithin(measurevar = "dprime",
+                           withinvars = "cue",
+                           idvar = "ID",
+                           na.rm = FALSE,
+                           conf.interval = 0.95)
+```
+
+
+Wenn Sie, wie ich, die Datensätze mit den Mittelwerten, Standardfehlern und $95%$ Konfidenzintervallen `primes` und  `cs` genannt haben, können Sie die Plots beispielsweise so erstellen.
+
+```{r}
+cs |>
+    ggplot(aes(x = cue, y = c, group = 1)) + 
+    geom_hline(yintercept = 0, 
+               linetype = "dashed",
+               color = "grey60") +
+    geom_line() +
+    geom_errorbar(width = 0.1, aes(ymin = c - ci,
+                                   ymax = c + ci)) +
+    geom_point(shape = 21, size = 3, fill = "white") +
+    ggtitle("c (bias)")
+```
+
+Falls Sie wollen, können Sie die individuellen `c` Schätzungen dem Plot hinzufügen, mit folgendem Code: 
+
+```r
+geom_jitter(aes(cue, c), data = sdt_final, width = 0.05)
+```
+
+```{r}
+cs |>
+    ggplot(aes(x = cue, y = c, group = 1)) + 
+    geom_hline(yintercept = 0, 
+               linetype = "dashed",
+               color = "grey60") +
+    geom_jitter(aes(cue, c), data = sdt_final, width = 0.05) +
+    geom_line() +
+    geom_errorbar(width = 0.1, aes(ymin = c - ci,
+                                   ymax = c + ci)) +
+    geom_point(shape = 21, size = 3, fill = "white") +
+    ggtitle("c (bias)")
+```
+
+
+Die beiden Plots können mit dem `patchwork` Package so zusammengefügt werden. 
+
+
+```{r}
+library(patchwork)
+
+p1 <- dprimes |>
+    ggplot(aes(x = cue, y = dprime, group = 1)) +
+    geom_line() +
+    geom_errorbar(width = 0.1, aes(ymin = dprime - ci,
+                                   ymax = dprime + ci)) +
+    geom_point(shape = 21, size = 3, fill = "white") +
+  ggtitle("D'")
+
+p2 <- cs |>
+    ggplot(aes(x = cue, y = c, group = 1)) + 
+    geom_hline(yintercept = 0, 
+               linetype = "dashed",
+               color = "grey60") +
+    geom_line() +
+    geom_errorbar(width = 0.1, aes(ymin = c - ci,
+                                   ymax = c + ci)) +
+    geom_point(shape = 21, size = 3, fill = "white") +
+    ggtitle("Bias")
+
+p1 / p2
+```
+
+`p1 / p2` bedeutet hier, dass Plot `p1` oben, `p2` unten dargestellt wird. Mit `p1 + p2` können Sie die Plots nebeneinander zusammenfügen (was hier aber nicht sehr nützlich ist).
+
+```{r}
+p1 + p2
+```
+
