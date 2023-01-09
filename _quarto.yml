@@ -12,7 +12,7 @@ project:
 
 website:
   title: "Neurowissenschaft Computerlab"
-  site-url: https://kogpsy.github.io/neuroscicomplabFS22/
+  site-url: https://awellis.github.io/neuroscicomplabFS23/
   favicon: /assets/logo_landing.png
   navbar:
     logo: /assets/logo.png
@@ -87,10 +87,10 @@ website:
             - pages/solutions/solution_07.qmd
 
   page-footer:
-    left: "© Copyright 2022, Andrew Ellis"
+    left: "© Copyright 2023, Andrew Ellis"
     right:
       - icon: github
-        href: https://github.com/kogpsy/neuroscicomplabFS22
+        href: https://github.com/awellis/neuroscicomplabFS23
 
 format:
   html:
