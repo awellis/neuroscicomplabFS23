@@ -2,7 +2,7 @@
 
 Website and slides for the course "Neurowissenschaft im Computerlab FS 23".
 
-[Online script](https://awellis.github.io/neuroscicomplabFS23/)
+[Online script](https://kogpsy.github.io/neuroscicomplabFS23/)
 
 
 ## Development

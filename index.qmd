@@ -4,11 +4,11 @@ about:
     template: jolla
     image: assets/logo_landing.png
     links:
-    - text: Zulip Forum
-      href: https://neuroscicomplab2023.zulipchat.com/
-    - text: Mail
+    - text: Gerda Wyssen
+      href: mailto:gerda.wyssen@unibe.ch
+    - text: Andrew Ellis
       href: mailto:andrew.ellis@unibe.ch
 ---
 
-Frühjahrssemester 2022    
+Frühjahrssemester 2023    
 
