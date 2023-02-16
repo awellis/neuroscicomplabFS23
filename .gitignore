@@ -2,3 +2,7 @@
 .Rproj.user
 .Rhistory
 JASP/
+
+
+# MacOS specific stuff
+.DS_Store
