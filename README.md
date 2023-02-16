@@ -1,4 +1,4 @@
-# Neurowissenschaft im Computerlab FS22 - Quarto
+# Neurowissenschaft im Computerlab FS23 - Quarto
 
 Website and slides for the course "Neurowissenschaft im Computerlab FS 23".
 
