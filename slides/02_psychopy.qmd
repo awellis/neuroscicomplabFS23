@@ -2,12 +2,12 @@
 title: "2. Sitzung"
 subtitle: "PsychoPy"
 author: "Andrew Ellis"
-institute: "Neurowissenschaft Computerlab FS 22"
+institute: "Neurowissenschaft Computerlab FS 23"
 format:
   revealjs:
     theme: [simple, ../styles/reveal.scss]
     logo: ../assets/logo.png
-    footer: <a href="/">🏠 Neurowissenschaft im Computerlab FS22</a>
+    footer: <a href="/">🏠 Neurowissenschaft im Computerlab FS23</a>
 date: "2022-03-01"
 ---
 
