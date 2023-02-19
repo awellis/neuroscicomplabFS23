@@ -14,76 +14,95 @@ website:
   title: "Neurowissenschaft Computerlab"
   site-url: https://kogpsy.github.io/neuroscicomplabFS23/
   favicon: /assets/logo_landing.png
+  reader-mode: true
+
   navbar:
     logo: /assets/logo.png
     background: primary
+
     left:
-      - text: Admin
-        menu:
-          - pages/admin/01_overview.qmd
-          - pages/admin/02_assessments.qmd
-    right:
-      - text: Kapitel
-        menu:
-          - pages/chapters/01_psychopy_experiments.qmd
-          # - pages/chapters/02_importing_data.qmd
-          # - pages/chapters/03_data_cleaning.qmd
-          # - pages/chapters/04_summarizing_data.qmd
-          # - pages/chapters/05_signal_detection_i.qmd
-          # - pages/chapters/06_signal_detection_ii.qmd
-          # - pages/chapters/07_response_times_i.qmd
-          # - pages/chapters/08_response_times_ii.qmd
-          # - pages/chapters/09_evidence_accumulation_1.qmd
-          # - pages/chapters/10_evidence_accumulation_2.qmd
-          # - pages/chapters/11_data-analysis-1.qmd
-          # - pages/chapters/12_data-analysis-2.qmd
+        - text: "📚 Syllabus"
+          file: pages/admin/syllabus.qmd
+        - text: "📝 Leistungsnachweise"
+          file: pages/admin/leistungsnachweise.qmd
+        - text: "👨🏻‍🏫👩🏼‍🔬 Dozierende"
+          file: pages/admin/dozierende.qmd
+      # - text: 🗄️ Admin
+      #   menu:
+      #     - pages/admin/syllabus.qmd
+      #     - pages/admin/leistungsnachweise.qmd
+      #     - pages/admin/dozierende.qmd
+      # - text: Kapitel
+      #   menu:
+      #     - pages/chapters/01_psychopy_experiments.qmd
+      #     # - pages/chapters/02_importing_data.qmd
+      #     # - pages/chapters/03_data_cleaning.qmd
+      #     # - pages/chapters/04_summarizing_data.qmd
+      #     # - pages/chapters/05_signal_detection_i.qmd
+      #     # - pages/chapters/06_signal_detection_ii.qmd
+      #     # - pages/chapters/07_response_times_i.qmd
+      #     # - pages/chapters/08_response_times_ii.qmd
+      #     # - pages/chapters/09_evidence_accumulation_1.qmd
+      #     # - pages/chapters/10_evidence_accumulation_2.qmd
+      #     # - pages/chapters/11_data-analysis-1.qmd
+      #     # - pages/chapters/12_data-analysis-2.qmd
 
-      - text: Slides
-        menu:
-          - text: "1. Sitzung (22.02.2022)"
-            file: slides/01_introduction.qmd
-          # - text: "2. Sitzung (01.03.2022)"
-          #   file: slides/02_psychopy.qmd
-          # - text: "3. Sitzung (08.03.2022)"
-          #   file: slides/03_import_and_process_data.qmd
-          # - text: "4. Sitzung (15.03.2022)"
-          #   file: slides/04_process_data.qmd
-          # - text: "5. Sitzung (22.03.2022)"
-          #   file: slides/05_signal_detection.qmd
-          # - text: "6. Sitzung (29.03.2022)"
-          #   file: slides/06_signal_detection_examples.qmd
-          # - text: "7. Sitzung (05.04.2022)"
-          #   file: slides/07_response_times.qmd
-          # - text: "8. Sitzung (12.04.2022)"
-          #   file: slides/08_response_times_ii.qmd
-          # - text: "9. Sitzung (26.04.2022)"
-          #   file: slides/09_evidence_accumulation.qmd
-          # - text: "10. Sitzung (03.05.2022)"
-          #   file: slides/10_fitting_ddm.qmd
-          # - text: "11. Sitzung (17.05.2022)"
-          #   file: slides/11_data-analysis-1.qmd
-          # - text: "12. Sitzung (24.05.2022)"
-          #   file: slides/12_data-analysis-2.qmd
-          # - text: "13. Sitzung (31.05.2022)"
-          #   file: slides/13_jasp.qmd
+      # - text:  📽️ Slides
+      #   menu:
+      #     - text: "1. Sitzung (22.02.2022)"
+      #       file: slides/01_introduction.qmd
 
-      - text: Übungen
-        menu:
-          - pages/exercises/exercise_01.qmd
-          # - pages/exercises/exercise_02.qmd
-          # - pages/exercises/exercise_03.qmd
-          # - pages/exercises/exercise_04.qmd
-          # - pages/exercises/exercise_05.qmd
-          # - pages/exercises/exercise_06.qmd
-          # - pages/exercises/exercise_07.qmd
 
-      - text: Lösungen
-        menu:
-            - pages/solutions/solution_03.qmd
-            # - pages/solutions/solution_04.qmd
-            # - pages/solutions/solution_05.qmd
-            # - pages/solutions/solution_06.qmd
-            # - pages/solutions/solution_07.qmd
+      # - text: Übungen
+      #   menu:
+      #     - pages/exercises/exercise_01.qmd
+
+
+      # - text: Lösungen
+      #   menu:
+      #       - pages/solutions/solution_03.qmd
+
+  sidebar:
+    style: "floating"
+    # style: "docked"
+    search: true
+    contents:
+      - section: "Einführung"
+        contents:
+          - pages/chapters/software.qmd
+          - pages/chapters/chatgpt.qmd
+
+
+      - section: "Experimente"
+        contents:
+          # - pages/admin/02_syllabus.qmd
+          # - pages/admin/03_software.qmd
+          # - pages/admin/04_leistungsnachweise.qmd
+      - section: "Data wrangling"
+        contents:
+          # - pages/admin/02_syllabus.qmd
+          # - pages/admin/03_software.qmd
+          # - pages/admin/04_leistungsnachweise.qmd
+      - section: "Visualisieren"
+        contents:
+          # - pages/admin/02_syllabus.qmd
+          # - pages/admin/03_software.qmd
+          # - pages/admin/04_leistungsnachweise.qmd
+      - section: "Signal detection"
+        contents:
+          # - pages/admin/02_syllabus.qmd
+          # - pages/admin/03_software.qmd
+          # - pages/admin/04_leistungsnachweise.qmd
+      - section: "Reaktionszeiten"
+        contents:
+          # - pages/admin/02_syllabus.qmd
+          # - pages/admin/03_software.qmd
+          # - pages/admin/04_leistungsnachweise.qmd
+      - section: "Bayesianische Datenanalyse"
+        contents:
+          # - pages/admin/02_syllabus.qmd
+          # - pages/admin/03_software.qmd
+          # - pages/admin/04_leistungsnachweise.qmd
 
   page-footer:
     left: "© Copyright 2023, Andrew Ellis & Gerda Wyssen"
@@ -105,7 +124,7 @@ execute:
   cache: true
   freeze: auto
 
-callout-icon: false
+callout-icon: true
 callout-tip-caption: "Lösung"
 callout-note-caption: "Vertiefung"
 callout-important-caption: "Übung"

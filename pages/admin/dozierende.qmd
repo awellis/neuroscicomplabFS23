@@ -1,0 +1,40 @@
+---
+title: "Dozierende"
+# description: Inhalt des Kurses und Software.
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: false
+# bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+---
+
+
+## Andrew Ellis
+
+💬 Andrew ist Data Scientist an der Berner Fachhochschule und Wissenschaftlicher Mitarbeiter an der Universität Bern. An der BFH beschäftig er sich hauptsächlich mit der Verwendung von künstlicher Intelligenz in der Lehre, und versucht ein intelligentes Tutoring-System zu entwickeln. 
+
+
+📬 Email: [andrew.ellis@unibe.ch](mailto:andrew.ellis@unibe.ch)
+
+🔗 Website: [www.kog.psy.unibe.ch/ueber_uns/personen/dr_ellis_andrew](https://www.kog.psy.unibe.ch/ueber_uns/personen/dr_ellis_andrew/index_ger.html)
+
+
+## Gerda Wyssen
+💬 Gerda arbeitet an ihrer Dissertation an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre. Sie untersucht den Einfluss starker Megnetfelder auf die vestibuläre Wahrnehmung, und interessiert sich für multisensorische Integration.  
+
+📬 Email: [gerda.wyssen@unibe.ch](mailto:gerda.wyssen@unibe.ch)
+
+🔗 Website: [www.kog.psy.unibe.ch/ueber_uns/personen/m_sc_wyssen_gerda](https://www.kog.psy.unibe.ch/ueber_uns/personen/m_sc_wyssen_gerda/index_ger.html)
+

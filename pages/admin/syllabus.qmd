@@ -1,0 +1,39 @@
+---
+title: "Syllabus"
+# description: Inhalt des Kurses.
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: false
+# bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+---
+
+# Sitzungen
+
+1) Einführung in Programmiersprachen
+2) Psychopy
+3) Psychopy
+4) Data wrangling
+5) Data wrangling
+6) Data visualization
+7) Signal detection
+8) Signal detection
+9) Reaktionszeiten
+10) Reaktionszeiten
+11) Bayesian statistics
+12) Bayesian statistics
+13) Bayesian statistics
+14) Bayesian statistics
+

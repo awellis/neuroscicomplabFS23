@@ -28,18 +28,46 @@
     "text": "Datenanalyse\nUm Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.\nR 👉 https://cloud.r-project.org/\nRStudio 👉 https://www.rstudio.com/products/rstudio/download/#download\nFür Bayesianische Datenanalyse verwenden wir ausserdem JASP und Stan. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.\nJASP 👉 https://jasp-stats.org/download/\nStan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren."
   },
   {
-    "objectID": "pages/admin/02_assessments.html",
-    "href": "pages/admin/02_assessments.html",
-    "title": "Leistungskontrollen",
-    "section": "",
-    "text": "Leistungskontrollen werden in Form von Übungen erbracht. Es gibt wöchentliche Übungen. Davon müssen 6 Übungen abgegeben werden. Welche dies sind wird im Verlaufe des Semesters bekanntgegeben.\nDer Zweck dieser Übungen ist, das Gelernte selber anzuwenden, oder dies zumindest zu versuchen. Es gibt für viele dieser Übungen nicht eine definitive, richtige Antwort - es geht vor allem darum, es selber zu versuchen. Bei einzureichenden Übungen gibt es die Möglichkeit, diese falls nötig (nach Verbesserung) ein zweites Mal einzureichen.\nDie Übungen sollen jeweils in dem entsprechenden Ordner auf ILIAS hochgeladen werden, und zwar in Form eines R Scripts, oder als Rmarkdown File.\nILIAS (Vormittag) 👉 468703-FS2022-0\nILIAS (Nachmittag) 👉 468703-FS2022-1\n\nEin gute Einführung in Rmarkdown finden Sie z.B. hier.\n\nFalls mehrere Files abgegeben werden, sollte unbedingt alles in einem ZIP File komprimiert werden. Sie können auch eine Word/Libreoffice Datei abgeben; bitte fügen Sie aber keinen R Code in ein Word Dokument ein.\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis,\n  author = {Andrew Ellis},\n  title = {Leistungskontrollen},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//02_assessments.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nAndrew Ellis. n.d. “Leistungskontrollen.” https://kogpsy.github.io/neuroscicomplabFS23//02_assessments.html."
-  },
-  {
     "objectID": "pages/admin/03_zulip_forum.html",
     "href": "pages/admin/03_zulip_forum.html",
     "title": "Zulip Forum",
     "section": "",
     "text": "Wir benutzen in dieser Veranstaltung Zulip als Diskussionforum. Zulip hat einige Vorteile gegenüber ILIAS und Email:\n\nZulip ist besser geeignet, um Code darzustellen.\nWir benutzen dasselbe Forum für die Vormittags- und Nachmittagsveranstaltungen.\nDie Diskussion ist für alle Teilnehmer*innen sichtbar.\nDiskussion kann in Echtzeit (synchron) oder offline (asynchron) stattfinden.\n\nBitte erstellen Sie unter diesem Link einen Account. Sie müssen dafür Ihre Uni Emailadresse verwenden. Account erstellen 👉 zulipchat.com/join/hyuinbg3mtcumccnzt3tpsqb/\n Wenn Sie einen Account erstellt haben, können Sie sich unter folgendem Link einloggen. Zulip Forum 👉 neuroscicomplab2022.zulipchat.com\nAusserdem ist Zulip als Desktop oder Mobile App für alle gängigen Betriebssysteme erhältlich. Apps 👉 zulip.com/apps\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis,\n  author = {Andrew Ellis},\n  title = {Zulip {Forum}},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//03_zulip_forum.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nAndrew Ellis. n.d. “Zulip Forum.” https://kogpsy.github.io/neuroscicomplabFS23//03_zulip_forum.html."
+  },
+  {
+    "objectID": "pages/admin/dozierende.html",
+    "href": "pages/admin/dozierende.html",
+    "title": "Dozierende",
+    "section": "",
+    "text": "💬 Andrew ist Data Scientist an der Berner Fachhochschule und Wissenschaftlicher Mitarbeiter an der Universität Bern. An der BFH beschäftig er sich hauptsächlich mit der Verwendung von künstlicher Intelligenz in der Lehre, und versucht ein intelligentes Tutoring-System zu entwickeln.\n📬 Email: andrew.ellis@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/dr_ellis_andrew"
+  },
+  {
+    "objectID": "pages/admin/dozierende.html#gerda-wyssen",
+    "href": "pages/admin/dozierende.html#gerda-wyssen",
+    "title": "Dozierende",
+    "section": "Gerda Wyssen",
+    "text": "Gerda Wyssen\n💬 Gerda arbeitet an ihrer Dissertation an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre. Sie untersucht den Einfluss starker Megnetfelder auf die vestibuläre Wahrnehmung, und interessiert sich für multisensorische Integration.\n📬 Email: gerda.wyssen@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/m_sc_wyssen_gerda"
+  },
+  {
+    "objectID": "pages/admin/leistungsnachweise.html",
+    "href": "pages/admin/leistungsnachweise.html",
+    "title": "Leistungskontrollen",
+    "section": "",
+    "text": "Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Übungen gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren."
+  },
+  {
+    "objectID": "pages/admin/leistungsnachweise.html#leistungskontrollen",
+    "href": "pages/admin/leistungsnachweise.html#leistungskontrollen",
+    "title": "Leistungskontrollen",
+    "section": "Leistungskontrollen",
+    "text": "Leistungskontrollen\nLeistungskontrollen werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von Peer-Feeback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen zufällig ausgewählter Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung. Die Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks.\nILIAS (Montag) 👉 468703-FS2023-1\nILIAS (Donnerstag) 👉 468703-FS2023-0"
+  },
+  {
+    "objectID": "pages/admin/syllabus.html",
+    "href": "pages/admin/syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Sitzungen\n\nEinführung in Programmiersprachen\nPsychopy\nPsychopy\nData wrangling\nData wrangling\nData visualization\nSignal detection\nSignal detection\nReaktionszeiten\nReaktionszeiten\nBayesian statistics\nBayesian statistics\nBayesian statistics\nBayesian statistics\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
   },
   {
     "objectID": "pages/chapters/01_psychopy_experiments.html",
@@ -75,6 +103,48 @@
     "title": "Verhaltensexperiment mit PsychoPy",
     "section": "Degrees of Visual Angle",
     "text": "Degrees of Visual Angle\nOftmals werden Grössenangaben von Stimuli noch in Pixel oder Zentimeter, sondern in degrees of visual angle gemacht. Dies hat den Vorteil, dass die Angaben nicht vom Monitor selber oder der Entferung vom Monitor abhängig sind. degrees of visual angle gibt die wahrgenommene Grösse des Stimulus an, und berücksichtigt die Grösse des Monitors und des Stimulus, und die Entfernung der Versuchsperson vom Monitor. Weitere Informationen dazu finden Sie auf der Website von 👉 OpenSesame. Üblicherweise entspricht ein degrees of visual angle etwa einem cm bei einer Entfernung von 57 cm vom Monitor.\nZur Umrechnung zwischen cm und degrees of visual angle finden Sie unter diesem 👉 Link mehr Information.\n\nOpenSesame ist ein weiteres, Python-basierendes Programm für die Erstellung behaviouraler Experimente."
+  },
+  {
+    "objectID": "pages/chapters/chatgpt.html",
+    "href": "pages/chapters/chatgpt.html",
+    "title": "Software",
+    "section": "",
+    "text": "In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.\nWir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.\n\nEs gibt ein sehr gutes Lehrbuch [@forstmannModelBasedCognitiveNeuroscience2015] zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: An Introduction to Model-Based Cognitive Neuroscience.\n\nWir werden folgende Themen im Laufe des Semester behandeln:\n\nErstellen von behavioralen Experimenten\nImportieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)\nGraphische Darstellung und explorative Datenanalyse\nAuswahl von statistischen Verfahren\nEinführung in die Bayesianische Datenanalyse\nAnalyse messwiederholter Daten anhand von Multilevel Modellen\nKognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)"
+  },
+  {
+    "objectID": "pages/chapters/chatgpt.html#experimente",
+    "href": "pages/chapters/chatgpt.html#experimente",
+    "title": "Software",
+    "section": "Experimente",
+    "text": "Experimente\nUm ein Experiment zu kreieren benutzen wir PsychoPy. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen."
+  },
+  {
+    "objectID": "pages/chapters/chatgpt.html#datenanalyse",
+    "href": "pages/chapters/chatgpt.html#datenanalyse",
+    "title": "Software",
+    "section": "Datenanalyse",
+    "text": "Datenanalyse\nUm Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.\nR 👉 https://cloud.r-project.org/\nRStudio 👉 https://www.rstudio.com/products/rstudio/download/#download\nFür Bayesianische Datenanalyse verwenden wir ausserdem JASP und Stan. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.\nJASP 👉 https://jasp-stats.org/download/\nStan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren."
+  },
+  {
+    "objectID": "pages/chapters/software.html",
+    "href": "pages/chapters/software.html",
+    "title": "Software",
+    "section": "",
+    "text": "In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.\nWir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.\n\nEs gibt ein sehr gutes Lehrbuch [@forstmannModelBasedCognitiveNeuroscience2015] zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: An Introduction to Model-Based Cognitive Neuroscience.\n\nWir werden folgende Themen im Laufe des Semester behandeln:\n\nErstellen von behavioralen Experimenten\nImportieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)\nGraphische Darstellung und explorative Datenanalyse\nAuswahl von statistischen Verfahren\nEinführung in die Bayesianische Datenanalyse\nAnalyse messwiederholter Daten anhand von Multilevel Modellen\nKognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)"
+  },
+  {
+    "objectID": "pages/chapters/software.html#experimente",
+    "href": "pages/chapters/software.html#experimente",
+    "title": "Software",
+    "section": "Experimente",
+    "text": "Experimente\nUm ein Experiment zu kreieren benutzen wir PsychoPy. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen."
+  },
+  {
+    "objectID": "pages/chapters/software.html#datenanalyse",
+    "href": "pages/chapters/software.html#datenanalyse",
+    "title": "Software",
+    "section": "Datenanalyse",
+    "text": "Datenanalyse\nUm Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.\nR 👉 https://cloud.r-project.org/\nRStudio 👉 https://www.rstudio.com/products/rstudio/download/#download\nFür Bayesianische Datenanalyse verwenden wir ausserdem JASP und Stan. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.\nJASP 👉 https://jasp-stats.org/download/\nStan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren."
   },
   {
     "objectID": "slides/01_introduction.html#model-based-cognitive-neuroscience",

@@ -1,15 +1,20 @@
 ---
-title: "Übersicht"
-description: Inhalt des Kurses und Software.
+title: "Software"
+description: Softwareinstallation und links.
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
     affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
     affiliation-url: https://www.kog.psy.unibe.ch
     orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
 license: CC BY
-citation: true
-bibliography: ../../bibliography.bib
+# citation: true
+# bibliography: ../../bibliography.bib
 format:
     html:
         toc: true
@@ -51,3 +56,17 @@ JASP 👉 [https://jasp-stats.org/download/](https://jasp-stats.org/download/)
 
 Stan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren.
 
+
+# Languages
+
+- IDEs
+
+
+# Python
+
+https://www.python.org/doc/
+https://www.python.org/downloads/
+https://www.anaconda.com/products/distribution
+https://www.psychopy.org/
+https://jupyter.org/
+https://docs.jupyter.org/en/latest/index.html
