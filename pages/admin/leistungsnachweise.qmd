@@ -22,15 +22,16 @@ format:
 ---
 
 
-## Hands-on sessions
+## Hands-on Sessions
 
-Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Übungen gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren.
+Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Hands-on Sessions gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren.
 
 
-## Leistungskontrollen 
+## Leistungsnachweise
 
-Leistungskontrollen werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben -- davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von Peer-Feeback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen zufällig ausgewählter Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung. Die Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks. 
+Leistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben -- davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von __Peer-Feedback__; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung. 
 
+Die Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks. 
 
 ILIAS (Montag) 👉 [468703-FS2023-1](https://ilias.unibe.ch/goto_ilias3_unibe_crs_2643783.html#il_mhead_t_focus)
 
