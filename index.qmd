@@ -4,10 +4,10 @@ about:
     template: jolla
     image: assets/logo_landing.png
     links:
-    - text: Gerda Wyssen
-      href: mailto:gerda.wyssen@unibe.ch
     - text: Andrew Ellis
       href: mailto:andrew.ellis@unibe.ch
+    - text: Gerda Wyssen
+      href: mailto:gerda.wyssen@unibe.ch
 ---
 
 Frühjahrssemester 2023    
