@@ -1,6 +1,6 @@
 ---
-title: "Software"
-description: Softwareinstallation und links.
+title: "ChatGPT"
+description: Code generieren.
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis

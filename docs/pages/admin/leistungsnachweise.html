@@ -86,19 +86,26 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/admin/syllabus.html">
- <span class="menu-text">📚 Syllabus</span></a>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🗄️ Admin</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">    
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/syllabus.html">
+ <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../../pages/admin/leistungsnachweise.html" aria-current="page">
- <span class="menu-text">📝 Leistungsnachweise</span></a>
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html">
+ <span class="dropdown-text">📝 Leistungsnachweise</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/admin/dozierende.html">
- <span class="menu-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/dozierende.html">
+ <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
+    </ul>
+  </li>
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -133,24 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">Software</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">Software</a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">Einführung</span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Experimente</span>
@@ -179,8 +169,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hands-on-sessions" id="toc-hands-on-sessions" class="nav-link active" data-scroll-target="#hands-on-sessions">Hands-on sessions</a></li>
-  <li><a href="#leistungskontrollen" id="toc-leistungskontrollen" class="nav-link" data-scroll-target="#leistungskontrollen">Leistungskontrollen</a></li>
+  <li><a href="#hands-on-sessions" id="toc-hands-on-sessions" class="nav-link active" data-scroll-target="#hands-on-sessions">Hands-on Sessions</a></li>
+  <li><a href="#leistungsnachweise" id="toc-leistungsnachweise" class="nav-link" data-scroll-target="#leistungsnachweise">Leistungsnachweise</a></li>
   </ul>
 </nav>
     </div>
@@ -230,12 +220,13 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <section id="hands-on-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="hands-on-sessions">Hands-on sessions</h2>
-<p>Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Übungen gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren.</p>
+<h2 class="anchored" data-anchor-id="hands-on-sessions">Hands-on Sessions</h2>
+<p>Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Hands-on Sessions gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren.</p>
 </section>
-<section id="leistungskontrollen" class="level2">
-<h2 class="anchored" data-anchor-id="leistungskontrollen">Leistungskontrollen</h2>
-<p>Leistungskontrollen werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von Peer-Feeback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen zufällig ausgewählter Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung. Die Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks.</p>
+<section id="leistungsnachweise" class="level2">
+<h2 class="anchored" data-anchor-id="leistungsnachweise">Leistungsnachweise</h2>
+<p>Leistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von <strong>Peer-Feedback</strong>; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung.</p>
+<p>Die Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks.</p>
 <p>ILIAS (Montag) 👉 <a href="https://ilias.unibe.ch/goto_ilias3_unibe_crs_2643783.html#il_mhead_t_focus">468703-FS2023-1</a></p>
 <p>ILIAS (Donnerstag) 👉 <a href="https://ilias.unibe.ch/goto_ilias3_unibe_crs_2643782.html#il_mhead_t_focus">468703-FS2023-0</a></p>
 
@@ -489,6 +480,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/kogpsy\.github\.io\/neuroscicomplabFS23\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

@@ -86,19 +86,26 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link active" href="../../pages/admin/syllabus.html" aria-current="page">
- <span class="menu-text">📚 Syllabus</span></a>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🗄️ Admin</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">    
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/syllabus.html">
+ <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/admin/leistungsnachweise.html">
- <span class="menu-text">📝 Leistungsnachweise</span></a>
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html">
+ <span class="dropdown-text">📝 Leistungsnachweise</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/admin/dozierende.html">
- <span class="menu-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/dozierende.html">
+ <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
+    </ul>
+  </li>
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -133,24 +140,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">Software</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">Software</a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">Einführung</span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Experimente</span>
@@ -179,7 +169,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sitzungen" id="toc-sitzungen" class="nav-link active" data-scroll-target="#sitzungen">Sitzungen</a></li>
+  <li><a href="#sitzungen" id="toc-sitzungen" class="nav-link active" data-scroll-target="#sitzungen">Sitzungen</a>
+  <ul class="collapse">
+  <li><a href="#einführung" id="toc-einführung" class="nav-link" data-scroll-target="#einführung">1 Einführung</a></li>
+  <li><a href="#experimente-mit-python-programmieren" id="toc-experimente-mit-python-programmieren" class="nav-link" data-scroll-target="#experimente-mit-python-programmieren">2 Experimente mit Python programmieren</a></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">3 Data Wrangling</a></li>
+  <li><a href="#visualisieren" id="toc-visualisieren" class="nav-link" data-scroll-target="#visualisieren">4 Visualisieren</a></li>
+  <li><a href="#signal-detection-theory" id="toc-signal-detection-theory" class="nav-link" data-scroll-target="#signal-detection-theory">5 Signal Detection Theory</a></li>
+  <li><a href="#reaktionszeiten" id="toc-reaktionszeiten" class="nav-link" data-scroll-target="#reaktionszeiten">6 Reaktionszeiten</a></li>
+  <li><a href="#bayesianische-datenanalyse" id="toc-bayesianische-datenanalyse" class="nav-link" data-scroll-target="#bayesianische-datenanalyse">7 Bayesianische Datenanalyse</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -230,24 +229,59 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="sitzungen" class="level1">
 <h1>Sitzungen</h1>
-<ol type="1">
-<li>Einführung in Programmiersprachen</li>
-<li>Psychopy</li>
-<li>Psychopy</li>
-<li>Data wrangling</li>
-<li>Data wrangling</li>
-<li>Data visualization</li>
-<li>Signal detection</li>
-<li>Signal detection</li>
-<li>Reaktionszeiten</li>
-<li>Reaktionszeiten</li>
-<li>Bayesian statistics</li>
-<li>Bayesian statistics</li>
-<li>Bayesian statistics</li>
-<li>Bayesian statistics</li>
-</ol>
+<p>An den 14 Sitzungen werden wir voraussichtlich diese Themen behandeln (kleine Änderungen vorbehalten).</p>
+<section id="einführung" class="level3">
+<h3 class="anchored" data-anchor-id="einführung">1 Einführung</h3>
+<p><code>Sitzung 1</code></p>
+<ul>
+<li>Wir schauen uns ein paar in den Neurowissenschaften verwendeten Programmiersprachen (Python, R, Matlab) an, und diskutieren ChatGPT.</li>
+<li>Praktische Einführung in Python/R.</li>
+</ul>
+</section>
+<section id="experimente-mit-python-programmieren" class="level3">
+<h3 class="anchored" data-anchor-id="experimente-mit-python-programmieren">2 Experimente mit Python programmieren</h3>
+<p><code>Sitzungen 2 und 3</code></p>
+<ul>
+<li>Wir erstellen selber ein Experiment mit <code>Python</code> und <code>PsychoPy</code>.</li>
+</ul>
+</section>
+<section id="data-wrangling" class="level3">
+<h3 class="anchored" data-anchor-id="data-wrangling">3 Data Wrangling</h3>
+<p><code>Sitzungen 4 und 5</code></p>
+<ul>
+<li>Wir schauen uns an, wie wir mit <code>R</code> die Daten aus unserem selber programmierten Experiment einlesen und bearbeiten können, um damit statistische Analysen durchzuführen.</li>
+</ul>
+</section>
+<section id="visualisieren" class="level3">
+<h3 class="anchored" data-anchor-id="visualisieren">4 Visualisieren</h3>
+<p><code>Sitzung 6</code></p>
+<ul>
+<li>Explorative Datenanalyse und grafische Darstellung mit mit <code>R</code> package <code>ggplot2</code>.</li>
+</ul>
+</section>
+<section id="signal-detection-theory" class="level3">
+<h3 class="anchored" data-anchor-id="signal-detection-theory">5 Signal Detection Theory</h3>
+<p><code>Sitzungen 7 und 8</code></p>
+<ul>
+<li>Wir verwenden ein in den Neurowissenschaften und der Psychologie beliebtes Modell für kategoriale oder ordinale Verhaltensdaten, um Daten aus unserem Experiment zu analysieren.</li>
+</ul>
+</section>
+<section id="reaktionszeiten" class="level3">
+<h3 class="anchored" data-anchor-id="reaktionszeiten">6 Reaktionszeiten</h3>
+<p><code>Sitzungen 9 und 10</code></p>
+<ul>
+<li>In diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an.</li>
+</ul>
+</section>
+<section id="bayesianische-datenanalyse" class="level3">
+<h3 class="anchored" data-anchor-id="bayesianische-datenanalyse">7 Bayesianische Datenanalyse</h3>
+<p><code>Sitzungen 11, 12, 13, und 14</code></p>
+<ul>
+<li>Im letzten Thema geht es um einen modernen Ansatz in der Statistik, welcher auf den Axiomen der Wahrscheinlichkeitstheorie beruht, und einige Vorteile gegenüber der herkömmlichen (frequentistischen) Statistik bietet. Wir werden hier mit dem Programm <code>Jasp</code> arbeiten.</li>
+</ul>
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
@@ -497,6 +531,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/kogpsy\.github\.io\/neuroscicomplabFS23\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

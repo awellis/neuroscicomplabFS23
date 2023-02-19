@@ -87,19 +87,26 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll me-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/admin/syllabus.html">
- <span class="menu-text">📚 Syllabus</span></a>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🗄️ Admin</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">    
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/syllabus.html">
+ <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/admin/leistungsnachweise.html">
- <span class="menu-text">📝 Leistungsnachweise</span></a>
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html">
+ <span class="dropdown-text">📝 Leistungsnachweise</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../pages/admin/dozierende.html">
- <span class="menu-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
+        <li>
+    <a class="dropdown-item" href="../../pages/admin/dozierende.html">
+ <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
+    </ul>
+  </li>
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
@@ -134,24 +141,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung</a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">Software</a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">Software</a>
-  </div>
-</li>
-      </ul>
+      <span class="sidebar-item-text sidebar-link text-start">Einführung</span>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Experimente</span>
@@ -517,6 +507,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       });
     }
   }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var filterRegex = new RegExp(/https:\/\/kogpsy\.github\.io\/neuroscicomplabFS23\//);
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+          // target, if specified
+          link.setAttribute("target", "_blank");
+      }
+    }
 });
 </script>
 </div> <!-- /content -->

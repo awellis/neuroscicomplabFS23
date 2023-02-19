@@ -39,35 +39,35 @@
     "href": "pages/admin/dozierende.html",
     "title": "Dozierende",
     "section": "",
-    "text": "💬 Andrew ist Data Scientist an der Berner Fachhochschule und Wissenschaftlicher Mitarbeiter an der Universität Bern. An der BFH beschäftig er sich hauptsächlich mit der Verwendung von künstlicher Intelligenz in der Lehre, und versucht ein intelligentes Tutoring-System zu entwickeln.\n📬 Email: andrew.ellis@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/dr_ellis_andrew"
+    "text": "Andrew ist Data Scientist an der Berner Fachhochschule und Wissenschaftlicher Mitarbeiter an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre der Uni Bern. An der BFH beschäftigt er sich hauptsächlich mit der Verwendung künstlicher Intelligenz in der Lehre, und versucht ein intelligentes Tutoring-System zu entwickeln.\n📬 Email: andrew.ellis@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/dr_ellis_andrew"
   },
   {
     "objectID": "pages/admin/dozierende.html#gerda-wyssen",
     "href": "pages/admin/dozierende.html#gerda-wyssen",
     "title": "Dozierende",
     "section": "Gerda Wyssen",
-    "text": "Gerda Wyssen\n💬 Gerda arbeitet an ihrer Dissertation an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre. Sie untersucht den Einfluss starker Megnetfelder auf die vestibuläre Wahrnehmung, und interessiert sich für multisensorische Integration.\n📬 Email: gerda.wyssen@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/m_sc_wyssen_gerda"
+    "text": "Gerda Wyssen\nGerda arbeitet an ihrer Dissertation an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre. Sie untersucht den Einfluss von Gleichgewichts- und Bewegungsinformationen auf räumliches Denken. Hierzu nutzt sie die Moog Bewegungsplattform oder das starke Magnetfeld eines 7T MRI Scanners. Besonders faszinierend findet sie Bewegungsillusionen.\n📬 Email: gerda.wyssen@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/m_sc_wyssen_gerda"
   },
   {
     "objectID": "pages/admin/leistungsnachweise.html",
     "href": "pages/admin/leistungsnachweise.html",
     "title": "Leistungskontrollen",
     "section": "",
-    "text": "Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Übungen gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren."
+    "text": "Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Hands-on Sessions gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren."
   },
   {
-    "objectID": "pages/admin/leistungsnachweise.html#leistungskontrollen",
-    "href": "pages/admin/leistungsnachweise.html#leistungskontrollen",
+    "objectID": "pages/admin/leistungsnachweise.html#leistungsnachweise",
+    "href": "pages/admin/leistungsnachweise.html#leistungsnachweise",
     "title": "Leistungskontrollen",
-    "section": "Leistungskontrollen",
-    "text": "Leistungskontrollen\nLeistungskontrollen werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von Peer-Feeback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen zufällig ausgewählter Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung. Die Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks.\nILIAS (Montag) 👉 468703-FS2023-1\nILIAS (Donnerstag) 👉 468703-FS2023-0"
+    "section": "Leistungsnachweise",
+    "text": "Leistungsnachweise\nLeistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von Peer-Feedback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung.\nDie Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks.\nILIAS (Montag) 👉 468703-FS2023-1\nILIAS (Donnerstag) 👉 468703-FS2023-0"
   },
   {
     "objectID": "pages/admin/syllabus.html",
     "href": "pages/admin/syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "Sitzungen\n\nEinführung in Programmiersprachen\nPsychopy\nPsychopy\nData wrangling\nData wrangling\nData visualization\nSignal detection\nSignal detection\nReaktionszeiten\nReaktionszeiten\nBayesian statistics\nBayesian statistics\nBayesian statistics\nBayesian statistics\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
+    "text": "Sitzungen\nAn den 14 Sitzungen werden wir voraussichtlich diese Themen behandeln (kleine Änderungen vorbehalten).\n\n1 Einführung\nSitzung 1\n\nWir schauen uns ein paar in den Neurowissenschaften verwendeten Programmiersprachen (Python, R, Matlab) an, und diskutieren ChatGPT.\nPraktische Einführung in Python/R.\n\n\n\n2 Experimente mit Python programmieren\nSitzungen 2 und 3\n\nWir erstellen selber ein Experiment mit Python und PsychoPy.\n\n\n\n3 Data Wrangling\nSitzungen 4 und 5\n\nWir schauen uns an, wie wir mit R die Daten aus unserem selber programmierten Experiment einlesen und bearbeiten können, um damit statistische Analysen durchzuführen.\n\n\n\n4 Visualisieren\nSitzung 6\n\nExplorative Datenanalyse und grafische Darstellung mit mit R package ggplot2.\n\n\n\n5 Signal Detection Theory\nSitzungen 7 und 8\n\nWir verwenden ein in den Neurowissenschaften und der Psychologie beliebtes Modell für kategoriale oder ordinale Verhaltensdaten, um Daten aus unserem Experiment zu analysieren.\n\n\n\n6 Reaktionszeiten\nSitzungen 9 und 10\n\nIn diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an.\n\n\n\n7 Bayesianische Datenanalyse\nSitzungen 11, 12, 13, und 14\n\nIm letzten Thema geht es um einen modernen Ansatz in der Statistik, welcher auf den Axiomen der Wahrscheinlichkeitstheorie beruht, und einige Vorteile gegenüber der herkömmlichen (frequentistischen) Statistik bietet. Wir werden hier mit dem Programm Jasp arbeiten.\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
   },
   {
     "objectID": "pages/chapters/01_psychopy_experiments.html",
@@ -107,21 +107,21 @@
   {
     "objectID": "pages/chapters/chatgpt.html",
     "href": "pages/chapters/chatgpt.html",
-    "title": "Software",
+    "title": "ChatGPT",
     "section": "",
     "text": "In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.\nWir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.\n\nEs gibt ein sehr gutes Lehrbuch [@forstmannModelBasedCognitiveNeuroscience2015] zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: An Introduction to Model-Based Cognitive Neuroscience.\n\nWir werden folgende Themen im Laufe des Semester behandeln:\n\nErstellen von behavioralen Experimenten\nImportieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)\nGraphische Darstellung und explorative Datenanalyse\nAuswahl von statistischen Verfahren\nEinführung in die Bayesianische Datenanalyse\nAnalyse messwiederholter Daten anhand von Multilevel Modellen\nKognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)"
   },
   {
     "objectID": "pages/chapters/chatgpt.html#experimente",
     "href": "pages/chapters/chatgpt.html#experimente",
-    "title": "Software",
+    "title": "ChatGPT",
     "section": "Experimente",
     "text": "Experimente\nUm ein Experiment zu kreieren benutzen wir PsychoPy. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen."
   },
   {
     "objectID": "pages/chapters/chatgpt.html#datenanalyse",
     "href": "pages/chapters/chatgpt.html#datenanalyse",
-    "title": "Software",
+    "title": "ChatGPT",
     "section": "Datenanalyse",
     "text": "Datenanalyse\nUm Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.\nR 👉 https://cloud.r-project.org/\nRStudio 👉 https://www.rstudio.com/products/rstudio/download/#download\nFür Bayesianische Datenanalyse verwenden wir ausserdem JASP und Stan. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.\nJASP 👉 https://jasp-stats.org/download/\nStan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren."
   },

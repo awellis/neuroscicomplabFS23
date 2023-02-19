@@ -23,7 +23,7 @@ format:
 
 ## Andrew Ellis
 
-💬 Andrew ist Data Scientist an der Berner Fachhochschule und Wissenschaftlicher Mitarbeiter an der Universität Bern. An der BFH beschäftig er sich hauptsächlich mit der Verwendung von künstlicher Intelligenz in der Lehre, und versucht ein intelligentes Tutoring-System zu entwickeln. 
+Andrew ist Data Scientist an der Berner Fachhochschule und Wissenschaftlicher Mitarbeiter an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre der Uni Bern. An der BFH beschäftigt er sich hauptsächlich mit der Verwendung künstlicher Intelligenz in der Lehre, und versucht ein intelligentes Tutoring-System zu entwickeln. 
 
 
 📬 Email: [andrew.ellis@unibe.ch](mailto:andrew.ellis@unibe.ch)
@@ -32,7 +32,7 @@ format:
 
 
 ## Gerda Wyssen
-💬 Gerda arbeitet an ihrer Dissertation an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre. Sie untersucht den Einfluss starker Megnetfelder auf die vestibuläre Wahrnehmung, und interessiert sich für multisensorische Integration.  
+Gerda arbeitet an ihrer Dissertation an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre. Sie untersucht den Einfluss von Gleichgewichts- und Bewegungsinformationen auf räumliches Denken. Hierzu nutzt sie die Moog Bewegungsplattform oder das starke Magnetfeld eines 7T MRI Scanners. Besonders faszinierend findet sie Bewegungsillusionen.
 
 📬 Email: [gerda.wyssen@unibe.ch](mailto:gerda.wyssen@unibe.ch)
 
