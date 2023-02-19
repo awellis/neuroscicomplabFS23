@@ -1,0 +1,198 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Neurowissenschaft Computerlab",
+    "section": "",
+    "text": "Frühjahrssemester 2023"
+  },
+  {
+    "objectID": "pages/admin/01_overview.html",
+    "href": "pages/admin/01_overview.html",
+    "title": "Übersicht",
+    "section": "",
+    "text": "In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.\nWir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.\n\nEs gibt ein sehr gutes Lehrbuch (Forstmann and Wagenmakers 2015) zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: An Introduction to Model-Based Cognitive Neuroscience.\n\nWir werden folgende Themen im Laufe des Semester behandeln:\n\nErstellen von behavioralen Experimenten\nImportieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)\nGraphische Darstellung und explorative Datenanalyse\nAuswahl von statistischen Verfahren\nEinführung in die Bayesianische Datenanalyse\nAnalyse messwiederholter Daten anhand von Multilevel Modellen\nKognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)"
+  },
+  {
+    "objectID": "pages/admin/01_overview.html#experimente",
+    "href": "pages/admin/01_overview.html#experimente",
+    "title": "Übersicht",
+    "section": "Experimente",
+    "text": "Experimente\nUm ein Experiment zu kreieren benutzen wir PsychoPy. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen."
+  },
+  {
+    "objectID": "pages/admin/01_overview.html#datenanalyse",
+    "href": "pages/admin/01_overview.html#datenanalyse",
+    "title": "Übersicht",
+    "section": "Datenanalyse",
+    "text": "Datenanalyse\nUm Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.\nR 👉 https://cloud.r-project.org/\nRStudio 👉 https://www.rstudio.com/products/rstudio/download/#download\nFür Bayesianische Datenanalyse verwenden wir ausserdem JASP und Stan. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.\nJASP 👉 https://jasp-stats.org/download/\nStan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren."
+  },
+  {
+    "objectID": "pages/admin/02_assessments.html",
+    "href": "pages/admin/02_assessments.html",
+    "title": "Leistungskontrollen",
+    "section": "",
+    "text": "Leistungskontrollen werden in Form von Übungen erbracht. Es gibt wöchentliche Übungen. Davon müssen 6 Übungen abgegeben werden. Welche dies sind wird im Verlaufe des Semesters bekanntgegeben.\nDer Zweck dieser Übungen ist, das Gelernte selber anzuwenden, oder dies zumindest zu versuchen. Es gibt für viele dieser Übungen nicht eine definitive, richtige Antwort - es geht vor allem darum, es selber zu versuchen. Bei einzureichenden Übungen gibt es die Möglichkeit, diese falls nötig (nach Verbesserung) ein zweites Mal einzureichen.\nDie Übungen sollen jeweils in dem entsprechenden Ordner auf ILIAS hochgeladen werden, und zwar in Form eines R Scripts, oder als Rmarkdown File.\nILIAS (Vormittag) 👉 468703-FS2022-0\nILIAS (Nachmittag) 👉 468703-FS2022-1\n\nEin gute Einführung in Rmarkdown finden Sie z.B. hier.\n\nFalls mehrere Files abgegeben werden, sollte unbedingt alles in einem ZIP File komprimiert werden. Sie können auch eine Word/Libreoffice Datei abgeben; bitte fügen Sie aber keinen R Code in ein Word Dokument ein.\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis,\n  author = {Andrew Ellis},\n  title = {Leistungskontrollen},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//02_assessments.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nAndrew Ellis. n.d. “Leistungskontrollen.” https://kogpsy.github.io/neuroscicomplabFS23//02_assessments.html."
+  },
+  {
+    "objectID": "pages/admin/03_zulip_forum.html",
+    "href": "pages/admin/03_zulip_forum.html",
+    "title": "Zulip Forum",
+    "section": "",
+    "text": "Wir benutzen in dieser Veranstaltung Zulip als Diskussionforum. Zulip hat einige Vorteile gegenüber ILIAS und Email:\n\nZulip ist besser geeignet, um Code darzustellen.\nWir benutzen dasselbe Forum für die Vormittags- und Nachmittagsveranstaltungen.\nDie Diskussion ist für alle Teilnehmer*innen sichtbar.\nDiskussion kann in Echtzeit (synchron) oder offline (asynchron) stattfinden.\n\nBitte erstellen Sie unter diesem Link einen Account. Sie müssen dafür Ihre Uni Emailadresse verwenden. Account erstellen 👉 zulipchat.com/join/hyuinbg3mtcumccnzt3tpsqb/\n Wenn Sie einen Account erstellt haben, können Sie sich unter folgendem Link einloggen. Zulip Forum 👉 neuroscicomplab2022.zulipchat.com\nAusserdem ist Zulip als Desktop oder Mobile App für alle gängigen Betriebssysteme erhältlich. Apps 👉 zulip.com/apps\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis,\n  author = {Andrew Ellis},\n  title = {Zulip {Forum}},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//03_zulip_forum.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nAndrew Ellis. n.d. “Zulip Forum.” https://kogpsy.github.io/neuroscicomplabFS23//03_zulip_forum.html."
+  },
+  {
+    "objectID": "pages/chapters/01_psychopy_experiments.html",
+    "href": "pages/chapters/01_psychopy_experiments.html",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "",
+    "text": "In dieser Sitzung erstellen wir ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus Mulder et al. (2012).\nDas Experiment ist eine Reaktionszeit (RT) Version eines Random-dot Motion Direction Discrimination Task, und wurde im Scanner und ausserhalb durchgeführt. Die beiden Version unterscheiden sich ganz stark in ihrem Timing. Wir implementieren hier die Scanner Version des Tasks.\nBias (Vorwissen) wurde durch einen Hinweisreiz angezeigt, in Form eines Pfeils oder eines neutralen Stimulus. Der Pfeil zeigte die wahrscheinlichere Bewegungsrichtung an. Vor und nach dem Cue wurde ein Fixationskreuz gezeigt. Alle weiteren Parameter können Sie dem Paper entnehmen (Mulder et al. 2012)."
+  },
+  {
+    "objectID": "pages/chapters/01_psychopy_experiments.html#trial",
+    "href": "pages/chapters/01_psychopy_experiments.html#trial",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Trial",
+    "text": "Trial\nZunächst wird ein Fixationskreuz entweder für 100 ms, 350 ms, 800 ms oder 1200 ms angezeigt. Die tatsächliche Dauer wird für jeden Versuch randomisiert. Eine solche Randomisierung kann nicht über die Benutzeroberfläche vorgenommen werden, sondern erfordert ein kleines Stück Python-Code. Sehen Sie sich den Codeblock der Routine Fixation_pre_cue an, um zu erfahren, wie dies erreicht werden kann.\nAnschließend wird für 1000 ms ein Hinweis präsentiert. Dabei kann es sich entweder um einen Pfeil handeln, der nach rechts zeigt, einen Pfeil, der nach links zeigt, oder einen einfachen Kreis (für die Kontrollbedingung). Der Codeblock in der Cue-Routine legt den tatsächlichen Hinweis für jeden Versuch auf der Grundlage der Schleifenvariablen cue fest.\nNach dem Cue wird ein weiteres Fixationskreuz präsentiert - dieses Mal für entweder 3400ms, 4000ms, 4500ms oder 5000ms. Wie beim ersten Fixationskreuz wird die tatsächliche Dauer zufällig gewählt.\nNach dem zweiten Fixationskreuz wird für 1500 ms der eigentliche Stimulus angezeigt: ein random dot kinematogram (RDK). Die Punkte bewegen sich entweder nach rechts oder nach links mit einem Kohärenzniveau von 8%. Die Bewegungsrichtung eines einzelnen Versuchs wird durch die Schleifenvariable direction bestimmt und im Codeblock der Routine Dots festgelegt. Die Teilnehmer müssen entscheiden, welche Richtung sie wahrnehmen, und können ihre Antwort durch Drücken der linken oder rechten Pfeiltaste auf der Tastatur eingeben.\nSchließlich wird ein Feedback-Bildschirm angezeigt. Wenn der Teilnehmer innerhalb der ersten 100 ms geantwortet hat, wird der Hinweis “zu schnell” angezeigt. Wurde während des gesamten Stimulus keine Antwort erfasst, wird das Wort “miss” angezeigt. War die Antwort richtig, wird “+5 Punkte” angezeigt, war sie falsch, wird “+0 Punkte*” angezeigt."
+  },
+  {
+    "objectID": "pages/chapters/01_psychopy_experiments.html#main_blocks_loop",
+    "href": "pages/chapters/01_psychopy_experiments.html#main_blocks_loop",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "main_blocks_loop",
+    "text": "main_blocks_loop\nMit loops in PsychoPy haben wir die Möglichkeit, eine oder mehrere Routinen zu wiederholen. In diesem Experiment wird dies genutzt, um denselben Versuch (wie oben beschrieben) mehrfach zu zeigen, aber jedes Mal mit anderen Werten für die loop variables. Eine Schleife wiederholt also einen Versuch einige Male, wobei die Schleifenvariablen bei jeder Wiederholung geändert werden. Der Versuch selbst wiederum liest diese Schleifenvariablen aus, um z.B. zu wissen, ob sich die Punkte nach rechts oder nach links bewegen sollen. Hier wird nur die main_blocks_loop erklärt, aber das Prinzip gilt auch für die practice_block_loop.\nUm die verschiedenen Werte für die Schleifenvariablen zu definieren, müssen wir eine einfache CSV-Datei erstellen:\ncue,direction\nleft,right\nleft,left\nnone,right\n...\nDiese CSV-Datei (die Bedingungsdatei) definiert die beiden loop Variablen cue und direction. Das Stichwort kann entweder left, right oder none, sein, während die Richtung left oder right sein kann.\nIn der Benutzeroberfläche können wir die Variablen loopType und nReps für die Schleife angeben, wenn wir sie anklicken. Mit ersterer können wir steuern, ob wir z.B. die Zeilen in der Bedingungsdatei mischen oder sie sequentiell von oben nach unten ablaufen lassen wollen, während die letztere definiert, wie oft jede Zeile der Bedingungsdatei wiederholt werden soll.\nFür die main_blocks_loop haben wir eine Bedingungsdatei mit 80 Zeilen, die 40 neutralen Versuchen und 40 verzerrten Versuchen entsprechen. In der einen Hälfte der neutralen Trials bewegen sich die Punkte nach rechts, in der anderen Hälfte nach links. Bei den voreingenommenen Versuchen sind 32 der Hinweise gültig (d. h. sie stimmen mit der Bewegungsrichtung der Punkte überein) und 16 ungültig, wobei sich die Punkte sowohl bei gültigen als auch bei ungültigen Hinweisen in 50 % der Versuche nach rechts und in den anderen 50 % der Versuche nach links bewegen.\nDie Variable nReps wird auf 2 gesetzt, so dass alle diese Reihen zweimal durchlaufen werden (insgesamt 160 Versuche), und die Variable “loopType” wird auf random gesetzt, so dass die Versuche in zufälliger Reihenfolge durchgeführt werden."
+  },
+  {
+    "objectID": "pages/chapters/01_psychopy_experiments.html#daten",
+    "href": "pages/chapters/01_psychopy_experiments.html#daten",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Daten",
+    "text": "Daten\nWenn man die default-Einstellungen nicht ändert, speichert PsychoPy die Daten automatisch in einem trial-by-trial CSV File. Dieses CSV File erhält einen Namen, der sich aus der Versuchspersonen-ID, dem Namen des Experiments, und dem aktuellen Datum inkl. Uhrzeit zusammensetzt. So ist es möglich, mit derselben Versuchspersonen-ID beliebig oft das Experiment zu wiederholen. Die CSV Files werden in einem Ordner mit dem Name data abgelegt."
+  },
+  {
+    "objectID": "pages/chapters/01_psychopy_experiments.html#degrees-of-visual-angle",
+    "href": "pages/chapters/01_psychopy_experiments.html#degrees-of-visual-angle",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Degrees of Visual Angle",
+    "text": "Degrees of Visual Angle\nOftmals werden Grössenangaben von Stimuli noch in Pixel oder Zentimeter, sondern in degrees of visual angle gemacht. Dies hat den Vorteil, dass die Angaben nicht vom Monitor selber oder der Entferung vom Monitor abhängig sind. degrees of visual angle gibt die wahrgenommene Grösse des Stimulus an, und berücksichtigt die Grösse des Monitors und des Stimulus, und die Entfernung der Versuchsperson vom Monitor. Weitere Informationen dazu finden Sie auf der Website von 👉 OpenSesame. Üblicherweise entspricht ein degrees of visual angle etwa einem cm bei einer Entfernung von 57 cm vom Monitor.\nZur Umrechnung zwischen cm und degrees of visual angle finden Sie unter diesem 👉 Link mehr Information.\n\nOpenSesame ist ein weiteres, Python-basierendes Programm für die Erstellung behaviouraler Experimente."
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-cognitive-neuroscience",
+    "href": "slides/01_introduction.html#model-based-cognitive-neuroscience",
+    "title": "1. Sitzung",
+    "section": "(Model-based) Cognitive Neuroscience",
+    "text": "(Model-based) Cognitive Neuroscience\n\n\nWas heisst Model-based Neuroscience?\nWelche Kenntnisse brauchen wir, um Experiment durchzuführen und Daten auszuwerten?\nWelche Programmiertechniken/sprachen brauchen wir?"
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience-beispiel",
+    "href": "slides/01_introduction.html#model-based-neuroscience-beispiel",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience: Beispiel",
+    "text": "Model-based Neuroscience: Beispiel\nMulder, M. J., Wagenmakers, E.-J., Ratcliff, R., Boekel, W., & Forstmann, B. U. (2012). Bias in the Brain: A Diffusion Model Analysis of Prior Probability and Potential Payoff. Journal of Neuroscience, 32(7), 2335–2343.\n👉 https://www.jneurosci.org/content/32/7/2335\nIn dieser Studie geht es darum, den Einfluss von Vorwissen (prior knowledge) auf eine simple perzeptuelle Entscheidung zu untersuchen.\n\nAls Task haben die Autoren ein Random Dot Motion Experiment benutzt.\nFür die Datenanalyse wurde unter anderem ein Diffusion Decision Model verwendet."
+  },
+  {
+    "objectID": "slides/01_introduction.html#diffusion-decision-model",
+    "href": "slides/01_introduction.html#diffusion-decision-model",
+    "title": "1. Sitzung",
+    "section": "Diffusion Decision Model",
+    "text": "Diffusion Decision Model"
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience",
+    "href": "slides/01_introduction.html#model-based-neuroscience",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience",
+    "text": "Model-based Neuroscience\n\nÜberfliegen Sie das Paper, und achten Sie dabei darauf, welche Skills Sie benötigen, um eine solche Studie durchzuführen.\n\nWelches theoretische Wissen brauchen Sie?\nWelche Programmierkenntnisse brauchen Sie?\n\nfür das Experiment\nfür die Datenanalyse\n\nWelche statistischen Verfahen brauchen Sie, um die Daten auszuwerten?\nWarum wurde das Experiment im Scanner und ausserhalb des Scanners durchgeführt?\nWas kann man mit einer solchen Studie herausfinden?"
+  },
+  {
+    "objectID": "slides/01_introduction.html#vorwissen",
+    "href": "slides/01_introduction.html#vorwissen",
+    "title": "1. Sitzung",
+    "section": "Vorwissen",
+    "text": "Vorwissen\nEs wurden zwei verschiedene Typen von Vorwissen benutzt.\n\nA-Priori Wahrscheinlichkeit, dass die Punktwolke sich nach rechts oder nach links bewegte.\nAsymmetrische Belohnung für korrekte links/rechts Entscheidungen."
+  },
+  {
+    "objectID": "slides/01_introduction.html#diffusion-decision-model-1",
+    "href": "slides/01_introduction.html#diffusion-decision-model-1",
+    "title": "1. Sitzung",
+    "section": "Diffusion Decision Model",
+    "text": "Diffusion Decision Model"
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience-1",
+    "href": "slides/01_introduction.html#model-based-neuroscience-1",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience",
+    "text": "Model-based Neuroscience\n\n\nSchematische Darstellung der erwarteten Resultate.\n\nStarting point: korrekte und inkorrekte RTs unterschieden sich.\nDrift rate: korrekte und inkorrekte RTs sind sich ähnlich.\n\n\n\nTatsächliche Resultate: Quantifizierung des Bias anhand des DDM."
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience-2",
+    "href": "slides/01_introduction.html#model-based-neuroscience-2",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience",
+    "text": "Model-based Neuroscience\nBOLD Responses der Areale welche besonder stark sowohl auf die “prior probability” als auch auf die “payoff” Manipulation reagierten.\n\n\n\nright MedFG (right medial frontal gyrus)\nACG (anterior cingulate cortex)\nSFG (superior frontal gyrus)\nleft middle temporal gyrus\nIPS (intra-parietal sulcus).\n\n\n\n\n\nDiese Areale sollen eine besondere Rolle in der Verarbeitung von Bias im Entscheidungsverhalten haben."
+  },
+  {
+    "objectID": "slides/01_introduction.html#wichtige-skills",
+    "href": "slides/01_introduction.html#wichtige-skills",
+    "title": "1. Sitzung",
+    "section": "Wichtige Skills",
+    "text": "Wichtige Skills\n\n\n\nTheorien über Entscheidungsverhalten\nExperimente programmieren\n\nTiming (inside/outside scanner)\n\nData cleaning and manipulation (data wrangling)\nStatistische Verfahren für messwiederholte Daten\n\nPsychometric curve\nBinary choices / Reaktionszeiten\nrepeated-measures ANOVA\n\n\n\n\nGrafische Darstellung der Resultate\nKognitive Prozessmodelle\n\nfit Diffusion Decision Model (DDM)\n\nAuswertung von fRMI Daten\n\n\n\n\nMit diesen Themen (ausser der Analyse von fMRI Daten) beschäftigen wir uns in diesem Kurs.\n\n\n\n🏠 Neurowissenschaft im Computerlab FS22"
+  },
+  {
+    "objectID": "slides/02_psychopy.html#bias-rdk-experiment",
+    "href": "slides/02_psychopy.html#bias-rdk-experiment",
+    "title": "2. Sitzung",
+    "section": "Bias RDK Experiment",
+    "text": "Bias RDK Experiment\n\n\n\nRandom-dot motion direction-discrimination task\nInside/outside scanner (timing)\nBias: cue (probability left/right/unbiased)\nFixation cross\nRDK: 3x3 pixels, coherence\n40 bias trials, 40 neutral trials\n32 valid, 8 invalid trials"
+  },
+  {
+    "objectID": "slides/02_psychopy.html#psychopy",
+    "href": "slides/02_psychopy.html#psychopy",
+    "title": "2. Sitzung",
+    "section": "PsychoPy",
+    "text": "PsychoPy\n\n\n\nPsychoPy Website\nRessourcen\nWalk-through: Builder\nDiskussionsforum\nKapitel: Verhaltensexperiment mit PsychoPy"
+  },
+  {
+    "objectID": "slides/02_psychopy.html#pavlovia",
+    "href": "slides/02_psychopy.html#pavlovia",
+    "title": "2. Sitzung",
+    "section": "Pavlovia",
+    "text": "Pavlovia\n\nPavlovia:\n\n\nPavlovia is a place for the wide community of researchers in the behavioural sciences to run, share, and explore experiments online.\n\n\nExperimente suchen.\nZum Beispiel ChoiceRTT ausprobieren und den Code anschauen."
+  },
+  {
+    "objectID": "slides/02_psychopy.html#understanding-your-computer",
+    "href": "slides/02_psychopy.html#understanding-your-computer",
+    "title": "2. Sitzung",
+    "section": "Understanding your Computer",
+    "text": "Understanding your Computer\n\nRefresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.\n\nfrom psychopy import visual\n\nwin = visual.Window()\nwin.getActualFrameRate()\n\nKeyboard timing: Variabilität ~15 ms.\nScreen refresh fängt oben an und endet (~10 ms später) unten."
+  },
+  {
+    "objectID": "slides/02_psychopy.html#probieren-sie-es-selber",
+    "href": "slides/02_psychopy.html#probieren-sie-es-selber",
+    "title": "2. Sitzung",
+    "section": "Probieren Sie es selber!",
+    "text": "Probieren Sie es selber!\n\nVersuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren\n\n\nWenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 Practice Trials\nEine Einführung finden Sie hier: 👉 Verhaltensexperiment mit PsychoPy\n\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "pages/exercises/exercise_01.html",
+    "href": "pages/exercises/exercise_01.html",
+    "title": "Übung 1",
+    "section": "",
+    "text": "Vertiefung\n\n\n\nDiese Übung muss nicht abgegeben werden; sie dient als Vorbereitung für die folgende Sitzung.\n\n\n\n\nInstallieren Sie PsychoPy von der Website. PsychoPy ist ein Open-Source Programm für MacOS, Windows und Linux, mit welchen wir sehr viele verschiedene Verhaltensexperimente (Neuroscience, Psychologie, Psychophysik, Linguistik) programmieren können. Diese lassen sich z.B. mit Eyetracking verbinden, oder im fRMI Scanner und mit EEG verwenden.\nPsychoPy 👉 https://www.psychopy.org/download.html.\nAm einfachsten ist es, das “Standalone package” für MacOS oder Windows zu installieren.\n\nUnter MacOS scheint die neueste Version vom Februar 2022 Probleme zu bereiten — es ist daher (zurzeit noch) besser, die Version 2021.2.3 zu installieren.\n\n\n\n\n\nWas verstehen Sie unter folgenen Begriffen:\n\n\nModel-based Neuroscience\nEvidence accumulation\n\n\nWas könnte man unter Vorwissen (prior knowledge) verstehen? In welchen Kontexten könnte es bei Entscheidungen nützlich sein, Vorwissen zu benutzen?"
+  },
+  {
+    "objectID": "pages/exercises/exercise_02.html",
+    "href": "pages/exercises/exercise_02.html",
+    "title": "Übung 2",
+    "section": "",
+    "text": "Vertiefung\n\n\n\nDie Daten, welche Sie in dieser Übung sammeln, müssen abgegeben werden; wir werden diese im Verlauf des Semesters analysieren. Bitte die Datenfiles in einem ZIP File bis 8. März auf ILIAS hochladen.\n\n\n\n\n\nDas fertige Experiment befindet sich auf Github. Sie können es unter diesem Link downloaden. 👉 LINK.\nFühren Sie das Experiment ein- oder mehrere Male selber durch.\nTesten Sie eine weitere Person (Alter ca. 20-60).\nZippen Sie bitte Ihren Datensatz und denjenigen der anderen Testperson und laden Sie das ZIP FIle auf ILIAS."
+  },
+  {
+    "objectID": "pages/solutions/solution_03.html",
+    "href": "pages/solutions/solution_03.html",
+    "title": "Übung 3: Lösung",
+    "section": "",
+    "text": "In dieser Aufgabe bearbeiten Sie Daten aus einem Detektionssexperiment. Versuchspersonen mussten in zwei Bedingungen (bias und no_bias) ein Signal, welches in Rauschen eingebettet war, detektieren. Im Datensatz sind folgende Variablen:\nsubject: Subjekt ID\ntrial_num: Trialnummer, durchnummeriert in jeder Bedingung\ncondition: Bedingung (_Bias_ und _No Bias_)\nsignal_present: Indikatorvariable für Signal (0: absent, 1: present)\ncorrect: Indikatorvariable für korrekte Antwort (0: incorrekt, 1: correct)\nrt: Reaktionszeit in Sekunden\n\n\n\nAufgabe 1\n\nSpeichern Sie das CSV File in Ihren Projektordner.\nLesen Sie das CSV File ein. Per Konvention verwenden wir den Variablennamen d für den Datensatz.\nÜberprüfen Sie, ob alle Variablen vorhanden sind. Verwenden Sie z.B. die Funktion glimpse().\nKonvertieren Sie die Gruppierungsvariablen subject und condition zu Faktoren.\n\n\n\nlibrary(tidyverse)\n\n\nd <- read_csv(\"data/data-exercise-03.csv\")\n\nSchauen Sie sich die Variablen an:\n\nglimpse(d)\n\nRows: 5,756\nColumns: 6\n$ subject        <dbl> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ condition      <chr> \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\",…\n$ signal_present <dbl> 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0…\n$ correct        <dbl> 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1…\n$ rt             <dbl> 4.076, 1.167, 0.598, 0.375, 0.454, 0.410, 0.370, 0.559,…\n$ trial_num      <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n\n\nKonvertieren Sie die Gruppierungsvariablen zu Faktoren:\n\nd <- d |>\n    mutate(subject = as_factor(subject),\n           condition = as_factor(condition))\n\n\nAufgabe 2\nGibt es Versuchspersonen die in einer der Bedingungen Reaktionszeiten hat, welche mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegen?\n\n\n# summary stats (means) for subjects/conditions\nsum_stats_participants <- d |>\n    group_by(subject, condition) |>\n    dplyr::summarise(\n        mean_P = mean(rt))\n\n\n# summary stats (means and SDs) for conditions\nsum_stats_conditions <- d |>\n    group_by(condition) |>\n    dplyr::summarise(\n        mean_C = mean(rt),\n        sd_C = sd(rt))\n\n\nsum_stats_participants <-\n    full_join(\n        sum_stats_participants,\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(outlier_P = (mean_P - mean_C) > 2 * sd_C)\n\n\n# show outlier participants\nsum_stats_participants |>\n    filter(outlier_P == 1) |>\n    show()\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nEs gibt keine Versuchsperson, deren mittlere Reaktionszeit in einer Bedingung mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegt. Dies bedeutet, dass sich in excluded keine Personen befinden, und der Dataframe folglich \\(0\\) Zeilen hat.\n\nexcluded <- sum_stats_participants |>\n    filter(outlier_P == 1)\n\nexcluded\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nDer nächste Schritt wäre also nicht unbedingt notwendig.\n\nd_cleaned <- d |>\n    filter(!(subject %in% excluded$subject)) |>\n    mutate(subject = fct_drop(subject))\n\n\nAufgabe 3\n\nGibt es einzelne Trials, in denen Versuchpersonen länger als 4 Standardabweichungen über dem Bedingungsmittelwert gebraucht haben, um zu Antworten?\nGibt es einzelne Trials, in denen Versuchpersonen zu schnell (unter 100 ms) geantwortet haben?\nSpeichern Sie den bearbeiteten Datensatz als CSV File.\n\n\nZu Aufgabe 3.a)\nWir wollen Trials identifizieren, bei denen Vpn länger gebraucht haben, als 4 Standardabweichungen über dem Bedingungsmittelwert. Das bedeutet (rt - mean_C) > 4 * sd_C, und nicht abs(rt - mean_C) > 4 * sd_C. Letzteres würde auch Trials als Ausreisser identifizieren, welche 4 Standardabweichungen unter dem Bedingungsmittelwert liegen.\nZu Aufgabe 3.b)\nDie Reaktionszeiten sind hier in Sekunden, nicht Millisekunden. Dies bedeutet, wir brauchen rt < 0.100, und nicht rt < 100.\n\nd_cleaned <- d_cleaned |>\n    full_join(\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(\n        trial_type = case_when(\n            (rt - mean_C) > 4 * sd_C ~ \"too slow\",\n            rt < 0.100 ~ \"too fast\",\n            TRUE ~ \"OK\") |>\n            factor(levels = c(\"OK\", \"too fast\", \"too slow\")))\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt, color = trial_type, shape = trial_type)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |>\n    filter(trial_type != \"OK\")\n\n# A tibble: 165 × 9\n   subject condition signal_present correct     rt trial_num mean_C  sd_C\n   <fct>   <fct>              <dbl>   <dbl>  <dbl>     <dbl>  <dbl> <dbl>\n 1 2       bias                   0       1 4.08           1  0.697 0.751\n 2 2       bias                   1       1 0.035         41  0.697 0.751\n 3 2       bias                   0       1 6.92          50  0.697 0.751\n 4 2       bias                   0       1 0.085         51  0.697 0.751\n 5 2       bias                   0       1 0.033         70  0.697 0.751\n 6 2       bias                   0       1 5.09          74  0.697 0.751\n 7 2       bias                   0       1 6.59          94  0.697 0.751\n 8 2       bias                   0       1 5.09         121  0.697 0.751\n 9 2       bias                   1       1 0.077        138  0.697 0.751\n10 3       no_bias                1       0 0.0958         4  0.691 0.773\n# … with 155 more rows, and 1 more variable: trial_type <fct>\n\n\nVor dem Entfernen der Ausreisser Trials haben wir 5756 Datenpunkte.\n\nnrow(d_cleaned)\n\n[1] 5756\n\n\n\nd_cleaned <- d_cleaned |>\n    filter(trial_type == \"OK\") |>\n    select(subject, trial_num, condition, signal_present, correct, rt)\n\nNach dem Entfernen haben wir noch 5591.\n\nnrow(d_cleaned)\n\n[1] 5591\n\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |> write_csv(\"data/data-cleaned.csv\")"
+  }
+]

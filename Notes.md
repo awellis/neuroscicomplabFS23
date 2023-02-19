@@ -5,3 +5,6 @@
 
 - datacamp
 - codeacademy
+- hackinscience.org
+- dataquest.io
+- ChatGPT
