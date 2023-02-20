@@ -1,6 +1,6 @@
 ---
 title: "ChatGPT"
-description: Code generieren.
+description: Mit künstlicher Intelligenz Code generieren.
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -13,60 +13,71 @@ author:
     affiliation-url: https://www.kog.psy.unibe.ch
     orcid: 0000-0001-7427-3149
 license: CC BY
-# citation: true
-# bibliography: ../../bibliography.bib
+citation: true
+bibliography: ../../bibliography.bib
 format:
     html:
         toc: true
 ---
 
-# Inhalt dieses Kurses
+# ChatGPT und Leistungsnachweise
 
-In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.
+Eventuell haben Sie in den letzten Wochen von ChatGPT gehört, vielleicht schon selber benutzt. Sowohl an Hochschulen als auch an Gymnasien stellt sich die brennende Frage, wie Lehrpersonen und Studierende/Schüler damit umgehen sollen. Darf man ChatGPT benutzen? Werden die abgegeben Übungen darauf untersucht, ob sie mit Hilfe künstlicher Intelligenz generiert wurden.
 
-Wir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten --- sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.
-
-<aside>  Es gibt ein sehr gutes Lehrbuch [@forstmannModelBasedCognitiveNeuroscience2015] zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: [An Introduction to Model-Based Cognitive Neuroscience](https://link.springer.com/book/10.1007%2F978-1-4939-2236-9).</aside>
-
-Wir werden folgende Themen im Laufe des Semester behandeln:
-
-- Erstellen von behavioralen Experimenten
-- Importieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)
-- Graphische Darstellung und explorative Datenanalyse
-- Auswahl von statistischen Verfahren 
-- Einführung in die Bayesianische Datenanalyse
-- Analyse messwiederholter Daten anhand von Multilevel Modellen
-- Kognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)
-
-# Software
-
-## Experimente
-Um ein Experiment zu kreieren benutzen wir [PsychoPy](https://www.psychopy.org/). PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen.
-
-## Datenanalyse
-Um Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version `r paste(R.Version()[c("major", "minor")], collapse = ".")`), sowie RStudio.
-
-R 👉 [https://cloud.r-project.org/](https://cloud.r-project.org/)
-
-RStudio 👉 [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
-
-Für Bayesianische Datenanalyse verwenden wir ausserdem [JASP](https://jasp-stats.org) und [Stan](https://mc-stan.org/). JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.
-
-JASP 👉 [https://jasp-stats.org/download/](https://jasp-stats.org/download/)
-
-Stan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren.
+Wir versuchen hier, unsere Haltung in Bezug auf ChatGPT bekanntzugeben, und zu erklären, was ChatGPT kann, und wo es hilfreich sein könnte.
 
 
-# Languages
+## Was kann ChatGPT?
 
-- IDEs
+### Kann ChatGPT Code generieren?
+
+ChatGPT benutzt das [Codex](https://openai.com/blog/openai-codex/) Modell von OpenAI, welches auf Programmiersprachen spezialisiert ist. Vor allem Python, aber auch R (und Matlab) Code spricht ChatGPT hervorragend.
+
+### Kann ChatGPT Code ausführen?
+
+Nein. ChatGPT besteht aus verschiedenen Komponent. Eines davon ist ein _large language model_ (LLM), die weiteren Komponenten braucht es, um einen Chatbot zu kreieren, welcher menschenähnliche Konversationen führen kann.
+
+Das LLM gelernt hat im wesentlichen die Verteilung von Wortstammen (Tokens) des Textkorpus (mit dem es trainiert wurde). Die Aufgabe des LLM ist es, gegeben einen Input (Prompt) eine oder mehrere wahrscheinliche Vervollständigungen zu erzeugen. Wenn nun im Textkorpus Programmcode vorkam, wird das LLM syntaktisch korrekten Code zu generieren. Das LLM hat jedoch keine Möglichkeit, diesen Code auszuführen, auf Korrektheit zu überprüfen, oder überhaupt herauszufinden, ob der Code sinnvoll ist.
+
+ChatGPT kann mitunter hervorragenden Code generieren, aber ob der Code wirklich das macht, was er soll, liegt in der Verantwortung der Benutzer:in. 
+
+> Immer kritisch überprüfen, ob von ChatGPT generierter Code wirklich korrekt ist, und tut was verlangt wird!
 
 
-# Python
+### Wie erhalte ich gute Antworten?
 
-https://www.python.org/doc/
-https://www.python.org/downloads/
-https://www.anaconda.com/products/distribution
-https://www.psychopy.org/
-https://jupyter.org/
-https://docs.jupyter.org/en/latest/index.html
+Sie können ChatGPT helfen, gute Antworten zu erzeugen, in dem Sie gute Fragen stellen. Dies bedeutet, dass Sie in der Frage (Prompt) möglichst viele Kontextinformationen mitlieferen. Denken Sie daran, dass ChatGPT, gegeben dem Input und den Trainingsdaten, eine möglichst wahrscheinliche Sequenz von Token erzeugt.
+
+
+## Darf ich ChatGPT benutzen?
+
+Wir gehen davon aus, dass Technologien wie ChatGPT nicht mehr vom modernen Unterricht wegzudenken sind, und es daher sinnvoll und notwendig ist, einen möglichst guten Umgang damit zu erlernen. 
+
+::: {.callout-caution}
+ChatGPT darf für die Übungen genutzt werden.
+:::
+
+Es ist aus unserer Sicht jedoch sinnvoll, wenn Sie ChatGPT als eine von vielen möglichen Quellen benutzen (wie z.B. Google, Stackoverflow), und diese auch als solche transparent angeben.
+
+Aus unserer Sicht ist ChatGPT (und Codex) ein sehr wertvolles Tool. Sie sind jedoch dafür verantwortlich, dass ihr Code ausführbar ist. Dies wird beim Peer-Feedback eines der Kriterien sein. Das Ziel ist primär, dass sie Code verstehen und anwenden können, nicht dass sie Code aus dem Nichts selber schreiben können. Dies ist übrigens auch die Vorgehensweise vieler erfahrener Programmierer - oft wird zuerst mal gegoogelt und im Internet nachgeschaut, ob es schon Lösungsansätze gibt. ChatGPT macht im Prinzip nichts anderes.
+
+## Kann ChatGPT für mich die Übungen schreiben und Peer-Feedback geben?
+Im Prinzip ja, aber Sie würden dabei wahrscheinlich sehr wenig lernen. Den Umgang mit Computern und das Programmieren lernt man, indem man selber Code ausführt, Fehler macht und versucht zu verstehen was der Fehler war. Das Ziel sollte sein, dass Sie jederzeit erklären könnten, was Ihr Code macht, oder wieso Sie ein bestimmtes Feedback gegeben haben. Ohne selber etwas dafür zu tun wird der Lern efolg wahrscheinlich ausbleiben.
+
+
+
+## Wie kann ich ChatGPT sinnvoll einsetzen?
+
+ChatGPT kann sowohl Code generieren als auch Code evaluieren. Sie können ChatGPT benutzen
+
+- um Vorschläge zu erhalten, wenn Sie nicht weiterkommen.
+- um ein Gerüst für ein Programm zu erstellen.
+- um Code auf Lesbarkeit/Verständlichkeit zu überprüfen.
+- um Code kommentieren zu lassen.
+- um Code zu verstehen/bewerten zu lassen.
+
+::: {.callout-caution}
+Bitte überprüfen Sie aber immer kritisch den Output von ChatGPT, und stellen sie sicher, dass der Code tatsächlich ausgeführt werden kann.
+:::
+
+

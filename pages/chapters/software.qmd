@@ -1,6 +1,6 @@
 ---
 title: "Software"
-description: Softwareinstallation und links.
+description: Programmiersprachen, IDEs.
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -13,16 +13,22 @@ author:
     affiliation-url: https://www.kog.psy.unibe.ch
     orcid: 0000-0001-7427-3149
 license: CC BY
-# citation: true
-# bibliography: ../../bibliography.bib
+citation: true
+bibliography: ../../bibliography.bib
 format:
     html:
         toc: true
 ---
 
-# Inhalt dieses Kurses
+# Ziel dieses Kurses
 
-In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.
+In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Computern im Bereich Cognitive Neuroscience. 
+
+
+
+
+
+Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.
 
 Wir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten --- sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.
 

@@ -8,7 +8,7 @@
 
 <meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
-<meta name="description" content="Code generieren.">
+<meta name="description" content="Mit künstlicher Intelligenz Code generieren.">
 
 <title>Neurowissenschaft Computerlab - ChatGPT</title>
 <style>
@@ -141,7 +141,19 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">Einführung</span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link active">ChatGPT</a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Experimente</span>
@@ -170,19 +182,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#inhalt-dieses-kurses" id="toc-inhalt-dieses-kurses" class="nav-link active" data-scroll-target="#inhalt-dieses-kurses">Inhalt dieses Kurses</a></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a>
+  <li><a href="#chatgpt-und-leistungsnachweise" id="toc-chatgpt-und-leistungsnachweise" class="nav-link active" data-scroll-target="#chatgpt-und-leistungsnachweise">ChatGPT und Leistungsnachweise</a>
   <ul class="collapse">
-  <li><a href="#experimente" id="toc-experimente" class="nav-link" data-scroll-target="#experimente">Experimente</a></li>
-  <li><a href="#datenanalyse" id="toc-datenanalyse" class="nav-link" data-scroll-target="#datenanalyse">Datenanalyse</a></li>
+  <li><a href="#was-kann-chatgpt" id="toc-was-kann-chatgpt" class="nav-link" data-scroll-target="#was-kann-chatgpt">Was kann ChatGPT?</a>
+  <ul class="collapse">
+  <li><a href="#kann-chatgpt-code-generieren" id="toc-kann-chatgpt-code-generieren" class="nav-link" data-scroll-target="#kann-chatgpt-code-generieren">Kann ChatGPT Code generieren?</a></li>
+  <li><a href="#kann-chatgpt-code-ausführen" id="toc-kann-chatgpt-code-ausführen" class="nav-link" data-scroll-target="#kann-chatgpt-code-ausführen">Kann ChatGPT Code ausführen?</a></li>
+  <li><a href="#wie-erhalte-ich-gute-antworten" id="toc-wie-erhalte-ich-gute-antworten" class="nav-link" data-scroll-target="#wie-erhalte-ich-gute-antworten">Wie erhalte ich gute Antworten?</a></li>
   </ul></li>
-  <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages">Languages</a></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#darf-ich-chatgpt-benutzen" id="toc-darf-ich-chatgpt-benutzen" class="nav-link" data-scroll-target="#darf-ich-chatgpt-benutzen">Darf ich ChatGPT benutzen?</a></li>
+  <li><a href="#kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben" id="toc-kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben" class="nav-link" data-scroll-target="#kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben">Kann ChatGPT für mich die Übungen schreiben und Peer-Feedback geben?</a></li>
+  <li><a href="#wie-kann-ich-chatgpt-sinnvoll-einsetzen" id="toc-wie-kann-ich-chatgpt-sinnvoll-einsetzen" class="nav-link" data-scroll-target="#wie-kann-ich-chatgpt-sinnvoll-einsetzen">Wie kann ich ChatGPT sinnvoll einsetzen?</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -191,7 +207,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Code generieren.
+    Mit künstlicher Intelligenz Code generieren.
   </div>
 </div>
 
@@ -231,54 +247,90 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="inhalt-dieses-kurses" class="level1 page-columns page-full">
-<h1>Inhalt dieses Kurses</h1>
-<p>In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.</p>
-<p>Wir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.</p>
-<aside>
-Es gibt ein sehr gutes Lehrbuch <span class="citation" data-cites="forstmannModelBasedCognitiveNeuroscience2015">[@forstmannModelBasedCognitiveNeuroscience2015]</span> zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: <a href="https://link.springer.com/book/10.1007%2F978-1-4939-2236-9">An Introduction to Model-Based Cognitive Neuroscience</a>.
-</aside>
-<p>Wir werden folgende Themen im Laufe des Semester behandeln:</p>
+<section id="chatgpt-und-leistungsnachweise" class="level1">
+<h1>ChatGPT und Leistungsnachweise</h1>
+<p>Eventuell haben Sie in den letzten Wochen von ChatGPT gehört, vielleicht schon selber benutzt. Sowohl an Hochschulen als auch an Gymnasien stellt sich die brennende Frage, wie Lehrpersonen und Studierende/Schüler damit umgehen sollen. Darf man ChatGPT benutzen? Werden die abgegeben Übungen darauf untersucht, ob sie mit Hilfe künstlicher Intelligenz generiert wurden.</p>
+<p>Wir versuchen hier, unsere Haltung in Bezug auf ChatGPT bekanntzugeben, und zu erklären, was ChatGPT kann, und wo es hilfreich sein könnte.</p>
+<section id="was-kann-chatgpt" class="level2">
+<h2 class="anchored" data-anchor-id="was-kann-chatgpt">Was kann ChatGPT?</h2>
+<section id="kann-chatgpt-code-generieren" class="level3">
+<h3 class="anchored" data-anchor-id="kann-chatgpt-code-generieren">Kann ChatGPT Code generieren?</h3>
+<p>ChatGPT benutzt das <a href="https://openai.com/blog/openai-codex/">Codex</a> Modell von OpenAI, welches auf Programmiersprachen spezialisiert ist. Vor allem Python, aber auch R (und Matlab) Code spricht ChatGPT hervorragend.</p>
+</section>
+<section id="kann-chatgpt-code-ausführen" class="level3">
+<h3 class="anchored" data-anchor-id="kann-chatgpt-code-ausführen">Kann ChatGPT Code ausführen?</h3>
+<p>Nein. ChatGPT besteht aus verschiedenen Komponent. Eines davon ist ein <em>large language model</em> (LLM), die weiteren Komponenten braucht es, um einen Chatbot zu kreieren, welcher menschenähnliche Konversationen führen kann.</p>
+<p>Das LLM gelernt hat im wesentlichen die Verteilung von Wortstammen (Tokens) des Textkorpus (mit dem es trainiert wurde). Die Aufgabe des LLM ist es, gegeben einen Input (Prompt) eine oder mehrere wahrscheinliche Vervollständigungen zu erzeugen. Wenn nun im Textkorpus Programmcode vorkam, wird das LLM syntaktisch korrekten Code zu generieren. Das LLM hat jedoch keine Möglichkeit, diesen Code auszuführen, auf Korrektheit zu überprüfen, oder überhaupt herauszufinden, ob der Code sinnvoll ist.</p>
+<p>ChatGPT kann mitunter hervorragenden Code generieren, aber ob der Code wirklich das macht, was er soll, liegt in der Verantwortung der Benutzer:in.</p>
+<blockquote class="blockquote">
+<p>Immer kritisch überprüfen, ob von ChatGPT generierter Code wirklich korrekt ist, und tut was verlangt wird!</p>
+</blockquote>
+</section>
+<section id="wie-erhalte-ich-gute-antworten" class="level3">
+<h3 class="anchored" data-anchor-id="wie-erhalte-ich-gute-antworten">Wie erhalte ich gute Antworten?</h3>
+<p>Sie können ChatGPT helfen, gute Antworten zu erzeugen, in dem Sie gute Fragen stellen. Dies bedeutet, dass Sie in der Frage (Prompt) möglichst viele Kontextinformationen mitlieferen. Denken Sie daran, dass ChatGPT, gegeben dem Input und den Trainingsdaten, eine möglichst wahrscheinliche Sequenz von Token erzeugt.</p>
+</section>
+</section>
+<section id="darf-ich-chatgpt-benutzen" class="level2">
+<h2 class="anchored" data-anchor-id="darf-ich-chatgpt-benutzen">Darf ich ChatGPT benutzen?</h2>
+<p>Wir gehen davon aus, dass Technologien wie ChatGPT nicht mehr vom modernen Unterricht wegzudenken sind, und es daher sinnvoll und notwendig ist, einen möglichst guten Umgang damit zu erlernen.</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>ChatGPT darf für die Übungen genutzt werden.</p>
+</div>
+</div>
+<p>Es ist aus unserer Sicht jedoch sinnvoll, wenn Sie ChatGPT als eine von vielen möglichen Quellen benutzen (wie z.B. Google, Stackoverflow), und diese auch als solche transparent angeben.</p>
+<p>Aus unserer Sicht ist ChatGPT (und Codex) ein sehr wertvolles Tool. Sie sind jedoch dafür verantwortlich, dass ihr Code ausführbar ist. Dies wird beim Peer-Feedback eines der Kriterien sein. Das Ziel ist primär, dass sie Code verstehen und anwenden können, nicht dass sie Code aus dem Nichts selber schreiben können. Dies ist übrigens auch die Vorgehensweise vieler erfahrener Programmierer - oft wird zuerst mal gegoogelt und im Internet nachgeschaut, ob es schon Lösungsansätze gibt. ChatGPT macht im Prinzip nichts anderes.</p>
+</section>
+<section id="kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben" class="level2">
+<h2 class="anchored" data-anchor-id="kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben">Kann ChatGPT für mich die Übungen schreiben und Peer-Feedback geben?</h2>
+<p>Im Prinzip ja, aber Sie würden dabei wahrscheinlich sehr wenig lernen. Den Umgang mit Computern und das Programmieren lernt man, indem man selber Code ausführt, Fehler macht und versucht zu verstehen was der Fehler war. Das Ziel sollte sein, dass Sie jederzeit erklären könnten, was Ihr Code macht, oder wieso Sie ein bestimmtes Feedback gegeben haben. Ohne selber etwas dafür zu tun wird der Lern efolg wahrscheinlich ausbleiben.</p>
+</section>
+<section id="wie-kann-ich-chatgpt-sinnvoll-einsetzen" class="level2">
+<h2 class="anchored" data-anchor-id="wie-kann-ich-chatgpt-sinnvoll-einsetzen">Wie kann ich ChatGPT sinnvoll einsetzen?</h2>
+<p>ChatGPT kann sowohl Code generieren als auch Code evaluieren. Sie können ChatGPT benutzen</p>
 <ul>
-<li>Erstellen von behavioralen Experimenten</li>
-<li>Importieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)</li>
-<li>Graphische Darstellung und explorative Datenanalyse</li>
-<li>Auswahl von statistischen Verfahren</li>
-<li>Einführung in die Bayesianische Datenanalyse</li>
-<li>Analyse messwiederholter Daten anhand von Multilevel Modellen</li>
-<li>Kognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)</li>
+<li>um Vorschläge zu erhalten, wenn Sie nicht weiterkommen.</li>
+<li>um ein Gerüst für ein Programm zu erstellen.</li>
+<li>um Code auf Lesbarkeit/Verständlichkeit zu überprüfen.</li>
+<li>um Code kommentieren zu lassen.</li>
+<li>um Code zu verstehen/bewerten zu lassen.</li>
 </ul>
-</section>
-<section id="software" class="level1">
-<h1>Software</h1>
-<section id="experimente" class="level2">
-<h2 class="anchored" data-anchor-id="experimente">Experimente</h2>
-<p>Um ein Experiment zu kreieren benutzen wir <a href="https://www.psychopy.org/">PsychoPy</a>. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen.</p>
-</section>
-<section id="datenanalyse" class="level2">
-<h2 class="anchored" data-anchor-id="datenanalyse">Datenanalyse</h2>
-<p>Um Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.</p>
-<p>R 👉 <a href="https://cloud.r-project.org/">https://cloud.r-project.org/</a></p>
-<p>RStudio 👉 <a href="https://www.rstudio.com/products/rstudio/download/#download">https://www.rstudio.com/products/rstudio/download/#download</a></p>
-<p>Für Bayesianische Datenanalyse verwenden wir ausserdem <a href="https://jasp-stats.org">JASP</a> und <a href="https://mc-stan.org/">Stan</a>. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.</p>
-<p>JASP 👉 <a href="https://jasp-stats.org/download/">https://jasp-stats.org/download/</a></p>
-<p>Stan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren.</p>
-</section>
-</section>
-<section id="languages" class="level1">
-<h1>Languages</h1>
-<ul>
-<li>IDEs</li>
-</ul>
-</section>
-<section id="python" class="level1">
-<h1>Python</h1>
-<p>https://www.python.org/doc/ https://www.python.org/downloads/ https://www.anaconda.com/products/distribution https://www.psychopy.org/ https://jupyter.org/ https://docs.jupyter.org/en/latest/index.html</p>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hinweis
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Bitte überprüfen Sie aber immer kritisch den Output von ChatGPT, und stellen sie sicher, dass der Code tatsächlich ausgeführt werden kann.</p>
+</div>
+</div>
 
 
 </section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
+  author = {Andrew Ellis and Gerda Wyssen},
+  title = {ChatGPT},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//chatgpt.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“ChatGPT.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//chatgpt.html">https://kogpsy.github.io/neuroscicomplabFS23//chatgpt.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
