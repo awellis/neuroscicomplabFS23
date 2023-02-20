@@ -129,44 +129,10 @@ Um mehr zu erfahren, erkunden Sie die umfangreichen Online-Ressourcen und Dokume
 
 
 
+## Python
 
-
-
-
-
-
-
-
-
-
-
-# Software
-
-## Experimente
 Um ein Experiment zu kreieren benutzen wir [PsychoPy](https://www.psychopy.org/). PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen.
 
-## Datenanalyse
-Um Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version `r paste(R.Version()[c("major", "minor")], collapse = ".")`), sowie RStudio.
-
-R 👉 [https://cloud.r-project.org/](https://cloud.r-project.org/)
-
-RStudio 👉 [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
-
-Für Bayesianische Datenanalyse verwenden wir ausserdem [JASP](https://jasp-stats.org) und [Stan](https://mc-stan.org/). JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.
-
-JASP 👉 [https://jasp-stats.org/download/](https://jasp-stats.org/download/)
-
-Stan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren.
-
-
-# Languages
-
-- IDEs
-
-
-[DataCamp](https://www.datacamp.com)
-
-# Python
 
 https://www.python.org/doc/
 https://www.python.org/downloads/
@@ -174,3 +140,18 @@ https://www.anaconda.com/products/distribution
 https://www.psychopy.org/
 https://jupyter.org/
 https://docs.jupyter.org/en/latest/index.html
+
+## R
+
+R 👉 [https://cloud.r-project.org/](https://cloud.r-project.org/)
+
+RStudio 👉 [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
+
+
+
+
+## Lernen
+
+[DataCamp](https://www.datacamp.com)
+
+
