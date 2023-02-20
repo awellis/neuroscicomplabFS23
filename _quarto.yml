@@ -36,7 +36,7 @@ website:
     contents:
       - section: "Einführung"
         contents:
-          # - pages/chapters/software.qmd
+          - pages/chapters/software.qmd
           - pages/chapters/chatgpt.qmd
 
 
