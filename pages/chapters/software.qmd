@@ -1,6 +1,6 @@
 ---
-title: "Software"
-description: Programmiersprachen, IDEs.
+title: "Programmiersprachen"
+description: Programmiersprachen lernen, Software
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -20,29 +20,125 @@ format:
         toc: true
 ---
 
-# Ziel dieses Kurses
+## Ziel dieses Kurses
 
-In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Computern im Bereich Cognitive Neuroscience. 
+In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Computern im Bereich Cognitive Neuroscience. Es ist nicht Ziel dieses Kurses, EEG oder fMRI Daten zu analysieren (dafür gibt es eigene Kurse); wir werden uns stattdessen mit Daten aus Verhaltensexperimenten beschäftigen. Dies sind zum Beispiel binäre Antworten oder Reaktionszeiten, welche wir mit entsprechenden Modellen untersuchen werden. Unsere Anwendungsbeispiele werden immer aus der neurowissenschaftlichen Forschung stammen; der Fokus wird aber vor allem der Umgang mit Computern sein. Unser Ziel ist es, dass Sie nach dem Abschluss dieses Kurses eine neurowissenschaftliches Paper lesen können, und die darin verwendeten Experimente nachvollziehen können. Sie könnten eventuell sogar das Experiment selber programmieren, und die Daten analysieren.
+
+## Programmiersprachen
+
+Programmiersprachen sind essentielle Werkzeuge für die Neurowissenschaftliche Forschung. Wir werden uns zuerst einen kurzen Überblick über drei häufig verwendete Programmiersprachen (Matlab, Python und R) verschaffen, deren Verwendungszwecke und Vor- und Nachteile.
 
 
 
 
 
-Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.
+### Matlab
+Matlab ist ein Software für numerische Anwendung, welche in den Ingenieurwissenschaften, Naturwissenschaften und der Mathematik weit verbreitet ist.
 
-Wir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten --- sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.
+#### 👍🏼 Stärken:
+- Leistungsstarke Matrix- und Vektoroperationen, gut geeignet für Matrix-basierte Operationen, die in der Neurowissenschaftlichen Forschung häufig vorkommen.
+- Umfangreiche Bibliothek von integrierten Funktionen für wissenschaftliches Rechnen.
 
-<aside>  Es gibt ein sehr gutes Lehrbuch [@forstmannModelBasedCognitiveNeuroscience2015] zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: [An Introduction to Model-Based Cognitive Neuroscience](https://link.springer.com/book/10.1007%2F978-1-4939-2236-9).</aside>
+#### 👎🏼 Schwächen:
+- Teuer
+- Weniger flexibel als Python oder R in Bezug auf Datenarten und Strukturen.
+- Matlab is kommerziell und proprietär. Dies bedeutet man muss teuere Lizenzen kaufen, und der Source Code der Software ist nicht offen.
 
-Wir werden folgende Themen im Laufe des Semester behandeln:
+#### Typische Anwendung:
+Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.
 
-- Erstellen von behavioralen Experimenten
-- Importieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)
-- Graphische Darstellung und explorative Datenanalyse
-- Auswahl von statistischen Verfahren 
-- Einführung in die Bayesianische Datenanalyse
-- Analyse messwiederholter Daten anhand von Multilevel Modellen
-- Kognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)
+
+#### Beispielcode:
+
+```matlab
+load('data.mat')
+fs = 1000;
+t = (0:numel(data)-1)/fs;
+plot(t, data)
+```
+
+
+
+### Python
+Python ist eine allgemeine (general purpose) Programmiersprache, die in vielen verschiedenen Bereichen wie wissenschaftlichem Rechnen, Datenanalyse und maschinellem Lernen weit verbreitet ist.
+
+#### 👍🏼 Stärken:
+- Eine Vielzahl von Bibliotheken und Modulen wie NumPy, SciPy und Pandas, die leistungsstarke Werkzeuge für wissenschaftliches Rechnen und Datenanalyse bieten.
+- Datenanalysewerkzeuge wie Pandas-Dataframes, die Seaborn-Visualisierungsbibliothek, und Jupyter Notebooks.
+- Open-source und kostenlos
+
+#### 👎🏼 Schwächen:
+- Kann in einigen numerischen Berechnungen langsamer sein als Matlab.
+- Da Python eine allgemeine Sprache ist, muss man für numerische Anwendungen immer verschiedene Packages importieren (z.B.) `numpy`, wenn man damit rechnen will. Dies führt zu weniger gut lesbarem Code.
+
+#### Typische Anwendung:
+Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.
+
+#### Beispielcode:
+
+```python
+import pandas as pd
+import seaborn as sns
+data = pd.read_csv('data.csv')
+sns.lineplot(data=data, x='time', y='voltage')
+```
+
+
+### R
+R ist eine Programmiersprache und Umgebung für statistisches Rechnen und Grafiken.
+
+#### 👍🏼 Stärken:
+- Entwickelt von Statistikern für statistisches Rechnen und Grafiken.
+- Eine große Bibliothek von statistischen Werkzeugen und Paketen, einschliesslich Visualisierungspackages (grammar of graphics).
+- Open-source und kostenlos
+- `tidyverse` Packages für Data Wrangling (sehr elegant).
+
+#### 👎🏼 Schwächen:
+- Steilere Lernkurve als Python.
+- Kann in einigen numerischen Berechnungen langsamer sein als Matlab oder Python.
+- Entwickelt von Statistiker (nicht von Software Designers). R gilt als sehr idiosynkratisch.
+
+#### Typische Anwendung:
+Statistische Analyse, Datenvisualisierung, Neurobildgebung-Analyse.
+
+
+#### Beispielcode:
+
+```r
+library(tidyverse)
+data <- read.csv('data.csv')
+ggplot(data, aes(x=time, y=voltage)) + geom_line()
+```
+
+### Fazit
+Matlab, Python und R sind leistungsstarke Werkzeuge für die neurowissenschaftliche Forschung. Die Wahl der Sprache hängt unter anderem von der spezifischen Aufgabe ab. Weitere Faktoren ist Tradition: bestimmte Gruppen bevorzugen eher eine Sprache als andere. So ist Matlab unter Ingenieuren weit verbreiten und R unter Statistikern. Python ist im Bereich Künstliche Intelligenz und Machine Learning die beliebteste Sprache. Eine neuere Sprache ist Julia - diese vereint die Vorteile aller oben genannten Sprachen (ohne viele deren Nachteile), ist aber weniger weit verbreitet.
+
+Um mehr zu erfahren, erkunden Sie die umfangreichen Online-Ressourcen und Dokumentationen für jede Sprache.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # Software
 
@@ -67,6 +163,8 @@ Stan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen
 
 - IDEs
 
+
+[DataCamp](https://www.datacamp.com)
 
 # Python
 

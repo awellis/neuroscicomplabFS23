@@ -8,9 +8,9 @@
 
 <meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
-<meta name="description" content="Programmiersprachen, IDEs.">
+<meta name="description" content="Programmiersprachen lernen, Software">
 
-<title>Neurowissenschaft Computerlab - Software</title>
+<title>Neurowissenschaft Computerlab - Programmiersprachen</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +23,69 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
 }
-.hanging div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
 
@@ -141,7 +185,7 @@ div.csl-indent {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Software</h1>
+      <h1 class="quarto-secondary-nav-title">Programmiersprachen</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -167,6 +211,11 @@ div.csl-indent {
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link active">Programmiersprachen</a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">ChatGPT</a>
@@ -202,27 +251,34 @@ div.csl-indent {
    
   <ul>
   <li><a href="#ziel-dieses-kurses" id="toc-ziel-dieses-kurses" class="nav-link active" data-scroll-target="#ziel-dieses-kurses">Ziel dieses Kurses</a></li>
+  <li><a href="#programmiersprachen" id="toc-programmiersprachen" class="nav-link" data-scroll-target="#programmiersprachen">Programmiersprachen</a>
+  <ul class="collapse">
+  <li><a href="#matlab" id="toc-matlab" class="nav-link" data-scroll-target="#matlab">Matlab</a></li>
+  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
+  <li><a href="#fazit" id="toc-fazit" class="nav-link" data-scroll-target="#fazit">Fazit</a></li>
+  </ul></li>
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a>
   <ul class="collapse">
   <li><a href="#experimente" id="toc-experimente" class="nav-link" data-scroll-target="#experimente">Experimente</a></li>
   <li><a href="#datenanalyse" id="toc-datenanalyse" class="nav-link" data-scroll-target="#datenanalyse">Datenanalyse</a></li>
   </ul></li>
   <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages">Languages</a></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
+  <li><a href="#python-1" id="toc-python-1" class="nav-link" data-scroll-target="#python-1">Python</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Software</h1>
+<h1 class="title d-none d-lg-block">Programmiersprachen</h1>
 </div>
 
 <div>
   <div class="description">
-    Programmiersprachen, IDEs.
+    Programmiersprachen lernen, Software
   </div>
 </div>
 
@@ -262,24 +318,101 @@ div.csl-indent {
 
 </header>
 
-<section id="ziel-dieses-kurses" class="level1 page-columns page-full">
-<h1>Ziel dieses Kurses</h1>
-<p>In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Computern im Bereich Cognitive Neuroscience.</p>
-<p>Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.</p>
-<p>Wir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.</p>
-<aside>
-Es gibt ein sehr gutes Lehrbuch <span class="citation" data-cites="forstmannModelBasedCognitiveNeuroscience2015">(<a href="#ref-forstmannModelBasedCognitiveNeuroscience2015" role="doc-biblioref">Forstmann and Wagenmakers 2015</a>)</span> zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: <a href="https://link.springer.com/book/10.1007%2F978-1-4939-2236-9">An Introduction to Model-Based Cognitive Neuroscience</a>.
-</aside>
-<p>Wir werden folgende Themen im Laufe des Semester behandeln:</p>
+<section id="ziel-dieses-kurses" class="level2">
+<h2 class="anchored" data-anchor-id="ziel-dieses-kurses">Ziel dieses Kurses</h2>
+<p>In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Computern im Bereich Cognitive Neuroscience. Es ist nicht Ziel dieses Kurses, EEG oder fMRI Daten zu analysieren (dafür gibt es eigene Kurse); wir werden uns stattdessen mit Daten aus Verhaltensexperimenten beschäftigen. Dies sind zum Beispiel binäre Antworten oder Reaktionszeiten, welche wir mit entsprechenden Modellen untersuchen werden. Unsere Anwendungsbeispiele werden immer aus der neurowissenschaftlichen Forschung stammen; der Fokus wird aber vor allem der Umgang mit Computern sein. Unser Ziel ist es, dass Sie nach dem Abschluss dieses Kurses eine neurowissenschaftliches Paper lesen können, und die darin verwendeten Experimente nachvollziehen können. Sie könnten eventuell sogar das Experiment selber programmieren, und die Daten analysieren.</p>
+</section>
+<section id="programmiersprachen" class="level2">
+<h2 class="anchored" data-anchor-id="programmiersprachen">Programmiersprachen</h2>
+<p>Programmiersprachen sind essentielle Werkzeuge für die Neurowissenschaftliche Forschung. Wir werden uns zuerst einen kurzen Überblick über drei häufig verwendete Programmiersprachen (Matlab, Python und R) verschaffen, deren Verwendungszwecke und Vor- und Nachteile.</p>
+<section id="matlab" class="level3">
+<h3 class="anchored" data-anchor-id="matlab">Matlab</h3>
+<p>Matlab ist ein Software für numerische Anwendung, welche in den Ingenieurwissenschaften, Naturwissenschaften und der Mathematik weit verbreitet ist.</p>
+<section id="stärken" class="level4">
+<h4 class="anchored" data-anchor-id="stärken">👍🏼 Stärken:</h4>
 <ul>
-<li>Erstellen von behavioralen Experimenten</li>
-<li>Importieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)</li>
-<li>Graphische Darstellung und explorative Datenanalyse</li>
-<li>Auswahl von statistischen Verfahren</li>
-<li>Einführung in die Bayesianische Datenanalyse</li>
-<li>Analyse messwiederholter Daten anhand von Multilevel Modellen</li>
-<li>Kognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)</li>
+<li>Leistungsstarke Matrix- und Vektoroperationen, gut geeignet für Matrix-basierte Operationen, die in der Neurowissenschaftlichen Forschung häufig vorkommen.</li>
+<li>Umfangreiche Bibliothek von integrierten Funktionen für wissenschaftliches Rechnen.</li>
 </ul>
+</section>
+<section id="schwächen" class="level4">
+<h4 class="anchored" data-anchor-id="schwächen">👎🏼 Schwächen:</h4>
+<ul>
+<li>Teuer</li>
+<li>Weniger flexibel als Python oder R in Bezug auf Datenarten und Strukturen.</li>
+<li>Matlab is kommerziell und proprietär. Dies bedeutet man muss teuere Lizenzen kaufen, und der Source Code der Software ist nicht offen.</li>
+</ul>
+</section>
+<section id="typische-anwendung" class="level4">
+<h4 class="anchored" data-anchor-id="typische-anwendung">Typische Anwendung:</h4>
+<p>Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.</p>
+</section>
+<section id="beispielcode" class="level4">
+<h4 class="anchored" data-anchor-id="beispielcode">Beispielcode:</h4>
+<div class="sourceCode" id="cb1"><pre class="sourceCode matlab code-with-copy"><code class="sourceCode matlab"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">load</span>(<span class="ss">'data.mat'</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="va">fs</span> <span class="op">=</span> <span class="fl">1000</span><span class="op">;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">t</span> <span class="op">=</span> (<span class="fl">0</span><span class="op">:</span><span class="va">numel</span>(<span class="va">data</span>)<span class="op">-</span><span class="fl">1</span>)<span class="op">/</span><span class="va">fs</span><span class="op">;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">plot</span>(<span class="va">t</span><span class="op">,</span> <span class="va">data</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="python" class="level3">
+<h3 class="anchored" data-anchor-id="python">Python</h3>
+<p>Python ist eine allgemeine (general purpose) Programmiersprache, die in vielen verschiedenen Bereichen wie wissenschaftlichem Rechnen, Datenanalyse und maschinellem Lernen weit verbreitet ist. #### 👍🏼 Stärken: - Eine Vielzahl von Bibliotheken und Modulen wie NumPy, SciPy und Pandas, die leistungsstarke Werkzeuge für wissenschaftliches Rechnen und Datenanalyse bieten. - Datenanalysewerkzeuge wie Pandas-Dataframes, die Seaborn-Visualisierungsbibliothek, und Jupyter Notebooks. - Open-source und kostenlos</p>
+<section id="schwächen-1" class="level4">
+<h4 class="anchored" data-anchor-id="schwächen-1">👎🏼 Schwächen:</h4>
+<ul>
+<li>Kann in einigen numerischen Berechnungen langsamer sein als Matlab.</li>
+<li>Da Python eine allgemeine Sprache ist, muss man für numerische Anwendungen immer verschiedene Packages importieren (z.B.) <code>numpy</code>, wenn man damit rechnen will. Dies führt zu weniger gut lesbarem Code.</li>
+</ul>
+</section>
+<section id="typische-anwendung-1" class="level4">
+<h4 class="anchored" data-anchor-id="typische-anwendung-1">Typische Anwendung:</h4>
+<p>Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.</p>
+</section>
+<section id="beispielcode-1" class="level4">
+<h4 class="anchored" data-anchor-id="beispielcode-1">Beispielcode:</h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> pd.read_csv(<span class="st">'data.csv'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>sns.lineplot(data<span class="op">=</span>data, x<span class="op">=</span><span class="st">'time'</span>, y<span class="op">=</span><span class="st">'voltage'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="r" class="level3">
+<h3 class="anchored" data-anchor-id="r">R</h3>
+<p>R ist eine Programmiersprache und Umgebung für statistisches Rechnen und Grafiken.</p>
+<section id="stärken-1" class="level4">
+<h4 class="anchored" data-anchor-id="stärken-1">👍🏼 Stärken:</h4>
+<ul>
+<li>Entwickelt von Statistikern für statistisches Rechnen und Grafiken.</li>
+<li>Eine große Bibliothek von statistischen Werkzeugen und Paketen, einschliesslich Visualisierungspackages (grammar of graphics).</li>
+<li>Open-source und kostenlos</li>
+<li><code>tidyverse</code> Packages für Data Wrangling (sehr elegant).</li>
+</ul>
+</section>
+<section id="schwächen-2" class="level4">
+<h4 class="anchored" data-anchor-id="schwächen-2">👎🏼 Schwächen:</h4>
+<ul>
+<li>Steilere Lernkurve als Python.</li>
+<li>Kann in einigen numerischen Berechnungen langsamer sein als Matlab oder Python.</li>
+<li>Entwickelt von Statistiker (nicht von Software Designers). R gilt als sehr idiosynkratisch.</li>
+</ul>
+</section>
+<section id="typische-anwendung-2" class="level4">
+<h4 class="anchored" data-anchor-id="typische-anwendung-2">Typische Anwendung:</h4>
+<p>Statistische Analyse, Datenvisualisierung, Neurobildgebung-Analyse.</p>
+</section>
+<section id="beispielcode-2" class="level4">
+<h4 class="anchored" data-anchor-id="beispielcode-2">Beispielcode:</h4>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">'data.csv'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(data, <span class="fu">aes</span>(<span class="at">x=</span>time, <span class="at">y=</span>voltage)) <span class="sc">+</span> <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="fazit" class="level3">
+<h3 class="anchored" data-anchor-id="fazit">Fazit</h3>
+<p>Matlab, Python und R sind leistungsstarke Werkzeuge für die neurowissenschaftliche Forschung. Die Wahl der Sprache hängt unter anderem von der spezifischen Aufgabe ab. Weitere Faktoren ist Tradition: bestimmte Gruppen bevorzugen eher eine Sprache als andere. So ist Matlab unter Ingenieuren weit verbreiten und R unter Statistikern. Python ist im Bereich Künstliche Intelligenz und Machine Learning die beliebteste Sprache. Eine neuere Sprache ist Julia - diese vereint die Vorteile aller oben genannten Sprachen (ohne viele deren Nachteile), ist aber weniger weit verbreitet.</p>
+<p>Um mehr zu erfahren, erkunden Sie die umfangreichen Online-Ressourcen und Dokumentationen für jede Sprache.</p>
+</section>
 </section>
 <section id="software" class="level1">
 <h1>Software</h1>
@@ -302,27 +435,24 @@ Es gibt ein sehr gutes Lehrbuch <span class="citation" data-cites="forstmannMode
 <ul>
 <li>IDEs</li>
 </ul>
+<p><a href="https://www.datacamp.com">DataCamp</a></p>
 </section>
-<section id="python" class="level1">
+<section id="python-1" class="level1">
 <h1>Python</h1>
 <p>https://www.python.org/doc/ https://www.python.org/downloads/ https://www.anaconda.com/products/distribution https://www.psychopy.org/ https://jupyter.org/ https://docs.jupyter.org/en/latest/index.html</p>
 
 
-
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-forstmannModelBasedCognitiveNeuroscience2015" class="csl-entry" role="doc-biblioentry">
-Forstmann, Birte U., and Eric-Jan Wagenmakers. 2015. <span>“Model-<span>Based Cognitive Neuroscience</span>: <span>A Conceptual Introduction</span>.”</span> In <em>An <span>Introduction</span> to <span>Model-Based Cognitive Neuroscience</span></em>, edited by Birte U. Forstmann and Eric-Jan Wagenmakers, 139–56. <span>New York, NY</span>: <span>Springer New York</span>. <a href="https://doi.org/10.1007/978-1-4939-2236-9_7">https://doi.org/10.1007/978-1-4939-2236-9_7</a>.
-</div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
   author = {Andrew Ellis and Gerda Wyssen},
-  title = {Software},
+  title = {Programmiersprachen},
   url = {https://kogpsy.github.io/neuroscicomplabFS23//software.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Andrew Ellis, and Gerda Wyssen. n.d. <span>“Software.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//software.html">https://kogpsy.github.io/neuroscicomplabFS23//software.html</a>.
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“Programmiersprachen.”</span>
+<a href="https://kogpsy.github.io/neuroscicomplabFS23//software.html">https://kogpsy.github.io/neuroscicomplabFS23//software.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
