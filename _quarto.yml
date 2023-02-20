@@ -38,6 +38,7 @@ website:
         contents:
           - pages/chapters/software.qmd
           - pages/chapters/chatgpt.qmd
+          - pages/chapters/datacamp.qmd
 
 
       - section: "Experimente"
@@ -61,7 +62,7 @@ website:
           # - pages/admin/02_syllabus.qmd
 
   page-footer:
-    left: "© Copyright 2023, Andrew Ellis & Gerda Wyssen"
+    # left: "© Copyright 2023, Andrew Ellis & Gerda Wyssen"
     right:
       - icon: github
         href: https://github.com/kogpsy/neuroscicomplabFS23
