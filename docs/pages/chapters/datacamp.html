@@ -8,9 +8,8 @@
 
 <meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
-<meta name="description" content="Mit künstlicher Intelligenz Code generieren.">
 
-<title>Neurowissenschaft Computerlab - ChatGPT</title>
+<title>Neurowissenschaft Computerlab - DataCamp</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">ChatGPT</h1>
+      <h1 class="quarto-secondary-nav-title">DataCamp</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -155,12 +154,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link active">ChatGPT</a>
+  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">ChatGPT</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">DataCamp</a>
+  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link active">DataCamp</a>
   </div>
 </li>
       </ul>
@@ -192,17 +191,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#chatgpt-und-leistungsnachweise" id="toc-chatgpt-und-leistungsnachweise" class="nav-link active" data-scroll-target="#chatgpt-und-leistungsnachweise">ChatGPT und Leistungsnachweise</a>
+  <li><a href="#datacamp" id="toc-datacamp" class="nav-link active" data-scroll-target="#datacamp">DataCamp</a></li>
+  <li><a href="#hands-on-session" id="toc-hands-on-session" class="nav-link" data-scroll-target="#hands-on-session">Hands-on session</a>
   <ul class="collapse">
-  <li><a href="#was-kann-chatgpt" id="toc-was-kann-chatgpt" class="nav-link" data-scroll-target="#was-kann-chatgpt">Was kann ChatGPT?</a>
-  <ul class="collapse">
-  <li><a href="#kann-chatgpt-code-generieren" id="toc-kann-chatgpt-code-generieren" class="nav-link" data-scroll-target="#kann-chatgpt-code-generieren">Kann ChatGPT Code generieren?</a></li>
-  <li><a href="#kann-chatgpt-code-ausführen" id="toc-kann-chatgpt-code-ausführen" class="nav-link" data-scroll-target="#kann-chatgpt-code-ausführen">Kann ChatGPT Code ausführen?</a></li>
-  <li><a href="#wie-erhalte-ich-gute-antworten" id="toc-wie-erhalte-ich-gute-antworten" class="nav-link" data-scroll-target="#wie-erhalte-ich-gute-antworten">Wie erhalte ich gute Antworten?</a></li>
-  </ul></li>
-  <li><a href="#darf-ich-chatgpt-benutzen" id="toc-darf-ich-chatgpt-benutzen" class="nav-link" data-scroll-target="#darf-ich-chatgpt-benutzen">Darf ich ChatGPT benutzen?</a></li>
-  <li><a href="#kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben" id="toc-kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben" class="nav-link" data-scroll-target="#kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben">Kann ChatGPT für mich die Übungen schreiben und Peer-Feedback geben?</a></li>
-  <li><a href="#wie-kann-ich-chatgpt-sinnvoll-einsetzen" id="toc-wie-kann-ich-chatgpt-sinnvoll-einsetzen" class="nav-link" data-scroll-target="#wie-kann-ich-chatgpt-sinnvoll-einsetzen">Wie kann ich ChatGPT sinnvoll einsetzen?</a></li>
+  <li><a href="#python-basics" id="toc-python-basics" class="nav-link" data-scroll-target="#python-basics">1 - Python Basics</a></li>
+  <li><a href="#python-code-mit-chatgpt-generieren" id="toc-python-code-mit-chatgpt-generieren" class="nav-link" data-scroll-target="#python-code-mit-chatgpt-generieren">2 - Python Code mit ChatGPT generieren</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -212,14 +205,9 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">ChatGPT</h1>
+<h1 class="title d-none d-lg-block">DataCamp</h1>
 </div>
 
-<div>
-  <div class="description">
-    Mit künstlicher Intelligenz Code generieren.
-  </div>
-</div>
 
 <div class="quarto-title-meta-author">
   <div class="quarto-title-meta-heading">Authors</div>
@@ -257,76 +245,36 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="chatgpt-und-leistungsnachweise" class="level1">
-<h1>ChatGPT und Leistungsnachweise</h1>
-<p>Eventuell haben Sie in den letzten Wochen von ChatGPT gehört, vielleicht schon selber benutzt. Sowohl an Hochschulen als auch an Gymnasien stellt sich die brennende Frage, wie Lehrpersonen und Studierende/Schüler damit umgehen sollen. Darf man ChatGPT benutzen? Werden die abgegeben Übungen darauf untersucht, ob sie mit Hilfe künstlicher Intelligenz generiert wurden.</p>
-<p>Wir versuchen hier, unsere Haltung in Bezug auf ChatGPT bekanntzugeben, und zu erklären, was ChatGPT kann, und wo es hilfreich sein könnte.</p>
-<section id="was-kann-chatgpt" class="level2">
-<h2 class="anchored" data-anchor-id="was-kann-chatgpt">Was kann ChatGPT?</h2>
-<section id="kann-chatgpt-code-generieren" class="level3">
-<h3 class="anchored" data-anchor-id="kann-chatgpt-code-generieren">Kann ChatGPT Code generieren?</h3>
-<p>ChatGPT benutzt das <a href="https://openai.com/blog/openai-codex/">Codex</a> Modell von OpenAI, welches auf Programmiersprachen spezialisiert ist. Vor allem Python, aber auch R (und Matlab) Code spricht ChatGPT hervorragend.</p>
+<section id="datacamp" class="level2">
+<h2 class="anchored" data-anchor-id="datacamp">DataCamp</h2>
+<p>Im Rahmen dieser Lehrveranstaltung können alle Teilnehmende sich bei DataCamp registrieren</p>
+<p>DataCamp ist eine Online-Lernplattform, welche sich auf Data Science und Datenanalyse konzentriert. Es bietet interaktive Kurse, Tutorials und Projekte in verschiedenen Programmiersprachen wie Python, R und SQL an. DataCamp Kurse auf unterschiedlichen Niveaus an; sowohl für Anfänger als auch für Fortgeschrittene gibt es ein breites Angebot an Kursen.</p>
+<p>Sie können Sich unter folgendem Link mit Ihrer Uni Bern E-Mail Adresse (*unibe.ch) registrieren:</p>
+<p>👉🏼 <a href="https://www.datacamp.com/groups/shared_links/1288a3314283c419fc80cea55de7927a58e02c06aee93dbe5eaac57e36e07702">DataCamp registration</a></p>
 </section>
-<section id="kann-chatgpt-code-ausführen" class="level3">
-<h3 class="anchored" data-anchor-id="kann-chatgpt-code-ausführen">Kann ChatGPT Code ausführen?</h3>
-<p>Nein. ChatGPT besteht aus verschiedenen Komponent. Eines davon ist ein <em>large language model</em> (LLM), die weiteren Komponenten braucht es, um einen Chatbot zu kreieren, welcher menschenähnliche Konversationen führen kann.</p>
-<p>Das LLM gelernt hat im wesentlichen die Verteilung von Wortstammen (Tokens) des Textkorpus (mit dem es trainiert wurde). Die Aufgabe des LLM ist es, gegeben einen Input (Prompt) eine oder mehrere wahrscheinliche Vervollständigungen zu erzeugen. Wenn nun im Textkorpus Programmcode vorkam, wird das LLM syntaktisch korrekten Code zu generieren. Das LLM hat jedoch keine Möglichkeit, diesen Code auszuführen, auf Korrektheit zu überprüfen, oder überhaupt herauszufinden, ob der Code sinnvoll ist.</p>
-<p>ChatGPT kann mitunter hervorragenden Code generieren, aber ob der Code wirklich das macht, was er soll, liegt in der Verantwortung der Benutzer:in.</p>
-<blockquote class="blockquote">
-<p>Immer kritisch überprüfen, ob von ChatGPT generierter Code wirklich korrekt ist, und tut was verlangt wird!</p>
-</blockquote>
+<section id="hands-on-session" class="level2">
+<h2 class="anchored" data-anchor-id="hands-on-session">Hands-on session</h2>
+<p>Wir werden in der zweiten Sitzung mit Psychopy und Python ein Experiment erstellen. In Psychopy können Sie viel sehr über die grafische Oberfläche; es gibt jedoch einige kleine Dinge, welche wir mit Python selber coden müssen. Deshalb wäre es für Sie hiflreich, wenn Sie sich vorher auf der DataCamp Website ein wenig mit Python vertraut machen.</p>
+<section id="python-basics" class="level3">
+<h3 class="anchored" data-anchor-id="python-basics">1 - Python Basics</h3>
+<p>Je nachdem wie viel Erfahrung Sie mit Python haben, können Sie sich entweder für den Kurs “Introduction to Python” oder “Intermediate Python” entscheiden.</p>
+<p>👉🏼 <a href="https://app.datacamp.com/learn/courses/intro-to-python-for-data-science">Introduction to Python</a></p>
+<p>👉🏼 <a href="https://app.datacamp.com/learn/courses/intermediate-python">Intermediate Python</a></p>
+<p>Für fortgeschrittene empfehlen wir die Kurse:</p>
+<p>👉🏼 <a href="https://app.datacamp.com/learn/courses/python-data-science-toolbox-part-1">Python Data Science Toolbox (Part 1)</a></p>
+<p>👉🏼 <a href="https://app.datacamp.com/learn/courses/python-data-science-toolbox-part-2">Python Data Science Toolbox (Part 2)</a></p>
+<p>Diese Kurse sind nicht obligatorisch; Sie brauchen für PsychoPy wirklich nur Grundkenntnisse. Python ist aber sowohl in der Forschung als der Privatwirtschaft sehr beliebt und Sie werden es sicherlich noch öfters brauchen, wenn Sie sich mit Datenanalyse beschäftigen.</p>
 </section>
-<section id="wie-erhalte-ich-gute-antworten" class="level3">
-<h3 class="anchored" data-anchor-id="wie-erhalte-ich-gute-antworten">Wie erhalte ich gute Antworten?</h3>
-<p>Sie können ChatGPT helfen, gute Antworten zu erzeugen, in dem Sie gute Fragen stellen. Dies bedeutet, dass Sie in der Frage (Prompt) möglichst viele Kontextinformationen mitlieferen. Denken Sie daran, dass ChatGPT, gegeben dem Input und den Trainingsdaten, eine möglichst wahrscheinliche Sequenz von Token erzeugt.</p>
-</section>
-</section>
-<section id="darf-ich-chatgpt-benutzen" class="level2">
-<h2 class="anchored" data-anchor-id="darf-ich-chatgpt-benutzen">Darf ich ChatGPT benutzen?</h2>
-<p>Wir gehen davon aus, dass Technologien wie ChatGPT nicht mehr vom modernen Unterricht wegzudenken sind, und es daher sinnvoll und notwendig ist, einen möglichst guten Umgang damit zu erlernen.</p>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>ChatGPT darf für die Übungen genutzt werden.</p>
-</div>
-</div>
-<p>Es ist aus unserer Sicht jedoch sinnvoll, wenn Sie ChatGPT als eine von vielen möglichen Quellen benutzen (wie z.B. Google, Stackoverflow), und diese auch als solche transparent angeben.</p>
-<p>Aus unserer Sicht ist ChatGPT (und Codex) ein sehr wertvolles Tool. Sie sind jedoch dafür verantwortlich, dass ihr Code ausführbar ist. Dies wird beim Peer-Feedback eines der Kriterien sein. Das Ziel ist primär, dass sie Code verstehen und anwenden können, nicht dass sie Code aus dem Nichts selber schreiben können. Dies ist übrigens auch die Vorgehensweise vieler erfahrener Programmierer - oft wird zuerst mal gegoogelt und im Internet nachgeschaut, ob es schon Lösungsansätze gibt. ChatGPT macht im Prinzip nichts anderes.</p>
-</section>
-<section id="kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben" class="level2">
-<h2 class="anchored" data-anchor-id="kann-chatgpt-für-mich-die-übungen-schreiben-und-peer-feedback-geben">Kann ChatGPT für mich die Übungen schreiben und Peer-Feedback geben?</h2>
-<p>Im Prinzip ja, aber Sie würden dabei wahrscheinlich sehr wenig lernen. Den Umgang mit Computern und das Programmieren lernt man, indem man selber Code ausführt, Fehler macht und versucht zu verstehen was der Fehler war. Das Ziel sollte sein, dass Sie jederzeit erklären könnten, was Ihr Code macht, oder wieso Sie ein bestimmtes Feedback gegeben haben. Ohne selber etwas dafür zu tun wird der Lern efolg wahrscheinlich ausbleiben.</p>
-</section>
-<section id="wie-kann-ich-chatgpt-sinnvoll-einsetzen" class="level2">
-<h2 class="anchored" data-anchor-id="wie-kann-ich-chatgpt-sinnvoll-einsetzen">Wie kann ich ChatGPT sinnvoll einsetzen?</h2>
-<p>ChatGPT kann sowohl Code generieren als auch Code evaluieren. Sie können ChatGPT benutzen</p>
+<section id="python-code-mit-chatgpt-generieren" class="level3">
+<h3 class="anchored" data-anchor-id="python-code-mit-chatgpt-generieren">2 - Python Code mit ChatGPT generieren</h3>
+<p>Dies benötigt einen ChatGPT Account; einen solchen können Sie bei OpenAI gratis erstellen.</p>
+<p>👉🏼 <a href="https://chat.openai.com/chat">chat.openai.com/chat</a></p>
+<p>Versuchen Sie, mit ChatGPT ein paar Zeilen Python Code zu generieren. Sie können hierzu einige Beispiele als den DataCamp Kursen verwenden.</p>
 <ul>
-<li>um Vorschläge zu erhalten, wenn Sie nicht weiterkommen.</li>
-<li>um ein Gerüst für ein Programm zu erstellen.</li>
-<li>um Code auf Lesbarkeit/Verständlichkeit zu überprüfen.</li>
-<li>um Code kommentieren zu lassen.</li>
-<li>um Code zu verstehen/bewerten zu lassen.</li>
+<li>Kann ChatGPT die Aufgaben lösen?</li>
+<li>Wie kann Ihnen ChatGPT helfen, Code zu schreiben?</li>
+<li>Was müssen Sie beachten, wenn Sie Code von ChatGPT verwenden?</li>
 </ul>
-<div class="callout-caution callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Hinweis
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Bitte überprüfen Sie aber immer kritisch den Output von ChatGPT, und stellen sie sicher, dass der Code tatsächlich ausgeführt werden kann.</p>
-</div>
-</div>
 
 
 </section>
@@ -334,12 +282,12 @@ Hinweis
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
   author = {Andrew Ellis and Gerda Wyssen},
-  title = {ChatGPT},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//chatgpt.html},
+  title = {DataCamp},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//datacamp.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Andrew Ellis, and Gerda Wyssen. n.d. <span>“ChatGPT.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//chatgpt.html">https://kogpsy.github.io/neuroscicomplabFS23//chatgpt.html</a>.
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“DataCamp.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//datacamp.html">https://kogpsy.github.io/neuroscicomplabFS23//datacamp.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

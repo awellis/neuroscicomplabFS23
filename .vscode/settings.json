@@ -1,6 +1,15 @@
 {
     "cSpell.words": [
+        "chatgpt",
+        "Computerlab",
+        "datacamp",
         "orcid",
         "Wyssen"
+    ],
+    "spellright.language": [],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
     ]
 }

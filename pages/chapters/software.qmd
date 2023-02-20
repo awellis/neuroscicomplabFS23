@@ -26,7 +26,7 @@ In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Compu
 
 ## Programmiersprachen
 
-Programmiersprachen sind essentielle Werkzeuge für die Neurowissenschaftliche Forschung. Wir werden uns zuerst einen kurzen Überblick über drei häufig verwendete Programmiersprachen (Matlab, Python und R) verschaffen, deren Verwendungszwecke und Vor- und Nachteile.
+Programmiersprachen sind essentielle Werkzeuge für die Neurowissenschaftliche Forschung. Wir werden uns zuerst einen kurzen Überblick über drei häufig verwendete Programmiersprachen (Matlab, Python und R) verschaffen und kurz deren Verwendungszwecke und Vor- und Nachteile diskutieren.
 
 
 
@@ -45,7 +45,12 @@ Matlab ist ein Software für numerische Anwendung, welche in den Ingenieurwissen
 - Matlab is kommerziell und proprietär. Dies bedeutet man muss teuere Lizenzen kaufen, und der Source Code der Software ist nicht offen.
 
 #### Typische Anwendung:
-Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.
+ - Datenverarbeitung und -analyse, 
+ - Signalverarbeitung
+ - Visualisierung 
+ - Viele fMRI Forscher arbeiten mit Matlab, da es dafür eine spezielle  Toolbox gibt: [SPM](https://www.fil.ion.ucl.ac.uk/spm/software/spm12/)
+ - Experimente programmieren, z.B. mit [Psychtoolbox](http://psychtoolbox.org/)
+
 
 
 #### Beispielcode:
@@ -72,7 +77,10 @@ Python ist eine allgemeine (general purpose) Programmiersprache, die in vielen v
 - Da Python eine allgemeine Sprache ist, muss man für numerische Anwendungen immer verschiedene Packages importieren (z.B.) `numpy`, wenn man damit rechnen will. Dies führt zu weniger gut lesbarem Code.
 
 #### Typische Anwendung:
-Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.
+- Datenverarbeitung und -analyse, 
+- Visualisierung
+- Machine learning und Künstliche Intelligenz
+- Experimente programmieren, z.B. mit [PsychoPy](https://www.psychopy.org/)
 
 #### Beispielcode:
 
@@ -91,7 +99,7 @@ R ist eine Programmiersprache und Umgebung für statistisches Rechnen und Grafik
 - Entwickelt von Statistikern für statistisches Rechnen und Grafiken.
 - Eine große Bibliothek von statistischen Werkzeugen und Paketen, einschliesslich Visualisierungspackages (grammar of graphics).
 - Open-source und kostenlos
-- `tidyverse` Packages für Data Wrangling (sehr elegant).
+- [tidyverse](https://www.tidyverse.org/) Packages für Data Wrangling (sehr elegante Syntax, um mit Daten zu arbeiten).
 
 #### 👎🏼 Schwächen:
 - Steilere Lernkurve als Python.
@@ -99,7 +107,8 @@ R ist eine Programmiersprache und Umgebung für statistisches Rechnen und Grafik
 - Entwickelt von Statistiker (nicht von Software Designers). R gilt als sehr idiosynkratisch.
 
 #### Typische Anwendung:
-Statistische Analyse, Datenvisualisierung, Neurobildgebung-Analyse.
+- Statistische Analyse
+- Datenvisualisierung. R hat eine sehr gute Bibliothek für Grafiken, die `ggplot2` Bibliothek. Diese Bibliothek verwendet die sogenannte `grammar of graphics` (GoG) - eine Methode, um Daten in Grafiken zu visualisieren. Die GoG ist eine sehr elegante und effiziente Methode, um Daten zu visualisieren.
 
 
 #### Beispielcode:
@@ -117,33 +126,23 @@ Um mehr zu erfahren, erkunden Sie die umfangreichen Online-Ressourcen und Dokume
 
 
 
+## In dieser Veranstaltung verwendete Software
 
-
-
-
-
-
-
-
-
+Wir haben uns entschieden, in dieser Veranstaltung Python zu verwenden, um ein Experiment zu erstellen, und R für die Analyse der Daten. Matlab wird nicht verwendet; einerseits da es kommerziell ist, andererseits weil es aus unserer Sicht nicht die beste Wahl für die Analyse von Verhaltensdaten ist. Ausserdem ist es schon schwierig genug, eine Programmiersprache zu lernen, ohne gleichzeitig noch zwei weitere  zu lernen.
 
 
 
 ## Python
 
-Um ein Experiment zu kreieren benutzen wir [PsychoPy](https://www.psychopy.org/). PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen.
-
-
-https://www.python.org/doc/
-https://www.python.org/downloads/
-https://www.anaconda.com/products/distribution
-https://www.psychopy.org/
-https://jupyter.org/
-https://docs.jupyter.org/en/latest/index.html
+Wenn Sie Python suf Ihrem Rechner installieren wollen, können Sie entweder den offiziellen Installer [https://www.python.org/downloads/](https://www.python.org/downloads/) downloaden, oder die Anaconda Distribution [https://www.anaconda.com/products/distribution](https://www.anaconda.com/products/distribution) verwenden. Die Anaconda Distribution ist eine Python-Distribution, die viele nützliche Pakete enthält, die für wissenschaftliches Rechnen und Datenanalyse verwendet werden. Wenn man tatsächlich mit Python arbeiten will, empfiehlt es sich, die Anaconda Distribution zu benutzen. Wir werden in dieser Veranstaltung Python benutzen, um ein Experiment zu programmieren. Dafür reicht es aus, den PsychoPy Installer zu verwenden; diesen finden Sie unter diesem Link: [PsychoPy](https://www.psychopy.org/). PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen.
 
 ## R
 
+Ab der vierten Sitzung werden wir viel mit R arbeiten, um Daten aufzubereiten und grafisch darzustellen. Dafür müssen Sie die __aktuelle__ Version von R installieren. Diese ist zurzeit R 4.2.2, und kann unter folgender URL geladen werden: 
+
 R 👉 [https://cloud.r-project.org/](https://cloud.r-project.org/)
+
+Wir empfehlen für die Arbeit mit R die RStudio IDE zu verwenden. Diese ist kostenlos und kann unter folgender URL heruntergeladen werden:
 
 RStudio 👉 [https://www.rstudio.com/products/rstudio/download/#download](https://www.rstudio.com/products/rstudio/download/#download)
 

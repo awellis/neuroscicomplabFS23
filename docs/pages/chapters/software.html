@@ -221,6 +221,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">ChatGPT</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">DataCamp</a>
+  </div>
+</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
@@ -258,13 +263,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
   <li><a href="#fazit" id="toc-fazit" class="nav-link" data-scroll-target="#fazit">Fazit</a></li>
   </ul></li>
-  <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a>
-  <ul class="collapse">
-  <li><a href="#experimente" id="toc-experimente" class="nav-link" data-scroll-target="#experimente">Experimente</a></li>
-  <li><a href="#datenanalyse" id="toc-datenanalyse" class="nav-link" data-scroll-target="#datenanalyse">Datenanalyse</a></li>
-  </ul></li>
-  <li><a href="#languages" id="toc-languages" class="nav-link" data-scroll-target="#languages">Languages</a></li>
+  <li><a href="#in-dieser-veranstaltung-verwendete-software" id="toc-in-dieser-veranstaltung-verwendete-software" class="nav-link" data-scroll-target="#in-dieser-veranstaltung-verwendete-software">In dieser Veranstaltung verwendete Software</a></li>
   <li><a href="#python-1" id="toc-python-1" class="nav-link" data-scroll-target="#python-1">Python</a></li>
+  <li><a href="#r-1" id="toc-r-1" class="nav-link" data-scroll-target="#r-1">R</a></li>
+  <li><a href="#lernen" id="toc-lernen" class="nav-link" data-scroll-target="#lernen">Lernen</a></li>
   </ul>
 </nav>
     </div>
@@ -324,7 +326,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="programmiersprachen" class="level2">
 <h2 class="anchored" data-anchor-id="programmiersprachen">Programmiersprachen</h2>
-<p>Programmiersprachen sind essentielle Werkzeuge für die Neurowissenschaftliche Forschung. Wir werden uns zuerst einen kurzen Überblick über drei häufig verwendete Programmiersprachen (Matlab, Python und R) verschaffen, deren Verwendungszwecke und Vor- und Nachteile.</p>
+<p>Programmiersprachen sind essentielle Werkzeuge für die Neurowissenschaftliche Forschung. Wir werden uns zuerst einen kurzen Überblick über drei häufig verwendete Programmiersprachen (Matlab, Python und R) verschaffen und kurz deren Verwendungszwecke und Vor- und Nachteile diskutieren.</p>
 <section id="matlab" class="level3">
 <h3 class="anchored" data-anchor-id="matlab">Matlab</h3>
 <p>Matlab ist ein Software für numerische Anwendung, welche in den Ingenieurwissenschaften, Naturwissenschaften und der Mathematik weit verbreitet ist.</p>
@@ -345,7 +347,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="typische-anwendung" class="level4">
 <h4 class="anchored" data-anchor-id="typische-anwendung">Typische Anwendung:</h4>
-<p>Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.</p>
+<ul>
+<li>Datenverarbeitung und -analyse,</li>
+<li>Signalverarbeitung</li>
+<li>Visualisierung</li>
+<li>Viele fMRI Forscher arbeiten mit Matlab, da es dafür eine spezielle Toolbox gibt: <a href="https://www.fil.ion.ucl.ac.uk/spm/software/spm12/">SPM</a></li>
+<li>Experimente programmieren, z.B. mit <a href="http://psychtoolbox.org/">Psychtoolbox</a></li>
+</ul>
 </section>
 <section id="beispielcode" class="level4">
 <h4 class="anchored" data-anchor-id="beispielcode">Beispielcode:</h4>
@@ -357,7 +365,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="python" class="level3">
 <h3 class="anchored" data-anchor-id="python">Python</h3>
-<p>Python ist eine allgemeine (general purpose) Programmiersprache, die in vielen verschiedenen Bereichen wie wissenschaftlichem Rechnen, Datenanalyse und maschinellem Lernen weit verbreitet ist. #### 👍🏼 Stärken: - Eine Vielzahl von Bibliotheken und Modulen wie NumPy, SciPy und Pandas, die leistungsstarke Werkzeuge für wissenschaftliches Rechnen und Datenanalyse bieten. - Datenanalysewerkzeuge wie Pandas-Dataframes, die Seaborn-Visualisierungsbibliothek, und Jupyter Notebooks. - Open-source und kostenlos</p>
+<p>Python ist eine allgemeine (general purpose) Programmiersprache, die in vielen verschiedenen Bereichen wie wissenschaftlichem Rechnen, Datenanalyse und maschinellem Lernen weit verbreitet ist.</p>
+<section id="stärken-1" class="level4">
+<h4 class="anchored" data-anchor-id="stärken-1">👍🏼 Stärken:</h4>
+<ul>
+<li>Eine Vielzahl von Bibliotheken und Modulen wie NumPy, SciPy und Pandas, die leistungsstarke Werkzeuge für wissenschaftliches Rechnen und Datenanalyse bieten.</li>
+<li>Datenanalysewerkzeuge wie Pandas-Dataframes, die Seaborn-Visualisierungsbibliothek, und Jupyter Notebooks.</li>
+<li>Open-source und kostenlos</li>
+</ul>
+</section>
 <section id="schwächen-1" class="level4">
 <h4 class="anchored" data-anchor-id="schwächen-1">👎🏼 Schwächen:</h4>
 <ul>
@@ -367,7 +383,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="typische-anwendung-1" class="level4">
 <h4 class="anchored" data-anchor-id="typische-anwendung-1">Typische Anwendung:</h4>
-<p>Datenverarbeitung und -analyse, Signalverarbeitung, Visualisierung.</p>
+<ul>
+<li>Datenverarbeitung und -analyse,</li>
+<li>Visualisierung</li>
+<li>Machine learning und Künstliche Intelligenz</li>
+<li>Experimente programmieren, z.B. mit <a href="https://www.psychopy.org/">PsychoPy</a></li>
+</ul>
 </section>
 <section id="beispielcode-1" class="level4">
 <h4 class="anchored" data-anchor-id="beispielcode-1">Beispielcode:</h4>
@@ -380,13 +401,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <section id="r" class="level3">
 <h3 class="anchored" data-anchor-id="r">R</h3>
 <p>R ist eine Programmiersprache und Umgebung für statistisches Rechnen und Grafiken.</p>
-<section id="stärken-1" class="level4">
-<h4 class="anchored" data-anchor-id="stärken-1">👍🏼 Stärken:</h4>
+<section id="stärken-2" class="level4">
+<h4 class="anchored" data-anchor-id="stärken-2">👍🏼 Stärken:</h4>
 <ul>
 <li>Entwickelt von Statistikern für statistisches Rechnen und Grafiken.</li>
 <li>Eine große Bibliothek von statistischen Werkzeugen und Paketen, einschliesslich Visualisierungspackages (grammar of graphics).</li>
 <li>Open-source und kostenlos</li>
-<li><code>tidyverse</code> Packages für Data Wrangling (sehr elegant).</li>
+<li><a href="https://www.tidyverse.org/">tidyverse</a> Packages für Data Wrangling (sehr elegante Syntax, um mit Daten zu arbeiten).</li>
 </ul>
 </section>
 <section id="schwächen-2" class="level4">
@@ -399,7 +420,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </section>
 <section id="typische-anwendung-2" class="level4">
 <h4 class="anchored" data-anchor-id="typische-anwendung-2">Typische Anwendung:</h4>
-<p>Statistische Analyse, Datenvisualisierung, Neurobildgebung-Analyse.</p>
+<ul>
+<li>Statistische Analyse</li>
+<li>Datenvisualisierung. R hat eine sehr gute Bibliothek für Grafiken, die <code>ggplot2</code> Bibliothek. Diese Bibliothek verwendet die sogenannte <code>grammar of graphics</code> (GoG) - eine Methode, um Daten in Grafiken zu visualisieren. Die GoG ist eine sehr elegante und effiziente Methode, um Daten zu visualisieren.</li>
+</ul>
 </section>
 <section id="beispielcode-2" class="level4">
 <h4 class="anchored" data-anchor-id="beispielcode-2">Beispielcode:</h4>
@@ -414,32 +438,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Um mehr zu erfahren, erkunden Sie die umfangreichen Online-Ressourcen und Dokumentationen für jede Sprache.</p>
 </section>
 </section>
-<section id="software" class="level1">
-<h1>Software</h1>
-<section id="experimente" class="level2">
-<h2 class="anchored" data-anchor-id="experimente">Experimente</h2>
-<p>Um ein Experiment zu kreieren benutzen wir <a href="https://www.psychopy.org/">PsychoPy</a>. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen.</p>
+<section id="in-dieser-veranstaltung-verwendete-software" class="level2">
+<h2 class="anchored" data-anchor-id="in-dieser-veranstaltung-verwendete-software">In dieser Veranstaltung verwendete Software</h2>
+<p>Wir haben uns entschieden, in dieser Veranstaltung Python zu verwenden, um ein Experiment zu erstellen, und R für die Analyse der Daten. Matlab wird nicht verwendet; einerseits da es kommerziell ist, andererseits weil es aus unserer Sicht nicht die beste Wahl für die Analyse von Verhaltensdaten ist. Ausserdem ist es schon schwierig genug, eine Programmiersprache zu lernen, ohne gleichzeitig noch zwei weitere zu lernen.</p>
 </section>
-<section id="datenanalyse" class="level2">
-<h2 class="anchored" data-anchor-id="datenanalyse">Datenanalyse</h2>
-<p>Um Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.</p>
+<section id="python-1" class="level2">
+<h2 class="anchored" data-anchor-id="python-1">Python</h2>
+<p>Wenn Sie Python suf Ihrem Rechner installieren wollen, können Sie entweder den offiziellen Installer <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a> downloaden, oder die Anaconda Distribution <a href="https://www.anaconda.com/products/distribution">https://www.anaconda.com/products/distribution</a> verwenden. Die Anaconda Distribution ist eine Python-Distribution, die viele nützliche Pakete enthält, die für wissenschaftliches Rechnen und Datenanalyse verwendet werden. Wenn man tatsächlich mit Python arbeiten will, empfiehlt es sich, die Anaconda Distribution zu benutzen. Wir werden in dieser Veranstaltung Python benutzen, um ein Experiment zu programmieren. Dafür reicht es aus, den PsychoPy Installer zu verwenden; diesen finden Sie unter diesem Link: <a href="https://www.psychopy.org/">PsychoPy</a>. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen.</p>
+</section>
+<section id="r-1" class="level2">
+<h2 class="anchored" data-anchor-id="r-1">R</h2>
+<p>Ab der vierten Sitzung werden wir viel mit R arbeiten, um Daten aufzubereiten und grafisch darzustellen. Dafür müssen Sie die <strong>aktuelle</strong> Version von R installieren. Diese ist zurzeit R 4.2.2, und kann unter folgender URL geladen werden:</p>
 <p>R 👉 <a href="https://cloud.r-project.org/">https://cloud.r-project.org/</a></p>
+<p>Wir empfehlen für die Arbeit mit R die RStudio IDE zu verwenden. Diese ist kostenlos und kann unter folgender URL heruntergeladen werden:</p>
 <p>RStudio 👉 <a href="https://www.rstudio.com/products/rstudio/download/#download">https://www.rstudio.com/products/rstudio/download/#download</a></p>
-<p>Für Bayesianische Datenanalyse verwenden wir ausserdem <a href="https://jasp-stats.org">JASP</a> und <a href="https://mc-stan.org/">Stan</a>. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.</p>
-<p>JASP 👉 <a href="https://jasp-stats.org/download/">https://jasp-stats.org/download/</a></p>
-<p>Stan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren.</p>
 </section>
-</section>
-<section id="languages" class="level1">
-<h1>Languages</h1>
-<ul>
-<li>IDEs</li>
-</ul>
+<section id="lernen" class="level2">
+<h2 class="anchored" data-anchor-id="lernen">Lernen</h2>
 <p><a href="https://www.datacamp.com">DataCamp</a></p>
-</section>
-<section id="python-1" class="level1">
-<h1>Python</h1>
-<p>https://www.python.org/doc/ https://www.python.org/downloads/ https://www.anaconda.com/products/distribution https://www.psychopy.org/ https://jupyter.org/ https://docs.jupyter.org/en/latest/index.html</p>
 
 
 </section>
@@ -719,7 +735,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">© Copyright 2023, Andrew Ellis &amp; Gerda Wyssen</div>   
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
