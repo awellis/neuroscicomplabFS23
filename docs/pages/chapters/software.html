@@ -8,7 +8,7 @@
 
 <meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
-<meta name="description" content="Softwareinstallation und links.">
+<meta name="description" content="Programmiersprachen, IDEs.">
 
 <title>Neurowissenschaft Computerlab - Software</title>
 <style>
@@ -22,6 +22,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -141,7 +160,19 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">Einführung</span>
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">ChatGPT</a>
+  </div>
+</li>
+      </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">Experimente</span>
@@ -170,7 +201,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#inhalt-dieses-kurses" id="toc-inhalt-dieses-kurses" class="nav-link active" data-scroll-target="#inhalt-dieses-kurses">Inhalt dieses Kurses</a></li>
+  <li><a href="#ziel-dieses-kurses" id="toc-ziel-dieses-kurses" class="nav-link active" data-scroll-target="#ziel-dieses-kurses">Ziel dieses Kurses</a></li>
   <li><a href="#software" id="toc-software" class="nav-link" data-scroll-target="#software">Software</a>
   <ul class="collapse">
   <li><a href="#experimente" id="toc-experimente" class="nav-link" data-scroll-target="#experimente">Experimente</a></li>
@@ -191,7 +222,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Softwareinstallation und links.
+    Programmiersprachen, IDEs.
   </div>
 </div>
 
@@ -231,12 +262,13 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="inhalt-dieses-kurses" class="level1 page-columns page-full">
-<h1>Inhalt dieses Kurses</h1>
-<p>In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.</p>
+<section id="ziel-dieses-kurses" class="level1 page-columns page-full">
+<h1>Ziel dieses Kurses</h1>
+<p>In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Computern im Bereich Cognitive Neuroscience.</p>
+<p>Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.</p>
 <p>Wir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.</p>
 <aside>
-Es gibt ein sehr gutes Lehrbuch <span class="citation" data-cites="forstmannModelBasedCognitiveNeuroscience2015">[@forstmannModelBasedCognitiveNeuroscience2015]</span> zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: <a href="https://link.springer.com/book/10.1007%2F978-1-4939-2236-9">An Introduction to Model-Based Cognitive Neuroscience</a>.
+Es gibt ein sehr gutes Lehrbuch <span class="citation" data-cites="forstmannModelBasedCognitiveNeuroscience2015">(<a href="#ref-forstmannModelBasedCognitiveNeuroscience2015" role="doc-biblioref">Forstmann and Wagenmakers 2015</a>)</span> zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: <a href="https://link.springer.com/book/10.1007%2F978-1-4939-2236-9">An Introduction to Model-Based Cognitive Neuroscience</a>.
 </aside>
 <p>Wir werden folgende Themen im Laufe des Semester behandeln:</p>
 <ul>
@@ -276,9 +308,22 @@ Es gibt ein sehr gutes Lehrbuch <span class="citation" data-cites="forstmannMode
 <p>https://www.python.org/doc/ https://www.python.org/downloads/ https://www.anaconda.com/products/distribution https://www.psychopy.org/ https://jupyter.org/ https://docs.jupyter.org/en/latest/index.html</p>
 
 
+
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-forstmannModelBasedCognitiveNeuroscience2015" class="csl-entry" role="doc-biblioentry">
+Forstmann, Birte U., and Eric-Jan Wagenmakers. 2015. <span>“Model-<span>Based Cognitive Neuroscience</span>: <span>A Conceptual Introduction</span>.”</span> In <em>An <span>Introduction</span> to <span>Model-Based Cognitive Neuroscience</span></em>, edited by Birte U. Forstmann and Eric-Jan Wagenmakers, 139–56. <span>New York, NY</span>: <span>Springer New York</span>. <a href="https://doi.org/10.1007/978-1-4939-2236-9_7">https://doi.org/10.1007/978-1-4939-2236-9_7</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
+  author = {Andrew Ellis and Gerda Wyssen},
+  title = {Software},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//software.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“Software.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//software.html">https://kogpsy.github.io/neuroscicomplabFS23//software.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
