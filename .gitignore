@@ -3,6 +3,8 @@
 .Rhistory
 JASP/
 
+.vscode
 
 # MacOS specific stuff
 .DS_Store
+
