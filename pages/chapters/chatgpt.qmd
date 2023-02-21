@@ -26,7 +26,6 @@ Eventuell haben Sie in den letzten Wochen von ChatGPT gehört, vielleicht schon 
 
 Wir versuchen hier, unsere Haltung in Bezug auf ChatGPT bekanntzugeben, und zu erklären, was ChatGPT kann, und wo es hilfreich sein könnte.
 
-
 ## Was kann ChatGPT?
 
 ### Kann ChatGPT Code generieren?
@@ -35,25 +34,23 @@ ChatGPT benutzt das [Codex](https://openai.com/blog/openai-codex/) Modell von Op
 
 ### Kann ChatGPT Code ausführen?
 
-Nein. ChatGPT besteht aus verschiedenen Komponent. Eines davon ist ein _large language model_ (LLM), die weiteren Komponenten braucht es, um einen Chatbot zu kreieren, welcher menschenähnliche Konversationen führen kann.
+Nein. ChatGPT besteht aus verschiedenen Komponent. Eines davon ist ein *large language model* (LLM), die weiteren Komponenten braucht es, um einen Chatbot zu kreieren, welcher menschenähnliche Konversationen führen kann.
 
-Das LLM gelernt hat im wesentlichen die Verteilung von Wortstammen (Tokens) des Textkorpus (mit dem es trainiert wurde). Die Aufgabe des LLM ist es, gegeben einen Input (Prompt) eine oder mehrere wahrscheinliche Vervollständigungen zu erzeugen. Wenn nun im Textkorpus Programmcode vorkam, wird das LLM syntaktisch korrekten Code zu generieren. Das LLM hat jedoch keine Möglichkeit, diesen Code auszuführen, auf Korrektheit zu überprüfen, oder überhaupt herauszufinden, ob der Code sinnvoll ist.
+Das LLM hat  im wesentlichen die Verteilung von Wortstämmen (Tokens) des Textkorpus (mit dem es trainiert wurde) gelernt. Die Aufgabe des LLM ist es, gegeben einen Input (Prompt) eine oder mehrere wahrscheinliche Vervollständigungen zu erzeugen. Wenn nun im Textkorpus Programmcode vorkam, wird das LLM syntaktisch korrekten Code zu generieren. Das LLM hat jedoch keine Möglichkeit, diesen Code auszuführen, auf Korrektheit zu überprüfen, oder überhaupt herauszufinden, ob der Code sinnvoll ist.
 
-ChatGPT kann mitunter hervorragenden Code generieren, aber ob der Code wirklich das macht, was er soll, liegt in der Verantwortung der Benutzer:in. 
+ChatGPT kann mitunter hervorragenden Code generieren, aber ob der Code wirklich das macht, was er soll, liegt in der Verantwortung der Benutzer:in.
 
 > Immer kritisch überprüfen, ob von ChatGPT generierter Code wirklich korrekt ist, und tut was verlangt wird!
 
-
 ### Wie erhalte ich gute Antworten?
 
-Sie können ChatGPT helfen, gute Antworten zu erzeugen, in dem Sie gute Fragen stellen. Dies bedeutet, dass Sie in der Frage (Prompt) möglichst viele Kontextinformationen mitlieferen. Denken Sie daran, dass ChatGPT, gegeben dem Input und den Trainingsdaten, eine möglichst wahrscheinliche Sequenz von Token erzeugt.
-
+Sie können ChatGPT helfen, gute Antworten zu erzeugen, in dem Sie gute Fragen stellen. Dies bedeutet, dass Sie in der Frage (Prompt) möglichst viele Kontextinformationen mitliefern. Denken Sie daran, dass ChatGPT, gegeben dem Input und den Trainingsdaten, eine möglichst wahrscheinliche Sequenz von Token erzeugt.
 
 ## Darf ich ChatGPT benutzen?
 
-Wir gehen davon aus, dass Technologien wie ChatGPT nicht mehr vom modernen Unterricht wegzudenken sind, und es daher sinnvoll und notwendig ist, einen möglichst guten Umgang damit zu erlernen. 
+Wir gehen davon aus, dass Technologien wie ChatGPT nicht mehr vom modernen Unterricht wegzudenken sind, und es daher sinnvoll und notwendig ist, einen möglichst guten Umgang damit zu erlernen.
 
-::: {.callout-caution}
+::: callout-caution
 ChatGPT darf für die Übungen genutzt werden.
 :::
 
@@ -62,22 +59,19 @@ Es ist aus unserer Sicht jedoch sinnvoll, wenn Sie ChatGPT als eine von vielen m
 Aus unserer Sicht ist ChatGPT (und Codex) ein sehr wertvolles Tool. Sie sind jedoch dafür verantwortlich, dass ihr Code ausführbar ist. Dies wird beim Peer-Feedback eines der Kriterien sein. Das Ziel ist primär, dass sie Code verstehen und anwenden können, nicht dass sie Code aus dem Nichts selber schreiben können. Dies ist übrigens auch die Vorgehensweise vieler erfahrener Programmierer - oft wird zuerst mal gegoogelt und im Internet nachgeschaut, ob es schon Lösungsansätze gibt. ChatGPT macht im Prinzip nichts anderes.
 
 ## Kann ChatGPT für mich die Übungen schreiben und Peer-Feedback geben?
+
 Im Prinzip ja, aber Sie würden dabei wahrscheinlich sehr wenig lernen. Den Umgang mit Computern und das Programmieren lernt man, indem man selber Code ausführt, Fehler macht und versucht zu verstehen was der Fehler war. Das Ziel sollte sein, dass Sie jederzeit erklären könnten, was Ihr Code macht, oder wieso Sie ein bestimmtes Feedback gegeben haben. Ohne selber etwas dafür zu tun wird der Lern efolg wahrscheinlich ausbleiben.
-
-
 
 ## Wie kann ich ChatGPT sinnvoll einsetzen?
 
 ChatGPT kann sowohl Code generieren als auch Code evaluieren. Sie können ChatGPT benutzen
 
-- um Vorschläge zu erhalten, wenn Sie nicht weiterkommen.
-- um ein Gerüst für ein Programm zu erstellen.
-- um Code auf Lesbarkeit/Verständlichkeit zu überprüfen.
-- um Code kommentieren zu lassen.
-- um Code zu verstehen/bewerten zu lassen.
+-   um Vorschläge zu erhalten, wenn Sie nicht weiterkommen.
+-   um ein Gerüst für ein Programm zu erstellen.
+-   um Code auf Lesbarkeit/Verständlichkeit zu überprüfen.
+-   um Code kommentieren zu lassen.
+-   um Code zu verstehen/bewerten zu lassen.
 
-::: {.callout-caution}
+::: callout-caution
 Bitte überprüfen Sie aber immer kritisch den Output von ChatGPT, und stellen sie sicher, dass der Code tatsächlich ausgeführt werden kann.
 :::
-
-
