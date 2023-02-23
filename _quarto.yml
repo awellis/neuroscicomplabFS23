@@ -86,7 +86,7 @@ execute:
 callout-icon: true
 callout-tip-caption: "Lösung"
 callout-note-caption: "Vertiefung"
-callout-important-caption: "Übung"
+callout-important-caption: "Hands-on"
 callout-caution-caption: "Hinweis"
 
 editor: 

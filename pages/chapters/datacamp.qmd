@@ -24,7 +24,7 @@ format:
 
 Im Rahmen dieser Lehrveranstaltung können alle Teilnehmende sich bei DataCamp registrieren
 
-DataCamp ist eine Online-Lernplattform, welche sich auf Data Science und Datenanalyse konzentriert. Es bietet interaktive Kurse, Tutorials und Projekte in verschiedenen Programmiersprachen wie Python, R und SQL an. DataCamp Kurse auf unterschiedlichen Niveaus an; sowohl für Anfänger als auch für Fortgeschrittene gibt es ein breites Angebot an Kursen. 
+[DataCamp](https://www.datacamp.com/) ist eine Online-Lernplattform, welche sich auf Data Science und Datenanalyse konzentriert. Es bietet interaktive Kurse, Tutorials und Projekte in verschiedenen Programmiersprachen wie Python, R und SQL an. DataCamp Kurse auf unterschiedlichen Niveaus an; sowohl für Anfänger als auch für Fortgeschrittene gibt es ein breites Angebot an Kursen. 
 
 Sie können Sich unter folgendem Link mit Ihrer Uni Bern E-Mail Adresse (*unibe.ch) registrieren: 
 

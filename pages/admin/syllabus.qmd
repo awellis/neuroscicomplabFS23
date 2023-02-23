@@ -30,7 +30,13 @@ An den 14 Sitzungen werden wir voraussichtlich diese Themen behandeln (kleine Ä
 ```Sitzung 1```
 
 - Wir schauen uns ein paar in den Neurowissenschaften verwendeten Programmiersprachen (Python, R, Matlab) an, und diskutieren ChatGPT. 
-- Praktische Einführung in Python/R.
+- Einführung in DataCamp (für Python/R).
+
+
+::: callout-important
+Auf DataCamp den Python Einführungskurs ausprobieren.
+:::
+
 
 
 ### 2 Experimente mit Python programmieren 
