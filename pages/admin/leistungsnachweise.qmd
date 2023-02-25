@@ -31,9 +31,21 @@ Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Z
 
 Leistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben -- davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von __Peer-Feedback__; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung. 
 
-Die Übungen werden in den entsprechen Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks. 
+Die Übungen werden in den entsprechenden Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks. Grundsätzliche Guidelines finden Sie untenstehend.
+
 
 ILIAS (Montag) 👉 [468703-FS2023-1](https://ilias.unibe.ch/goto_ilias3_unibe_crs_2643783.html#il_mhead_t_focus)
 
 ILIAS (Donnerstag) 👉 [468703-FS2023-0](https://ilias.unibe.ch/goto_ilias3_unibe_crs_2643782.html#il_mhead_t_focus)
 
+## Peer Feedback Guidelines
+
+Um als Neurowissenschaftler:In Forschungserkenntnisse zu veröffentlichen, werden diese als wissenschaftliche Artikel bei einer Fachzeitschrift eingereicht. Daraufhin werden Forschende aus denselben/ähnlichen Forschungsgebieten aufgefordert, den Artikel zu begutachten. In diesem Kurs wählen wir für das Feedback zu den Übungen dieses Prinzip des *peer review*. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. *Was würde die Grafik informativer machen?*. Wir bitten Sie, beim Verfassen des Peer Feedbacks folgende grundsätzliche Richtlinien zu beachten:
+
+- **be kind**: Seien Sie freundlich. Wählen Sie ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv auffällt und unbedingt beibehalten werden sollte.
+
+- **be helpful**: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie einen Lösungsansatz oder -vorschlag hinzu (statt z.B. *"die Farben sind nicht geeignet für farbenblinde Personen"* könnten Sie schreiben *"die [`viridis` Palette](https://cran.r-project.org/web/packages/viridis/index.html) würde die Grafik für farbenblinde Personen zugänglich machen"*).
+
+- **be specific**: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. *"Code läuft nicht"* könnten Sie schreiben *"in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, ..."*)
+
+Diese Punkte einzuhalten benötigt etwas Zeit. Deshalb planen Sie sich bitte ca. 1 Lektion für das jeweilige Peer Feedback ein.

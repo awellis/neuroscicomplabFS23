@@ -1,0 +1,243 @@
+---
+title: "PsychoPy Experiment"
+subtitle: "2. Sitzung"
+author: "Andrew Ellis & Gerda Wyssen"
+institute: "Neurowissenschaft Computerlab FS 23"
+format:
+  revealjs:
+    theme: [simple, ../styles/reveal.scss]
+    logo: ../assets/logo.png
+    footer: <a href="/">🏠 Neurowissenschaft im Computerlab FS23</a>
+---
+
+:::: {.columns}
+::: {.column width="35%"}
+::: {.topic-number}
+1
+:::
+:::
+::: {.column width="65%"}
+::: {.topic-text}
+Perceptual decision-making
+:::
+
+:::
+::::
+
+
+## Perceptual decisions {.smaller}
+
+- beruhen auf der Wahrnehmung, Evaluation, Integration von Sinnesempfindungen
+
+- sind oft handlungsrelevant
+
+- neurowissenschaftlich untersucht werden die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren und wie diese mit Verhalten zusammenhängen
+
+- mögliche Fragenstellungen: Gewichtung von Sinnesinformationen bei sensorischen Konflikten oder der Einfluss von Vorwissen auf Entscheidungen
+
+::: callout-important
+- In welchen Situationen treffen wir perzeptuelle Entscheidungen?
+- Wo ist der Einfluss von Vorwissen auf perzeptuelle Entscheidungen alltagsrelevant?
+
+*Diskutieren Sie die Fragen in kleinen Gruppen und finden Sie je 3 Beispiele.*
+:::
+
+---
+
+:::: {.columns}
+::: {.column width="35%"}
+::: {.topic-number}
+2
+:::
+:::
+::: {.column width="65%"}
+::: {.topic-text}
+Random Dot Motion Experiment
+:::
+
+:::
+::::
+
+
+
+## Random-dot motion Experiment I {.smaller}
+
+:::: {.columns}
+::: {.column width="70%"}
+
+- Random-dot motion direction-discrimination task (*Bias in the brain*: Mulder et al., 2012)
+
+- coherence: probability that a dot moves coherent with the motion direction
+
+- bias: *cue* before random-dot task (left/right/unbiased) or *reward* for a left or right answer (if correct)
+
+- measures: response times and accuracy 
+
+![](../assets/images/bias-payoff-mulder.png)
+
+
+:::
+::: {.column width="30%"}
+
+![](../assets/images/mulder_random_dot_paradigm.JPG)
+
+
+:::
+::::
+
+## Random-dot motion Experiment II {.smaller}
+
+::: callout-important
+Wie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus?
+
+- Bei welcher Bedingung antworten die Personen schneller?
+
+- Wo machen sie mehr Fehler?
+
+*Was denken Sie? Diskutieren Sie die Fragen in kleinen Gruppen ohne im Paper nachzuschauen.*
+:::
+
+![](../assets/images/bias-payoff-mulder.png)
+
+
+## Random-dot motion Experiment III {.smaller}
+
+- **Stimuli**
+
+    + random dots: 3x3 pixels, coherence level: 8%
+
+- **Conditions**
+
+    + 40 bias trials and 40 neutral trials (half of motion to left / other half to the right)
+    
+    + 32 valid (cue correct) and 8 invalid (cue incorrect) trials
+    
+- **Trials and Timing**
+    
+    + Fixation 1 (100/350/800/1200 ms)
+    
+    + Cue (1000 ms)
+    
+    + Fixation 2 (3400/4000/4500/5000 ms)
+    
+    + Dots (1500 ms)
+    
+    + Feedback
+
+---
+
+:::: {.columns}
+::: {.column width="35%"}
+::: {.topic-number}
+3
+:::
+:::
+::: {.column width="65%"}
+::: {.topic-text}
+PsychoPy
+:::
+
+:::
+::::
+
+## PsychoPy {.smaller}
+
+:::: {.columns}
+::: {.column width="35%"}
+- [PsychoPy Website](https://www.psychopy.org/)
+
+- [Ressourcen](https://workshops.psychopy.org/teaching/index.html)
+
+- [Walk-through: Builder](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/psychopy/index.html)
+
+- [Diskussionsforum](https://discourse.psychopy.org/)
+
+- Kapitel: [Verhaltensexperiment mit PsychoPy](../behavioural-experiments.html)
+:::
+::: {.column width="60%"}
+
+![](../assets/images/psychopy-1.png)
+:::
+::::
+
+---
+
+:::: {.columns}
+::: {.column width="35%"}
+::: {.topic-number}
+4
+:::
+:::
+::: {.column width="65%"}
+::: {.topic-text}
+Pavlovia
+:::
+:::
+::::
+
+## Pavlovia {.smaller}
+
+- [Pavlovia](https://pavlovia.org/#main): 
+
+> Pavlovia is a place for the wide community of researchers in the behavioural sciences to run, share, and explore experiments online.
+
+- [Experimente](https://pavlovia.org/explore?sort=DEFAULT) suchen.
+
+- Zum Beispiel [ChoiceRTT](https://pavlovia.org/explore?sort=DEFAULT) ausprobieren und den [Code](https://gitlab.pavlovia.org/demos/choicertt) anschauen.
+
+---
+
+:::: {.columns}
+::: {.column width="35%"}
+::: {.topic-number}
+5
+:::
+:::
+::: {.column width="65%"}
+::: {.topic-text}
+Understanding your Computer
+:::
+
+:::
+::::
+
+## Understanding your Computer {.smaller}
+
+- Refresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.
+
+```
+from psychopy import visual
+
+win = visual.Window()
+win.getActualFrameRate()
+```
+
+- Keyboard timing: Variabilität ~15 ms.
+
+- Screen refresh fängt oben an und endet (~10 ms später) unten.
+
+---
+
+:::: {.columns}
+::: {.column width="35%"}
+::: {.topic-number}
+6
+:::
+:::
+::: {.column width="65%"}
+::: {.topic-text}
+🛠 Selber machen
+:::
+
+:::
+::::
+
+## Probieren Sie es selber! {.smaller}
+
+::: callout-important
+Versuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren
+:::
+
+- Wenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 [Practice Trials](../files/PracticeTrials.zip)
+
+- Eine Einführung finden Sie hier: 👉 [Verhaltensexperiment mit PsychoPy](../behavioural-experiments.html)

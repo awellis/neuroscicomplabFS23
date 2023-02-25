@@ -43,7 +43,7 @@ website:
 
       - section: "Experimente"
         contents:
-          # - pages/admin/02_syllabus.qmd
+          - pages/chapters/psychopy_experiments.qmd
 
       - section: "Data wrangling"
         contents:

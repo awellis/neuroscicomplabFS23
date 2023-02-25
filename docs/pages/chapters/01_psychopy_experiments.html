@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Ellis">
-<meta name="dcterms.date" content="2022-03-01">
-<meta name="description" content="Perzeptuelles Decision-Making Experiment mit PsychoPy.">
+<meta name="author" content="Gerda Wyssen">
+<meta name="description" content="Perceptual Decision-Making Experiment mit PsychoPy.">
 
 <title>Neurowissenschaft Computerlab - Verhaltensexperiment mit PsychoPy</title>
 <style>
@@ -214,8 +214,9 @@ div.csl-indent {
   <li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung">Einleitung</a></li>
   <li><a href="#experiment" id="toc-experiment" class="nav-link" data-scroll-target="#experiment">Experiment</a>
   <ul class="collapse">
+  <li><a href="#ablauf" id="toc-ablauf" class="nav-link" data-scroll-target="#ablauf">Ablauf</a></li>
   <li><a href="#trial" id="toc-trial" class="nav-link" data-scroll-target="#trial">Trial</a></li>
-  <li><a href="#main_blocks_loop" id="toc-main_blocks_loop" class="nav-link" data-scroll-target="#main_blocks_loop">main_blocks_loop</a></li>
+  <li><a href="#die-experimentalschleife-main_blocks_loop" id="toc-die-experimentalschleife-main_blocks_loop" class="nav-link" data-scroll-target="#die-experimentalschleife-main_blocks_loop">Die Experimentalschleife: main_blocks_loop</a></li>
   <li><a href="#daten" id="toc-daten" class="nav-link" data-scroll-target="#daten">Daten</a></li>
   <li><a href="#degrees-of-visual-angle" id="toc-degrees-of-visual-angle" class="nav-link" data-scroll-target="#degrees-of-visual-angle">Degrees of Visual Angle</a></li>
   </ul></li>
@@ -232,16 +233,26 @@ div.csl-indent {
 
 <div>
   <div class="description">
-    Perzeptuelles Decision-Making Experiment mit PsychoPy.
+    Perceptual Decision-Making Experiment mit PsychoPy.
   </div>
 </div>
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Authors</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
     <a href="https://github.com/awellis">Andrew Ellis</a> <a href="https://orcid.org/0000-0002-2788-936X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.kog.psy.unibe.ch">
+            Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern
+            </a>
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    Gerda Wyssen <a href="https://orcid.org/0000-0001-7427-3149" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -255,12 +266,6 @@ div.csl-indent {
 <div class="quarto-title-meta">
 
       
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 1, 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -268,25 +273,64 @@ div.csl-indent {
 
 </header>
 
-<section id="einleitung" class="level1">
+<p>Neurowissenschaftliche Experimente müssen exakt auf die Fragestellung zugeschnitten werden um aussagekräftige Daten zu liefern. Deshalb programmieren die meisten Forschenden ihre Experimentalparadigmen selbst. So können beispielsweise Instruktionen oder verwendete Stimuli, deren Grösse und Anzeigedauer präzise definiert werden. In dieser Sitzung befassen wir uns damit, wie wir Entscheidungsverhalten von Menschen mit einem Experiment neurowissenschaftlich untersuchen können. Hierzu erstellen wir mit PsychoPy ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus <span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span>.</p>
+<section id="einleitung" class="level1 page-columns page-full">
 <h1>Einleitung</h1>
-<p>In dieser Sitzung erstellen wir ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus <span class="citation" data-cites="mulderBiasBrainDiffusion2012a">Mulder et al. (<a href="#ref-mulderBiasBrainDiffusion2012a" role="doc-biblioref">2012</a>)</span>.</p>
-<p>Das Experiment ist eine Reaktionszeit (RT) Version eines Random-dot Motion Direction Discrimination Task, und wurde im Scanner und ausserhalb durchgeführt. Die beiden Version unterscheiden sich ganz stark in ihrem Timing. Wir implementieren hier die Scanner Version des Tasks.</p>
-<p>Bias (Vorwissen) wurde durch einen Hinweisreiz angezeigt, in Form eines Pfeils oder eines neutralen Stimulus. Der Pfeil zeigte die wahrscheinlichere Bewegungsrichtung an. Vor und nach dem Cue wurde ein Fixationskreuz gezeigt. Alle weiteren Parameter können Sie dem Paper entnehmen <span class="citation" data-cites="mulderBiasBrainDiffusion2012a">(<a href="#ref-mulderBiasBrainDiffusion2012a" role="doc-biblioref">Mulder et al. 2012</a>)</span>.</p>
+<p>Jeden Tag treffen wir Tausende von kleinen Entscheidungen, meistens unter gewissem Zeitdruck. Viele davon sind trivial (z. B. welches Paar Socken man anzieht) und automatisch (z. B. ob man die Espresso- oder Lungo-Taste auf der Kaffeemaschine drückt). Die meisten Entscheidungen im wirklichen Leben setzen sich eigentlich aus zwei Entscheidungen zusammen: Einerseits der Entscheidung, mit dem Abwägen aufzuhören und aufgrund des aktuellen Wissenstandes zu handeln. Andererseits die Wahl oder Entscheidungshandlung selbst. Wenn Sie ein Experiment durchführen müssen Sie beispielsweise Daten sammeln, und dann entscheiden, wann die Datenerfassung beendet, mit der Analyse begonnen und eine Schlussfolgerung gezogen wird. Dieser sequentielle Charakter der Entscheidungsfindung ist eine grundlegende Eigenschaft des menschlichen Nervensystems und spiegelt seine Unfähigkeit wider, Informationen sofort zu verarbeiten.</p>
+<p><em>Perzeptuelle Entscheidungen</em> sind Entscheidungen, welche auf der Wahrnehmung von Sinnesreizen beruhen. Um beispielsweise eine Strasse sicher überqueren zu können, müssen wir mittels den Sinnesinformationen der Augen und Ohren sowie der Verarbeitung dieser Reize einschätzen mit welcher Geschwindigkeit ein herannahendes Auto unterwegs ist und ob wir lieber abwarten bis es vorbeigefahren ist. Innerhalb der Neurowissenschaften wird <em>perceptual decision making</em> untersucht, um die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren zu verstehen und mit beobachtbarem Verhalten in Verbindung zu bringen. Von Interesse ist zum Beispiel wie die Entscheidung ausfällt, wenn die sensorischen Daten undeutlich oder sogar widersprüchlich sind. Besonders spannend ist auch wie Vorwissen (<em>prior knowledge</em>) auf das Entscheidungsverhalten einwirkt.</p>
+<aside>
+<strong>Perceptual decision making</strong> is the process by which sensory information is used to guide behavior toward the external world. This involves gathering information through the senses, evaluating and integrating it according to the current goals and internal state of the subject, and using it to produce motor responses. In contrast to choice behavior and decision making in general (…) perceptual decision making emphasizes the role of sensory information in directing behavior (…) within neuroscience, the goal is to reveal the computational mechanisms whereby neural circuits encode, store, and analyze perceptual signals; combine them with other behaviorally relevant information; and use them to resolve conflicts between competing motor plans. <span class="citation" data-cites="jaeger_perceptual_2014">Hauser and Salinas (<a href="#ref-jaeger_perceptual_2014" role="doc-biblioref">2014</a>)</span>
+</aside>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hands-on
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In welchen Situationen treffen wir perzeptuelle Entscheidungen?</p>
+<p>Wo ist der Einfluss von Vorwissen auf perzeptuelle Entscheidungen relevant?</p>
+<p><strong>Diskutieren Sie 5 Minuten in kleinen Gruppen die beiden Fragen und finden Sie je 3 Beispiele.</strong></p>
+</div>
+</div>
+<p>Obwohl das Treffen von Entscheidungen für uns etwas sehr Vertrautes ist, ist das Wissen darum, wie das Gehirn diese Entscheidungsaufgaben löst noch sehr begrenzt. Eine einzelne Entscheidung kann schon sehr komplex sein. Um die Dynamik der Entscheidungsfindung zu verstehen, konzentrieren sich die meisten Studien deshalb auf einfache, wiederholbare Wahlprobleme mit nur zwei (binären) Antwortmöglichkeiten. Ein typisches Paradigma in neurowissenschaftlichen Studien ist das <em>random-dot motion paradigm.</em></p>
 </section>
 <section id="experiment" class="level1 page-columns page-full">
 <h1>Experiment</h1>
-<p>Das Experiment besteht aus Anweisungen, einigen Versuchsblöcken und einer Nachbesprechung. Die Anweisungen und die Nachbesprechung sind einfache Bildschirme mit Text, während die Versuche (und die Versuchsblöcke) etwas komplizierter sind.</p>
-<section id="trial" class="level2">
+<p>Das Experiment ist eine Reaktionszeit (RT) Version eines Random-dot Motion Direction Discrimination Task. In diesem Paradigma sieht die Versuchsperson sich bewegende Punkte, die sich in unterschiedliche Richtungen bewegen. Bei einem Kohärenzniveau von 80% bewegen sich 80% der Punkte in dieselbe Richtung. Die Aufgabenschwierigkeit steigt je tiefer das Kohärenzniveau ist.</p>
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../../assets/images/mulder_random_dot_paradigm.JPG" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Random-dot paradigm (Mulder et al.&nbsp;2012)</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Das Vorwissen (bias) wird durch einen Hinweisreiz (cue) in Form eines Pfeils oder eines neutralen Stimulus operationalisiert. Der Pfeil zeigt die wahrscheinlichere Bewegungsrichtung an. Vor und nach dem Cue wird ein Fixationskreuz gezeigt. Alle weiteren Parameter können Sie dem Paper entnehmen <span class="citation" data-cites="mulder_bias_2012">(<a href="#ref-mulder_bias_2012" role="doc-biblioref">Mulder et al. 2012</a>)</span>.</p>
+<section id="ablauf" class="level2">
+<h2 class="anchored" data-anchor-id="ablauf">Ablauf</h2>
+<p>Das Experiment besteht aus der Instruktion, mehreren Versuchsblöcken und der Nachbesprechung. Die Anweisungen und die Nachbesprechung sind Textanzeigen, während die Versuche (und die Versuchsblöcke) etwas komplizierter sind.</p>
+</section>
+<section id="trial" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="trial">Trial</h2>
 <p>Zunächst wird ein Fixationskreuz entweder für 100 ms, 350 ms, 800 ms oder 1200 ms angezeigt. Die tatsächliche Dauer wird für jeden Versuch randomisiert. Eine solche Randomisierung kann nicht über die Benutzeroberfläche vorgenommen werden, sondern erfordert ein kleines Stück Python-Code. Sehen Sie sich den Codeblock der Routine <em>Fixation_pre_cue</em> an, um zu erfahren, wie dies erreicht werden kann.</p>
-<p>Anschließend wird für 1000 ms ein Hinweis präsentiert. Dabei kann es sich entweder um einen Pfeil handeln, der nach rechts zeigt, einen Pfeil, der nach links zeigt, oder einen einfachen Kreis (für die Kontrollbedingung). Der Codeblock in der <em>Cue</em>-Routine legt den tatsächlichen Hinweis für jeden Versuch auf der Grundlage der Schleifenvariablen <strong>cue</strong> fest.</p>
-<p>Nach dem Cue wird ein weiteres Fixationskreuz präsentiert - dieses Mal für entweder 3400ms, 4000ms, 4500ms oder 5000ms. Wie beim ersten Fixationskreuz wird die tatsächliche Dauer zufällig gewählt.</p>
+<aside>
+Das Experiment wurde im Scanner und ausserhalb durchgeführt. Die beiden Version unterscheiden sich ganz stark in ihrem Timing. Wir implementieren hier die Scanner Version des Tasks.
+</aside>
+<p>Anschließend wird für 1000 ms ein Hinweis (cue) präsentiert. Dabei kann es sich entweder um einen Pfeil handeln, der nach rechts zeigt, einen Pfeil, der nach links zeigt, oder einen einfachen Kreis (für die Kontrollbedingung). Der Codeblock in der <em>Cue</em>-Routine legt den tatsächlichen Hinweis für jeden Versuch auf der Grundlage der Schleifenvariablen <strong>cue</strong> fest.</p>
+<p>Nach dem Cue wird ein weiteres Fixationskreuz präsentiert - dieses Mal für entweder 3400 ms, 4000 ms, 4500 ms oder 5000 ms. Wie beim ersten Fixationskreuz wird die tatsächliche Dauer zufällig gewählt.</p>
 <p>Nach dem zweiten Fixationskreuz wird für 1500 ms der eigentliche Stimulus angezeigt: ein <em>random dot kinematogram</em> (RDK). Die Punkte bewegen sich entweder nach rechts oder nach links mit einem Kohärenzniveau von 8%. Die Bewegungsrichtung eines einzelnen Versuchs wird durch die Schleifenvariable <strong>direction</strong> bestimmt und im Codeblock der Routine <em>Dots</em> festgelegt. Die Teilnehmer müssen entscheiden, welche Richtung sie wahrnehmen, und können ihre Antwort durch Drücken der linken oder rechten Pfeiltaste auf der Tastatur eingeben.</p>
 <p>Schließlich wird ein Feedback-Bildschirm angezeigt. Wenn der Teilnehmer innerhalb der ersten 100 ms geantwortet hat, wird der Hinweis “zu schnell” angezeigt. Wurde während des gesamten Stimulus keine Antwort erfasst, wird das Wort “miss” angezeigt. War die Antwort richtig, wird “+5 Punkte” angezeigt, war sie falsch, wird “+0 Punkte*” angezeigt.</p>
 </section>
-<section id="main_blocks_loop" class="level2">
-<h2 class="anchored" data-anchor-id="main_blocks_loop">main_blocks_loop</h2>
+<section id="die-experimentalschleife-main_blocks_loop" class="level2">
+<h2 class="anchored" data-anchor-id="die-experimentalschleife-main_blocks_loop">Die Experimentalschleife: main_blocks_loop</h2>
 <p>Mit <em>loops</em> in PsychoPy haben wir die Möglichkeit, eine oder mehrere Routinen zu wiederholen. In diesem Experiment wird dies genutzt, um denselben Versuch (wie oben beschrieben) mehrfach zu zeigen, aber jedes Mal mit anderen Werten für die <em>loop variables</em>. Eine Schleife wiederholt also einen Versuch einige Male, wobei die Schleifenvariablen bei jeder Wiederholung geändert werden. Der Versuch selbst wiederum liest diese Schleifenvariablen aus, um z.B. zu wissen, ob sich die Punkte nach rechts oder nach links bewegen sollen. Hier wird nur die <em>main_blocks_loop</em> erklärt, aber das Prinzip gilt auch für die <em>practice_block_loop</em>.</p>
 <p>Um die verschiedenen Werte für die Schleifenvariablen zu definieren, müssen wir eine einfache CSV-Datei erstellen:</p>
 <pre class="csv"><code>cue,direction
@@ -317,19 +361,21 @@ none,right
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
-<div id="ref-mulderBiasBrainDiffusion2012a" class="csl-entry" role="doc-biblioentry">
-Mulder, M. J., E.-J. Wagenmakers, R. Ratcliff, W. Boekel, and B. U. Forstmann. 2012. <span>“Bias in the <span>Brain</span>: <span>A Diffusion Model Analysis</span> of <span>Prior Probability</span> and <span>Potential Payoff</span>.”</span> <em>Journal of Neuroscience</em> 32 (7): 2335–43. <a href="https://doi.org/10.1523/JNEUROSCI.4156-11.2012">https://doi.org/10.1523/JNEUROSCI.4156-11.2012</a>.
+<div id="ref-jaeger_perceptual_2014" class="csl-entry" role="doc-biblioentry">
+Hauser, Christopher K., and Emilio Salinas. 2014. <span>“Perceptual <span>Decision</span> <span>Making</span>.”</span> In <em>Encyclopedia of <span>Computational</span> <span>Neuroscience</span></em>, edited by Dieter Jaeger and Ranu Jung, 1–21. New York, NY: Springer New York. <a href="https://doi.org/10.1007/978-1-4614-7320-6_317-1">https://doi.org/10.1007/978-1-4614-7320-6_317-1</a>.
 </div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
-  author = {Andrew Ellis},
+<div id="ref-mulder_bias_2012" class="csl-entry" role="doc-biblioentry">
+Mulder, M. J., E.-J. Wagenmakers, R. Ratcliff, W. Boekel, and B. U. Forstmann. 2012. <span>“Bias in the <span>Brain</span>: <span>A</span> <span>Diffusion</span> <span>Model</span> <span>Analysis</span> of <span>Prior</span> <span>Probability</span> and <span>Potential</span> <span>Payoff</span>.”</span> <em>Journal of Neuroscience</em> 32 (7): 2335–43. <a href="https://doi.org/10.1523/JNEUROSCI.4156-11.2012">https://doi.org/10.1523/JNEUROSCI.4156-11.2012</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
+  author = {Andrew Ellis and Gerda Wyssen},
   title = {Verhaltensexperiment Mit {PsychoPy}},
-  date = {2022-03-01},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//01_psychopy_experiments.html},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/01_psychopy_experiments.html},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Andrew Ellis. 2022. <span>“Verhaltensexperiment Mit PsychoPy.”</span>
-March 1, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//01_psychopy_experiments.html">https://kogpsy.github.io/neuroscicomplabFS23//01_psychopy_experiments.html</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“Verhaltensexperiment Mit
+PsychoPy.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/01_psychopy_experiments.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/01_psychopy_experiments.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
