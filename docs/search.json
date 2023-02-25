@@ -369,5 +369,89 @@
     "title": "Leistungskontrollen",
     "section": "Peer Feedback Guidelines",
     "text": "Peer Feedback Guidelines\nUm als Neurowissenschaftler:In Forschungserkenntnisse publizieren zu können werden diese bei wissenschaftlichen Artikel werden bei einer Fachzeitschrift eingereicht. Daraufhin werden Forschende aus denselben/ähnlichen Forschungsgebieten aufgefordert, den Artikel zu begutachten. In diesem Kurs wählen wir für das Feedback dieses Prinzip des peer review. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. Was würde die Grafik informativer machen?. Wir bitten Sie, beim Verfassen des Peer Feedbacks folgende grundsätzliche Richtlinien zu beachten:\n\nbe kind: Seien Sie freundlich. Wählen Sie ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv auffällt und unbedingt beibehalten werden sollte.\nbe helpful: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie einen Lösungsansatz oder -vorschlag hinzu (statt z.B. “die Farben sind nicht geeignet für farbenblinde Personen” könnten Sie schreiben “die viridis Palette würde die Grafik für farbenblinde Personen zugänglich machen”).\nbe specific: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. “Code läuft nicht” könnten Sie schreiben “in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, …”)\n\nDiese Punkte einzuhalten benötigt etwas Zeit. Deshalb planen Sie sich bitte ca. 1 Lektion für das jeweilige Peer Feedback ein."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#perceptual-decisions",
+    "href": "slides/02_psychopy_gw.html#perceptual-decisions",
+    "title": "PsychoPy Experiment",
+    "section": "Perceptual decisions",
+    "text": "Perceptual decisions\n\nberuhen auf der Wahrnehmung, Evaluation, Integration von Sinnesempfindungen\nsind oft handlungsrelevant\nneurowissenschaftlich untersucht werden die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren und wie diese mit Verhalten zusammenhängen\nmögliche Fragenstellungen: Gewichtung von Sinnesinformationen bei sensorischen Konflikten oder der Einfluss von Vorwissen auf Entscheidungen\n\n\n\n\n\n\n\nHands-on\n\n\n\nIn welchen Situationen treffen wir perzeptuelle Entscheidungen?\nWo ist der Einfluss von Vorwissen auf perzeptuelle Entscheidungen alltagsrelevant?\n\nDiskutieren Sie die Fragen in kleinen Gruppen und finden Sie je 3 Beispiele."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#bias-rdk-experiment",
+    "href": "slides/02_psychopy_gw.html#bias-rdk-experiment",
+    "title": "PsychoPy Experiment",
+    "section": "Bias RDK Experiment",
+    "text": "Bias RDK Experiment\n\n\n\nRandom-dot motion direction-discrimination task\nInside/outside scanner (timing)\nBias: cue (probability left/right/unbiased)\nFixation cross\nRDK: 3x3 pixels, coherence\n40 bias trials, 40 neutral trials\n32 valid, 8 invalid trials"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#psychopy",
+    "href": "slides/02_psychopy_gw.html#psychopy",
+    "title": "PsychoPy Experiment",
+    "section": "PsychoPy",
+    "text": "PsychoPy\n\n\n\nPsychoPy Website\nRessourcen\nWalk-through: Builder\nDiskussionsforum\nKapitel: Verhaltensexperiment mit PsychoPy"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#pavlovia",
+    "href": "slides/02_psychopy_gw.html#pavlovia",
+    "title": "PsychoPy Experiment",
+    "section": "Pavlovia",
+    "text": "Pavlovia\n\nPavlovia:\n\n\nPavlovia is a place for the wide community of researchers in the behavioural sciences to run, share, and explore experiments online.\n\n\nExperimente suchen.\nZum Beispiel ChoiceRTT ausprobieren und den Code anschauen."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#understanding-your-computer",
+    "href": "slides/02_psychopy_gw.html#understanding-your-computer",
+    "title": "PsychoPy Experiment",
+    "section": "Understanding your Computer",
+    "text": "Understanding your Computer\n\nRefresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.\n\nfrom psychopy import visual\n\nwin = visual.Window()\nwin.getActualFrameRate()\n\nKeyboard timing: Variabilität ~15 ms.\nScreen refresh fängt oben an und endet (~10 ms später) unten."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
+    "href": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
+    "title": "PsychoPy Experiment",
+    "section": "Probieren Sie es selber!",
+    "text": "Probieren Sie es selber!\n\n\n\n\n\n\nHands-on\n\n\nVersuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren\n\n\n\n\nWenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 Practice Trials\nEine Einführung finden Sie hier: 👉 Verhaltensexperiment mit PsychoPy\n\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment",
+    "text": "Random-dot motion Experiment\n\n\n\nRandom-dot motion direction-discrimination task\nInside/outside scanner (timing)\nBias: cue (probability left/right/unbiased)\nFixation cross\nRDK: 3x3 pixels, coherence\n40 bias trials, 40 neutral trials\n32 valid, 8 invalid trials"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-i",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-i",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment I",
+    "text": "Random-dot motion Experiment I\n\n\n\nRandom-dot motion direction-discrimination task (Bias in the brain: Mulder et al., 2012)\ncoherence: probability that a dot moves coherent with the motion direction\nbias: cue before random-dot task (left/right/unbiased) or reward for a left or right answer (if correct)\nmeasures: response times and accuracy"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-i-1",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-i-1",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment I",
+    "text": "Random-dot motion Experiment I\n\n\n\nRandom-dot motion direction-discrimination task\nInside/outside scanner (timing)\nBias: cue (probability left/right/unbiased)\nFixation cross\nRDK: 3x3 pixels, coherence\n40 bias trials, 40 neutral trials\n32 valid, 8 invalid trials\n\n\nhandson"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-ii",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-ii",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment II",
+    "text": "Random-dot motion Experiment II\n\n\n\n\n\n\nHands-on\n\n\nWie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus?\n\nBei welcher Bedingung antworten die Personen schneller?\nWo machen sie mehr Fehler?\n\nWas denken Sie? Diskutieren Sie die Fragen in kleinen Gruppen ohne im Paper nachzuschauen."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iii",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iii",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment III",
+    "text": "Random-dot motion Experiment III\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iii-1",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iii-1",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment III",
+    "text": "Random-dot motion Experiment III\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback"
   }
 ]
