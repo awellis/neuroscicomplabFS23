@@ -44,7 +44,7 @@ Um als Neurowissenschaftler:In Forschungserkenntnisse zu veröffentlichen, werde
 
 - **be kind**: Seien Sie freundlich. Wählen Sie ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv auffällt und unbedingt beibehalten werden sollte.
 
-- **be helpful**: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie einen Lösungsansatz oder -vorschlag hinzu (statt z.B. *"die Farben sind nicht geeignet für farbenblinde Personen"* könnten Sie schreiben *"die [`viridis` Palette](https://cran.r-project.org/web/packages/viridis/index.html) würde die Grafik für farbenblinde Personen zugänglich machen"*).
+- **be helpful**: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie einen Lösungsansatz oder -vorschlag hinzu (statt z.B. *"die Farben sind nicht geeignet für farbenblinde Personen"* könnten Sie schreiben *"die [`viridis`](https://sjmgarnier.github.io/viridis/) Palette würde die Grafik für farbenblinde Personen zugänglich machen"*).
 
 - **be specific**: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. *"Code läuft nicht"* könnten Sie schreiben *"in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, ..."*)
 
