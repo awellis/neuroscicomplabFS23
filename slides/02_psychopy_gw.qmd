@@ -69,7 +69,7 @@ Random Dot Motion Experiment
 
 - coherence: probability that a dot moves coherent with the motion direction
 
-- bias: *cue* before random-dot task (left/right/unbiased) or *reward* for a left or right answer (if correct)
+- bias: *prior probabity cue* before random-dot task (left/right/unbiased) or *reward cue* for a left or right answer (if correct)
 
 - measures: response times and accuracy 
 
@@ -101,6 +101,11 @@ Wie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus?
 
 
 ## Random-dot motion Experiment III {.smaller}
+
+![](../assets/images/BOLD-starting-point.png)
+
+
+## Random-dot motion Experiment IV {.smaller}
 
 - **Stimuli**
 

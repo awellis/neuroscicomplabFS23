@@ -40,12 +40,14 @@ ILIAS (Donnerstag) 👉 [468703-FS2023-0](https://ilias.unibe.ch/goto_ilias3_uni
 
 ## Peer Feedback Guidelines
 
-Um als Neurowissenschaftler:In Forschungserkenntnisse zu veröffentlichen, werden diese als wissenschaftliche Artikel bei einer Fachzeitschrift eingereicht. Daraufhin werden Forschende aus denselben/ähnlichen Forschungsgebieten aufgefordert, den Artikel zu begutachten. In diesem Kurs wählen wir für das Feedback zu den Übungen dieses Prinzip des *peer review*. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. *Was würde die Grafik informativer machen?*. Wir bitten Sie, beim Verfassen des Peer Feedbacks folgende grundsätzliche Richtlinien zu beachten:
+Wissenschaftliche Artikel werden von Forschenden aus denselben/ähnlichen Forschungsgebieten begutachtet. In diesem Kurs wählen wir für das Feedback zu den Übungen ebenfalls dieses Prinzip des *peer review*. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. *Was würde die Grafik informativer machen?*. Wir bitten Sie, beim Verfassen des Peer Feedbacks folgende grundsätzlichen Richtlinien zu beachten:
 
-- **be kind**: Seien Sie freundlich. Wählen Sie ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv auffällt und unbedingt beibehalten werden sollte.
-
-- **be helpful**: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie einen Lösungsansatz oder -vorschlag hinzu (statt z.B. *"die Farben sind nicht geeignet für farbenblinde Personen"* könnten Sie schreiben *"die [`viridis`](https://sjmgarnier.github.io/viridis/) Palette würde die Grafik für farbenblinde Personen zugänglich machen"*).
+- **be kind**: Seien Sie freundlich. Wählen Sie Ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv aufgefallen ist und unbedingt beibehalten werden sollte.
 
 - **be specific**: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. *"Code läuft nicht"* könnten Sie schreiben *"in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, ..."*)
+
+- **be helpful**: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie bestenfalls einen Lösungsansatz oder -vorschlag hinzu (statt z.B. *"die Farben sind nicht geeignet für farbenblinde Personen"* könnten Sie schreiben *"die [`viridis`](https://sjmgarnier.github.io/viridis/) Palette würde die Grafik für farbenblinde Personen zugänglich machen"*).
+
+
 
 Diese Punkte einzuhalten benötigt etwas Zeit. Deshalb planen Sie sich bitte ca. 1 Lektion für das jeweilige Peer Feedback ein.
