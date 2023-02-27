@@ -1,0 +1,359 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Neurowissenschaft Computerlab",
+    "section": "",
+    "text": "Frühjahrssemester 2023"
+  },
+  {
+    "objectID": "pages/admin/01_overview.html",
+    "href": "pages/admin/01_overview.html",
+    "title": "Übersicht",
+    "section": "",
+    "text": "In diesem Kurs beschäftigen wir uns im weiteren Sinne mit Model-based Cognitive Neuroscience. Dieses Forschungsgebiet existiert noch nicht sehr lange, und ist aus dem Zusammenschluss von mathematischer Modellierung und neurowissenschaftlichen Methoden entstanden.\nWir widmen uns dem behavioralen/kognitiven Teil dieses Forschungsgebiets. Das bedeutet, wir analysieren Daten aus Verhaltensexperimenten — sowohl mit herkömmlichen statistischen Verfahren, als auch mit mathematischen Modellen. Die Resultate dieser Analysen können wiederum in der Analyse bildgebender Verfahren oder EEG benutzt werden.\n\nEs gibt ein sehr gutes Lehrbuch (Forstmann and Wagenmakers 2015) zum Thema Model-based Cognitive Neuroscience; wir werden einzelne Themen daraus aufgreifen. Das Buch ist auf SpringerLink verfügbar: An Introduction to Model-Based Cognitive Neuroscience.\n\nWir werden folgende Themen im Laufe des Semester behandeln:\n\nErstellen von behavioralen Experimenten\nImportieren und Bearbeiten von Daten (z.B. binäre Daten, Reaktionszeiten)\nGraphische Darstellung und explorative Datenanalyse\nAuswahl von statistischen Verfahren\nEinführung in die Bayesianische Datenanalyse\nAnalyse messwiederholter Daten anhand von Multilevel Modellen\nKognitive Prozessmodelle (mathematische Modelle von Entscheidungsverhalten)"
+  },
+  {
+    "objectID": "pages/admin/01_overview.html#experimente",
+    "href": "pages/admin/01_overview.html#experimente",
+    "title": "Übersicht",
+    "section": "Experimente",
+    "text": "Experimente\nUm ein Experiment zu kreieren benutzen wir PsychoPy. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen."
+  },
+  {
+    "objectID": "pages/admin/01_overview.html#datenanalyse",
+    "href": "pages/admin/01_overview.html#datenanalyse",
+    "title": "Übersicht",
+    "section": "Datenanalyse",
+    "text": "Datenanalyse\nUm Daten zu verarbeiten (data cleaning), grafisch darzustellen und zu analysieren werden wir R verwenden. Sie sollten daher die aktuelle Version von R installieren (Version 4.2.2), sowie RStudio.\nR 👉 https://cloud.r-project.org/\nRStudio 👉 https://www.rstudio.com/products/rstudio/download/#download\nFür Bayesianische Datenanalyse verwenden wir ausserdem JASP und Stan. JASP ist ein GUI Programm, ähnlich wie Jamovi, mit dem sich simple Bayesianische Tests durchführen lassen.\nJASP 👉 https://jasp-stats.org/download/\nStan ist eine probabilistische Programmiersprache, welche wir von R aus benutzen. Die dafür benötigte Software werden wir im Verlauf des Semesters installieren."
+  },
+  {
+    "objectID": "pages/admin/03_zulip_forum.html",
+    "href": "pages/admin/03_zulip_forum.html",
+    "title": "Zulip Forum",
+    "section": "",
+    "text": "Wir benutzen in dieser Veranstaltung Zulip als Diskussionforum. Zulip hat einige Vorteile gegenüber ILIAS und Email:\n\nZulip ist besser geeignet, um Code darzustellen.\nWir benutzen dasselbe Forum für die Vormittags- und Nachmittagsveranstaltungen.\nDie Diskussion ist für alle Teilnehmer*innen sichtbar.\nDiskussion kann in Echtzeit (synchron) oder offline (asynchron) stattfinden.\n\nBitte erstellen Sie unter diesem Link einen Account. Sie müssen dafür Ihre Uni Emailadresse verwenden. Account erstellen 👉 zulipchat.com/join/hyuinbg3mtcumccnzt3tpsqb/\n Wenn Sie einen Account erstellt haben, können Sie sich unter folgendem Link einloggen. Zulip Forum 👉 neuroscicomplab2022.zulipchat.com\nAusserdem ist Zulip als Desktop oder Mobile App für alle gängigen Betriebssysteme erhältlich. Apps 👉 zulip.com/apps\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis,\n  author = {Andrew Ellis},\n  title = {Zulip {Forum}},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//03_zulip_forum.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nAndrew Ellis. n.d. “Zulip Forum.” https://kogpsy.github.io/neuroscicomplabFS23//03_zulip_forum.html."
+  },
+  {
+    "objectID": "pages/admin/dozierende.html",
+    "href": "pages/admin/dozierende.html",
+    "title": "Dozierende",
+    "section": "",
+    "text": "Andrew ist Data Scientist an der Berner Fachhochschule und Wissenschaftlicher Mitarbeiter an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre der Uni Bern. An der BFH beschäftigt er sich hauptsächlich mit der Verwendung künstlicher Intelligenz in der Lehre, und versucht ein intelligentes Tutoring-System zu entwickeln.\n📬 Email: andrew.ellis@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/dr_ellis_andrew"
+  },
+  {
+    "objectID": "pages/admin/dozierende.html#gerda-wyssen",
+    "href": "pages/admin/dozierende.html#gerda-wyssen",
+    "title": "Dozierende",
+    "section": "Gerda Wyssen",
+    "text": "Gerda Wyssen\nGerda arbeitet an ihrer Dissertation an der Abteilung Kognitive Psychologie, Wahrnehmung und Methodenlehre. Sie untersucht den Einfluss von Gleichgewichts- und Bewegungsinformationen auf räumliches Denken. Hierzu nutzt sie die Moog Bewegungsplattform oder das starke Magnetfeld eines 7T MRI Scanners. Besonders faszinierend findet sie Bewegungsillusionen.\n📬 Email: gerda.wyssen@unibe.ch\n🔗 Website: www.kog.psy.unibe.ch/ueber_uns/personen/m_sc_wyssen_gerda"
+  },
+  {
+    "objectID": "pages/admin/leistungsnachweise.html",
+    "href": "pages/admin/leistungsnachweise.html",
+    "title": "Leistungskontrollen",
+    "section": "",
+    "text": "Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Hands-on Sessions gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren."
+  },
+  {
+    "objectID": "pages/admin/leistungsnachweise.html#leistungsnachweise",
+    "href": "pages/admin/leistungsnachweise.html#leistungsnachweise",
+    "title": "Leistungskontrollen",
+    "section": "Leistungsnachweise",
+    "text": "Leistungsnachweise\nLeistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von Peer-Feedback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung.\nDie Übungen werden in den entsprechenden Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks. Grundsätzliche Guidelines finden Sie untenstehend.\nILIAS (Montag) 👉 468703-FS2023-1\nILIAS (Donnerstag) 👉 468703-FS2023-0"
+  },
+  {
+    "objectID": "pages/admin/leistungsnachweise.html#peer-feedback-guidelines",
+    "href": "pages/admin/leistungsnachweise.html#peer-feedback-guidelines",
+    "title": "Leistungskontrollen",
+    "section": "Peer Feedback Guidelines",
+    "text": "Peer Feedback Guidelines\nUm als Neurowissenschaftler:In Forschungserkenntnisse zu veröffentlichen, werden diese als wissenschaftliche Artikel bei einer Fachzeitschrift eingereicht. Daraufhin werden Forschende aus denselben/ähnlichen Forschungsgebieten aufgefordert, den Artikel zu begutachten. In diesem Kurs wählen wir für das Feedback zu den Übungen dieses Prinzip des peer review. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. Was würde die Grafik informativer machen?. Wir bitten Sie, beim Verfassen des Peer Feedbacks folgende grundsätzliche Richtlinien zu beachten:\n\nbe kind: Seien Sie freundlich. Wählen Sie ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv auffällt und unbedingt beibehalten werden sollte.\nbe helpful: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie einen Lösungsansatz oder -vorschlag hinzu (statt z.B. “die Farben sind nicht geeignet für farbenblinde Personen” könnten Sie schreiben “die viridis Palette würde die Grafik für farbenblinde Personen zugänglich machen”).\nbe specific: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. “Code läuft nicht” könnten Sie schreiben “in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, …”)\n\nDiese Punkte einzuhalten benötigt etwas Zeit. Deshalb planen Sie sich bitte ca. 1 Lektion für das jeweilige Peer Feedback ein."
+  },
+  {
+    "objectID": "pages/admin/syllabus.html",
+    "href": "pages/admin/syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Sitzungen\nAn den 14 Sitzungen werden wir voraussichtlich diese Themen behandeln (kleine Änderungen vorbehalten).\n\n1 Einführung\nSitzung 1\n\nWir schauen uns ein paar in den Neurowissenschaften verwendeten Programmiersprachen (Python, R, Matlab) an, und diskutieren ChatGPT.\nEinführung in DataCamp (für Python/R).\n\n\n\n\n\n\n\nHands-on\n\n\n\nAuf DataCamp den Python Einführungskurs ausprobieren.\n\n\n\n\n2 Experimente mit Python programmieren\nSitzungen 2 und 3\n\nWir erstellen selber ein Experiment mit Python und PsychoPy.\n\n\n\n3 Data Wrangling\nSitzungen 4 und 5\n\nWir schauen uns an, wie wir mit R die Daten aus unserem selber programmierten Experiment einlesen und bearbeiten können, um damit statistische Analysen durchzuführen.\n\n\n\n4 Visualisieren\nSitzung 6\n\nExplorative Datenanalyse und grafische Darstellung mit mit R package ggplot2.\n\n\n\n5 Signal Detection Theory\nSitzungen 7 und 8\n\nWir verwenden ein in den Neurowissenschaften und der Psychologie beliebtes Modell für kategoriale oder ordinale Verhaltensdaten, um Daten aus unserem Experiment zu analysieren.\n\n\n\n6 Reaktionszeiten\nSitzungen 9 und 10\n\nIn diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an.\n\n\n\n7 Bayesianische Datenanalyse\nSitzungen 11, 12, 13, und 14\n\nIm letzten Thema geht es um einen modernen Ansatz in der Statistik, welcher auf den Axiomen der Wahrscheinlichkeitstheorie beruht, und einige Vorteile gegenüber der herkömmlichen (frequentistischen) Statistik bietet. Wir werden hier mit dem Programm Jasp arbeiten.\n\n\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/"
+  },
+  {
+    "objectID": "pages/chapters/chatgpt.html",
+    "href": "pages/chapters/chatgpt.html",
+    "title": "ChatGPT",
+    "section": "",
+    "text": "Eventuell haben Sie in den letzten Wochen von ChatGPT gehört, vielleicht schon selber benutzt. Sowohl an Hochschulen als auch an Gymnasien stellt sich die brennende Frage, wie Lehrpersonen und Studierende/Schüler damit umgehen sollen. Darf man ChatGPT benutzen? Werden die abgegeben Übungen darauf untersucht, ob sie mit Hilfe künstlicher Intelligenz generiert wurden.\nWir versuchen hier, unsere Haltung in Bezug auf ChatGPT bekanntzugeben, und zu erklären, was ChatGPT kann, und wo es hilfreich sein könnte.\n\n\n\n\nChatGPT benutzt das Codex Modell von OpenAI, welches auf Programmiersprachen spezialisiert ist. Vor allem Python, aber auch R (und Matlab) Code spricht ChatGPT hervorragend.\n\n\n\nNein. ChatGPT besteht aus verschiedenen Komponent. Eines davon ist ein large language model (LLM), die weiteren Komponenten braucht es, um einen Chatbot zu kreieren, welcher menschenähnliche Konversationen führen kann.\nDas LLM hat im wesentlichen die Verteilung von Wortstämmen (Tokens) des Textkorpus (mit dem es trainiert wurde) gelernt. Die Aufgabe des LLM ist es, gegeben einen Input (Prompt) eine oder mehrere wahrscheinliche Vervollständigungen zu erzeugen. Wenn nun im Textkorpus Programmcode vorkam, wird das LLM syntaktisch korrekten Code zu generieren. Das LLM hat jedoch keine Möglichkeit, diesen Code auszuführen, auf Korrektheit zu überprüfen, oder überhaupt herauszufinden, ob der Code sinnvoll ist.\nChatGPT kann mitunter hervorragenden Code generieren, aber ob der Code wirklich das macht, was er soll, liegt in der Verantwortung der Benutzer:in.\n\nImmer kritisch überprüfen, ob von ChatGPT generierter Code wirklich korrekt ist, und tut was verlangt wird!\n\n\n\n\nSie können ChatGPT helfen, gute Antworten zu erzeugen, in dem Sie gute Fragen stellen. Dies bedeutet, dass Sie in der Frage (Prompt) möglichst viele Kontextinformationen mitliefern. Denken Sie daran, dass ChatGPT, gegeben dem Input und den Trainingsdaten, eine möglichst wahrscheinliche Sequenz von Token erzeugt.\n\n\n\n\nWir gehen davon aus, dass Technologien wie ChatGPT nicht mehr vom modernen Unterricht wegzudenken sind, und es daher sinnvoll und notwendig ist, einen möglichst guten Umgang damit zu erlernen.\n\n\n\n\n\n\nHinweis\n\n\n\nChatGPT darf für die Übungen genutzt werden.\n\n\nEs ist aus unserer Sicht jedoch sinnvoll, wenn Sie ChatGPT als eine von vielen möglichen Quellen benutzen (wie z.B. Google, Stackoverflow), und diese auch als solche transparent angeben.\nAus unserer Sicht ist ChatGPT (und Codex) ein sehr wertvolles Tool. Sie sind jedoch dafür verantwortlich, dass ihr Code ausführbar ist. Dies wird beim Peer-Feedback eines der Kriterien sein. Das Ziel ist primär, dass sie Code verstehen und anwenden können, nicht dass sie Code aus dem Nichts selber schreiben können. Dies ist übrigens auch die Vorgehensweise vieler erfahrener Programmierer - oft wird zuerst mal gegoogelt und im Internet nachgeschaut, ob es schon Lösungsansätze gibt. ChatGPT macht im Prinzip nichts anderes.\n\n\n\nIm Prinzip ja, aber Sie würden dabei wahrscheinlich sehr wenig lernen. Den Umgang mit Computern und das Programmieren lernt man, indem man selber Code ausführt, Fehler macht und versucht zu verstehen was der Fehler war. Das Ziel sollte sein, dass Sie jederzeit erklären könnten, was Ihr Code macht, oder wieso Sie ein bestimmtes Feedback gegeben haben. Ohne selber etwas dafür zu tun wird der Lern efolg wahrscheinlich ausbleiben.\n\n\n\nChatGPT kann sowohl Code generieren als auch Code evaluieren. Sie können ChatGPT benutzen\n\num Vorschläge zu erhalten, wenn Sie nicht weiterkommen.\num ein Gerüst für ein Programm zu erstellen.\num Code auf Lesbarkeit/Verständlichkeit zu überprüfen.\num Code kommentieren zu lassen.\num Code zu verstehen/bewerten zu lassen.\n\n\n\n\n\n\n\nHinweis\n\n\n\nBitte überprüfen Sie aber immer kritisch den Output von ChatGPT, und stellen sie sicher, dass der Code tatsächlich ausgeführt werden kann."
+  },
+  {
+    "objectID": "pages/chapters/datacamp.html",
+    "href": "pages/chapters/datacamp.html",
+    "title": "DataCamp",
+    "section": "",
+    "text": "Im Rahmen dieser Lehrveranstaltung können alle Teilnehmende sich bei DataCamp registrieren\nDataCamp ist eine Online-Lernplattform, welche sich auf Data Science und Datenanalyse konzentriert. Es bietet interaktive Kurse, Tutorials und Projekte in verschiedenen Programmiersprachen wie Python, R und SQL an. DataCamp Kurse auf unterschiedlichen Niveaus an; sowohl für Anfänger als auch für Fortgeschrittene gibt es ein breites Angebot an Kursen.\nSie können Sich unter folgendem Link mit Ihrer Uni Bern E-Mail Adresse (*unibe.ch) registrieren:\n👉🏼 DataCamp registration"
+  },
+  {
+    "objectID": "pages/chapters/datacamp.html#hands-on-session",
+    "href": "pages/chapters/datacamp.html#hands-on-session",
+    "title": "DataCamp",
+    "section": "Hands-on session",
+    "text": "Hands-on session\nWir werden in der zweiten Sitzung mit Psychopy und Python ein Experiment erstellen. In Psychopy können Sie viel sehr über die grafische Oberfläche; es gibt jedoch einige kleine Dinge, welche wir mit Python selber coden müssen. Deshalb wäre es für Sie hiflreich, wenn Sie sich vorher auf der DataCamp Website ein wenig mit Python vertraut machen.\n\n1 - Python Basics\nJe nachdem wie viel Erfahrung Sie mit Python haben, können Sie sich entweder für den Kurs “Introduction to Python” oder “Intermediate Python” entscheiden.\n👉🏼 Introduction to Python\n👉🏼 Intermediate Python\nFür fortgeschrittene empfehlen wir die Kurse:\n👉🏼 Python Data Science Toolbox (Part 1)\n👉🏼 Python Data Science Toolbox (Part 2)\nDiese Kurse sind nicht obligatorisch; Sie brauchen für PsychoPy wirklich nur Grundkenntnisse. Python ist aber sowohl in der Forschung als der Privatwirtschaft sehr beliebt und Sie werden es sicherlich noch öfters brauchen, wenn Sie sich mit Datenanalyse beschäftigen.\n\n\n2 - Python Code mit ChatGPT generieren\nDies benötigt einen ChatGPT Account; einen solchen können Sie bei OpenAI gratis erstellen.\n👉🏼 chat.openai.com/chat\nVersuchen Sie, mit ChatGPT ein paar Zeilen Python Code zu generieren. Sie können hierzu einige Beispiele als den DataCamp Kursen verwenden.\n\nKann ChatGPT die Aufgaben lösen?\nWie kann Ihnen ChatGPT helfen, Code zu schreiben?\nWas müssen Sie beachten, wenn Sie Code von ChatGPT verwenden?"
+  },
+  {
+    "objectID": "pages/chapters/psychopy_experiments.html",
+    "href": "pages/chapters/psychopy_experiments.html",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "",
+    "text": "Neurowissenschaftliche Experimente müssen exakt auf die Fragestellung zugeschnitten werden um aussagekräftige Daten zu liefern. Deshalb programmieren die meisten Forschenden ihre Experimentalparadigmen selbst. So können beispielsweise Instruktionen oder verwendete Stimuli, deren Grösse und Anzeigedauer präzise definiert werden. In dieser Sitzung befassen wir uns damit, wie wir Entscheidungsverhalten von Menschen mit einem Experiment neurowissenschaftlich untersuchen können. Hierzu erstellen wir mit PsychoPy ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus Mulder et al. (2012)."
+  },
+  {
+    "objectID": "pages/chapters/psychopy_experiments.html#ablauf",
+    "href": "pages/chapters/psychopy_experiments.html#ablauf",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Ablauf",
+    "text": "Ablauf\nDas Experiment besteht aus der Instruktion, mehreren Versuchsblöcken und der Nachbesprechung. Die Anweisungen und die Nachbesprechung sind Textanzeigen, während die Versuche (und die Versuchsblöcke) etwas komplizierter sind."
+  },
+  {
+    "objectID": "pages/chapters/psychopy_experiments.html#trial",
+    "href": "pages/chapters/psychopy_experiments.html#trial",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Trial",
+    "text": "Trial\nZunächst wird ein Fixationskreuz entweder für 100 ms, 350 ms, 800 ms oder 1200 ms angezeigt. Die tatsächliche Dauer wird für jeden Versuch randomisiert. Eine solche Randomisierung kann nicht über die Benutzeroberfläche vorgenommen werden, sondern erfordert ein kleines Stück Python-Code. Sehen Sie sich den Codeblock der Routine Fixation_pre_cue an, um zu erfahren, wie dies erreicht werden kann.\n\nDas Experiment wurde im Scanner und ausserhalb durchgeführt. Die beiden Version unterscheiden sich ganz stark in ihrem Timing. Wir implementieren hier die Scanner Version des Tasks.\n\nAnschließend wird für 1000 ms ein Hinweis (cue) präsentiert. Dabei kann es sich entweder um einen Pfeil handeln, der nach rechts zeigt, einen Pfeil, der nach links zeigt, oder einen einfachen Kreis (für die Kontrollbedingung). Der Codeblock in der Cue-Routine legt den tatsächlichen Hinweis für jeden Versuch auf der Grundlage der Schleifenvariablen cue fest.\nNach dem Cue wird ein weiteres Fixationskreuz präsentiert - dieses Mal für entweder 3400 ms, 4000 ms, 4500 ms oder 5000 ms. Wie beim ersten Fixationskreuz wird die tatsächliche Dauer zufällig gewählt.\nNach dem zweiten Fixationskreuz wird für 1500 ms der eigentliche Stimulus angezeigt: ein random dot kinematogram (RDK). Die Punkte bewegen sich entweder nach rechts oder nach links mit einem Kohärenzniveau von 8%. Die Bewegungsrichtung eines einzelnen Versuchs wird durch die Schleifenvariable direction bestimmt und im Codeblock der Routine Dots festgelegt. Die Teilnehmer müssen entscheiden, welche Richtung sie wahrnehmen, und können ihre Antwort durch Drücken der linken oder rechten Pfeiltaste auf der Tastatur eingeben.\nSchließlich wird ein Feedback-Bildschirm angezeigt. Wenn der Teilnehmer innerhalb der ersten 100 ms geantwortet hat, wird der Hinweis “zu schnell” angezeigt. Wurde während des gesamten Stimulus keine Antwort erfasst, wird das Wort “miss” angezeigt. War die Antwort richtig, wird “+5 Punkte” angezeigt, war sie falsch, wird “+0 Punkte*” angezeigt."
+  },
+  {
+    "objectID": "pages/chapters/psychopy_experiments.html#experimentalschleife-main_blocks_loop",
+    "href": "pages/chapters/psychopy_experiments.html#experimentalschleife-main_blocks_loop",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Experimentalschleife: main_blocks_loop",
+    "text": "Experimentalschleife: main_blocks_loop\nMit loops in PsychoPy haben wir die Möglichkeit, eine oder mehrere Routinen zu wiederholen. In diesem Experiment wird dies genutzt, um denselben Versuch (wie oben beschrieben) mehrfach zu zeigen, aber jedes Mal mit anderen Werten für die loop variables. Eine Schleife wiederholt also einen Versuch einige Male, wobei die Schleifenvariablen bei jeder Wiederholung geändert werden. Der Versuch selbst wiederum liest diese Schleifenvariablen aus, um z.B. zu wissen, ob sich die Punkte nach rechts oder nach links bewegen sollen. Hier wird nur die main_blocks_loop erklärt, aber das Prinzip gilt auch für die practice_block_loop.\nUm die verschiedenen Werte für die Schleifenvariablen zu definieren, müssen wir eine einfache CSV-Datei erstellen:\ncue,direction\nleft,right\nleft,left\nnone,right\n...\nDiese CSV-Datei (die Bedingungsdatei) definiert die beiden loop Variablen cue und direction. Das Stichwort kann entweder left, right oder none, sein, während die Richtung left oder right sein kann.\nIn der Benutzeroberfläche können wir die Variablen loopType und nReps für die Schleife angeben, wenn wir sie anklicken. Mit ersterer können wir steuern, ob wir z.B. die Zeilen in der Bedingungsdatei mischen oder sie sequentiell von oben nach unten ablaufen lassen wollen, während die letztere definiert, wie oft jede Zeile der Bedingungsdatei wiederholt werden soll.\nFür die main_blocks_loop haben wir eine Bedingungsdatei mit 80 Zeilen, die 40 neutralen Versuchen und 40 verzerrten Versuchen entsprechen. In der einen Hälfte der neutralen Trials bewegen sich die Punkte nach rechts, in der anderen Hälfte nach links. Bei den voreingenommenen Versuchen sind 32 der Hinweise gültig (d. h. sie stimmen mit der Bewegungsrichtung der Punkte überein) und 16 ungültig, wobei sich die Punkte sowohl bei gültigen als auch bei ungültigen Hinweisen in 50 % der Versuche nach rechts und in den anderen 50 % der Versuche nach links bewegen.\nDie Variable nReps wird auf 2 gesetzt, so dass alle diese Reihen zweimal durchlaufen werden (insgesamt 160 Versuche), und die Variable “loopType” wird auf random gesetzt, so dass die Versuche in zufälliger Reihenfolge durchgeführt werden."
+  },
+  {
+    "objectID": "pages/chapters/psychopy_experiments.html#daten",
+    "href": "pages/chapters/psychopy_experiments.html#daten",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Daten",
+    "text": "Daten\nWenn man die default-Einstellungen nicht ändert, speichert PsychoPy die Daten automatisch in einem trial-by-trial CSV File. Das bedeutet, dass jeder Trial 1 Zeile generiert. Das CSV File erhält einen Namen, der sich aus der Versuchspersonen-ID, dem Namen des Experiments, und dem aktuellen Datum inkl. Uhrzeit zusammensetzt. So ist es möglich, mit derselben Versuchspersonen-ID beliebig oft das Experiment zu wiederholen. Die CSV Files werden in einem Ordner mit dem Name data abgelegt.\n\nBei der Wahl vom Datenfile-Namen empfiehlt es sich immer Datum und Uhrzeit anzuhängen. Dies verhindert, dass Daten überschrieben werden, wenn z.B. eine Versuchspersonen-ID falsch eingetippt oder doppelt vergeben wird."
+  },
+  {
+    "objectID": "pages/chapters/psychopy_experiments.html#degrees-of-visual-angle",
+    "href": "pages/chapters/psychopy_experiments.html#degrees-of-visual-angle",
+    "title": "Verhaltensexperiment mit PsychoPy",
+    "section": "Degrees of Visual Angle",
+    "text": "Degrees of Visual Angle\nOftmals werden Grössenangaben von Stimuli noch in Pixel oder Zentimeter, sondern in degrees of visual angle gemacht. Dies hat den Vorteil, dass die Angaben nicht vom Monitor selber oder der Entferung vom Monitor abhängig sind. Degrees of visual angle gibt die wahrgenommene Grösse des Stimulus an, und berücksichtigt die Grösse des Monitors und des Stimulus, und die Entfernung der Versuchsperson vom Monitor. Weitere Informationen dazu finden Sie auf der Website von 👉 OpenSesame. Üblicherweise entspricht ein degrees of visual angle etwa einem cm bei einer Entfernung von 57 cm vom Monitor.\nZur Umrechnung zwischen cm und degrees of visual angle finden Sie unter diesem 👉 Link mehr Information.\n\nOpenSesame ist ein weiteres, Python-basierendes Programm für die Erstellung behavioraler Experimente."
+  },
+  {
+    "objectID": "pages/chapters/software.html",
+    "href": "pages/chapters/software.html",
+    "title": "Programmiersprachen",
+    "section": "",
+    "text": "In diesem Kurs beschäftigen wir uns im weiteren Sinne mit dem Einsatz vom Computern im Bereich Cognitive Neuroscience. Es ist nicht Ziel dieses Kurses, EEG oder fMRI Daten zu analysieren (dafür gibt es eigene Kurse); wir werden uns stattdessen mit Daten aus Verhaltensexperimenten beschäftigen. Dies sind zum Beispiel binäre Antworten oder Reaktionszeiten, welche wir mit entsprechenden Modellen untersuchen werden. Unsere Anwendungsbeispiele werden immer aus der neurowissenschaftlichen Forschung stammen; der Fokus wird aber vor allem der Umgang mit Computern sein. Unser Ziel ist es, dass Sie nach dem Abschluss dieses Kurses eine neurowissenschaftliches Paper lesen können, und die darin verwendeten Experimente nachvollziehen können. Sie könnten eventuell sogar das Experiment selber programmieren, und die Daten analysieren."
+  },
+  {
+    "objectID": "pages/chapters/software.html#programmiersprachen",
+    "href": "pages/chapters/software.html#programmiersprachen",
+    "title": "Programmiersprachen",
+    "section": "Programmiersprachen",
+    "text": "Programmiersprachen\nProgrammiersprachen sind essentielle Werkzeuge für die Neurowissenschaftliche Forschung. Wir werden uns zuerst einen kurzen Überblick über drei häufig verwendete Programmiersprachen (Matlab, Python und R) verschaffen und kurz deren Verwendungszwecke und Vor- und Nachteile diskutieren.\n\nMatlab\nMatlab ist ein Software für numerische Anwendung, welche in den Ingenieurwissenschaften, Naturwissenschaften und der Mathematik weit verbreitet ist.\n\n👍🏼 Stärken:\n\nLeistungsstarke Matrix- und Vektoroperationen, gut geeignet für Matrix-basierte Operationen, die in der Neurowissenschaftlichen Forschung häufig vorkommen.\nUmfangreiche Bibliothek von integrierten Funktionen für wissenschaftliches Rechnen.\n\n\n\n👎🏼 Schwächen:\n\nTeuer\nWeniger flexibel als Python oder R in Bezug auf Datenarten und Strukturen.\nMatlab is kommerziell und proprietär. Dies bedeutet man muss teuere Lizenzen kaufen, und der Source Code der Software ist nicht offen.\n\n\n\nTypische Anwendung:\n\nDatenverarbeitung und -analyse,\nSignalverarbeitung\nVisualisierung\nViele fMRI Forscher arbeiten mit Matlab, da es dafür eine spezielle Toolbox gibt: SPM\nExperimente programmieren, z.B. mit Psychtoolbox\n\n\n\nBeispielcode:\nload('data.mat')\nfs = 1000;\nt = (0:numel(data)-1)/fs;\nplot(t, data)\n\n\n\nPython\nPython ist eine allgemeine (general purpose) Programmiersprache, die in vielen verschiedenen Bereichen wie wissenschaftlichem Rechnen, Datenanalyse und maschinellem Lernen weit verbreitet ist.\n\n👍🏼 Stärken:\n\nEine Vielzahl von Bibliotheken und Modulen wie NumPy, SciPy und Pandas, die leistungsstarke Werkzeuge für wissenschaftliches Rechnen und Datenanalyse bieten.\nDatenanalysewerkzeuge wie Pandas-Dataframes, die Seaborn-Visualisierungsbibliothek, und Jupyter Notebooks.\nOpen-source und kostenlos\n\n\n\n👎🏼 Schwächen:\n\nKann in einigen numerischen Berechnungen langsamer sein als Matlab.\nDa Python eine allgemeine Sprache ist, muss man für numerische Anwendungen immer verschiedene Packages importieren (z.B.) numpy, wenn man damit rechnen will. Dies führt zu weniger gut lesbarem Code.\n\n\n\nTypische Anwendung:\n\nDatenverarbeitung und -analyse,\nVisualisierung\nMachine learning und Künstliche Intelligenz\nExperimente programmieren, z.B. mit PsychoPy\n\n\n\nBeispielcode:\nimport pandas as pd\nimport seaborn as sns\ndata = pd.read_csv('data.csv')\nsns.lineplot(data=data, x='time', y='voltage')\n\n\n\nR\nR ist eine Programmiersprache und Umgebung für statistisches Rechnen und Grafiken.\n\n👍🏼 Stärken:\n\nEntwickelt von Statistikern für statistisches Rechnen und Grafiken.\nEine große Bibliothek von statistischen Werkzeugen und Paketen, einschliesslich Visualisierungspackages (grammar of graphics).\nOpen-source und kostenlos\ntidyverse Packages für Data Wrangling (sehr elegante Syntax, um mit Daten zu arbeiten).\n\n\n\n👎🏼 Schwächen:\n\nSteilere Lernkurve als Python.\nKann in einigen numerischen Berechnungen langsamer sein als Matlab oder Python.\nEntwickelt von Statistiker (nicht von Software Designers). R gilt als sehr idiosynkratisch.\n\n\n\nTypische Anwendung:\n\nStatistische Analyse\nDatenvisualisierung. R hat eine sehr gute Bibliothek für Grafiken, die ggplot2 Bibliothek. Diese Bibliothek verwendet die sogenannte grammar of graphics (GoG) - eine Methode, um Daten in Grafiken zu visualisieren. Die GoG ist eine sehr elegante und effiziente Methode, um Daten zu visualisieren.\n\n\n\nBeispielcode:\nlibrary(tidyverse)\ndata <- read.csv('data.csv')\nggplot(data, aes(x=time, y=voltage)) + geom_line()\n\n\n\nFazit\nMatlab, Python und R sind leistungsstarke Werkzeuge für die neurowissenschaftliche Forschung. Die Wahl der Sprache hängt unter anderem von der spezifischen Aufgabe ab. Weitere Faktoren ist Tradition: bestimmte Gruppen bevorzugen eher eine Sprache als andere. So ist Matlab unter Ingenieuren weit verbreiten und R unter Statistikern. Python ist im Bereich Künstliche Intelligenz und Machine Learning die beliebteste Sprache. Eine neuere Sprache ist Julia - diese vereint die Vorteile aller oben genannten Sprachen (ohne viele deren Nachteile), ist aber weniger weit verbreitet.\nUm mehr zu erfahren, erkunden Sie die umfangreichen Online-Ressourcen und Dokumentationen für jede Sprache."
+  },
+  {
+    "objectID": "pages/chapters/software.html#in-dieser-veranstaltung-verwendete-software",
+    "href": "pages/chapters/software.html#in-dieser-veranstaltung-verwendete-software",
+    "title": "Programmiersprachen",
+    "section": "In dieser Veranstaltung verwendete Software",
+    "text": "In dieser Veranstaltung verwendete Software\nWir haben uns entschieden, in dieser Veranstaltung Python zu verwenden, um ein Experiment zu erstellen, und R für die Analyse der Daten. Matlab wird nicht verwendet; einerseits da es kommerziell ist, andererseits weil es aus unserer Sicht nicht die beste Wahl für die Analyse von Verhaltensdaten ist. Ausserdem ist es schon schwierig genug, eine Programmiersprache zu lernen, ohne gleichzeitig noch zwei weitere zu lernen."
+  },
+  {
+    "objectID": "pages/chapters/software.html#python-1",
+    "href": "pages/chapters/software.html#python-1",
+    "title": "Programmiersprachen",
+    "section": "Python",
+    "text": "Python\nWenn Sie Python suf Ihrem Rechner installieren wollen, können Sie entweder den offiziellen Installer https://www.python.org/downloads/ downloaden, oder die Anaconda Distribution https://www.anaconda.com/products/distribution verwenden. Die Anaconda Distribution ist eine Python-Distribution, die viele nützliche Pakete enthält, die für wissenschaftliches Rechnen und Datenanalyse verwendet werden. Wenn man tatsächlich mit Python arbeiten will, empfiehlt es sich, die Anaconda Distribution zu benutzen. Wir werden in dieser Veranstaltung Python benutzen, um ein Experiment zu programmieren. Dafür reicht es aus, den PsychoPy Installer zu verwenden; diesen finden Sie unter diesem Link: PsychoPy. PsychoPy ist ein Python-basiertes Tool, mit dem sich sowohl in einer grafischen Benutzeroberfläche (GUI) als auch mit Python Code Experimente programmieren lassen."
+  },
+  {
+    "objectID": "pages/chapters/software.html#r-1",
+    "href": "pages/chapters/software.html#r-1",
+    "title": "Programmiersprachen",
+    "section": "R",
+    "text": "R\nAb der vierten Sitzung werden wir viel mit R arbeiten, um Daten aufzubereiten und grafisch darzustellen. Dafür müssen Sie die aktuelle Version von R installieren. Diese ist zurzeit R 4.2.2, und kann unter folgender URL geladen werden:\nR 👉 https://cloud.r-project.org/\nWir empfehlen für die Arbeit mit R die RStudio IDE zu verwenden. Diese ist kostenlos und kann unter folgender URL heruntergeladen werden:\nRStudio 👉 https://www.rstudio.com/products/rstudio/download/#download"
+  },
+  {
+    "objectID": "pages/chapters/software.html#lernen",
+    "href": "pages/chapters/software.html#lernen",
+    "title": "Programmiersprachen",
+    "section": "Lernen",
+    "text": "Lernen\nDataCamp"
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-cognitive-neuroscience",
+    "href": "slides/01_introduction.html#model-based-cognitive-neuroscience",
+    "title": "1. Sitzung",
+    "section": "(Model-based) Cognitive Neuroscience",
+    "text": "(Model-based) Cognitive Neuroscience\n\n\nWas heisst Model-based Neuroscience?\nWelche Kenntnisse brauchen wir, um Experiment durchzuführen und Daten auszuwerten?\nWelche Programmiertechniken/sprachen brauchen wir?"
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience-beispiel",
+    "href": "slides/01_introduction.html#model-based-neuroscience-beispiel",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience: Beispiel",
+    "text": "Model-based Neuroscience: Beispiel\nMulder, M. J., Wagenmakers, E.-J., Ratcliff, R., Boekel, W., & Forstmann, B. U. (2012). Bias in the Brain: A Diffusion Model Analysis of Prior Probability and Potential Payoff. Journal of Neuroscience, 32(7), 2335–2343.\n👉 https://www.jneurosci.org/content/32/7/2335\nIn dieser Studie geht es darum, den Einfluss von Vorwissen (prior knowledge) auf eine simple perzeptuelle Entscheidung zu untersuchen.\n\nAls Task haben die Autoren ein Random Dot Motion Experiment benutzt.\nFür die Datenanalyse wurde unter anderem ein Diffusion Decision Model verwendet."
+  },
+  {
+    "objectID": "slides/01_introduction.html#diffusion-decision-model",
+    "href": "slides/01_introduction.html#diffusion-decision-model",
+    "title": "1. Sitzung",
+    "section": "Diffusion Decision Model",
+    "text": "Diffusion Decision Model"
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience",
+    "href": "slides/01_introduction.html#model-based-neuroscience",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience",
+    "text": "Model-based Neuroscience\n\nÜberfliegen Sie das Paper, und achten Sie dabei darauf, welche Skills Sie benötigen, um eine solche Studie durchzuführen.\n\nWelches theoretische Wissen brauchen Sie?\nWelche Programmierkenntnisse brauchen Sie?\n\nfür das Experiment\nfür die Datenanalyse\n\nWelche statistischen Verfahen brauchen Sie, um die Daten auszuwerten?\nWarum wurde das Experiment im Scanner und ausserhalb des Scanners durchgeführt?\nWas kann man mit einer solchen Studie herausfinden?"
+  },
+  {
+    "objectID": "slides/01_introduction.html#vorwissen",
+    "href": "slides/01_introduction.html#vorwissen",
+    "title": "1. Sitzung",
+    "section": "Vorwissen",
+    "text": "Vorwissen\nEs wurden zwei verschiedene Typen von Vorwissen benutzt.\n\nA-Priori Wahrscheinlichkeit, dass die Punktwolke sich nach rechts oder nach links bewegte.\nAsymmetrische Belohnung für korrekte links/rechts Entscheidungen."
+  },
+  {
+    "objectID": "slides/01_introduction.html#diffusion-decision-model-1",
+    "href": "slides/01_introduction.html#diffusion-decision-model-1",
+    "title": "1. Sitzung",
+    "section": "Diffusion Decision Model",
+    "text": "Diffusion Decision Model"
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience-1",
+    "href": "slides/01_introduction.html#model-based-neuroscience-1",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience",
+    "text": "Model-based Neuroscience\n\n\nSchematische Darstellung der erwarteten Resultate.\n\nStarting point: korrekte und inkorrekte RTs unterschieden sich.\nDrift rate: korrekte und inkorrekte RTs sind sich ähnlich.\n\n\n\nTatsächliche Resultate: Quantifizierung des Bias anhand des DDM."
+  },
+  {
+    "objectID": "slides/01_introduction.html#model-based-neuroscience-2",
+    "href": "slides/01_introduction.html#model-based-neuroscience-2",
+    "title": "1. Sitzung",
+    "section": "Model-based Neuroscience",
+    "text": "Model-based Neuroscience\nBOLD Responses der Areale welche besonder stark sowohl auf die “prior probability” als auch auf die “payoff” Manipulation reagierten.\n\n\n\nright MedFG (right medial frontal gyrus)\nACG (anterior cingulate cortex)\nSFG (superior frontal gyrus)\nleft middle temporal gyrus\nIPS (intra-parietal sulcus).\n\n\n\n\n\nDiese Areale sollen eine besondere Rolle in der Verarbeitung von Bias im Entscheidungsverhalten haben."
+  },
+  {
+    "objectID": "slides/01_introduction.html#wichtige-skills",
+    "href": "slides/01_introduction.html#wichtige-skills",
+    "title": "1. Sitzung",
+    "section": "Wichtige Skills",
+    "text": "Wichtige Skills\n\n\n\nTheorien über Entscheidungsverhalten\nExperimente programmieren\n\nTiming (inside/outside scanner)\n\nData cleaning and manipulation (data wrangling)\nStatistische Verfahren für messwiederholte Daten\n\nPsychometric curve\nBinary choices / Reaktionszeiten\nrepeated-measures ANOVA\n\n\n\n\nGrafische Darstellung der Resultate\nKognitive Prozessmodelle\n\nfit Diffusion Decision Model (DDM)\n\nAuswertung von fRMI Daten\n\n\n\n\nMit diesen Themen (ausser der Analyse von fMRI Daten) beschäftigen wir uns in diesem Kurs.\n\n\n\n🏠 Neurowissenschaft im Computerlab FS22"
+  },
+  {
+    "objectID": "slides/02_psychopy.html#bias-rdk-experiment",
+    "href": "slides/02_psychopy.html#bias-rdk-experiment",
+    "title": "2. Sitzung",
+    "section": "Bias RDK Experiment",
+    "text": "Bias RDK Experiment\n\n\n\nRandom-dot motion direction-discrimination task\nInside/outside scanner (timing)\nBias: cue (probability left/right/unbiased)\nFixation cross\nRDK: 3x3 pixels, coherence\n40 bias trials, 40 neutral trials\n32 valid, 8 invalid trials"
+  },
+  {
+    "objectID": "slides/02_psychopy.html#psychopy",
+    "href": "slides/02_psychopy.html#psychopy",
+    "title": "2. Sitzung",
+    "section": "PsychoPy",
+    "text": "PsychoPy\n\n\n\nPsychoPy Website\nRessourcen\nWalk-through: Builder\nDiskussionsforum\nKapitel: Verhaltensexperiment mit PsychoPy"
+  },
+  {
+    "objectID": "slides/02_psychopy.html#pavlovia",
+    "href": "slides/02_psychopy.html#pavlovia",
+    "title": "2. Sitzung",
+    "section": "Pavlovia",
+    "text": "Pavlovia\n\nPavlovia:\n\n\nPavlovia is a place for the wide community of researchers in the behavioural sciences to run, share, and explore experiments online.\n\n\nExperimente suchen.\nZum Beispiel ChoiceRTT ausprobieren und den Code anschauen."
+  },
+  {
+    "objectID": "slides/02_psychopy.html#understanding-your-computer",
+    "href": "slides/02_psychopy.html#understanding-your-computer",
+    "title": "2. Sitzung",
+    "section": "Understanding your Computer",
+    "text": "Understanding your Computer\n\nRefresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.\n\nfrom psychopy import visual\n\nwin = visual.Window()\nwin.getActualFrameRate()\n\nKeyboard timing: Variabilität ~15 ms.\nScreen refresh fängt oben an und endet (~10 ms später) unten."
+  },
+  {
+    "objectID": "slides/02_psychopy.html#probieren-sie-es-selber",
+    "href": "slides/02_psychopy.html#probieren-sie-es-selber",
+    "title": "2. Sitzung",
+    "section": "Probieren Sie es selber!",
+    "text": "Probieren Sie es selber!\n\nVersuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren\n\n\nWenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 Practice Trials\nEine Einführung finden Sie hier: 👉 Verhaltensexperiment mit PsychoPy\n\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#perceptual-decisions",
+    "href": "slides/02_psychopy_gw.html#perceptual-decisions",
+    "title": "PsychoPy Experiment",
+    "section": "Perceptual decisions",
+    "text": "Perceptual decisions\n\nberuhen auf der Wahrnehmung, Evaluation, Integration von Sinnesempfindungen\nsind oft handlungsrelevant\nneurowissenschaftlich untersucht werden die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren und wie diese mit Verhalten zusammenhängen\nmögliche Fragenstellungen: Gewichtung von Sinnesinformationen bei sensorischen Konflikten oder der Einfluss von Vorwissen auf Entscheidungen\n\n\n\n\n\n\n\nHands-on\n\n\n\nIn welchen Situationen treffen wir perzeptuelle Entscheidungen?\nWo ist der Einfluss von Vorwissen auf perzeptuelle Entscheidungen alltagsrelevant?\n\nDiskutieren Sie die Fragen in kleinen Gruppen und finden Sie je 3 Beispiele."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-i",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-i",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment I",
+    "text": "Random-dot motion Experiment I\n\n\n\nRandom-dot motion direction-discrimination task (Bias in the brain: Mulder et al., 2012)\ncoherence: probability that a dot moves coherent with the motion direction\nbias: cue before random-dot task (left/right/unbiased) or reward for a left or right answer (if correct)\nmeasures: response times and accuracy"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-ii",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-ii",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment II",
+    "text": "Random-dot motion Experiment II\n\n\n\n\n\n\nHands-on\n\n\nWie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus?\n\nBei welcher Bedingung antworten die Personen schneller?\nWo machen sie mehr Fehler?\n\nWas denken Sie? Diskutieren Sie die Fragen in kleinen Gruppen ohne im Paper nachzuschauen."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iii",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iii",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment III",
+    "text": "Random-dot motion Experiment III\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#psychopy",
+    "href": "slides/02_psychopy_gw.html#psychopy",
+    "title": "PsychoPy Experiment",
+    "section": "PsychoPy",
+    "text": "PsychoPy\n\n\n\nPsychoPy Website\nRessourcen\nWalk-through: Builder\nDiskussionsforum\nKapitel: Verhaltensexperiment mit PsychoPy"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#pavlovia",
+    "href": "slides/02_psychopy_gw.html#pavlovia",
+    "title": "PsychoPy Experiment",
+    "section": "Pavlovia",
+    "text": "Pavlovia\n\nPavlovia:\n\n\nPavlovia is a place for the wide community of researchers in the behavioural sciences to run, share, and explore experiments online.\n\n\nExperimente suchen.\nZum Beispiel ChoiceRTT ausprobieren und den Code anschauen."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#understanding-your-computer",
+    "href": "slides/02_psychopy_gw.html#understanding-your-computer",
+    "title": "PsychoPy Experiment",
+    "section": "Understanding your Computer",
+    "text": "Understanding your Computer\n\nRefresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.\n\nfrom psychopy import visual\n\nwin = visual.Window()\nwin.getActualFrameRate()\n\nKeyboard timing: Variabilität ~15 ms.\nScreen refresh fängt oben an und endet (~10 ms später) unten."
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
+    "href": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
+    "title": "PsychoPy Experiment",
+    "section": "Probieren Sie es selber!",
+    "text": "Probieren Sie es selber!\n\n\n\n\n\n\nHands-on\n\n\nVersuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren\n\n\n\n\nWenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 Practice Trials\nEine Einführung finden Sie hier: 👉 Verhaltensexperiment mit PsychoPy\n\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "pages/exercises/exercise_01.html",
+    "href": "pages/exercises/exercise_01.html",
+    "title": "Übung 1",
+    "section": "",
+    "text": "Vertiefung\n\n\n\nDiese Übung muss nicht abgegeben werden; sie dient als Vorbereitung für die folgende Sitzung.\n\n\n\n\nInstallieren Sie PsychoPy von der Website. PsychoPy ist ein Open-Source Programm für MacOS, Windows und Linux, mit welchen wir sehr viele verschiedene Verhaltensexperimente (Neuroscience, Psychologie, Psychophysik, Linguistik) programmieren können. Diese lassen sich z.B. mit Eyetracking verbinden, oder im fRMI Scanner und mit EEG verwenden.\nPsychoPy 👉 https://www.psychopy.org/download.html.\nAm einfachsten ist es, das “Standalone package” für MacOS oder Windows zu installieren.\n\nUnter MacOS scheint die neueste Version vom Februar 2022 Probleme zu bereiten — es ist daher (zurzeit noch) besser, die Version 2021.2.3 zu installieren.\n\n\n\n\n\nWas verstehen Sie unter folgenen Begriffen:\n\n\nModel-based Neuroscience\nEvidence accumulation\n\n\nWas könnte man unter Vorwissen (prior knowledge) verstehen? In welchen Kontexten könnte es bei Entscheidungen nützlich sein, Vorwissen zu benutzen?"
+  },
+  {
+    "objectID": "pages/exercises/exercise_02.html",
+    "href": "pages/exercises/exercise_02.html",
+    "title": "Übung 2",
+    "section": "",
+    "text": "Vertiefung\n\n\n\nDie Daten, welche Sie in dieser Übung sammeln, müssen abgegeben werden; wir werden diese im Verlauf des Semesters analysieren. Bitte die Datenfiles in einem ZIP File bis 8. März auf ILIAS hochladen.\n\n\n\n\n\nDas fertige Experiment befindet sich auf Github. Sie können es unter diesem Link downloaden. 👉 LINK.\nFühren Sie das Experiment ein- oder mehrere Male selber durch.\nTesten Sie eine weitere Person (Alter ca. 20-60).\nZippen Sie bitte Ihren Datensatz und denjenigen der anderen Testperson und laden Sie das ZIP FIle auf ILIAS."
+  },
+  {
+    "objectID": "pages/solutions/solution_03.html",
+    "href": "pages/solutions/solution_03.html",
+    "title": "Übung 3: Lösung",
+    "section": "",
+    "text": "In dieser Aufgabe bearbeiten Sie Daten aus einem Detektionssexperiment. Versuchspersonen mussten in zwei Bedingungen (bias und no_bias) ein Signal, welches in Rauschen eingebettet war, detektieren. Im Datensatz sind folgende Variablen:\nsubject: Subjekt ID\ntrial_num: Trialnummer, durchnummeriert in jeder Bedingung\ncondition: Bedingung (_Bias_ und _No Bias_)\nsignal_present: Indikatorvariable für Signal (0: absent, 1: present)\ncorrect: Indikatorvariable für korrekte Antwort (0: incorrekt, 1: correct)\nrt: Reaktionszeit in Sekunden\n\n\n\nAufgabe 1\n\nSpeichern Sie das CSV File in Ihren Projektordner.\nLesen Sie das CSV File ein. Per Konvention verwenden wir den Variablennamen d für den Datensatz.\nÜberprüfen Sie, ob alle Variablen vorhanden sind. Verwenden Sie z.B. die Funktion glimpse().\nKonvertieren Sie die Gruppierungsvariablen subject und condition zu Faktoren.\n\n\n\nlibrary(tidyverse)\n\n\nd <- read_csv(\"data/data-exercise-03.csv\")\n\nSchauen Sie sich die Variablen an:\n\nglimpse(d)\n\nRows: 5,756\nColumns: 6\n$ subject        <dbl> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ condition      <chr> \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\",…\n$ signal_present <dbl> 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0…\n$ correct        <dbl> 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1…\n$ rt             <dbl> 4.076, 1.167, 0.598, 0.375, 0.454, 0.410, 0.370, 0.559,…\n$ trial_num      <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n\n\nKonvertieren Sie die Gruppierungsvariablen zu Faktoren:\n\nd <- d |>\n    mutate(subject = as_factor(subject),\n           condition = as_factor(condition))\n\n\nAufgabe 2\nGibt es Versuchspersonen die in einer der Bedingungen Reaktionszeiten hat, welche mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegen?\n\n\n# summary stats (means) for subjects/conditions\nsum_stats_participants <- d |>\n    group_by(subject, condition) |>\n    dplyr::summarise(\n        mean_P = mean(rt))\n\n\n# summary stats (means and SDs) for conditions\nsum_stats_conditions <- d |>\n    group_by(condition) |>\n    dplyr::summarise(\n        mean_C = mean(rt),\n        sd_C = sd(rt))\n\n\nsum_stats_participants <-\n    full_join(\n        sum_stats_participants,\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(outlier_P = (mean_P - mean_C) > 2 * sd_C)\n\n\n# show outlier participants\nsum_stats_participants |>\n    filter(outlier_P == 1) |>\n    show()\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nEs gibt keine Versuchsperson, deren mittlere Reaktionszeit in einer Bedingung mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegt. Dies bedeutet, dass sich in excluded keine Personen befinden, und der Dataframe folglich \\(0\\) Zeilen hat.\n\nexcluded <- sum_stats_participants |>\n    filter(outlier_P == 1)\n\nexcluded\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nDer nächste Schritt wäre also nicht unbedingt notwendig.\n\nd_cleaned <- d |>\n    filter(!(subject %in% excluded$subject)) |>\n    mutate(subject = fct_drop(subject))\n\n\nAufgabe 3\n\nGibt es einzelne Trials, in denen Versuchpersonen länger als 4 Standardabweichungen über dem Bedingungsmittelwert gebraucht haben, um zu Antworten?\nGibt es einzelne Trials, in denen Versuchpersonen zu schnell (unter 100 ms) geantwortet haben?\nSpeichern Sie den bearbeiteten Datensatz als CSV File.\n\n\nZu Aufgabe 3.a)\nWir wollen Trials identifizieren, bei denen Vpn länger gebraucht haben, als 4 Standardabweichungen über dem Bedingungsmittelwert. Das bedeutet (rt - mean_C) > 4 * sd_C, und nicht abs(rt - mean_C) > 4 * sd_C. Letzteres würde auch Trials als Ausreisser identifizieren, welche 4 Standardabweichungen unter dem Bedingungsmittelwert liegen.\nZu Aufgabe 3.b)\nDie Reaktionszeiten sind hier in Sekunden, nicht Millisekunden. Dies bedeutet, wir brauchen rt < 0.100, und nicht rt < 100.\n\nd_cleaned <- d_cleaned |>\n    full_join(\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(\n        trial_type = case_when(\n            (rt - mean_C) > 4 * sd_C ~ \"too slow\",\n            rt < 0.100 ~ \"too fast\",\n            TRUE ~ \"OK\") |>\n            factor(levels = c(\"OK\", \"too fast\", \"too slow\")))\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt, color = trial_type, shape = trial_type)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |>\n    filter(trial_type != \"OK\")\n\n# A tibble: 165 × 9\n   subject condition signal_present correct     rt trial_…¹ mean_C  sd_C trial…²\n   <fct>   <fct>              <dbl>   <dbl>  <dbl>    <dbl>  <dbl> <dbl> <fct>  \n 1 2       bias                   0       1 4.08          1  0.697 0.751 too sl…\n 2 2       bias                   1       1 0.035        41  0.697 0.751 too fa…\n 3 2       bias                   0       1 6.92         50  0.697 0.751 too sl…\n 4 2       bias                   0       1 0.085        51  0.697 0.751 too fa…\n 5 2       bias                   0       1 0.033        70  0.697 0.751 too fa…\n 6 2       bias                   0       1 5.09         74  0.697 0.751 too sl…\n 7 2       bias                   0       1 6.59         94  0.697 0.751 too sl…\n 8 2       bias                   0       1 5.09        121  0.697 0.751 too sl…\n 9 2       bias                   1       1 0.077       138  0.697 0.751 too fa…\n10 3       no_bias                1       0 0.0958        4  0.691 0.773 too fa…\n# … with 155 more rows, and abbreviated variable names ¹​trial_num, ²​trial_type\n\n\nVor dem Entfernen der Ausreisser Trials haben wir 5756 Datenpunkte.\n\nnrow(d_cleaned)\n\n[1] 5756\n\n\n\nd_cleaned <- d_cleaned |>\n    filter(trial_type == \"OK\") |>\n    select(subject, trial_num, condition, signal_present, correct, rt)\n\nNach dem Entfernen haben wir noch 5591.\n\nnrow(d_cleaned)\n\n[1] 5591\n\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |> write_csv(\"data/data-cleaned.csv\")"
+  }
+]
