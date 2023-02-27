@@ -12,7 +12,7 @@ author:
     affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
     affiliation-url: https://www.kog.psy.unibe.ch
     orcid: 0000-0001-7427-3149
-license: CC BY
+license: CC BY-SA 4.0
 citation: true
 bibliography: ../../bibliography.bib
 format:
