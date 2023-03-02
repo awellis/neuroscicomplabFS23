@@ -20,13 +20,15 @@ format:
         toc: true
 ---
 
-Neurowissenschaftliche Experimente müssen exakt auf die Fragestellung zugeschnitten werden um aussagekräftige Daten zu liefern. Deshalb programmieren die meisten Forschenden ihre Experimentalparadigmen selbst. So können beispielsweise Instruktionen oder verwendete Stimuli, deren Grösse und Anzeigedauer präzise definiert werden. In dieser Sitzung befassen wir uns damit, wie wir Entscheidungsverhalten von Menschen mit einem Experiment neurowissenschaftlich untersuchen können. Hierzu erstellen wir mit PsychoPy ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus @mulder_bias_2012. 
+Neurowissenschaftliche Experimente müssen exakt auf die Fragestellung zugeschnitten werden um aussagekräftige Daten zu liefern. Deshalb programmieren die meisten Forschenden ihre Experimentalparadigmen selbst. So können beispielsweise Instruktionen oder verwendete Stimuli, deren Grösse und Anzeigedauer präzise definiert werden. In dieser Sitzung erstellen wir mit PsychoPy ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus @mulder_bias_2012. Dieses neurowissenschaftliche Experiment untersucht den Einfluss von Vorwissen auf Entscheidungsverhalten von Menschen sowie die dazugehörigen neuronalen Korrelate.
 
 # Einleitung 
 
-Jeden Tag treffen wir Tausende von kleinen Entscheidungen, meistens unter gewissem Zeitdruck. Viele davon sind trivial (z. B. welches Paar Socken man anzieht) und automatisch (z. B. ob man die Espresso- oder Lungo-Taste auf der Kaffeemaschine drückt). Die meisten Entscheidungen im wirklichen Leben setzen sich eigentlich aus zwei Entscheidungen zusammen: Einerseits der Entscheidung, mit dem Abwägen aufzuhören und aufgrund des aktuellen Wissenstandes zu handeln. Andererseits die Wahl oder Entscheidungshandlung selbst. Wenn Sie ein Experiment durchführen müssen Sie beispielsweise Daten sammeln, und dann entscheiden, wann die Datenerfassung beendet, mit der Analyse begonnen und eine Schlussfolgerung gezogen wird. Dieser sequentielle Charakter der Entscheidungsfindung ist eine grundlegende Eigenschaft des menschlichen Nervensystems und spiegelt seine Unfähigkeit wider, Informationen sofort zu verarbeiten.
+Jeden Tag treffen wir Tausende von kleinen Entscheidungen, meistens unter gewissem Zeitdruck. Viele davon sind trivial (z. B. welches Paar Socken man anzieht) und automatisch (z. B. ob man die Espresso- oder Lungo-Taste auf der Kaffeemaschine drückt).
 
-*Perzeptuelle Entscheidungen* sind Entscheidungen, welche auf der Wahrnehmung von Sinnesreizen beruhen. Um beispielsweise eine Strasse sicher überqueren zu können, müssen wir mittels den Sinnesinformationen der Augen und Ohren sowie der Verarbeitung dieser Reize einschätzen mit welcher Geschwindigkeit ein herannahendes Auto unterwegs ist und ob wir lieber abwarten bis es vorbeigefahren ist. Innerhalb der Neurowissenschaften wird *perceptual decision making* untersucht, um die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren zu verstehen und mit beobachtbarem Verhalten in Verbindung zu bringen. Von Interesse ist zum Beispiel wie die Entscheidung ausfällt, wenn die sensorischen Daten undeutlich oder sogar widersprüchlich sind. Besonders spannend ist auch wie Vorwissen (*prior knowledge*) auf das Entscheidungsverhalten einwirkt.
+<!-- Die meisten Entscheidungen im wirklichen Leben setzen sich eigentlich aus zwei Entscheidungen zusammen: Einerseits der Entscheidung, mit dem Abwägen aufzuhören und aufgrund des aktuellen Wissenstandes zu handeln. Andererseits die Wahl oder Entscheidungshandlung selbst. Wenn Sie ein Experiment durchführen müssen Sie beispielsweise Daten sammeln, und dann entscheiden, wann die Datenerfassung beendet, mit der Analyse begonnen und eine Schlussfolgerung gezogen wird. Dieser sequentielle Charakter der Entscheidungsfindung ist eine grundlegende Eigenschaft des menschlichen Nervensystems und spiegelt seine Unfähigkeit wider, Informationen sofort zu verarbeiten. -->
+
+*Perzeptuelle Entscheidungen* sind Entscheidungen, welche auf der Wahrnehmung, Einordnung und Integration von Sinnesreizen beruhen. Um beispielsweise eine Strasse sicher überqueren zu können, müssen wir mittels den Sinnesinformationen der Augen und Ohren sowie der Verarbeitung dieser Reize einschätzen mit welcher Geschwindigkeit ein herannahendes Auto unterwegs ist und ob wir lieber abwarten bis es vorbeigefahren ist. Innerhalb der Neurowissenschaften wird *perceptual decision making* untersucht, um die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren zu verstehen und mit beobachtbarem Verhalten in Verbindung zu bringen. Von Interesse ist zum Beispiel wie die Entscheidung ausfällt, wenn die sensorischen Daten undeutlich oder sogar widersprüchlich sind. Besonders spannend ist auch wie Vorwissen (*prior knowledge*) auf das Entscheidungsverhalten einwirkt.
 
 
 <aside>**Perceptual decision making** is the process by which sensory information is used to guide behavior toward the external world. This involves gathering information through the senses, evaluating and integrating it according to the current goals and internal state of the subject, and using it to produce motor responses. In contrast to choice behavior and decision making in general (...) perceptual decision making emphasizes the role of sensory information in directing behavior (...) within neuroscience, the goal is to reveal the computational mechanisms whereby neural circuits encode, store, and analyze perceptual signals; combine them with other behaviorally relevant information; and use them to resolve conflicts between competing motor plans. @jaeger_perceptual_2014</aside>
@@ -38,24 +40,25 @@ Jeden Tag treffen wir Tausende von kleinen Entscheidungen, meistens unter gewiss
 *Diskutieren Sie die Fragen in kleinen Gruppen und finden Sie je 3 Beispiele.*
 :::
 
-Obwohl das Treffen von Entscheidungen für uns etwas sehr Vertrautes ist, ist das Wissen darum, wie das Gehirn diese Entscheidungsaufgaben löst noch sehr begrenzt. Eine einzelne Entscheidung kann schon sehr komplex sein. Um die Dynamik der Entscheidungsfindung zu verstehen, konzentrieren sich die meisten Studien deshalb auf einfache, wiederholbare Wahlprobleme mit nur zwei (binären) Antwortmöglichkeiten. Ein typisches Paradigma in neurowissenschaftlichen Studien ist das *random-dot motion paradigm.*
+Obwohl das Treffen von Entscheidungen für uns etwas sehr Vertrautes ist, ist das Wissen darum, wie das Gehirn diese Entscheidungsaufgaben löst noch sehr begrenzt. Eine einzelne Entscheidung kann schon sehr komplex sein. Um die Dynamik der Entscheidungsfindung zu verstehen, konzentrieren sich die meisten Studien deshalb auf einfache, wiederholbare Wahlprobleme mit nur zwei (binären) Antwortmöglichkeiten. Ein typisches Paradigma in neurowissenschaftlichen Studien ist das *random-dot motion paradigm.* Hierbei muss eine Person entscheiden in welche Richtung sich eine Punktewolke bewegt.
 
 # Experiment
 
-Das Experiment ist eine Reaktionszeit (RT) Version eines *random-dot motion direction discrimination task*. In diesem Paradigma sieht die Versuchsperson sich bewegende Punkte, die sich in unterschiedliche Richtungen bewegen. Ihre Aufgabe ist es zu entscheiden, ob sich die Punkte mehrheitlich nach rechts oder nach links bewegen. Bei einem Kohärenzniveau von beispielsweise 80% bewegen sich 80% der Punkte in dieselbe Richtung. Die Aufgabenschwierigkeit steigt je tiefer das Kohärenzniveau ist.
+Das Experiment *Bias in the brain* von @mulder_bias_2012 ist eine Reaktionszeit (RT) Version eines *random-dot motion direction discrimination task*. In diesem Paradigma sieht die Versuchsperson sich bewegende Punkte, die sich in unterschiedliche Richtungen bewegen. Ihre Aufgabe ist es zu entscheiden, ob sich die Punkte mehrheitlich nach rechts oder nach links bewegen. Bei einem Kohärenzniveau von beispielsweise 80% bewegen sich 80% der Punkte in dieselbe Richtung. Die Aufgabenschwierigkeit steigt je tiefer das Kohärenzniveau ist.
 
 ::: {layout-ncol=2}
 ![*Random-dot motion paradigm* [@mulder_bias_2012] ](../../assets/images/mulder_random_dot_paradigm.JPG)
 :::
 
-@mulder_bias_2012 haben untersucht, wie Vorwissen (*prior knowledge*) den Entscheidungsprozess in einem *random-dot motion task* beeinflusst, und ob es ein neuronales Korrelat solchen Vorwissen gibt. Aus diesem Grund haben sie zwei verschiedene Formen von Vorwissen benutzt:
+@mulder_bias_2012 haben untersucht, wie Vorwissen (*prior knowledge*) den Entscheidungsprozess in einem *random-dot motion task* beeinflusst, und ob es ein neuronales Korrelat für solches Vorwissen gibt. Aus diesem Grund haben sie zwei verschiedene Formen von Vorwissen benutzt:
 
-- Die *a priori Wahrscheinlichkeit*, dass die Punktwolke sich nach rechts oder nach links bewegen wird.
+- *prior probability*: Die *a priori Wahrscheinlichkeit*, dass die Punktwolke sich nach rechts oder nach links bewegen wird.
 
-- Eine assymmetrische Belohnung für korrekte links/rechts Entscheidungen.
+- *potential payoff*: Eine assymmetrische Belohnung für korrekte links/rechts Entscheidungen.
+
 
 ::: callout-important
-Wie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus? 
+Wie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus?
 
 - Bei welcher Bedingung antworten die Personen schneller? 
 
@@ -76,6 +79,16 @@ Das Vorwissen (auch *bias*) der Versuchsperson wird in diesem Experiment durch e
 
 ::: callout-important
 Schauen Sie sich in PsychoPy die verschiedenen möglichen Bausteine für Experimente an. Versuchen Sie Stück für Stück das Experiment von @mulder_bias_2012 nachzubauen. 
+
+Hilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:
+
+- [PsychoPy Website](https://www.psychopy.org/)
+
+- [Walk-through: Builder](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/psychopy/index.html)
+
+- [Diskussionsforum](https://discourse.psychopy.org/)
+
+Untenstehend finden Sie einige wichtige Informationen über das Experiment.
 :::
 
 ## Ablauf
@@ -94,7 +107,7 @@ Nach dem Cue wird ein weiteres Fixationskreuz präsentiert - dieses Mal für ent
 
 Nach dem zweiten Fixationskreuz wird für 1500 ms der eigentliche Stimulus angezeigt: ein *random dot kinematogram* (RDK). Die Punkte bewegen sich entweder nach rechts oder nach links mit einem Kohärenzniveau von 8%. Die Bewegungsrichtung eines einzelnen Versuchs wird durch die Schleifenvariable **direction** bestimmt und im Codeblock der Routine *Dots* festgelegt. Die Teilnehmer müssen entscheiden, welche Richtung sie wahrnehmen, und können ihre Antwort durch Drücken der linken oder rechten Pfeiltaste auf der Tastatur eingeben.
 
-Schließlich wird ein Feedback-Bildschirm angezeigt. Wenn der Teilnehmer innerhalb der ersten 100 ms geantwortet hat, wird der Hinweis "zu schnell" angezeigt. Wurde während des gesamten Stimulus keine Antwort erfasst, wird das Wort "miss" angezeigt. War die Antwort richtig, wird "+5 Punkte" angezeigt, war sie falsch, wird "+0 Punkte*" angezeigt.
+Schließlich wird ein Feedback-Bildschirm angezeigt. Wenn der Teilnehmer innerhalb der ersten 100 ms geantwortet hat, wird der Hinweis "zu schnell" angezeigt. Wurde während des gesamten Stimulus keine Antwort erfasst, wird das Wort "miss" angezeigt. War die Antwort richtig, wird "+5 Punkte" angezeigt, war sie falsch, wird "+0 Punkte" angezeigt.
 
 ##  Experimentalschleife: main_blocks_loop
 
