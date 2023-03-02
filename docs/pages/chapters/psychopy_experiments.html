@@ -285,11 +285,12 @@ div.csl-indent {
 
 </header>
 
-<p>Neurowissenschaftliche Experimente müssen exakt auf die Fragestellung zugeschnitten werden um aussagekräftige Daten zu liefern. Deshalb programmieren die meisten Forschenden ihre Experimentalparadigmen selbst. So können beispielsweise Instruktionen oder verwendete Stimuli, deren Grösse und Anzeigedauer präzise definiert werden. In dieser Sitzung befassen wir uns damit, wie wir Entscheidungsverhalten von Menschen mit einem Experiment neurowissenschaftlich untersuchen können. Hierzu erstellen wir mit PsychoPy ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus <span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span>.</p>
+<p>Neurowissenschaftliche Experimente müssen exakt auf die Fragestellung zugeschnitten werden um aussagekräftige Daten zu liefern. Deshalb programmieren die meisten Forschenden ihre Experimentalparadigmen selbst. So können beispielsweise Instruktionen oder verwendete Stimuli, deren Grösse und Anzeigedauer präzise definiert werden. In dieser Sitzung erstellen wir mit PsychoPy ein perzeptuelles Entscheidungsexperiment, ähnlich dem Experiment aus <span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span>. Dieses neurowissenschaftliche Experiment untersucht den Einfluss von Vorwissen auf Entscheidungsverhalten von Menschen sowie die dazugehörigen neuronalen Korrelate.</p>
 <section id="einleitung" class="level1 page-columns page-full">
 <h1>Einleitung</h1>
-<p>Jeden Tag treffen wir Tausende von kleinen Entscheidungen, meistens unter gewissem Zeitdruck. Viele davon sind trivial (z. B. welches Paar Socken man anzieht) und automatisch (z. B. ob man die Espresso- oder Lungo-Taste auf der Kaffeemaschine drückt). Die meisten Entscheidungen im wirklichen Leben setzen sich eigentlich aus zwei Entscheidungen zusammen: Einerseits der Entscheidung, mit dem Abwägen aufzuhören und aufgrund des aktuellen Wissenstandes zu handeln. Andererseits die Wahl oder Entscheidungshandlung selbst. Wenn Sie ein Experiment durchführen müssen Sie beispielsweise Daten sammeln, und dann entscheiden, wann die Datenerfassung beendet, mit der Analyse begonnen und eine Schlussfolgerung gezogen wird. Dieser sequentielle Charakter der Entscheidungsfindung ist eine grundlegende Eigenschaft des menschlichen Nervensystems und spiegelt seine Unfähigkeit wider, Informationen sofort zu verarbeiten.</p>
-<p><em>Perzeptuelle Entscheidungen</em> sind Entscheidungen, welche auf der Wahrnehmung von Sinnesreizen beruhen. Um beispielsweise eine Strasse sicher überqueren zu können, müssen wir mittels den Sinnesinformationen der Augen und Ohren sowie der Verarbeitung dieser Reize einschätzen mit welcher Geschwindigkeit ein herannahendes Auto unterwegs ist und ob wir lieber abwarten bis es vorbeigefahren ist. Innerhalb der Neurowissenschaften wird <em>perceptual decision making</em> untersucht, um die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren zu verstehen und mit beobachtbarem Verhalten in Verbindung zu bringen. Von Interesse ist zum Beispiel wie die Entscheidung ausfällt, wenn die sensorischen Daten undeutlich oder sogar widersprüchlich sind. Besonders spannend ist auch wie Vorwissen (<em>prior knowledge</em>) auf das Entscheidungsverhalten einwirkt.</p>
+<p>Jeden Tag treffen wir Tausende von kleinen Entscheidungen, meistens unter gewissem Zeitdruck. Viele davon sind trivial (z. B. welches Paar Socken man anzieht) und automatisch (z. B. ob man die Espresso- oder Lungo-Taste auf der Kaffeemaschine drückt).</p>
+<!-- Die meisten Entscheidungen im wirklichen Leben setzen sich eigentlich aus zwei Entscheidungen zusammen: Einerseits der Entscheidung, mit dem Abwägen aufzuhören und aufgrund des aktuellen Wissenstandes zu handeln. Andererseits die Wahl oder Entscheidungshandlung selbst. Wenn Sie ein Experiment durchführen müssen Sie beispielsweise Daten sammeln, und dann entscheiden, wann die Datenerfassung beendet, mit der Analyse begonnen und eine Schlussfolgerung gezogen wird. Dieser sequentielle Charakter der Entscheidungsfindung ist eine grundlegende Eigenschaft des menschlichen Nervensystems und spiegelt seine Unfähigkeit wider, Informationen sofort zu verarbeiten. -->
+<p><em>Perzeptuelle Entscheidungen</em> sind Entscheidungen, welche auf der Wahrnehmung, Einordnung und Integration von Sinnesreizen beruhen. Um beispielsweise eine Strasse sicher überqueren zu können, müssen wir mittels den Sinnesinformationen der Augen und Ohren sowie der Verarbeitung dieser Reize einschätzen mit welcher Geschwindigkeit ein herannahendes Auto unterwegs ist und ob wir lieber abwarten bis es vorbeigefahren ist. Innerhalb der Neurowissenschaften wird <em>perceptual decision making</em> untersucht, um die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren zu verstehen und mit beobachtbarem Verhalten in Verbindung zu bringen. Von Interesse ist zum Beispiel wie die Entscheidung ausfällt, wenn die sensorischen Daten undeutlich oder sogar widersprüchlich sind. Besonders spannend ist auch wie Vorwissen (<em>prior knowledge</em>) auf das Entscheidungsverhalten einwirkt.</p>
 <aside>
 <strong>Perceptual decision making</strong> is the process by which sensory information is used to guide behavior toward the external world. This involves gathering information through the senses, evaluating and integrating it according to the current goals and internal state of the subject, and using it to produce motor responses. In contrast to choice behavior and decision making in general (…) perceptual decision making emphasizes the role of sensory information in directing behavior (…) within neuroscience, the goal is to reveal the computational mechanisms whereby neural circuits encode, store, and analyze perceptual signals; combine them with other behaviorally relevant information; and use them to resolve conflicts between competing motor plans. <span class="citation" data-cites="jaeger_perceptual_2014">Hauser and Salinas (<a href="#ref-jaeger_perceptual_2014" role="doc-biblioref">2014</a>)</span>
 </aside>
@@ -310,11 +311,11 @@ Hands-on
 <p><em>Diskutieren Sie die Fragen in kleinen Gruppen und finden Sie je 3 Beispiele.</em></p>
 </div>
 </div>
-<p>Obwohl das Treffen von Entscheidungen für uns etwas sehr Vertrautes ist, ist das Wissen darum, wie das Gehirn diese Entscheidungsaufgaben löst noch sehr begrenzt. Eine einzelne Entscheidung kann schon sehr komplex sein. Um die Dynamik der Entscheidungsfindung zu verstehen, konzentrieren sich die meisten Studien deshalb auf einfache, wiederholbare Wahlprobleme mit nur zwei (binären) Antwortmöglichkeiten. Ein typisches Paradigma in neurowissenschaftlichen Studien ist das <em>random-dot motion paradigm.</em></p>
+<p>Obwohl das Treffen von Entscheidungen für uns etwas sehr Vertrautes ist, ist das Wissen darum, wie das Gehirn diese Entscheidungsaufgaben löst noch sehr begrenzt. Eine einzelne Entscheidung kann schon sehr komplex sein. Um die Dynamik der Entscheidungsfindung zu verstehen, konzentrieren sich die meisten Studien deshalb auf einfache, wiederholbare Wahlprobleme mit nur zwei (binären) Antwortmöglichkeiten. Ein typisches Paradigma in neurowissenschaftlichen Studien ist das <em>random-dot motion paradigm.</em> Hierbei muss eine Person entscheiden in welche Richtung sich eine Punktewolke bewegt.</p>
 </section>
 <section id="experiment" class="level1 page-columns page-full">
 <h1>Experiment</h1>
-<p>Das Experiment ist eine Reaktionszeit (RT) Version eines <em>random-dot motion direction discrimination task</em>. In diesem Paradigma sieht die Versuchsperson sich bewegende Punkte, die sich in unterschiedliche Richtungen bewegen. Ihre Aufgabe ist es zu entscheiden, ob sich die Punkte mehrheitlich nach rechts oder nach links bewegen. Bei einem Kohärenzniveau von beispielsweise 80% bewegen sich 80% der Punkte in dieselbe Richtung. Die Aufgabenschwierigkeit steigt je tiefer das Kohärenzniveau ist.</p>
+<p>Das Experiment <em>Bias in the brain</em> von <span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span> ist eine Reaktionszeit (RT) Version eines <em>random-dot motion direction discrimination task</em>. In diesem Paradigma sieht die Versuchsperson sich bewegende Punkte, die sich in unterschiedliche Richtungen bewegen. Ihre Aufgabe ist es zu entscheiden, ob sich die Punkte mehrheitlich nach rechts oder nach links bewegen. Bei einem Kohärenzniveau von beispielsweise 80% bewegen sich 80% der Punkte in dieselbe Richtung. Die Aufgabenschwierigkeit steigt je tiefer das Kohärenzniveau ist.</p>
 <div class="quarto-layout-panel">
 <div class="quarto-layout-row quarto-layout-valign-top">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
@@ -327,10 +328,10 @@ Hands-on
 </div>
 </div>
 </div>
-<p><span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span> haben untersucht, wie Vorwissen (<em>prior knowledge</em>) den Entscheidungsprozess in einem <em>random-dot motion task</em> beeinflusst, und ob es ein neuronales Korrelat solchen Vorwissen gibt. Aus diesem Grund haben sie zwei verschiedene Formen von Vorwissen benutzt:</p>
+<p><span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span> haben untersucht, wie Vorwissen (<em>prior knowledge</em>) den Entscheidungsprozess in einem <em>random-dot motion task</em> beeinflusst, und ob es ein neuronales Korrelat für solches Vorwissen gibt. Aus diesem Grund haben sie zwei verschiedene Formen von Vorwissen benutzt:</p>
 <ul>
-<li><p>Die <em>a priori Wahrscheinlichkeit</em>, dass die Punktwolke sich nach rechts oder nach links bewegen wird.</p></li>
-<li><p>Eine assymmetrische Belohnung für korrekte links/rechts Entscheidungen.</p></li>
+<li><p><em>prior probability</em>: Die <em>a priori Wahrscheinlichkeit</em>, dass die Punktwolke sich nach rechts oder nach links bewegen wird.</p></li>
+<li><p><em>potential payoff</em>: Eine assymmetrische Belohnung für korrekte links/rechts Entscheidungen.</p></li>
 </ul>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -377,6 +378,13 @@ Hands-on
 </div>
 <div class="callout-body-container callout-body">
 <p>Schauen Sie sich in PsychoPy die verschiedenen möglichen Bausteine für Experimente an. Versuchen Sie Stück für Stück das Experiment von <span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span> nachzubauen.</p>
+<p>Hilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:</p>
+<ul>
+<li><p><a href="https://www.psychopy.org/">PsychoPy Website</a></p></li>
+<li><p><a href="https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/psychopy/index.html">Walk-through: Builder</a></p></li>
+<li><p><a href="https://discourse.psychopy.org/">Diskussionsforum</a></p></li>
+</ul>
+<p>Untenstehend finden Sie einige wichtige Informationen über das Experiment.</p>
 </div>
 </div>
 <section id="ablauf" class="level2">
@@ -392,7 +400,7 @@ Das Experiment wurde im Scanner und ausserhalb durchgeführt. Die beiden Version
 <p>Anschließend wird für 1000 ms ein Hinweis (cue) präsentiert. Dabei kann es sich entweder um einen Pfeil handeln, der nach rechts zeigt, einen Pfeil, der nach links zeigt, oder einen einfachen Kreis (für die Kontrollbedingung). Der Codeblock in der <em>Cue</em>-Routine legt den tatsächlichen Hinweis für jeden Versuch auf der Grundlage der Schleifenvariablen <strong>cue</strong> fest.</p>
 <p>Nach dem Cue wird ein weiteres Fixationskreuz präsentiert - dieses Mal für entweder 3400 ms, 4000 ms, 4500 ms oder 5000 ms. Wie beim ersten Fixationskreuz wird die tatsächliche Dauer zufällig gewählt.</p>
 <p>Nach dem zweiten Fixationskreuz wird für 1500 ms der eigentliche Stimulus angezeigt: ein <em>random dot kinematogram</em> (RDK). Die Punkte bewegen sich entweder nach rechts oder nach links mit einem Kohärenzniveau von 8%. Die Bewegungsrichtung eines einzelnen Versuchs wird durch die Schleifenvariable <strong>direction</strong> bestimmt und im Codeblock der Routine <em>Dots</em> festgelegt. Die Teilnehmer müssen entscheiden, welche Richtung sie wahrnehmen, und können ihre Antwort durch Drücken der linken oder rechten Pfeiltaste auf der Tastatur eingeben.</p>
-<p>Schließlich wird ein Feedback-Bildschirm angezeigt. Wenn der Teilnehmer innerhalb der ersten 100 ms geantwortet hat, wird der Hinweis “zu schnell” angezeigt. Wurde während des gesamten Stimulus keine Antwort erfasst, wird das Wort “miss” angezeigt. War die Antwort richtig, wird “+5 Punkte” angezeigt, war sie falsch, wird “+0 Punkte*” angezeigt.</p>
+<p>Schließlich wird ein Feedback-Bildschirm angezeigt. Wenn der Teilnehmer innerhalb der ersten 100 ms geantwortet hat, wird der Hinweis “zu schnell” angezeigt. Wurde während des gesamten Stimulus keine Antwort erfasst, wird das Wort “miss” angezeigt. War die Antwort richtig, wird “+5 Punkte” angezeigt, war sie falsch, wird “+0 Punkte” angezeigt.</p>
 </section>
 <section id="experimentalschleife-main_blocks_loop" class="level2">
 <h2 class="anchored" data-anchor-id="experimentalschleife-main_blocks_loop">Experimentalschleife: main_blocks_loop</h2>
@@ -438,12 +446,12 @@ Mulder, M. J., E.-J. Wagenmakers, R. Ratcliff, W. Boekel, and B. U. Forstmann. 2
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
   author = {Andrew Ellis and Gerda Wyssen},
   title = {Verhaltensexperiment Mit {PsychoPy}},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//psychopy_experiments.html},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/psychopy_experiments.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
 Andrew Ellis, and Gerda Wyssen. n.d. <span>“Verhaltensexperiment Mit
-PsychoPy.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//psychopy_experiments.html">https://kogpsy.github.io/neuroscicomplabFS23//psychopy_experiments.html</a>.
+PsychoPy.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/psychopy_experiments.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/psychopy_experiments.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
