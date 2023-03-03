@@ -548,34 +548,50 @@ win.getActualFrameRate()</code></pre>
 <div class="columns">
 <div class="column" style="width:35%;">
 <div class="topic-number">
-<p>6</p>
+<p>7</p>
 </div>
 </div><div class="column" style="width:65%;">
 <div class="topic-text">
-<p>🛠 Selber machen</p>
+<p>Step by Step</p>
 </div>
 </div>
 </div>
 </section>
-<section id="probieren-sie-es-selber" class="slide level2 smaller">
-<h2>Probieren Sie es selber!</h2>
-<div class="callout callout-important callout-captioned callout-style-default">
-<div class="callout-body">
-<div class="callout-caption">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Hands-on</strong></p>
-</div>
-<div class="callout-content">
-<p>Versuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren</p>
-</div>
-</div>
-</div>
+<section id="stimuli" class="slide level2 smaller">
+<h2>Stimuli</h2>
+<p>Erstellen Sie einen <strong>Random Dot Stimulus</strong>. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al.&nbsp;2012</p>
+<p>Beachten Sie folgende Aspekte:</p>
 <ul>
-<li><p>Wenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 <a href="../files/PracticeTrials.zip">Practice Trials</a></p></li>
-<li><p>Eine Einführung finden Sie hier: 👉 <a href="../behavioural-experiments.html">Verhaltensexperiment mit PsychoPy</a></p></li>
+<li><p>Timing (Stimulusdauer)</p></li>
+<li><p>Farbe</p></li>
+<li><p>Grösse</p></li>
+<li><p>Kohärenz</p></li>
 </ul>
+<p><em>(Die Bewegungsrichtung können Sie noch vernachlässigen.)</em></p>
+</section>
+<section id="trial-i" class="slide level2 smaller">
+<h2>Trial I</h2>
+<p>Erstellen Sie einen <strong>Trial</strong> noch ohne Instruktion fürs Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al.&nbsp;2012</p>
+<ul>
+<li><p>Bewegungsrichtung (inkl. <em>conditions.csv</em> file)</p></li>
+<li><p>Fixationskreuze</p></li>
+<li><p>Timing (ITI: Inter-Trial-Intervall)</p></li>
+<li><p>Antwort der Versuchsperson aufnehmen</p></li>
+</ul>
+<p><em>(Die Instruktion bezüglich Vorwissen können Sie noch vernachlässigen.)</em></p>
+</section>
+<section id="trial-ii" class="slide level2 smaller">
+<h2>Trial II</h2>
+<p>Erstellen Sie einen <strong>Trial</strong> mit Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al.&nbsp;2012</p>
+<p>Beachten Sie folgende Aspekte:</p>
+<ul>
+<li>Cue / Vorwissen kann valide, invalide, neutral sein</li>
+<li>stimmt in 3 von 4 Fällen</li>
+</ul>
+</section>
+<section id="instruktion-debriefing" class="slide level2 smaller">
+<h2>Instruktion &amp; Debriefing</h2>
+<p>Fügen Sie eine Instruktion und ein kurzes Debriefing hinzu.</p>
 
 
 <img src="../assets/logo.png" class="slide-logo r-stretch"><div class="footer footer-default">
