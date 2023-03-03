@@ -223,26 +223,70 @@ win.getActualFrameRate()
 
 ---
 
+
 :::: {.columns}
 ::: {.column width="35%"}
 ::: {.topic-number}
-6
+7
 :::
 :::
 ::: {.column width="65%"}
 ::: {.topic-text}
-🛠 Selber machen
+Step by Step
 :::
 
 :::
 ::::
 
-## Probieren Sie es selber! {.smaller}
+## Stimuli {.smaller}
 
-::: callout-important
-Versuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren
-:::
+Erstellen Sie einen **Random Dot Stimulus**. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012
 
-- Wenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 [Practice Trials](../files/PracticeTrials.zip)
+Beachten Sie folgende Aspekte:
 
-- Eine Einführung finden Sie hier: 👉 [Verhaltensexperiment mit PsychoPy](../behavioural-experiments.html)
+- Timing (Stimulusdauer)
+
+- Farbe
+
+- Grösse
+
+- Kohärenz
+
+*(Die Bewegungsrichtung können Sie noch vernachlässigen.)*
+
+
+## Trial I {.smaller}
+
+Erstellen Sie einen **Trial** noch ohne Instruktion fürs Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012
+
+
+- Bewegungsrichtung (inkl. *conditions.csv* file)
+
+- Fixationskreuze
+
+- Timing (ITI: Inter-Trial-Intervall)
+
+- Antwort der Versuchsperson aufnehmen
+
+*(Die Instruktion bezüglich Vorwissen können Sie noch vernachlässigen.)*
+
+
+## Trial II {.smaller}
+
+Erstellen Sie einen **Trial** mit Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012
+
+Beachten Sie folgende Aspekte:
+
+- Cue / Vorwissen kann valide, invalide, neutral sein
+- stimmt in 3 von 4 Fällen
+
+
+## Instruktion & Debriefing {.smaller}
+
+Fügen Sie eine Instruktion und ein kurzes Debriefing hinzu.
+
+
+
+
+
+

@@ -60,14 +60,14 @@
     "href": "pages/admin/leistungsnachweise.html#leistungsnachweise",
     "title": "Leistungskontrollen",
     "section": "Leistungsnachweise",
-    "text": "Leistungsnachweise\nLeistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von Peer-Feedback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung.\nDie Übungen werden in den entsprechenden Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks. Grundsätzliche Guidelines finden Sie untenstehend.\nILIAS (Montag) 👉 468703-FS2023-1\nILIAS (Donnerstag) 👉 468703-FS2023-0"
+    "text": "Leistungsnachweise\nLeistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Übungen werden in den Veranstaltungen angekündigt und in den entsprechenden Ordner auf ILIAS hochgeladen. Je nach Umfang der Übung wird die Zeit bis zur Abgabe unterschiedlich ausfallen. Sie wird jedoch immer mindestens eine Woche betragen.\nDie Evaluation der Übungen erfolgt in Form von Peer-Feedback; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung. Das Peer-Feedback ist somit Teil des Leistungsnachweises. Auf Ilias finden Sie Informationen zur Art und Form des Feedbacks passend zur Übung. Grundsätzliche Guidelines zum Peer-Feedback finden Sie untenstehend.\nILIAS (Montag) 👉 468703-FS2023-1\nILIAS (Donnerstag) 👉 468703-FS2023-0"
   },
   {
     "objectID": "pages/admin/leistungsnachweise.html#peer-feedback-guidelines",
     "href": "pages/admin/leistungsnachweise.html#peer-feedback-guidelines",
     "title": "Leistungskontrollen",
     "section": "Peer Feedback Guidelines",
-    "text": "Peer Feedback Guidelines\nWissenschaftliche Artikel werden von Forschenden aus denselben/ähnlichen Forschungsgebieten begutachtet. In diesem Kurs wählen wir für das Feedback zu den Übungen ebenfalls dieses Prinzip des peer review. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. Was würde die Grafik informativer machen?. Wir bitten Sie, beim Verfassen des Peer Feedbacks folgende grundsätzlichen Richtlinien zu beachten:\n\nbe kind: Seien Sie freundlich. Wählen Sie Ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv aufgefallen ist und unbedingt beibehalten werden sollte.\nbe specific: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. “Code läuft nicht” könnten Sie schreiben “in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, …”)\nbe helpful: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie bestenfalls einen Lösungsansatz oder -vorschlag hinzu (statt z.B. “die Farben sind nicht geeignet für farbenblinde Personen” könnten Sie schreiben “die viridis Palette würde die Grafik für farbenblinde Personen zugänglich machen”).\n\nDiese Punkte einzuhalten benötigt etwas Zeit. Deshalb planen Sie sich bitte ca. 1 Lektion für das jeweilige Peer Feedback ein."
+    "text": "Peer Feedback Guidelines\nWissenschaftliche Artikel werden von Forschenden aus denselben/ähnlichen Forschungsgebieten begutachtet. In diesem Kurs wählen wir für das Feedback zu den Übungen ebenfalls dieses Prinzip des peer review. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. Was würde die Grafik informativer machen?. Wir bitten Sie, beim Verfassen des Peer-Feedbacks folgende Richtlinien zu beachten:\n\nbe kind: Seien Sie freundlich. Wählen Sie Ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv aufgefallen ist und unbedingt beibehalten werden sollte.\nbe specific: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. “Code läuft nicht” könnten Sie schreiben “in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, …”)\nbe helpful: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie bestenfalls einen Lösungsansatz oder -vorschlag hinzu (statt z.B. “die Farben sind nicht geeignet für farbenblinde Personen” könnten Sie schreiben “die viridis Palette würde die Grafik für farbenblinde Personen zugänglich machen”).\n\nWertvolles Feedback zu geben benötigt Zeit. Deshalb planen Sie sich bitte ca. 1 Lektion für das jeweilige Peer Feedback ein."
   },
   {
     "objectID": "pages/admin/syllabus.html",
@@ -333,7 +333,7 @@
     "href": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
     "title": "PsychoPy Experiment",
     "section": "Probieren Sie es selber!",
-    "text": "Probieren Sie es selber!\n\n\n\n\n\n\nHands-on\n\n\nVersuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren\n\n\n\n\nWenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 Practice Trials\nEine Einführung finden Sie hier: 👉 Verhaltensexperiment mit PsychoPy\n\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+    "text": "Probieren Sie es selber!\nwerwer\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
   },
   {
     "objectID": "pages/exercises/exercise_01.html",
@@ -362,5 +362,68 @@
     "title": "PsychoPy Experiment",
     "section": "Random-dot motion Experiment IV",
     "text": "Random-dot motion Experiment IV\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#programming-an-experiment-step-by-step",
+    "href": "slides/02_psychopy_gw.html#programming-an-experiment-step-by-step",
+    "title": "PsychoPy Experiment",
+    "section": "Programming an experiment: Step by step",
+    "text": "Programming an experiment: Step by step"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#probieren-sie-es-selber-1",
+    "href": "slides/02_psychopy_gw.html#probieren-sie-es-selber-1",
+    "title": "PsychoPy Experiment",
+    "section": "Probieren Sie es selber!",
+    "text": "Probieren Sie es selber!\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#s",
+    "href": "slides/02_psychopy_gw.html#s",
+    "title": "PsychoPy Experiment",
+    "section": "S",
+    "text": "S\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#stimuli",
+    "href": "slides/02_psychopy_gw.html#stimuli",
+    "title": "PsychoPy Experiment",
+    "section": "Stimuli",
+    "text": "Stimuli\nErstellen Sie einen Random Dot Stimulus. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\nBeachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer)\nFarbe\nGrösse\nKohärenz\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#trial",
+    "href": "slides/02_psychopy_gw.html#trial",
+    "title": "PsychoPy Experiment",
+    "section": "Trial",
+    "text": "Trial\n\nErstellen Sie einen Trial. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\n\nBeachten Sie folgende Aspekte:\n\nBewegungsrichtung\nFixationskreuze\nTiming (ITI: Inter-Trial-Intervall)\nBewegungsrichtung\n\n(Die Antwort der Versuchsperson können Sie noch vernachlässigen.)\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#trial-i",
+    "href": "slides/02_psychopy_gw.html#trial-i",
+    "title": "PsychoPy Experiment",
+    "section": "Trial I",
+    "text": "Trial I\nErstellen Sie einen Trial noch ohne Instruktion fürs Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\n\nBewegungsrichtung (inkl. conditions.csv file)\nFixationskreuze\nTiming (ITI: Inter-Trial-Intervall)\nAntwort der Versuchsperson aufnehmen\n\n(Die Instruktion bezüglich Vorwissen können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#trial-ii",
+    "href": "slides/02_psychopy_gw.html#trial-ii",
+    "title": "PsychoPy Experiment",
+    "section": "Trial II",
+    "text": "Trial II\nErstellen Sie einen Trial mit Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\nBeachten Sie folgende Aspekte:\n\nCue / Vorwissen kann valide, invalide, neutral sein\nstimmt in 3 von 4 Fällen"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#instruktion-debriefing",
+    "href": "slides/02_psychopy_gw.html#instruktion-debriefing",
+    "title": "PsychoPy Experiment",
+    "section": "Instruktion & Debriefing",
+    "text": "Instruktion & Debriefing\nFügen Sie eine Instruktion und ein kurzes Debriefing hinzu.\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html#section",
+    "href": "slides/02_psychopy_gw.html#section",
+    "title": "PsychoPy Experiment",
+    "section": "",
+    "text": "🏠 Neurowissenschaft im Computerlab FS23"
   }
 ]
