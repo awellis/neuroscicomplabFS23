@@ -376,5 +376,82 @@
     "title": "Verhaltensexperiment mit PsychoPy - Step by step",
     "section": "Allgemeine Informationen zu PsychoPy",
     "text": "Allgemeine Informationen zu PsychoPy\nHilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:\n\nPsychoPy Website\nWalk-through: Builder\nDiskussionsforum\n\nUntenstehend finden Sie einige wichtige Informationen über das Experiment."
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html",
+    "href": "pages/chapters/experiment_stepbystep.html",
+    "title": "Experiment erstellen - Step by step",
+    "section": "",
+    "text": "Schauen Sie sich in PsychoPy die verschiedenen möglichen Bausteine für Experimente an. Versuchen Sie Stück für Stück das Experiment von Mulder et al. (2012) nachzubauen."
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#allgemeine-informationen-zu-psychopy",
+    "href": "pages/chapters/experiment_stepbystep.html#allgemeine-informationen-zu-psychopy",
+    "title": "Experiment erstellen - Step by step",
+    "section": "Allgemeine Informationen zu PsychoPy",
+    "text": "Allgemeine Informationen zu PsychoPy\nHilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:\n\nPsychoPy Website\nWalk-through: Builder\nDiskussionsforum"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus-erstellen",
+    "href": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus-erstellen",
+    "title": "Experiment erstellen - Step by step",
+    "section": "1. Random Dot Stimulus erstellen",
+    "text": "1. Random Dot Stimulus erstellen\nErstellen Sie einen Random Dot Stimulus.\nBeachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer)\nFarbe\nGrösse\nKohärenz\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#trial-erstellen",
+    "href": "pages/chapters/experiment_stepbystep.html#trial-erstellen",
+    "title": "Experiment erstellen - Step by step",
+    "section": "2. Trial erstellen",
+    "text": "2. Trial erstellen\nErstellen Sie einen Trial noch ohne Instruktion fürs Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\n\nBewegungsrichtung (inkl. conditions.csv file)\nFixationskreuze\nTiming (ITI: Inter-Trial-Intervall)\nAntwort der Versuchsperson aufnehmen\n\n(Die Instruktion bezüglich Vorwissen können Sie noch vernachlässigen.)\nErstellen Sie einen Trial mit Vorwissen. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\nBeachten Sie folgende Aspekte:\n\nCue / Vorwissen kann valide, invalide, neutral sein\nstimmt in 3 von 4 Fällen"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#bedingungen-varieren",
+    "href": "pages/chapters/experiment_stepbystep.html#bedingungen-varieren",
+    "title": "Experiment erstellen - Step by step",
+    "section": "3. Bedingungen varieren",
+    "text": "3. Bedingungen varieren"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#instruktion-und-debriefing",
+    "href": "pages/chapters/experiment_stepbystep.html#instruktion-und-debriefing",
+    "title": "Experiment erstellen - Step by step",
+    "section": "4. Instruktion und Debriefing",
+    "text": "4. Instruktion und Debriefing\n\nFügen Sie zu Beginn des Experiments eine Instruktion hinzu.\nFügen Sie am Ende des Experiments ein Debriefing hinzu."
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus",
+    "href": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus",
+    "title": "Experiment erstellen - Step by step",
+    "section": "1. Random Dot Stimulus",
+    "text": "1. Random Dot Stimulus\nErstellen Sie einen Random Dot Stimulus. Beachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer): 1500 ms\nFarbe\nGrösse: 3x3 px\nKohärenz: 0.8\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#trialschleife",
+    "href": "pages/chapters/experiment_stepbystep.html#trialschleife",
+    "title": "Experiment erstellen - Step by step",
+    "section": "2. Trialschleife",
+    "text": "2. Trialschleife\nErstellen Sie eine Trial-Schleife.\n\nFixation 1 (100/350/800/1200 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nDots (1500 ms)\nFeedback\nTiming (ITI: Inter-Trial-Intervall)\nAntwort der Versuchsperson aufnehmen\n\n(Die Variation der Bewegungsrichtung und des Vorwissens können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#bedingungen",
+    "href": "pages/chapters/experiment_stepbystep.html#bedingungen",
+    "title": "Experiment erstellen - Step by step",
+    "section": "3. Bedingungen",
+    "text": "3. Bedingungen\n\nVariieren Sie die Bewegungsrichtung der Random Dots mit dem conditions.csv file: Bewegungsrichtung ist zu 50% rechts, zu 50% links.\nVariieren Sie den Cue fürs Vorwissen in jedem Trial mit dem conditions.csv file: Der Cue kann valide (20x), invalide (20x) oder neutral (40x) sein. Der Cue ist in 3 von 4 Fällen korrekt. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein."
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#test",
+    "href": "pages/chapters/experiment_stepbystep.html#test",
+    "title": "Experiment erstellen - Step by step",
+    "section": "5. Test",
+    "text": "5. Test\n\nFühren Sie das Experiment aus und schauen Sie sich den Datensatz an: Alles ok?"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#übungsexperiment",
+    "href": "pages/chapters/experiment_stepbystep.html#übungsexperiment",
+    "title": "Experiment erstellen - Step by step",
+    "section": "6. Übungsexperiment",
+    "text": "6. Übungsexperiment\n\nLaden Sie hier das Experiment für die erste Übung herunter.\nVergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?"
   }
 ]

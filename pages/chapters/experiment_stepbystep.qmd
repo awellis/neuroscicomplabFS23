@@ -1,0 +1,99 @@
+---
+title: "Experiment erstellen - Step by step"
+description: Perceptual Decision-Making Experiment mit PsychoPy.
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: true
+bibliography: ../../bibliography_gw.bib
+format:
+    html:
+        toc: true
+---
+
+Schauen Sie sich in PsychoPy die verschiedenen möglichen Bausteine für Experimente an. Versuchen Sie Stück für Stück das Experiment von @mulder_bias_2012 nachzubauen. 
+
+## Allgemeine Informationen zu PsychoPy
+
+Hilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:
+
+- [PsychoPy Website](https://www.psychopy.org/)
+
+- [Walk-through: Builder](https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/psychopy/index.html)
+
+- [Diskussionsforum](https://discourse.psychopy.org/)
+
+
+
+## 1. Random Dot Stimulus
+
+Erstellen Sie einen **Random Dot Stimulus**. Beachten Sie folgende Aspekte:
+
+- Timing (Stimulusdauer): 1500 ms
+
+- Farbe
+
+- Grösse: 3x3 px
+
+- Kohärenz: 0.8
+
+*(Die Bewegungsrichtung können Sie noch vernachlässigen.)*
+
+
+## 2. Trialschleife
+
+Erstellen Sie eine **Trial**-Schleife. 
+
+- Fixation 1 (100/350/800/1200 ms) *(Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)*
+    
+- Cue (1000 ms)
+    
+- Fixation 2 (3400/4000/4500/5000 ms) *(Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)*
+    
+- Dots (1500 ms)
+    
+- Feedback
+
+- Timing (ITI: Inter-Trial-Intervall)
+
+- Antwort der Versuchsperson aufnehmen
+
+
+*(Die Variation der Bewegungsrichtung und des Vorwissens können Sie noch vernachlässigen.)*
+
+
+## 3. Bedingungen
+
+- Variieren Sie die Bewegungsrichtung der Random Dots mit dem *conditions.csv* file: Bewegungsrichtung ist zu 50% rechts, zu 50% links.
+
+- Variieren Sie den Cue fürs Vorwissen in jedem Trial mit dem *conditions.csv* file: Der Cue kann valide (20x), invalide (20x) oder neutral (40x) sein. Der Cue ist in 3 von 4 Fällen korrekt. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein.
+
+
+## 4. Instruktion und Debriefing
+
+- Fügen Sie zu Beginn des Experiments eine Instruktion hinzu.
+
+- Fügen Sie am Ende des Experiments ein Debriefing hinzu.
+
+
+## 5. Test
+
+- Führen Sie das Experiment aus und schauen Sie sich den Datensatz an: Alles ok?
+
+
+## 6. Übungsexperiment
+
+- Laden Sie **hier** das Experiment für die erste Übung herunter. 
+
+- Vergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?
+
+
