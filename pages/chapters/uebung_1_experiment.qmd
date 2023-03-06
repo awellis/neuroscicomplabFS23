@@ -20,19 +20,19 @@ format:
         toc: true
 ---
 
-In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch und laden die Datensätze hoch. Die Daten werden wir dann im späteren Verlauf der Veranstaltungen analysieren (nicht Teil von Übung 1). 
+In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch und laden die Datensätze hoch. In dieser Übung gibt es kein *Peer Feedback*. Die erhobenen Daten werden wir dann in den kommenden Sitzungen verwenden. 
 
 ## Random Dot Experiment durchführen
 
-- Das fertige Experiment befindet sich auf Github. Sie können es unter [diesem Link](https://github.com/kogpsy/psychopy-rdk-discrimination-task) downloaden. (Wenn Sie auf den grünen Button *Code* klicken, kann man das Experiment als Zip-Datei herunterladen: *Download ZIP*)
+- Das fertige Experiment befindet sich auf Github. Sie können es unter [diesem Link](https://github.com/kogpsy/psychopy-rdk-discrimination-task) downloaden. (Wenn Sie auf den grünen Button `Code` klicken, kann man das Experiment als Zip-Datei herunterladen: `Download ZIP`)
 
 - Führen Sie das Experiment ein- oder mehrere Male selber durch. Kontrollieren Sie, ob ein Datensatz gespeichert wird.
 
-- Testen Sie zwei weitere Personen (Alter zwischen 20 und 60 Jahre).
+- Testen Sie zwei Personen (Alter zwischen 20 und 60 Jahre). Diese Personen sollten die Hypothese nicht kennen (also keine Mitstudierende aus dem ComputerLab). 
 
 ## Datenabgabe
 
-- Daten abgeben: Zippen Sie bitte die Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis __XX. März__ auf ILIAS.
+- Daten abgeben: Zippen Sie bitte die `.csv`-Datensätze der getesteten Personen (nicht von den Selbsttests) und __laden Sie das ZIP File bis in 10 Tagen auf ILIAS__.
 
 
 
@@ -42,7 +42,7 @@ Bitte Fehlermeldung im Fenster genau durchlesen. Dort finden Sie Hinweise darauf
 
 __Das Experiment startet nicht.__
 
-- Unter `Einstellungen` (Radsymbol) den Reiter `Basic` auswählen. Bei `Use PsychoPy version` die laufende PsychoPy Version auswählen (z.B. `2022.2.5`.
+- Unter `Einstellungen` (Radsymbol) den Reiter `Basic` auswählen. Bei `Use PsychoPy version` die laufende PsychoPy Version auswählen (z.B. `2022.2.5`).
 
 
 __Das Experiment startet zwar, der Bildschirm ist aber dann einfach für eine kurze Zeit grau und das Fenster schliesst sich wieder.__

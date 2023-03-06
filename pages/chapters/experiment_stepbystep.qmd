@@ -42,11 +42,11 @@ Erstellen Sie einen **Random Dot Stimulus**. Beachten Sie folgende Aspekte:
 
 - Farbe
 
-- Grösse: 3x3 px
+- Grösse: gut sichtbar
 
 - Kohärenz: 0.08
 
-- Fieldsize: 75% des Displays
+- Field size: 75% des Displays
 
 *(Die Bewegungsrichtung können Sie noch vernachlässigen.)*
 
@@ -77,7 +77,7 @@ Erstellen Sie eine **Trial**-Schleife.
 
 - Variieren Sie die Bewegungsrichtung der Random Dots mit dem *conditions.csv* file: Bewegungsrichtung ist zu 50% rechts, zu 50% links.
 
-- Variieren Sie den Cue fürs Vorwissen in jedem Trial mit dem *conditions.csv* file: Der Cue kann valide (20x), invalide (20x) oder neutral (40x) sein. Der Cue ist in 3 von 4 Fällen korrekt. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein.
+- Variieren Sie den Cue fürs Vorwissen in jedem Trial mit dem *conditions.csv* file: Der Cue kann valide (4x), invalide (2x) oder neutral (4x) sein. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein.
 
 
 ## 4. Instruktion und Debriefing
