@@ -1,0 +1,36 @@
+---
+title: "Übung 1"
+description: Daten erheben mit PsychoPy Experiment.
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: true
+bibliography: ../../bibliography_gw.bib
+format:
+    html:
+        toc: true
+---
+
+In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch. Die Daten werden wir dann im Verlaufe der Veranstaltungen analysieren. 
+
+## Random Dot Experiment durchführen
+
+- Das fertige Experiment befindet sich auf Github. Sie können es unter [diesem Link](https://github.com/kogpsy/psychopy-rdk-discrimination-task) downloaden. (Wenn Sie auf den grünen Button *Code* klicken, kann man das Experiment als Zip-Datei herunterladen: *Download ZIP*)
+
+- Führen Sie das Experiment ein- oder mehrere Male selber durch. Kontrollieren Sie, ob ein Datensatz gespeichert wird.
+
+- Testen Sie zwei weitere Personen (Alter zwischen 20 und 60 Jahre).
+
+## Datenabgabe
+
+- Daten abgeben: Zippen Sie bitte die Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis __XX. März__ auf ILIAS.
+

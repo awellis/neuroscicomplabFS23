@@ -284,7 +284,7 @@
     "href": "slides/02_psychopy_gw.html#perceptual-decisions",
     "title": "PsychoPy Experiment",
     "section": "Perceptual decisions",
-    "text": "Perceptual decisions\n\nberuhen auf der Wahrnehmung, Evaluation, Integration von Sinnesempfindungen\nsind oft handlungsrelevant\nneurowissenschaftlich untersucht werden die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren und wie diese mit Verhalten zusammenhängen\nmögliche Fragenstellungen: Gewichtung von Sinnesinformationen bei sensorischen Konflikten oder der Einfluss von Vorwissen auf Entscheidungen\n\n\n\n\n\n\n\nHands-on\n\n\n\nIn welchen Situationen treffen wir perzeptuelle Entscheidungen?\nWo ist der Einfluss von Vorwissen auf perzeptuelle Entscheidungen alltagsrelevant?\n\nDiskutieren Sie die Fragen in kleinen Gruppen und finden Sie je 3 Beispiele."
+    "text": "Perceptual decisions\n\nberuhen auf der Wahrnehmung, Evaluation, Integration von Sinnesempfindungen\nsind oft handlungsrelevant\nneurowissenschaftlich untersucht werden die neuronalen Schaltkreise welche Wahrnehmungssignale kodieren, speichern und analysieren und wie diese mit Verhalten zusammenhängen\nmögliche Fragenstellungen: Gewichtung von Sinnesinformationen bei sensorischen Konflikten oder der Einfluss von Vorwissen auf Entscheidungen\n\n\n\n\n\n\n\nHands-on\n\n\n\n\nIn welchen Situationen treffen wir perzeptuelle Entscheidungen?\nWo ist der Einfluss von Vorwissen auf perzeptuelle Entscheidungen alltagsrelevant?\n\nDiskutieren Sie die Fragen in kleinen Gruppen und finden Sie je 3 Beispiele.\n\n\n\n\n\n\n2\n\n\n\nRandom Dot Motion Experiment"
   },
   {
     "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-i",
@@ -298,7 +298,7 @@
     "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-ii",
     "title": "PsychoPy Experiment",
     "section": "Random-dot motion Experiment II",
-    "text": "Random-dot motion Experiment II\n\n\n\n\n\n\nHands-on\n\n\nWie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus?\n\nBei welcher Bedingung antworten die Personen schneller?\nWo machen sie mehr Fehler?\n\nWas denken Sie? Diskutieren Sie die Fragen in kleinen Gruppen ohne im Paper nachzuschauen."
+    "text": "Random-dot motion Experiment II\n\n\n\n\n\n\nHands-on\n\n\n\nWie wirken sich die beiden Formen von Vorwissen auf das Antwortverhalten aus?\n\nBei welcher Bedingung antworten die Personen schneller?\nWo machen sie mehr Fehler?\n\nWas denken Sie? Diskutieren Sie die Fragen in kleinen Gruppen ohne im Paper nachzuschauen."
   },
   {
     "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iii",
@@ -312,28 +312,28 @@
     "href": "slides/02_psychopy_gw.html#psychopy",
     "title": "PsychoPy Experiment",
     "section": "PsychoPy",
-    "text": "PsychoPy\n\n\n\nPsychoPy Website\nRessourcen\nWalk-through: Builder\nDiskussionsforum\nKapitel: Verhaltensexperiment mit PsychoPy"
+    "text": "PsychoPy\n\n\n\nPsychoPy Website\nRessourcen\nWalk-through: Builder\nDiskussionsforum\nKapitel: Verhaltensexperiment mit PsychoPy\n\n\n\n\n\n\n\n\n\n4\n\n\n\nPavlovia"
   },
   {
     "objectID": "slides/02_psychopy_gw.html#pavlovia",
     "href": "slides/02_psychopy_gw.html#pavlovia",
     "title": "PsychoPy Experiment",
     "section": "Pavlovia",
-    "text": "Pavlovia\n\nPavlovia:\n\n\nPavlovia is a place for the wide community of researchers in the behavioural sciences to run, share, and explore experiments online.\n\n\nExperimente suchen.\nZum Beispiel ChoiceRTT ausprobieren und den Code anschauen."
+    "text": "Pavlovia\n\nPavlovia:\n\n\nPavlovia is a place for the wide community of researchers in the behavioural sciences to run, share, and explore experiments online.\n\n\nExperimente suchen.\nZum Beispiel ChoiceRTT ausprobieren und den Code anschauen.\n\n\n\n\n\n5\n\n\n\nUnderstanding your Computer"
   },
   {
     "objectID": "slides/02_psychopy_gw.html#understanding-your-computer",
     "href": "slides/02_psychopy_gw.html#understanding-your-computer",
     "title": "PsychoPy Experiment",
     "section": "Understanding your Computer",
-    "text": "Understanding your Computer\n\nRefresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.\n\nfrom psychopy import visual\n\nwin = visual.Window()\nwin.getActualFrameRate()\n\nKeyboard timing: Variabilität ~15 ms.\nScreen refresh fängt oben an und endet (~10 ms später) unten."
+    "text": "Understanding your Computer\n\nRefresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.\n\nfrom psychopy import visual\n\nwin = visual.Window()\nwin.getActualFrameRate()\n\nKeyboard timing: Variabilität ~15 ms.\nScreen refresh fängt oben an und endet (~10 ms später) unten.\n\n\n\n\n\n6\n\n\n\n🛠 Selber machen"
   },
   {
     "objectID": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
     "href": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
     "title": "PsychoPy Experiment",
     "section": "Probieren Sie es selber!",
-    "text": "Probieren Sie es selber!\n\n\n\n\n\n\nHands-on\n\n\nVersuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren\n\n\n\n\nWenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 Practice Trials\nEine Einführung finden Sie hier: 👉 Verhaltensexperiment mit PsychoPy\n\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
+    "text": "Probieren Sie es selber!\n\n\n\n\n\n\nHands-on\n\n\n\nVersuchen Sie selber, Teile des Experiments in PsychoPy zu implementieren\n\n\n\nWenn Sie eine Starthilfe benötigen, downloaden Sie ein Beipiel: 👉 Practice Trials\nEine Einführung finden Sie hier: 👉 Verhaltensexperiment mit PsychoPy"
   },
   {
     "objectID": "pages/exercises/exercise_01.html",
@@ -361,7 +361,7 @@
     "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iv",
     "title": "PsychoPy Experiment",
     "section": "Random-dot motion Experiment IV",
-    "text": "Random-dot motion Experiment IV\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback"
+    "text": "Random-dot motion Experiment IV\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback\n\n\n\n\n\n\n3\n\n\n\nPsychoPy"
   },
   {
     "objectID": "pages/chapters/psychopy_experiments_stepbystep.html",
@@ -380,14 +380,14 @@
   {
     "objectID": "pages/chapters/experiment_stepbystep.html",
     "href": "pages/chapters/experiment_stepbystep.html",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "",
     "text": "Schauen Sie sich in PsychoPy die verschiedenen möglichen Bausteine für Experimente an. Versuchen Sie Stück für Stück das Experiment von Mulder et al. (2012) nachzubauen."
   },
   {
     "objectID": "pages/chapters/experiment_stepbystep.html#allgemeine-informationen-zu-psychopy",
     "href": "pages/chapters/experiment_stepbystep.html#allgemeine-informationen-zu-psychopy",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "Allgemeine Informationen zu PsychoPy",
     "text": "Allgemeine Informationen zu PsychoPy\nHilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:\n\nPsychoPy Website\nWalk-through: Builder\nDiskussionsforum"
   },
@@ -415,43 +415,134 @@
   {
     "objectID": "pages/chapters/experiment_stepbystep.html#instruktion-und-debriefing",
     "href": "pages/chapters/experiment_stepbystep.html#instruktion-und-debriefing",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "4. Instruktion und Debriefing",
     "text": "4. Instruktion und Debriefing\n\nFügen Sie zu Beginn des Experiments eine Instruktion hinzu.\nFügen Sie am Ende des Experiments ein Debriefing hinzu."
   },
   {
     "objectID": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus",
     "href": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "1. Random Dot Stimulus",
-    "text": "1. Random Dot Stimulus\nErstellen Sie einen Random Dot Stimulus. Beachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer): 1500 ms\nFarbe\nGrösse: 3x3 px\nKohärenz: 0.8\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
+    "text": "1. Random Dot Stimulus\nErstellen Sie einen Random Dot Stimulus. Beachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer): 1500 ms\nFarbe\nGrösse: 3x3 px\nKohärenz: 0.08\nFieldsize: 75% des Displays\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
   },
   {
     "objectID": "pages/chapters/experiment_stepbystep.html#trialschleife",
     "href": "pages/chapters/experiment_stepbystep.html#trialschleife",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "2. Trialschleife",
     "text": "2. Trialschleife\nErstellen Sie eine Trial-Schleife.\n\nFixation 1 (100/350/800/1200 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nDots (1500 ms)\nFeedback\nTiming (ITI: Inter-Trial-Intervall)\nAntwort der Versuchsperson aufnehmen\n\n(Die Variation der Bewegungsrichtung und des Vorwissens können Sie noch vernachlässigen.)"
   },
   {
     "objectID": "pages/chapters/experiment_stepbystep.html#bedingungen",
     "href": "pages/chapters/experiment_stepbystep.html#bedingungen",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "3. Bedingungen",
     "text": "3. Bedingungen\n\nVariieren Sie die Bewegungsrichtung der Random Dots mit dem conditions.csv file: Bewegungsrichtung ist zu 50% rechts, zu 50% links.\nVariieren Sie den Cue fürs Vorwissen in jedem Trial mit dem conditions.csv file: Der Cue kann valide (20x), invalide (20x) oder neutral (40x) sein. Der Cue ist in 3 von 4 Fällen korrekt. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein."
   },
   {
     "objectID": "pages/chapters/experiment_stepbystep.html#test",
     "href": "pages/chapters/experiment_stepbystep.html#test",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "5. Test",
-    "text": "5. Test\n\nFühren Sie das Experiment aus und schauen Sie sich den Datensatz an: Alles ok?"
+    "text": "5. Test\nFühren Sie das Experiment aus und schauen Sie sich den Datensatz an: Sind die untenstehenden Infos auf jeder Zeile vorhanden?\n\nVersuchspersonennummer\nRichtung des Stimulus\nCue / Vorwissen\nAntwort der Versuchsperson\nAntwortdauer der Versuchsperson"
   },
   {
     "objectID": "pages/chapters/experiment_stepbystep.html#übungsexperiment",
     "href": "pages/chapters/experiment_stepbystep.html#übungsexperiment",
-    "title": "Experiment erstellen - Step by step",
+    "title": "Experiment erstellen: Step by step",
     "section": "6. Übungsexperiment",
-    "text": "6. Übungsexperiment\n\nLaden Sie hier das Experiment für die erste Übung herunter.\nVergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?"
+    "text": "6. Übungsexperiment\n\nLaden Sie hier das Experiment für Übung 1 herunter.\nVergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?"
+  },
+  {
+    "objectID": "slides/02_psychopy_gw.html",
+    "href": "slides/02_psychopy_gw.html",
+    "title": "PsychoPy Experiment",
+    "section": "",
+    "text": "1\n\n\n\nPerceptual decision-making"
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html",
+    "href": "pages/chapters/uebung_1_experiment.html",
+    "title": "Übung 1",
+    "section": "",
+    "text": "In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch. Die Daten werden wir dann im Verlaufe der Veranstaltungen analysieren."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#allgemeine-informationen-zu-psychopy",
+    "href": "pages/chapters/uebung_1_experiment.html#allgemeine-informationen-zu-psychopy",
+    "title": "Übung 1",
+    "section": "Allgemeine Informationen zu PsychoPy",
+    "text": "Allgemeine Informationen zu PsychoPy\nHilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:\n\nPsychoPy Website\nWalk-through: Builder\nDiskussionsforum"
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#random-dot-stimulus",
+    "href": "pages/chapters/uebung_1_experiment.html#random-dot-stimulus",
+    "title": "Übung 1",
+    "section": "1. Random Dot Stimulus",
+    "text": "1. Random Dot Stimulus\nErstellen Sie einen Random Dot Stimulus. Beachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer): 1500 ms\nFarbe\nGrösse: 3x3 px\nKohärenz: 0.08\nFieldsize: 75% des Displays\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#trialschleife",
+    "href": "pages/chapters/uebung_1_experiment.html#trialschleife",
+    "title": "Übung 1",
+    "section": "2. Trialschleife",
+    "text": "2. Trialschleife\nErstellen Sie eine Trial-Schleife.\n\nFixation 1 (100/350/800/1200 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nDots (1500 ms)\nFeedback\nTiming (ITI: Inter-Trial-Intervall)\nAntwort der Versuchsperson aufnehmen\n\n(Die Variation der Bewegungsrichtung und des Vorwissens können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#bedingungen",
+    "href": "pages/chapters/uebung_1_experiment.html#bedingungen",
+    "title": "Übung 1",
+    "section": "3. Bedingungen",
+    "text": "3. Bedingungen\n\nVariieren Sie die Bewegungsrichtung der Random Dots mit dem conditions.csv file: Bewegungsrichtung ist zu 50% rechts, zu 50% links.\nVariieren Sie den Cue fürs Vorwissen in jedem Trial mit dem conditions.csv file: Der Cue kann valide (20x), invalide (20x) oder neutral (40x) sein. Der Cue ist in 3 von 4 Fällen korrekt. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#instruktion-und-debriefing",
+    "href": "pages/chapters/uebung_1_experiment.html#instruktion-und-debriefing",
+    "title": "Übung 1",
+    "section": "4. Instruktion und Debriefing",
+    "text": "4. Instruktion und Debriefing\n\nFügen Sie zu Beginn des Experiments eine Instruktion hinzu.\nFügen Sie am Ende des Experiments ein Debriefing hinzu."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#test",
+    "href": "pages/chapters/uebung_1_experiment.html#test",
+    "title": "Übung 1",
+    "section": "5. Test",
+    "text": "5. Test\nFühren Sie das Experiment aus und schauen Sie sich den Datensatz an: Sind die untenstehenden Infos auf jeder Zeile vorhanden?\n\nVersuchspersonennummer\nRichtung des Stimulus\nCue / Vorwissen\nAntwort der Versuchsperson\nAntwortdauer der Versuchsperson"
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#übungsexperiment",
+    "href": "pages/chapters/uebung_1_experiment.html#übungsexperiment",
+    "title": "Übung 1",
+    "section": "6. Übungsexperiment",
+    "text": "6. Übungsexperiment\n\nLaden Sie hier das Experiment für Übung 1 herunter.\nVergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?"
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#daten-abgeben",
+    "href": "pages/chapters/uebung_1_experiment.html#daten-abgeben",
+    "title": "Übung 1",
+    "section": "Daten abgeben",
+    "text": "Daten abgeben\n\nZippen Sie bitte die Datensätze und laden Sie das ZIP File bis XX. März auf ILIAS."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#bias-rdk-experiment-durchführen",
+    "href": "pages/chapters/uebung_1_experiment.html#bias-rdk-experiment-durchführen",
+    "title": "Übung 1",
+    "section": "Bias RDK Experiment durchführen",
+    "text": "Bias RDK Experiment durchführen\n\nDas fertige Experiment befindet sich auf Github. Sie können es unter diesem Link downloaden. (Wenn Sie auf den grünen Button Code klicken, kann man das Experiment als Zip-Datei herunterladen: Download ZIP)\nFühren Sie das Experiment ein- oder mehrere Male selber durch. Kontrollieren Sie, ob ein Datensatz gespeichert wird.\nTesten Sie zwei weitere Personen (Alter zwischen 20 und 60 Jahre).\nDaten abgeben: Zippen Sie bitte die Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis XX. März auf ILIAS."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#random-dot-experiment-durchführen",
+    "href": "pages/chapters/uebung_1_experiment.html#random-dot-experiment-durchführen",
+    "title": "Übung 1",
+    "section": "Random Dot Experiment durchführen",
+    "text": "Random Dot Experiment durchführen\n\nDas fertige Experiment befindet sich auf Github. Sie können es unter diesem Link downloaden. (Wenn Sie auf den grünen Button Code klicken, kann man das Experiment als Zip-Datei herunterladen: Download ZIP)\nFühren Sie das Experiment ein- oder mehrere Male selber durch. Kontrollieren Sie, ob ein Datensatz gespeichert wird.\nTesten Sie zwei weitere Personen (Alter zwischen 20 und 60 Jahre)."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#datenabgabe",
+    "href": "pages/chapters/uebung_1_experiment.html#datenabgabe",
+    "title": "Übung 1",
+    "section": "Datenabgabe",
+    "text": "Datenabgabe\n\nDaten abgeben: Zippen Sie bitte die Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis XX. März auf ILIAS."
   }
 ]

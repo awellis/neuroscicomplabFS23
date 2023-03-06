@@ -1,5 +1,5 @@
 ---
-title: "Experiment erstellen - Step by step"
+title: "Experiment erstellen: Step by step"
 description: Perceptual Decision-Making Experiment mit PsychoPy.
 author:
   - name: Andrew Ellis
@@ -44,7 +44,9 @@ Erstellen Sie einen **Random Dot Stimulus**. Beachten Sie folgende Aspekte:
 
 - Grösse: 3x3 px
 
-- Kohärenz: 0.8
+- Kohärenz: 0.08
+
+- Fieldsize: 75% des Displays
 
 *(Die Bewegungsrichtung können Sie noch vernachlässigen.)*
 
@@ -87,12 +89,23 @@ Erstellen Sie eine **Trial**-Schleife.
 
 ## 5. Test
 
-- Führen Sie das Experiment aus und schauen Sie sich den Datensatz an: Alles ok?
+Führen Sie das Experiment aus und schauen Sie sich den Datensatz an: Sind die untenstehenden Infos auf jeder Zeile vorhanden?
+
+- Versuchspersonennummer
+
+
+- Richtung des Stimulus
+
+- Cue / Vorwissen
+
+- Antwort der Versuchsperson
+
+- Antwortdauer der Versuchsperson
 
 
 ## 6. Übungsexperiment
 
-- Laden Sie **hier** das Experiment für die erste Übung herunter. 
+- Laden Sie [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/uebung_1.html) das Experiment für **Übung 1** herunter. 
 
 - Vergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?
 

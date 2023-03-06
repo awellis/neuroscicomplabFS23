@@ -8,8 +8,9 @@
 
 <meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
+<meta name="description" content="Daten erheben mit PsychoPy Experiment.">
 
-<title>Neurowissenschaft Computerlab - Leistungskontrollen</title>
+<title>Neurowissenschaft Computerlab - Übung 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -121,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Leistungskontrollen</h1>
+      <h1 class="quarto-secondary-nav-title">Übung 1</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -179,7 +180,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">Experiment erstellen - Step by step</a>
+  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">Experiment erstellen: Step by step</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link active">Übung 1</a>
   </div>
 </li>
       </ul>
@@ -208,9 +214,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#hands-on-sessions" id="toc-hands-on-sessions" class="nav-link active" data-scroll-target="#hands-on-sessions">Hands-on Sessions</a></li>
-  <li><a href="#leistungsnachweise" id="toc-leistungsnachweise" class="nav-link" data-scroll-target="#leistungsnachweise">Leistungsnachweise</a></li>
-  <li><a href="#peer-feedback-guidelines" id="toc-peer-feedback-guidelines" class="nav-link" data-scroll-target="#peer-feedback-guidelines">Peer Feedback Guidelines</a></li>
+  <li><a href="#random-dot-experiment-durchführen" id="toc-random-dot-experiment-durchführen" class="nav-link active" data-scroll-target="#random-dot-experiment-durchführen">Random Dot Experiment durchführen</a></li>
+  <li><a href="#datenabgabe" id="toc-datenabgabe" class="nav-link" data-scroll-target="#datenabgabe">Datenabgabe</a></li>
   </ul>
 </nav>
     </div>
@@ -219,9 +224,14 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Leistungskontrollen</h1>
+<h1 class="title d-none d-lg-block">Übung 1</h1>
 </div>
 
+<div>
+  <div class="description">
+    Daten erheben mit PsychoPy Experiment.
+  </div>
+</div>
 
 <div class="quarto-title-meta-author">
   <div class="quarto-title-meta-heading">Authors</div>
@@ -259,31 +269,33 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="hands-on-sessions" class="level2">
-<h2 class="anchored" data-anchor-id="hands-on-sessions">Hands-on Sessions</h2>
-<p>Unsere Veranstaltungen werden so aufgebaut sein, dass wir etwa die Hälfte der Zeit Inhalt präsentieren; die andere Hälfte ist praktischen Hands-on Sessions gewidmet. Dies wird jedoch stark vom jeweiligen Inhalt anhängig sein. Wir denken, dass der Umgang mit Programmiersprachen und Datenanalyse am besten gelernt wird, indem man selber ausprobiert. Deshalb werden wir versuchen, die Theorie auf das Nötigste zu beschränken, und uns mehr auf praktische Anwendungen zu fokussieren.</p>
-</section>
-<section id="leistungsnachweise" class="level2">
-<h2 class="anchored" data-anchor-id="leistungsnachweise">Leistungsnachweise</h2>
-<p>Leistungsnachweise werden in Form von Übungen erbracht. Es wird insgesamt 5 Übungen geben – davon müssen alle abgegeben werden. Die Evaluation der Übungen erfolgen in Form von <strong>Peer-Feedback</strong>; dies bedeutet, dass Sie nach dem Abgabetermin aufgefordert werden, zu den Übungen von zufällig ausgewählten Mitstudierenden Feedback zu geben. Danach erhalten Sie selber von anderen Mitstudierenden Feedback zu Ihrer Übung.</p>
-<p>Die Übungen werden in den entsprechenden Ordner auf ILIAS hochgeladen - dort erhalten Sie auch genauere Angaben zur Art des Feedbacks. Grundsätzliche Guidelines finden Sie untenstehend.</p>
-<p>ILIAS (Montag) 👉 <a href="https://ilias.unibe.ch/goto_ilias3_unibe_crs_2643783.html#il_mhead_t_focus">468703-FS2023-1</a></p>
-<p>ILIAS (Donnerstag) 👉 <a href="https://ilias.unibe.ch/goto_ilias3_unibe_crs_2643782.html#il_mhead_t_focus">468703-FS2023-0</a></p>
-</section>
-<section id="peer-feedback-guidelines" class="level2">
-<h2 class="anchored" data-anchor-id="peer-feedback-guidelines">Peer Feedback Guidelines</h2>
-<p>Wissenschaftliche Artikel werden von Forschenden aus denselben/ähnlichen Forschungsgebieten begutachtet. In diesem Kurs wählen wir für das Feedback zu den Übungen ebenfalls dieses Prinzip des <em>peer review</em>. Für jede Übung erhalten Sie einen klaren Begutachtungsauftrag mit Fragen wie z.B. <em>Was würde die Grafik informativer machen?</em>. Wir bitten Sie, beim Verfassen des Peer Feedbacks folgende grundsätzlichen Richtlinien zu beachten:</p>
+<p>In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch. Die Daten werden wir dann im Verlaufe der Veranstaltungen analysieren.</p>
+<section id="random-dot-experiment-durchführen" class="level2">
+<h2 class="anchored" data-anchor-id="random-dot-experiment-durchführen">Random Dot Experiment durchführen</h2>
 <ul>
-<li><p><strong>be kind</strong>: Seien Sie freundlich. Wählen Sie Ihre Rückmeldungspunkte sorgfältig. Nehmen Sie sich Zeit und geben Sie nicht sehr knappes, verspätetes oder gar kein Feedback. Schreiben Sie was Ihnen positiv aufgefallen ist und unbedingt beibehalten werden sollte.</p></li>
-<li><p><strong>be specific</strong>: Beschreiben Sie das Problem oder die Kritikpunkte präzise und spezifisch (statt z.B. <em>“Code läuft nicht”</em> könnten Sie schreiben <em>“in Zeile 34 gibt es eine Fehlermeldung, es scheint die Variable wurde falsch benannt, …”</em>)</p></li>
-<li><p><strong>be helpful</strong>: Seien Sie konstruktiv. Es gibt immer etwas was verbessert werden könnte. Beschreiben Sie diese Punkte und fügen Sie bestenfalls einen Lösungsansatz oder -vorschlag hinzu (statt z.B. <em>“die Farben sind nicht geeignet für farbenblinde Personen”</em> könnten Sie schreiben <em>“die <a href="https://sjmgarnier.github.io/viridis/"><code>viridis</code></a> Palette würde die Grafik für farbenblinde Personen zugänglich machen”</em>).</p></li>
+<li><p>Das fertige Experiment befindet sich auf Github. Sie können es unter <a href="https://github.com/kogpsy/psychopy-rdk-discrimination-task">diesem Link</a> downloaden. (Wenn Sie auf den grünen Button <em>Code</em> klicken, kann man das Experiment als Zip-Datei herunterladen: <em>Download ZIP</em>)</p></li>
+<li><p>Führen Sie das Experiment ein- oder mehrere Male selber durch. Kontrollieren Sie, ob ein Datensatz gespeichert wird.</p></li>
+<li><p>Testen Sie zwei weitere Personen (Alter zwischen 20 und 60 Jahre).</p></li>
 </ul>
-<p>Diese Punkte einzuhalten benötigt etwas Zeit. Deshalb planen Sie sich bitte ca. 1 Lektion für das jeweilige Peer Feedback ein.</p>
+</section>
+<section id="datenabgabe" class="level2">
+<h2 class="anchored" data-anchor-id="datenabgabe">Datenabgabe</h2>
+<ul>
+<li>Daten abgeben: Zippen Sie bitte die Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis <strong>XX. März</strong> auf ILIAS.</li>
+</ul>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
+  author = {Andrew Ellis and Gerda Wyssen},
+  title = {Übung 1},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung_1_experiment.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“Übung 1.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung_1_experiment.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung_1_experiment.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

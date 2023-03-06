@@ -45,6 +45,7 @@ website:
         contents:
           - pages/chapters/psychopy_experiments.qmd
           - pages/chapters/experiment_stepbystep.qmd
+          - pages/chapters/uebung_1_experiment.qmd
 
       - section: "Data wrangling"
         contents:
