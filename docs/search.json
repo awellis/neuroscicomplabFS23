@@ -98,6 +98,62 @@
     "text": "Hands-on session\nWir werden in der zweiten Sitzung mit Psychopy und Python ein Experiment erstellen. In Psychopy können Sie viel sehr über die grafische Oberfläche; es gibt jedoch einige kleine Dinge, welche wir mit Python selber coden müssen. Deshalb wäre es für Sie hiflreich, wenn Sie sich vorher auf der DataCamp Website ein wenig mit Python vertraut machen.\n\n1 - Python Basics\nJe nachdem wie viel Erfahrung Sie mit Python haben, können Sie sich entweder für den Kurs “Introduction to Python” oder “Intermediate Python” entscheiden.\n👉🏼 Introduction to Python\n👉🏼 Intermediate Python\nFür fortgeschrittene empfehlen wir die Kurse:\n👉🏼 Python Data Science Toolbox (Part 1)\n👉🏼 Python Data Science Toolbox (Part 2)\nDiese Kurse sind nicht obligatorisch; Sie brauchen für PsychoPy wirklich nur Grundkenntnisse. Python ist aber sowohl in der Forschung als der Privatwirtschaft sehr beliebt und Sie werden es sicherlich noch öfters brauchen, wenn Sie sich mit Datenanalyse beschäftigen.\n\n\n2 - Python Code mit ChatGPT generieren\nDies benötigt einen ChatGPT Account; einen solchen können Sie bei OpenAI gratis erstellen.\n👉🏼 chat.openai.com/chat\nVersuchen Sie, mit ChatGPT ein paar Zeilen Python Code zu generieren. Sie können hierzu einige Beispiele als den DataCamp Kursen verwenden.\n\nKann ChatGPT die Aufgaben lösen?\nWie kann Ihnen ChatGPT helfen, Code zu schreiben?\nWas müssen Sie beachten, wenn Sie Code von ChatGPT verwenden?"
   },
   {
+    "objectID": "pages/chapters/experiment_stepbystep.html",
+    "href": "pages/chapters/experiment_stepbystep.html",
+    "title": "Experiment erstellen: Step by step",
+    "section": "",
+    "text": "Schauen Sie sich in PsychoPy die verschiedenen möglichen Bausteine für Experimente an. Versuchen Sie Stück für Stück das Experiment von Mulder et al. (2012) nachzubauen."
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#allgemeine-informationen-zu-psychopy",
+    "href": "pages/chapters/experiment_stepbystep.html#allgemeine-informationen-zu-psychopy",
+    "title": "Experiment erstellen: Step by step",
+    "section": "Allgemeine Informationen zu PsychoPy",
+    "text": "Allgemeine Informationen zu PsychoPy\nHilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:\n\nPsychoPy Website\nWalk-through: Builder\nDiskussionsforum"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus",
+    "href": "pages/chapters/experiment_stepbystep.html#random-dot-stimulus",
+    "title": "Experiment erstellen: Step by step",
+    "section": "1. Random Dot Stimulus",
+    "text": "1. Random Dot Stimulus\nErstellen Sie einen Random Dot Stimulus. Beachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer): 1500 ms\nFarbe\nGrösse: gut sichtbar\nKohärenz: 0.08\nField size: 75% des Displays\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#trialschleife",
+    "href": "pages/chapters/experiment_stepbystep.html#trialschleife",
+    "title": "Experiment erstellen: Step by step",
+    "section": "2. Trialschleife",
+    "text": "2. Trialschleife\nErstellen Sie eine Trial-Schleife.\n\nFixation 1 (100/350/800/1200 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms) (Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)\nDots (1500 ms)\nFeedback\nTiming (ITI: Inter-Trial-Intervall)\nAntwort der Versuchsperson aufnehmen\n\n(Die Variation der Bewegungsrichtung und des Vorwissens können Sie noch vernachlässigen.)"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#bedingungen",
+    "href": "pages/chapters/experiment_stepbystep.html#bedingungen",
+    "title": "Experiment erstellen: Step by step",
+    "section": "3. Bedingungen",
+    "text": "3. Bedingungen\n\nVariieren Sie die Bewegungsrichtung der Random Dots mit dem conditions.csv file: Bewegungsrichtung ist zu 50% rechts, zu 50% links.\nVariieren Sie den Cue fürs Vorwissen in jedem Trial mit dem conditions.csv file: Der Cue kann valide (4x), invalide (2x) oder neutral (4x) sein. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein."
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#instruktion-und-debriefing",
+    "href": "pages/chapters/experiment_stepbystep.html#instruktion-und-debriefing",
+    "title": "Experiment erstellen: Step by step",
+    "section": "4. Instruktion und Debriefing",
+    "text": "4. Instruktion und Debriefing\n\nFügen Sie zu Beginn des Experiments eine Instruktion hinzu.\nFügen Sie am Ende des Experiments ein Debriefing hinzu."
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#test",
+    "href": "pages/chapters/experiment_stepbystep.html#test",
+    "title": "Experiment erstellen: Step by step",
+    "section": "5. Test",
+    "text": "5. Test\nFühren Sie das Experiment aus und schauen Sie sich den Datensatz an: Sind die untenstehenden Infos auf jeder Zeile vorhanden?\n\nVersuchspersonennummer\nRichtung des Stimulus\nCue / Vorwissen\nAntwort der Versuchsperson\nAntwortdauer der Versuchsperson"
+  },
+  {
+    "objectID": "pages/chapters/experiment_stepbystep.html#übungsexperiment",
+    "href": "pages/chapters/experiment_stepbystep.html#übungsexperiment",
+    "title": "Experiment erstellen: Step by step",
+    "section": "6. Übungsexperiment",
+    "text": "6. Übungsexperiment\n\nLaden Sie hier das Experiment für Übung 1 herunter.\nVergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?"
+  },
+  {
     "objectID": "pages/chapters/psychopy_experiments.html",
     "href": "pages/chapters/psychopy_experiments.html",
     "title": "Verhaltensexperiment mit PsychoPy",
@@ -180,6 +236,34 @@
     "title": "Programmiersprachen",
     "section": "Lernen",
     "text": "Lernen\nDataCamp"
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html",
+    "href": "pages/chapters/uebung_1_experiment.html",
+    "title": "Übung 1",
+    "section": "",
+    "text": "In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch und laden die Datensätze hoch. In dieser Übung gibt es kein Peer Feedback. Die erhobenen Daten werden wir dann in den kommenden Sitzungen verwenden."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#random-dot-experiment-durchführen",
+    "href": "pages/chapters/uebung_1_experiment.html#random-dot-experiment-durchführen",
+    "title": "Übung 1",
+    "section": "Random Dot Experiment durchführen",
+    "text": "Random Dot Experiment durchführen\n\nDas fertige Experiment befindet sich auf Github. Sie können es unter diesem Link downloaden. (Wenn Sie auf den grünen Button Code klicken, kann man das Experiment als Zip-Datei herunterladen: Download ZIP)\nFühren Sie das Experiment ein- oder mehrere Male selber durch. Kontrollieren Sie, ob ein Datensatz gespeichert wird.\nTesten Sie zwei Personen (Alter zwischen 20 und 60 Jahre). Diese Personen sollten die Hypothese nicht kennen (also keine Mitstudierende aus dem ComputerLab)."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#datenabgabe",
+    "href": "pages/chapters/uebung_1_experiment.html#datenabgabe",
+    "title": "Übung 1",
+    "section": "Datenabgabe",
+    "text": "Datenabgabe\n\nDaten abgeben: Zippen Sie bitte die .csv-Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis in 10 Tagen auf ILIAS."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#trouble-shooting",
+    "href": "pages/chapters/uebung_1_experiment.html#trouble-shooting",
+    "title": "Übung 1",
+    "section": "Trouble shooting",
+    "text": "Trouble shooting\nBitte Fehlermeldung im Fenster genau durchlesen. Dort finden Sie Hinweise darauf, was schief gelaufen ist.\nDas Experiment startet nicht.\n\nUnter Einstellungen (Radsymbol) den Reiter Basic auswählen. Bei Use PsychoPy version die laufende PsychoPy Version auswählen (z.B. 2022.2.5).\n\nDas Experiment startet zwar, der Bildschirm ist aber dann einfach für eine kurze Zeit grau und das Fenster schliesst sich wieder.\n\nZugriffsrechte gegeben?\nUnter Einstellungen (Radsymbol) den Reiter Input auswählen. Keyboard Backend auf PsychToolbox statt ioHub."
   },
   {
     "objectID": "slides/01_introduction.html#model-based-cognitive-neuroscience",
@@ -308,6 +392,13 @@
     "text": "Random-dot motion Experiment III"
   },
   {
+    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iv",
+    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iv",
+    "title": "PsychoPy Experiment",
+    "section": "Random-dot motion Experiment IV",
+    "text": "Random-dot motion Experiment IV\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback"
+  },
+  {
     "objectID": "slides/02_psychopy_gw.html#psychopy",
     "href": "slides/02_psychopy_gw.html#psychopy",
     "title": "PsychoPy Experiment",
@@ -329,74 +420,11 @@
     "text": "Understanding your Computer\n\nRefresh rate: 60 Hz. Ein Frame dauert 1/60 Sekunde, oder 16.667 ms.\n\nfrom psychopy import visual\n\nwin = visual.Window()\nwin.getActualFrameRate()\n\nKeyboard timing: Variabilität ~15 ms.\nScreen refresh fängt oben an und endet (~10 ms später) unten."
   },
   {
-    "objectID": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
-    "href": "slides/02_psychopy_gw.html#probieren-sie-es-selber",
-    "title": "PsychoPy Experiment",
-    "section": "Probieren Sie es selber!",
-    "text": "Probieren Sie es selber!\nwerwer\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
-  },
-  {
-    "objectID": "pages/exercises/exercise_01.html",
-    "href": "pages/exercises/exercise_01.html",
-    "title": "Übung 1",
-    "section": "",
-    "text": "Vertiefung\n\n\n\nDiese Übung muss nicht abgegeben werden; sie dient als Vorbereitung für die folgende Sitzung.\n\n\n\n\nInstallieren Sie PsychoPy von der Website. PsychoPy ist ein Open-Source Programm für MacOS, Windows und Linux, mit welchen wir sehr viele verschiedene Verhaltensexperimente (Neuroscience, Psychologie, Psychophysik, Linguistik) programmieren können. Diese lassen sich z.B. mit Eyetracking verbinden, oder im fRMI Scanner und mit EEG verwenden.\nPsychoPy 👉 https://www.psychopy.org/download.html.\nAm einfachsten ist es, das “Standalone package” für MacOS oder Windows zu installieren.\n\nUnter MacOS scheint die neueste Version vom Februar 2022 Probleme zu bereiten — es ist daher (zurzeit noch) besser, die Version 2021.2.3 zu installieren.\n\n\n\n\n\nWas verstehen Sie unter folgenen Begriffen:\n\n\nModel-based Neuroscience\nEvidence accumulation\n\n\nWas könnte man unter Vorwissen (prior knowledge) verstehen? In welchen Kontexten könnte es bei Entscheidungen nützlich sein, Vorwissen zu benutzen?"
-  },
-  {
-    "objectID": "pages/exercises/exercise_02.html",
-    "href": "pages/exercises/exercise_02.html",
-    "title": "Übung 2",
-    "section": "",
-    "text": "Vertiefung\n\n\n\nDie Daten, welche Sie in dieser Übung sammeln, müssen abgegeben werden; wir werden diese im Verlauf des Semesters analysieren. Bitte die Datenfiles in einem ZIP File bis 8. März auf ILIAS hochladen.\n\n\n\n\n\nDas fertige Experiment befindet sich auf Github. Sie können es unter diesem Link downloaden. 👉 LINK.\nFühren Sie das Experiment ein- oder mehrere Male selber durch.\nTesten Sie eine weitere Person (Alter ca. 20-60).\nZippen Sie bitte Ihren Datensatz und denjenigen der anderen Testperson und laden Sie das ZIP FIle auf ILIAS."
-  },
-  {
-    "objectID": "pages/solutions/solution_03.html",
-    "href": "pages/solutions/solution_03.html",
-    "title": "Übung 3: Lösung",
-    "section": "",
-    "text": "In dieser Aufgabe bearbeiten Sie Daten aus einem Detektionssexperiment. Versuchspersonen mussten in zwei Bedingungen (bias und no_bias) ein Signal, welches in Rauschen eingebettet war, detektieren. Im Datensatz sind folgende Variablen:\nsubject: Subjekt ID\ntrial_num: Trialnummer, durchnummeriert in jeder Bedingung\ncondition: Bedingung (_Bias_ und _No Bias_)\nsignal_present: Indikatorvariable für Signal (0: absent, 1: present)\ncorrect: Indikatorvariable für korrekte Antwort (0: incorrekt, 1: correct)\nrt: Reaktionszeit in Sekunden\n\n\n\nAufgabe 1\n\nSpeichern Sie das CSV File in Ihren Projektordner.\nLesen Sie das CSV File ein. Per Konvention verwenden wir den Variablennamen d für den Datensatz.\nÜberprüfen Sie, ob alle Variablen vorhanden sind. Verwenden Sie z.B. die Funktion glimpse().\nKonvertieren Sie die Gruppierungsvariablen subject und condition zu Faktoren.\n\n\n\nlibrary(tidyverse)\n\n\nd <- read_csv(\"data/data-exercise-03.csv\")\n\nSchauen Sie sich die Variablen an:\n\nglimpse(d)\n\nRows: 5,756\nColumns: 6\n$ subject        <dbl> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ condition      <chr> \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\",…\n$ signal_present <dbl> 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0…\n$ correct        <dbl> 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1…\n$ rt             <dbl> 4.076, 1.167, 0.598, 0.375, 0.454, 0.410, 0.370, 0.559,…\n$ trial_num      <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n\n\nKonvertieren Sie die Gruppierungsvariablen zu Faktoren:\n\nd <- d |>\n    mutate(subject = as_factor(subject),\n           condition = as_factor(condition))\n\n\nAufgabe 2\nGibt es Versuchspersonen die in einer der Bedingungen Reaktionszeiten hat, welche mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegen?\n\n\n# summary stats (means) for subjects/conditions\nsum_stats_participants <- d |>\n    group_by(subject, condition) |>\n    dplyr::summarise(\n        mean_P = mean(rt))\n\n\n# summary stats (means and SDs) for conditions\nsum_stats_conditions <- d |>\n    group_by(condition) |>\n    dplyr::summarise(\n        mean_C = mean(rt),\n        sd_C = sd(rt))\n\n\nsum_stats_participants <-\n    full_join(\n        sum_stats_participants,\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(outlier_P = (mean_P - mean_C) > 2 * sd_C)\n\n\n# show outlier participants\nsum_stats_participants |>\n    filter(outlier_P == 1) |>\n    show()\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nEs gibt keine Versuchsperson, deren mittlere Reaktionszeit in einer Bedingung mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegt. Dies bedeutet, dass sich in excluded keine Personen befinden, und der Dataframe folglich \\(0\\) Zeilen hat.\n\nexcluded <- sum_stats_participants |>\n    filter(outlier_P == 1)\n\nexcluded\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nDer nächste Schritt wäre also nicht unbedingt notwendig.\n\nd_cleaned <- d |>\n    filter(!(subject %in% excluded$subject)) |>\n    mutate(subject = fct_drop(subject))\n\n\nAufgabe 3\n\nGibt es einzelne Trials, in denen Versuchpersonen länger als 4 Standardabweichungen über dem Bedingungsmittelwert gebraucht haben, um zu Antworten?\nGibt es einzelne Trials, in denen Versuchpersonen zu schnell (unter 100 ms) geantwortet haben?\nSpeichern Sie den bearbeiteten Datensatz als CSV File.\n\n\nZu Aufgabe 3.a)\nWir wollen Trials identifizieren, bei denen Vpn länger gebraucht haben, als 4 Standardabweichungen über dem Bedingungsmittelwert. Das bedeutet (rt - mean_C) > 4 * sd_C, und nicht abs(rt - mean_C) > 4 * sd_C. Letzteres würde auch Trials als Ausreisser identifizieren, welche 4 Standardabweichungen unter dem Bedingungsmittelwert liegen.\nZu Aufgabe 3.b)\nDie Reaktionszeiten sind hier in Sekunden, nicht Millisekunden. Dies bedeutet, wir brauchen rt < 0.100, und nicht rt < 100.\n\nd_cleaned <- d_cleaned |>\n    full_join(\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(\n        trial_type = case_when(\n            (rt - mean_C) > 4 * sd_C ~ \"too slow\",\n            rt < 0.100 ~ \"too fast\",\n            TRUE ~ \"OK\") |>\n            factor(levels = c(\"OK\", \"too fast\", \"too slow\")))\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt, color = trial_type, shape = trial_type)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |>\n    filter(trial_type != \"OK\")\n\n# A tibble: 165 × 9\n   subject condition signal_present correct     rt trial_…¹ mean_C  sd_C trial…²\n   <fct>   <fct>              <dbl>   <dbl>  <dbl>    <dbl>  <dbl> <dbl> <fct>  \n 1 2       bias                   0       1 4.08          1  0.697 0.751 too sl…\n 2 2       bias                   1       1 0.035        41  0.697 0.751 too fa…\n 3 2       bias                   0       1 6.92         50  0.697 0.751 too sl…\n 4 2       bias                   0       1 0.085        51  0.697 0.751 too fa…\n 5 2       bias                   0       1 0.033        70  0.697 0.751 too fa…\n 6 2       bias                   0       1 5.09         74  0.697 0.751 too sl…\n 7 2       bias                   0       1 6.59         94  0.697 0.751 too sl…\n 8 2       bias                   0       1 5.09        121  0.697 0.751 too sl…\n 9 2       bias                   1       1 0.077       138  0.697 0.751 too fa…\n10 3       no_bias                1       0 0.0958        4  0.691 0.773 too fa…\n# … with 155 more rows, and abbreviated variable names ¹​trial_num, ²​trial_type\n\n\nVor dem Entfernen der Ausreisser Trials haben wir 5756 Datenpunkte.\n\nnrow(d_cleaned)\n\n[1] 5756\n\n\n\nd_cleaned <- d_cleaned |>\n    filter(trial_type == \"OK\") |>\n    select(subject, trial_num, condition, signal_present, correct, rt)\n\nNach dem Entfernen haben wir noch 5591.\n\nnrow(d_cleaned)\n\n[1] 5591\n\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |> write_csv(\"data/data-cleaned.csv\")"
-  },
-  {
-    "objectID": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iv",
-    "href": "slides/02_psychopy_gw.html#random-dot-motion-experiment-iv",
-    "title": "PsychoPy Experiment",
-    "section": "Random-dot motion Experiment IV",
-    "text": "Random-dot motion Experiment IV\n\nStimuli\n\nrandom dots: 3x3 pixels, coherence level: 8%\n\nConditions\n\n40 bias trials and 40 neutral trials (half of motion to left / other half to the right)\n32 valid (cue correct) and 8 invalid (cue incorrect) trials\n\nTrials and Timing\n\nFixation 1 (100/350/800/1200 ms)\nCue (1000 ms)\nFixation 2 (3400/4000/4500/5000 ms)\nDots (1500 ms)\nFeedback"
-  },
-  {
-    "objectID": "slides/02_psychopy_gw.html#programming-an-experiment-step-by-step",
-    "href": "slides/02_psychopy_gw.html#programming-an-experiment-step-by-step",
-    "title": "PsychoPy Experiment",
-    "section": "Programming an experiment: Step by step",
-    "text": "Programming an experiment: Step by step"
-  },
-  {
-    "objectID": "slides/02_psychopy_gw.html#probieren-sie-es-selber-1",
-    "href": "slides/02_psychopy_gw.html#probieren-sie-es-selber-1",
-    "title": "PsychoPy Experiment",
-    "section": "Probieren Sie es selber!",
-    "text": "Probieren Sie es selber!\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
-  },
-  {
-    "objectID": "slides/02_psychopy_gw.html#s",
-    "href": "slides/02_psychopy_gw.html#s",
-    "title": "PsychoPy Experiment",
-    "section": "S",
-    "text": "S\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
-  },
-  {
     "objectID": "slides/02_psychopy_gw.html#stimuli",
     "href": "slides/02_psychopy_gw.html#stimuli",
     "title": "PsychoPy Experiment",
     "section": "Stimuli",
     "text": "Stimuli\nErstellen Sie einen Random Dot Stimulus. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\nBeachten Sie folgende Aspekte:\n\nTiming (Stimulusdauer)\nFarbe\nGrösse\nKohärenz\n\n(Die Bewegungsrichtung können Sie noch vernachlässigen.)"
-  },
-  {
-    "objectID": "slides/02_psychopy_gw.html#trial",
-    "href": "slides/02_psychopy_gw.html#trial",
-    "title": "PsychoPy Experiment",
-    "section": "Trial",
-    "text": "Trial\n\nErstellen Sie einen Trial. Implementieren Sie dabei so genau wie möglich die Parameter von Mulder et al. 2012\n\nBeachten Sie folgende Aspekte:\n\nBewegungsrichtung\nFixationskreuze\nTiming (ITI: Inter-Trial-Intervall)\nBewegungsrichtung\n\n(Die Antwort der Versuchsperson können Sie noch vernachlässigen.)\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
   },
   {
     "objectID": "slides/02_psychopy_gw.html#trial-i",
@@ -420,10 +448,24 @@
     "text": "Instruktion & Debriefing\nFügen Sie eine Instruktion und ein kurzes Debriefing hinzu.\n\n\n\n🏠 Neurowissenschaft im Computerlab FS23"
   },
   {
-    "objectID": "slides/02_psychopy_gw.html#section",
-    "href": "slides/02_psychopy_gw.html#section",
-    "title": "PsychoPy Experiment",
+    "objectID": "pages/exercises/exercise_01.html",
+    "href": "pages/exercises/exercise_01.html",
+    "title": "Übung 1",
     "section": "",
-    "text": "🏠 Neurowissenschaft im Computerlab FS23"
+    "text": "Vertiefung\n\n\n\nDiese Übung muss nicht abgegeben werden; sie dient als Vorbereitung für die folgende Sitzung.\n\n\n\n\nInstallieren Sie PsychoPy von der Website. PsychoPy ist ein Open-Source Programm für MacOS, Windows und Linux, mit welchen wir sehr viele verschiedene Verhaltensexperimente (Neuroscience, Psychologie, Psychophysik, Linguistik) programmieren können. Diese lassen sich z.B. mit Eyetracking verbinden, oder im fRMI Scanner und mit EEG verwenden.\nPsychoPy 👉 https://www.psychopy.org/download.html.\nAm einfachsten ist es, das “Standalone package” für MacOS oder Windows zu installieren.\n\nUnter MacOS scheint die neueste Version vom Februar 2022 Probleme zu bereiten — es ist daher (zurzeit noch) besser, die Version 2021.2.3 zu installieren.\n\n\n\n\n\nWas verstehen Sie unter folgenen Begriffen:\n\n\nModel-based Neuroscience\nEvidence accumulation\n\n\nWas könnte man unter Vorwissen (prior knowledge) verstehen? In welchen Kontexten könnte es bei Entscheidungen nützlich sein, Vorwissen zu benutzen?"
+  },
+  {
+    "objectID": "pages/exercises/exercise_02.html",
+    "href": "pages/exercises/exercise_02.html",
+    "title": "Übung 2",
+    "section": "",
+    "text": "Vertiefung\n\n\n\nDie Daten, welche Sie in dieser Übung sammeln, müssen abgegeben werden; wir werden diese im Verlauf des Semesters analysieren. Bitte die Datenfiles in einem ZIP File bis 8. März auf ILIAS hochladen.\n\n\n\n\n\nDas fertige Experiment befindet sich auf Github. Sie können es unter diesem Link downloaden. 👉 LINK.\nFühren Sie das Experiment ein- oder mehrere Male selber durch.\nTesten Sie eine weitere Person (Alter ca. 20-60).\nZippen Sie bitte Ihren Datensatz und denjenigen der anderen Testperson und laden Sie das ZIP FIle auf ILIAS."
+  },
+  {
+    "objectID": "pages/solutions/solution_03.html",
+    "href": "pages/solutions/solution_03.html",
+    "title": "Übung 3: Lösung",
+    "section": "",
+    "text": "In dieser Aufgabe bearbeiten Sie Daten aus einem Detektionssexperiment. Versuchspersonen mussten in zwei Bedingungen (bias und no_bias) ein Signal, welches in Rauschen eingebettet war, detektieren. Im Datensatz sind folgende Variablen:\nsubject: Subjekt ID\ntrial_num: Trialnummer, durchnummeriert in jeder Bedingung\ncondition: Bedingung (_Bias_ und _No Bias_)\nsignal_present: Indikatorvariable für Signal (0: absent, 1: present)\ncorrect: Indikatorvariable für korrekte Antwort (0: incorrekt, 1: correct)\nrt: Reaktionszeit in Sekunden\n\n\n\nAufgabe 1\n\nSpeichern Sie das CSV File in Ihren Projektordner.\nLesen Sie das CSV File ein. Per Konvention verwenden wir den Variablennamen d für den Datensatz.\nÜberprüfen Sie, ob alle Variablen vorhanden sind. Verwenden Sie z.B. die Funktion glimpse().\nKonvertieren Sie die Gruppierungsvariablen subject und condition zu Faktoren.\n\n\n\nlibrary(tidyverse)\n\n\nd <- read_csv(\"data/data-exercise-03.csv\")\n\nSchauen Sie sich die Variablen an:\n\nglimpse(d)\n\nRows: 5,756\nColumns: 6\n$ subject        <dbl> 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2…\n$ condition      <chr> \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\", \"bias\",…\n$ signal_present <dbl> 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0, 0…\n$ correct        <dbl> 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1…\n$ rt             <dbl> 4.076, 1.167, 0.598, 0.375, 0.454, 0.410, 0.370, 0.559,…\n$ trial_num      <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …\n\n\nKonvertieren Sie die Gruppierungsvariablen zu Faktoren:\n\nd <- d |>\n    mutate(subject = as_factor(subject),\n           condition = as_factor(condition))\n\n\nAufgabe 2\nGibt es Versuchspersonen die in einer der Bedingungen Reaktionszeiten hat, welche mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegen?\n\n\n# summary stats (means) for subjects/conditions\nsum_stats_participants <- d |>\n    group_by(subject, condition) |>\n    dplyr::summarise(\n        mean_P = mean(rt))\n\n\n# summary stats (means and SDs) for conditions\nsum_stats_conditions <- d |>\n    group_by(condition) |>\n    dplyr::summarise(\n        mean_C = mean(rt),\n        sd_C = sd(rt))\n\n\nsum_stats_participants <-\n    full_join(\n        sum_stats_participants,\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(outlier_P = (mean_P - mean_C) > 2 * sd_C)\n\n\n# show outlier participants\nsum_stats_participants |>\n    filter(outlier_P == 1) |>\n    show()\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nEs gibt keine Versuchsperson, deren mittlere Reaktionszeit in einer Bedingung mehr als zwei Standardabweichungen über dem Bedingungsmittelwert liegt. Dies bedeutet, dass sich in excluded keine Personen befinden, und der Dataframe folglich \\(0\\) Zeilen hat.\n\nexcluded <- sum_stats_participants |>\n    filter(outlier_P == 1)\n\nexcluded\n\n# A tibble: 0 × 6\n# Groups:   subject [0]\n# … with 6 variables: subject <fct>, condition <fct>, mean_P <dbl>,\n#   mean_C <dbl>, sd_C <dbl>, outlier_P <lgl>\n\n\nDer nächste Schritt wäre also nicht unbedingt notwendig.\n\nd_cleaned <- d |>\n    filter(!(subject %in% excluded$subject)) |>\n    mutate(subject = fct_drop(subject))\n\n\nAufgabe 3\n\nGibt es einzelne Trials, in denen Versuchpersonen länger als 4 Standardabweichungen über dem Bedingungsmittelwert gebraucht haben, um zu Antworten?\nGibt es einzelne Trials, in denen Versuchpersonen zu schnell (unter 100 ms) geantwortet haben?\nSpeichern Sie den bearbeiteten Datensatz als CSV File.\n\n\nZu Aufgabe 3.a)\nWir wollen Trials identifizieren, bei denen Vpn länger gebraucht haben, als 4 Standardabweichungen über dem Bedingungsmittelwert. Das bedeutet (rt - mean_C) > 4 * sd_C, und nicht abs(rt - mean_C) > 4 * sd_C. Letzteres würde auch Trials als Ausreisser identifizieren, welche 4 Standardabweichungen unter dem Bedingungsmittelwert liegen.\nZu Aufgabe 3.b)\nDie Reaktionszeiten sind hier in Sekunden, nicht Millisekunden. Dies bedeutet, wir brauchen rt < 0.100, und nicht rt < 100.\n\nd_cleaned <- d_cleaned |>\n    full_join(\n        sum_stats_conditions,\n        by = \"condition\") |>\n    mutate(\n        trial_type = case_when(\n            (rt - mean_C) > 4 * sd_C ~ \"too slow\",\n            rt < 0.100 ~ \"too fast\",\n            TRUE ~ \"OK\") |>\n            factor(levels = c(\"OK\", \"too fast\", \"too slow\")))\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt, color = trial_type, shape = trial_type)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |>\n    filter(trial_type != \"OK\")\n\n# A tibble: 165 × 9\n   subject condition signal_present correct     rt trial_…¹ mean_C  sd_C trial…²\n   <fct>   <fct>              <dbl>   <dbl>  <dbl>    <dbl>  <dbl> <dbl> <fct>  \n 1 2       bias                   0       1 4.08          1  0.697 0.751 too sl…\n 2 2       bias                   1       1 0.035        41  0.697 0.751 too fa…\n 3 2       bias                   0       1 6.92         50  0.697 0.751 too sl…\n 4 2       bias                   0       1 0.085        51  0.697 0.751 too fa…\n 5 2       bias                   0       1 0.033        70  0.697 0.751 too fa…\n 6 2       bias                   0       1 5.09         74  0.697 0.751 too sl…\n 7 2       bias                   0       1 6.59         94  0.697 0.751 too sl…\n 8 2       bias                   0       1 5.09        121  0.697 0.751 too sl…\n 9 2       bias                   1       1 0.077       138  0.697 0.751 too fa…\n10 3       no_bias                1       0 0.0958        4  0.691 0.773 too fa…\n# … with 155 more rows, and abbreviated variable names ¹​trial_num, ²​trial_type\n\n\nVor dem Entfernen der Ausreisser Trials haben wir 5756 Datenpunkte.\n\nnrow(d_cleaned)\n\n[1] 5756\n\n\n\nd_cleaned <- d_cleaned |>\n    filter(trial_type == \"OK\") |>\n    select(subject, trial_num, condition, signal_present, correct, rt)\n\nNach dem Entfernen haben wir noch 5591.\n\nnrow(d_cleaned)\n\n[1] 5591\n\n\n\nd_cleaned |>\n    ggplot(aes(x = trial_num, y = rt)) +\n    geom_point(alpha = 0.6) +\n    facet_grid(~condition) +\n    scale_color_manual(values = c(\"gray70\", \"red\", \"steelblue\"))\n\n\n\n\n\nd_cleaned |> write_csv(\"data/data-cleaned.csv\")"
   }
 ]

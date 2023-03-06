@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Ellis">
-<meta name="dcterms.date" content="2022-03-01">
-<meta name="description" content="Experiment mit PsychoPy ausführen.">
+<meta name="author" content="Gerda Wyssen">
+<meta name="description" content="Daten erheben mit PsychoPy Experiment.">
 
-<title>Neurowissenschaft Computerlab - Übung 2</title>
+<title>Neurowissenschaft Computerlab - Übung 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -122,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Übung 2</h1>
+      <h1 class="quarto-secondary-nav-title">Übung 1</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -185,7 +185,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">Übung 1</a>
+  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link active">Übung 1</a>
   </div>
 </li>
       </ul>
@@ -214,10 +214,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link active" data-scroll-target="#aufgabenstellung">Aufgabenstellung</a>
-  <ul class="collapse">
-  <li><a href="#bias-rdk-experiment-durchführen" id="toc-bias-rdk-experiment-durchführen" class="nav-link" data-scroll-target="#bias-rdk-experiment-durchführen">Bias RDK Experiment durchführen</a></li>
-  </ul></li>
+  <li><a href="#random-dot-experiment-durchführen" id="toc-random-dot-experiment-durchführen" class="nav-link active" data-scroll-target="#random-dot-experiment-durchführen">Random Dot Experiment durchführen</a></li>
+  <li><a href="#datenabgabe" id="toc-datenabgabe" class="nav-link" data-scroll-target="#datenabgabe">Datenabgabe</a></li>
+  <li><a href="#trouble-shooting" id="toc-trouble-shooting" class="nav-link" data-scroll-target="#trouble-shooting">Trouble shooting</a></li>
   </ul>
 </nav>
     </div>
@@ -226,21 +225,31 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Übung 2</h1>
+<h1 class="title d-none d-lg-block">Übung 1</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Experiment mit PsychoPy ausführen.</p>
+    Daten erheben mit PsychoPy Experiment.
   </div>
 </div>
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Authors</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
     <a href="https://github.com/awellis">Andrew Ellis</a> <a href="https://orcid.org/0000-0002-2788-936X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.kog.psy.unibe.ch">
+            Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern
+            </a>
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    Gerda Wyssen <a href="https://orcid.org/0000-0001-7427-3149" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -254,12 +263,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
       
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 1, 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -267,43 +270,45 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="aufgabenstellung" class="level1">
-<h1>Aufgabenstellung</h1>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Vertiefung
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die Daten, welche Sie in dieser Übung sammeln, müssen abgegeben werden; wir werden diese im Verlauf des Semesters analysieren. Bitte die Datenfiles in einem ZIP File bis 8. März auf ILIAS hochladen.</p>
-</div>
-</div>
-<section id="bias-rdk-experiment-durchführen" class="level2">
-<h2 class="anchored" data-anchor-id="bias-rdk-experiment-durchführen">Bias RDK Experiment durchführen</h2>
-<ol type="1">
-<li><p>Das fertige Experiment befindet sich auf <a href="https://github.com/kogpsy/psychopy-rdk-discrimination-task">Github</a>. Sie können es unter diesem Link downloaden. 👉 <a href="https://github.com/kogpsy/psychopy-rdk-discrimination-task/archive/refs/heads/main.zip">LINK</a>.</p></li>
-<li><p>Führen Sie das Experiment ein- oder mehrere Male selber durch.</p></li>
-<li><p>Testen Sie eine weitere Person (Alter ca. 20-60).</p></li>
-<li><p>Zippen Sie bitte Ihren Datensatz und denjenigen der anderen Testperson und laden Sie das ZIP FIle auf ILIAS.</p></li>
-</ol>
+<p>In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch und laden die Datensätze hoch. In dieser Übung gibt es kein <em>Peer Feedback</em>. Die erhobenen Daten werden wir dann in den kommenden Sitzungen verwenden.</p>
+<section id="random-dot-experiment-durchführen" class="level2">
+<h2 class="anchored" data-anchor-id="random-dot-experiment-durchführen">Random Dot Experiment durchführen</h2>
+<ul>
+<li><p>Das fertige Experiment befindet sich auf Github. Sie können es unter <a href="https://github.com/kogpsy/psychopy-rdk-discrimination-task">diesem Link</a> downloaden. (Wenn Sie auf den grünen Button <code>Code</code> klicken, kann man das Experiment als Zip-Datei herunterladen: <code>Download ZIP</code>)</p></li>
+<li><p>Führen Sie das Experiment ein- oder mehrere Male selber durch. Kontrollieren Sie, ob ein Datensatz gespeichert wird.</p></li>
+<li><p>Testen Sie zwei Personen (Alter zwischen 20 und 60 Jahre). Diese Personen sollten die Hypothese nicht kennen (also keine Mitstudierende aus dem ComputerLab).</p></li>
+</ul>
+</section>
+<section id="datenabgabe" class="level2">
+<h2 class="anchored" data-anchor-id="datenabgabe">Datenabgabe</h2>
+<ul>
+<li>Daten abgeben: Zippen Sie bitte die <code>.csv</code>-Datensätze der getesteten Personen (nicht von den Selbsttests) und <strong>laden Sie das ZIP File bis in 10 Tagen auf ILIAS</strong>.</li>
+</ul>
+</section>
+<section id="trouble-shooting" class="level2">
+<h2 class="anchored" data-anchor-id="trouble-shooting">Trouble shooting</h2>
+<p>Bitte Fehlermeldung im Fenster genau durchlesen. Dort finden Sie Hinweise darauf, was schief gelaufen ist.</p>
+<p><strong>Das Experiment startet nicht.</strong></p>
+<ul>
+<li>Unter <code>Einstellungen</code> (Radsymbol) den Reiter <code>Basic</code> auswählen. Bei <code>Use PsychoPy version</code> die laufende PsychoPy Version auswählen (z.B. <code>2022.2.5</code>).</li>
+</ul>
+<p><strong>Das Experiment startet zwar, der Bildschirm ist aber dann einfach für eine kurze Zeit grau und das Fenster schliesst sich wieder.</strong></p>
+<ul>
+<li><p>Zugriffsrechte gegeben?</p></li>
+<li><p>Unter <code>Einstellungen</code> (Radsymbol) den Reiter <code>Input</code> auswählen. <code>Keyboard Backend</code> auf <code>PsychToolbox</code> statt <code>ioHub</code>.</p></li>
+</ul>
 
 
 </section>
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
-  author = {Andrew Ellis},
-  title = {Übung 2},
-  date = {2022-03-01},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//exercise_02.html},
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
+  author = {Andrew Ellis and Gerda Wyssen},
+  title = {Übung 1},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//uebung_1_experiment.html},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Andrew Ellis. 2022. <span>“Übung 2.”</span> March 1, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//exercise_02.html">https://kogpsy.github.io/neuroscicomplabFS23//exercise_02.html</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“Übung 1.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//uebung_1_experiment.html">https://kogpsy.github.io/neuroscicomplabFS23//uebung_1_experiment.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

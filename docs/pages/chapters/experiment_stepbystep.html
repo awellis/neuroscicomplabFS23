@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Andrew Ellis">
-<meta name="dcterms.date" content="2022-03-01">
-<meta name="description" content="Experiment mit PsychoPy ausführen.">
+<meta name="author" content="Gerda Wyssen">
+<meta name="description" content="Perceptual Decision-Making Experiment mit PsychoPy.">
 
-<title>Neurowissenschaft Computerlab - Übung 2</title>
+<title>Neurowissenschaft Computerlab - Experiment erstellen: Step by step</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,25 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
 }
 </style>
 
@@ -122,7 +141,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Übung 2</h1>
+      <h1 class="quarto-secondary-nav-title">Experiment erstellen: Step by step</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -180,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">Experiment erstellen: Step by step</a>
+  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link active">Experiment erstellen: Step by step</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -214,10 +233,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link active" data-scroll-target="#aufgabenstellung">Aufgabenstellung</a>
-  <ul class="collapse">
-  <li><a href="#bias-rdk-experiment-durchführen" id="toc-bias-rdk-experiment-durchführen" class="nav-link" data-scroll-target="#bias-rdk-experiment-durchführen">Bias RDK Experiment durchführen</a></li>
-  </ul></li>
+  <li><a href="#allgemeine-informationen-zu-psychopy" id="toc-allgemeine-informationen-zu-psychopy" class="nav-link active" data-scroll-target="#allgemeine-informationen-zu-psychopy">Allgemeine Informationen zu PsychoPy</a></li>
+  <li><a href="#random-dot-stimulus" id="toc-random-dot-stimulus" class="nav-link" data-scroll-target="#random-dot-stimulus">1. Random Dot Stimulus</a></li>
+  <li><a href="#trialschleife" id="toc-trialschleife" class="nav-link" data-scroll-target="#trialschleife">2. Trialschleife</a></li>
+  <li><a href="#bedingungen" id="toc-bedingungen" class="nav-link" data-scroll-target="#bedingungen">3. Bedingungen</a></li>
+  <li><a href="#instruktion-und-debriefing" id="toc-instruktion-und-debriefing" class="nav-link" data-scroll-target="#instruktion-und-debriefing">4. Instruktion und Debriefing</a></li>
+  <li><a href="#test" id="toc-test" class="nav-link" data-scroll-target="#test">5. Test</a></li>
+  <li><a href="#übungsexperiment" id="toc-übungsexperiment" class="nav-link" data-scroll-target="#übungsexperiment">6. Übungsexperiment</a></li>
   </ul>
 </nav>
     </div>
@@ -226,21 +248,31 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">Übung 2</h1>
+<h1 class="title d-none d-lg-block">Experiment erstellen: Step by step</h1>
 </div>
 
 <div>
   <div class="description">
-    <p>Experiment mit PsychoPy ausführen.</p>
+    Perceptual Decision-Making Experiment mit PsychoPy.
   </div>
 </div>
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Authors</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
     <a href="https://github.com/awellis">Andrew Ellis</a> <a href="https://orcid.org/0000-0002-2788-936X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.kog.psy.unibe.ch">
+            Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern
+            </a>
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    Gerda Wyssen <a href="https://orcid.org/0000-0001-7427-3149" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -254,12 +286,6 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
       
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">March 1, 2022</p>
-    </div>
-  </div>
   
     
   </div>
@@ -267,43 +293,91 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="aufgabenstellung" class="level1">
-<h1>Aufgabenstellung</h1>
-<div class="callout-note callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Vertiefung
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Die Daten, welche Sie in dieser Übung sammeln, müssen abgegeben werden; wir werden diese im Verlauf des Semesters analysieren. Bitte die Datenfiles in einem ZIP File bis 8. März auf ILIAS hochladen.</p>
-</div>
-</div>
-<section id="bias-rdk-experiment-durchführen" class="level2">
-<h2 class="anchored" data-anchor-id="bias-rdk-experiment-durchführen">Bias RDK Experiment durchführen</h2>
-<ol type="1">
-<li><p>Das fertige Experiment befindet sich auf <a href="https://github.com/kogpsy/psychopy-rdk-discrimination-task">Github</a>. Sie können es unter diesem Link downloaden. 👉 <a href="https://github.com/kogpsy/psychopy-rdk-discrimination-task/archive/refs/heads/main.zip">LINK</a>.</p></li>
-<li><p>Führen Sie das Experiment ein- oder mehrere Male selber durch.</p></li>
-<li><p>Testen Sie eine weitere Person (Alter ca. 20-60).</p></li>
-<li><p>Zippen Sie bitte Ihren Datensatz und denjenigen der anderen Testperson und laden Sie das ZIP FIle auf ILIAS.</p></li>
-</ol>
+<p>Schauen Sie sich in PsychoPy die verschiedenen möglichen Bausteine für Experimente an. Versuchen Sie Stück für Stück das Experiment von <span class="citation" data-cites="mulder_bias_2012">Mulder et al. (<a href="#ref-mulder_bias_2012" role="doc-biblioref">2012</a>)</span> nachzubauen.</p>
+<section id="allgemeine-informationen-zu-psychopy" class="level2">
+<h2 class="anchored" data-anchor-id="allgemeine-informationen-zu-psychopy">Allgemeine Informationen zu PsychoPy</h2>
+<p>Hilfreiche Informationen zum Erstellen von Experimenten in PsychoPy finden Sie hier:</p>
+<ul>
+<li><p><a href="https://www.psychopy.org/">PsychoPy Website</a></p></li>
+<li><p><a href="https://tu-coding-outreach-group.github.io/cog_summer_workshops_2021/psychopy/index.html">Walk-through: Builder</a></p></li>
+<li><p><a href="https://discourse.psychopy.org/">Diskussionsforum</a></p></li>
+</ul>
+</section>
+<section id="random-dot-stimulus" class="level2">
+<h2 class="anchored" data-anchor-id="random-dot-stimulus">1. Random Dot Stimulus</h2>
+<p>Erstellen Sie einen <strong>Random Dot Stimulus</strong>. Beachten Sie folgende Aspekte:</p>
+<ul>
+<li><p>Timing (Stimulusdauer): 1500 ms</p></li>
+<li><p>Farbe</p></li>
+<li><p>Grösse: gut sichtbar</p></li>
+<li><p>Kohärenz: 0.08</p></li>
+<li><p>Field size: 75% des Displays</p></li>
+</ul>
+<p><em>(Die Bewegungsrichtung können Sie noch vernachlässigen.)</em></p>
+</section>
+<section id="trialschleife" class="level2">
+<h2 class="anchored" data-anchor-id="trialschleife">2. Trialschleife</h2>
+<p>Erstellen Sie eine <strong>Trial</strong>-Schleife.</p>
+<ul>
+<li><p>Fixation 1 (100/350/800/1200 ms) <em>(Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)</em></p></li>
+<li><p>Cue (1000 ms)</p></li>
+<li><p>Fixation 2 (3400/4000/4500/5000 ms) <em>(Zur Vereinfachung können Sie hier auch nur einen Wert wählen.)</em></p></li>
+<li><p>Dots (1500 ms)</p></li>
+<li><p>Feedback</p></li>
+<li><p>Timing (ITI: Inter-Trial-Intervall)</p></li>
+<li><p>Antwort der Versuchsperson aufnehmen</p></li>
+</ul>
+<p><em>(Die Variation der Bewegungsrichtung und des Vorwissens können Sie noch vernachlässigen.)</em></p>
+</section>
+<section id="bedingungen" class="level2">
+<h2 class="anchored" data-anchor-id="bedingungen">3. Bedingungen</h2>
+<ul>
+<li><p>Variieren Sie die Bewegungsrichtung der Random Dots mit dem <em>conditions.csv</em> file: Bewegungsrichtung ist zu 50% rechts, zu 50% links.</p></li>
+<li><p>Variieren Sie den Cue fürs Vorwissen in jedem Trial mit dem <em>conditions.csv</em> file: Der Cue kann valide (4x), invalide (2x) oder neutral (4x) sein. Die Bewegungsrichtungen müssen auf alle Bedingungen gleich verteilt sein.</p></li>
+</ul>
+</section>
+<section id="instruktion-und-debriefing" class="level2">
+<h2 class="anchored" data-anchor-id="instruktion-und-debriefing">4. Instruktion und Debriefing</h2>
+<ul>
+<li><p>Fügen Sie zu Beginn des Experiments eine Instruktion hinzu.</p></li>
+<li><p>Fügen Sie am Ende des Experiments ein Debriefing hinzu.</p></li>
+</ul>
+</section>
+<section id="test" class="level2">
+<h2 class="anchored" data-anchor-id="test">5. Test</h2>
+<p>Führen Sie das Experiment aus und schauen Sie sich den Datensatz an: Sind die untenstehenden Infos auf jeder Zeile vorhanden?</p>
+<ul>
+<li><p>Versuchspersonennummer</p></li>
+<li><p>Richtung des Stimulus</p></li>
+<li><p>Cue / Vorwissen</p></li>
+<li><p>Antwort der Versuchsperson</p></li>
+<li><p>Antwortdauer der Versuchsperson</p></li>
+</ul>
+</section>
+<section id="übungsexperiment" class="level2">
+<h2 class="anchored" data-anchor-id="übungsexperiment">6. Übungsexperiment</h2>
+<ul>
+<li><p>Laden Sie <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/uebung_1.html">hier</a> das Experiment für <strong>Übung 1</strong> herunter.</p></li>
+<li><p>Vergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?</p></li>
+</ul>
+
 
 
 </section>
-</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
-  author = {Andrew Ellis},
-  title = {Übung 2},
-  date = {2022-03-01},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//exercise_02.html},
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-mulder_bias_2012" class="csl-entry" role="doc-biblioentry">
+Mulder, M. J., E.-J. Wagenmakers, R. Ratcliff, W. Boekel, and B. U. Forstmann. 2012. <span>“Bias in the <span>Brain</span>: <span>A</span> <span>Diffusion</span> <span>Model</span> <span>Analysis</span> of <span>Prior</span> <span>Probability</span> and <span>Potential</span> <span>Payoff</span>.”</span> <em>Journal of Neuroscience</em> 32 (7): 2335–43. <a href="https://doi.org/10.1523/JNEUROSCI.4156-11.2012">https://doi.org/10.1523/JNEUROSCI.4156-11.2012</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis,
+  author = {Andrew Ellis and Gerda Wyssen},
+  title = {Experiment Erstellen: {Step} by Step},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//experiment_stepbystep.html},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Andrew Ellis. 2022. <span>“Übung 2.”</span> March 1, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//exercise_02.html">https://kogpsy.github.io/neuroscicomplabFS23//exercise_02.html</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis, and Gerda Wyssen. n.d. <span>“Experiment Erstellen: Step
+by Step.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//experiment_stepbystep.html">https://kogpsy.github.io/neuroscicomplabFS23//experiment_stepbystep.html</a>.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
