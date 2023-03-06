@@ -466,7 +466,7 @@
     "href": "pages/chapters/uebung_1_experiment.html",
     "title": "Übung 1",
     "section": "",
-    "text": "In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch. Die Daten werden wir dann im Verlaufe der Veranstaltungen analysieren."
+    "text": "In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch und laden die Datensätze hoch. Die Daten werden wir dann im späteren Verlauf der Veranstaltungen analysieren (nicht Teil von Übung 1)."
   },
   {
     "objectID": "pages/chapters/uebung_1_experiment.html#allgemeine-informationen-zu-psychopy",
@@ -544,5 +544,12 @@
     "title": "Übung 1",
     "section": "Datenabgabe",
     "text": "Datenabgabe\n\nDaten abgeben: Zippen Sie bitte die Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis XX. März auf ILIAS."
+  },
+  {
+    "objectID": "pages/chapters/uebung_1_experiment.html#trouble-shooting",
+    "href": "pages/chapters/uebung_1_experiment.html#trouble-shooting",
+    "title": "Übung 1",
+    "section": "Trouble shooting",
+    "text": "Trouble shooting\nBitte Fehlermeldung im Fenster genau durchlesen. Dort finden Sie Hinweise darauf, was schief gelaufen ist.\nDas Experiment startet nicht.\n\nUnter Einstellungen (Radsymbol) den Reiter Basic auswählen. Bei Use PsychoPy version die laufende PsychoPy Version auswählen (z.B. 2022.2.5.\n\nDas Experiment startet zwar, der Bildschirm ist aber dann einfach für eine kurze Zeit grau und das Fenster schliesst sich wieder.\n\nZugriffsrechte gegeben?\nUnter Einstellungen (Radsymbol) den Reiter Input auswählen. Keyboard Backend auf PsychToolbox statt ioHub."
   }
 ]

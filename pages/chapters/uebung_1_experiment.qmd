@@ -20,7 +20,7 @@ format:
         toc: true
 ---
 
-In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch. Die Daten werden wir dann im Verlaufe der Veranstaltungen analysieren. 
+In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch und laden die Datensätze hoch. Die Daten werden wir dann im späteren Verlauf der Veranstaltungen analysieren (nicht Teil von Übung 1). 
 
 ## Random Dot Experiment durchführen
 
@@ -33,4 +33,21 @@ In dieser Übung führen Sie mit zwei Personen das Random Dot Experiment durch. 
 ## Datenabgabe
 
 - Daten abgeben: Zippen Sie bitte die Datensätze der getesteten Personen (nicht von den Selbsttests) und laden Sie das ZIP File bis __XX. März__ auf ILIAS.
+
+
+
+## Trouble shooting
+
+Bitte Fehlermeldung im Fenster genau durchlesen. Dort finden Sie Hinweise darauf, was schief gelaufen ist.
+
+__Das Experiment startet nicht.__
+
+- Unter `Einstellungen` (Radsymbol) den Reiter `Basic` auswählen. Bei `Use PsychoPy version` die laufende PsychoPy Version auswählen (z.B. `2022.2.5`.
+
+
+__Das Experiment startet zwar, der Bildschirm ist aber dann einfach für eine kurze Zeit grau und das Fenster schliesst sich wieder.__
+
+- Zugriffsrechte gegeben?
+
+- Unter `Einstellungen` (Radsymbol) den Reiter `Input` auswählen. `Keyboard Backend` auf `PsychToolbox` statt `ioHub`.
 

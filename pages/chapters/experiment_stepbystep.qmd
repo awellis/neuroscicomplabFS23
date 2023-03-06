@@ -93,7 +93,6 @@ Führen Sie das Experiment aus und schauen Sie sich den Datensatz an: Sind die u
 
 - Versuchspersonennummer
 
-
 - Richtung des Stimulus
 
 - Cue / Vorwissen
