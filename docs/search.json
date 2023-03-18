@@ -168,6 +168,13 @@
     "text": "6. Übungsexperiment\n\nLaden Sie hier das Experiment für Übung 1 herunter.\nVergleichen Sie das Experiment mit Ihrer Version, was fällt Ihnen auf?"
   },
   {
+    "objectID": "pages/chapters/functions-loops.html",
+    "href": "pages/chapters/functions-loops.html",
+    "title": "Tasks automatisieren",
+    "section": "",
+    "text": "Lernziele\n\n\n\n\n\nIn der heutigen Sitzung lernen wir:\n\nMit RStudio arbeiten\nEinzelne Psychopy .csv Datensätze importieren\nVariablen auswählen/umbenennen\nNeue Variablen berechnen\nMehrere Datensätze importieren\nMit ChatGPT Code verstehen\n\n\n\n\n\n\n\n\n\n\nDatacamp\n\n\n\n\n\n\nFalls Sie eine Starthilfe zu RStudio brauchen, empfehlen wir dieses RStudio Tutorial.\nFalls Sie mir R und den tidyverse Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: Introduction to the Tidyverse.\n\n\n\n\nFunktionen\n\nadd_one <- function(x) {\n  x + 1\n}\n\n\nadd_one(2)\n\n[1] 3\n\n\nLoops\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis2023,\n  author = {Andrew Ellis},\n  title = {Tasks Automatisieren},\n  date = {2023-03-13},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//functions-loops.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nAndrew Ellis. 2023. “Tasks Automatisieren.” March 13, 2023.\nhttps://kogpsy.github.io/neuroscicomplabFS23//functions-loops.html."
+  },
+  {
     "objectID": "pages/chapters/importing_data.html",
     "href": "pages/chapters/importing_data.html",
     "title": "Daten importieren",
