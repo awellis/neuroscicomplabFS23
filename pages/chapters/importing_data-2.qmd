@@ -1,0 +1,225 @@
+---
+title: "Daten importieren: Teil 2"
+description: Mehrere Datensätze programmatisch bearbeiten.
+date: "2023-03-20"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+license: CC BY
+citation: true
+bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+        code-link: true
+---
+
+```{r}
+#| include: false
+
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
+```
+
+:::{.callout-tip collapse="false"}
+## Lernziele
+
+In der heutigen Sitzung lernen wir:
+
+- Mit RStudio arbeiten
+- Einzelne Psychopy `.csv` Datensätze importieren
+- Variablen auswählen/umbenennen
+- Neue Variablen berechnen
+- Mehrere Datensätze importieren
+- Mit ChatGPT Code verstehen
+:::
+
+
+:::{.callout-caution collapse="true"}
+## Datacamp
+- Falls Sie eine Starthilfe zu RStudio brauchen, empfehlen wir dieses [RStudio Tutorial](https://www.datacamp.com/tutorial/r-studio-tutorial).
+- Falls Sie mir R und den `tidyverse` Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: [Introduction to the Tidyverse](https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse).
+:::
+
+
+# Mehrere Datensätze bearbeiten
+
+```{r}
+library(tidyverse)
+```
+
+Nun werden wir dasselbe wie oben machen, aber dieses Mal für alle `.csv` Files, die  in einem Ordner gespeichert sind. 
+
+<aside>
+In Ihrem Rstudio Projekt sind die Files im Ordner `data` gespeichert (Hier in einem Ordner names `data/rdkdata`). Bitte passen Sie den Pfad dementsprechend an, oder verwenden Sie das R Script im RStudio Projekt.
+</aside>
+
+## Funktion definieren
+
+Nun wollen wir die ersten paar Schritte gleichzeitig auf mehrere Files anwenden:
+
+1. `CSV` File einlesen
+2. Filename hinzufügen
+3. Practice Trials löschen
+4. Practice Variablen löschen
+
+Dieser Vorgang ist in R ziemlich elegant. Anstatt dass wir manuell über alle Files iterieren müssen, können wir eine Funktion definieren, die wir auf ein File anwenden können, und dann wenden wir diese Funktion auf alle Files an.
+
+<aside>
+Mit `map_*` Funktionen können wir eine Funktion auf alle Elemente einer Liste anwenden. `map_dfr` macht genau das, und gibt einen Dataframe als Output, in welchem die einzelnen Elemente _row-wise_ zusamengesetzt werden.
+</aside>
+
+Die Funktion, welche wir auf ein einzelnes `.csv` File anweden möchten, ist diese:
+
+```{r}
+import_function <- function(filename) {
+    read_csv(filename) |>
+        mutate(filename = basename(filename)) |>
+        filter(!is.na(main_blocks_loop.thisN)) |>
+        select(-contains("practice_block_loop"))
+}
+```
+
+<aside>
+Probieren Sie die Funktion mit dem einzelnen `.csv` File von oben. 
+</aside>
+
+## Alle Files in einem Ordner auflisten
+
+```{r}
+datadir <- "data/"
+list_of_files <- datadir |>
+    list.files(pattern = "csv", recursive = TRUE, full.names = TRUE)
+```
+
+```{r}
+list_of_files
+```
+
+## Funktion auf Liste anwenden
+
+```{r}
+#| message: false
+#| warning: false
+data <- list_of_files |> 
+    map_dfr(~ import_function(.x))
+```
+
+## Variablen auswählen und umbennen
+
+```{r}
+data <- data |>
+    select(-contains("static"),
+           -contains("fixation"),
+           -contains("image"),
+           -contains("instruction"),
+           -contains("feedback"))
+```
+
+```{r}
+data <- data |>
+    select(trial = main_blocks_loop.thisN,
+           ID = Pseudonym,
+           cue,
+           direction,
+           response = dots_keyboard_response.keys,
+           rt = dots_keyboard_response.rt)
+
+```
+
+## Neue Variablen definieren
+
+### Korrekte Antworten
+```{r}
+data <- data |>
+    mutate(choice = if_else(response == "j", "right", "left"),
+           response = if_else(choice == "right", 1, 0))
+
+```
+
+```{r}
+data <- data |>
+    mutate(correct = as.numeric(choice == direction))
+```
+
+```{r}
+glimpse(data)
+```
+
+```{r}
+data |> 
+  slice_head(n = 20)
+```
+
+### Cue-Bedingungsvariable
+
+```{r}
+data <- data |>
+    mutate(condition = case_when(cue == "none" ~ "neutral",
+                                 cue == direction ~ "valid",
+                                 cue != direction ~ "invalid"))
+```
+
+### Daten als CSV speichern
+
+An dieser Stelle speichern wir den neu kreierten Datensatz als `.csv` File. Somit können wir die Daten einfach importieren, ohne die ganzen Schritte wiederholen zu müssen.
+
+```{r}
+data |> write_csv(file = "data_clean/rdkdata.csv")
+```
+
+```{r}
+data |> 
+  slice_head(n = 20)
+```
+
+## Gruppierungsvariablen 
+
+```{r}
+data <- data |>
+    mutate_if(is.character, as.factor)
+```
+
+```{r}
+glimpse(data)
+```
+
+## Accuracy pro Person/Bedingung
+
+Accuracy pro Person und pro Bedingung berechnen.
+
+```{r}
+accuracy <- data |>
+    group_by(ID, condition) |>
+    summarise(N = n(),
+              ncorrect = sum(correct),
+              accuracy = mean(correct))
+
+```   
+
+```{r}
+accuracy
+```
+
+## Visualisieren
+
+```{r fig.height=12, fig.width=15}
+accuracy |> 
+  ggplot(aes(x = condition, y = accuracy, fill = condition)) +
+  geom_col() +
+  scale_fill_manual(
+    values = c(invalid = "#9E0142",
+    neutral = "#C4C4B7",
+    valid = "#2EC762")
+  ) +
+  labs(
+    x = "Cue",
+    y = "Proportion correct",
+    title = "Accuracy per person/condition"
+  ) +
+  theme_linedraw(base_size = 28) +
+  facet_wrap(~ID)
+```

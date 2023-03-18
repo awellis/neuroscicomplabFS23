@@ -51,6 +51,8 @@ website:
         contents:
           - pages/chapters/importing_data.qmd
           - pages/chapters/functions-loops.qmd
+          - pages/chapters/importing_data-2.qmd
+
       - section: "Visualisieren"
         contents:
           # - pages/admin/02_syllabus.qmd
