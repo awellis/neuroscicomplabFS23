@@ -1,0 +1,62 @@
+---
+title: "Tasks automatisieren"
+description: Ein Exkurs zu den Themen Funktionen und Loops.
+date: "2023-03-13"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+license: CC BY
+citation: true
+bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+        code-link: true
+---
+
+```{r}
+#| include: false
+
+# Set working directory of R
+# knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
+```
+
+:::{.callout-tip collapse="false"}
+## Lernziele
+
+In der heutigen Sitzung lernen wir:
+
+- Mit RStudio arbeiten
+- Einzelne Psychopy `.csv` Datensätze importieren
+- Variablen auswählen/umbenennen
+- Neue Variablen berechnen
+- Mehrere Datensätze importieren
+- Mit ChatGPT Code verstehen
+:::
+
+
+:::{.callout-caution collapse="true"}
+## Datacamp
+- Falls Sie eine Starthilfe zu RStudio brauchen, empfehlen wir dieses [RStudio Tutorial](https://www.datacamp.com/tutorial/r-studio-tutorial).
+- Falls Sie mir R und den `tidyverse` Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: [Introduction to the Tidyverse](https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse).
+:::
+
+
+
+# Funktionen
+
+```{r}
+add_one <- function(x) {
+  x + 1
+}
+```
+
+
+```{r}
+add_one(2)
+```
+
+# Loops    
