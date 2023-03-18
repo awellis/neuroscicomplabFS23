@@ -17,7 +17,7 @@ format:
         code-link: true
 ---
 
-```{r eval=FALSE, include=FALSE}
+```{r}
 #| include: false
 
 # Set working directory of R
@@ -278,3 +278,5 @@ testaccuracy <- testdata |>
 
 testaccuracy
 ```
+
+
