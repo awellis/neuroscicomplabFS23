@@ -1,8 +1,8 @@
 ---
-title: "Daten bearbeiten und zusammenfassen"
+title: "Kennzahlen berechnen"
 description: |
-  Daten aus Verhaltensexperiments bearbeiten und zusammenfassen, Datenpunkte identifizieren.
-date: "2022-03-15"
+  Daten aus Verhaltensexperiments bearbeiten und zusammenfassen.
+date: "2022-03-20"
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis

@@ -29,19 +29,14 @@ knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
 
 In der heutigen Sitzung lernen wir:
 
-- Mit RStudio arbeiten
-- Einzelne Psychopy `.csv` Datensätze importieren
-- Variablen auswählen/umbenennen
-- Neue Variablen berechnen
-- Mehrere Datensätze importieren
+- Arbeitsschritte automatisieren: mehrere Datensätze automatisch importieren
 - Mit ChatGPT Code verstehen
 :::
 
 
 :::{.callout-caution collapse="true"}
 ## Datacamp
-- Falls Sie eine Starthilfe zu RStudio brauchen, empfehlen wir dieses [RStudio Tutorial](https://www.datacamp.com/tutorial/r-studio-tutorial).
-- Falls Sie mir R und den `tidyverse` Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: [Introduction to the Tidyverse](https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse).
+- Falls Sie eine Einführung in Programmierkonzepte (Conditionals and Control Flow, Functions, Loops) benötigen, empfehlen wir Ihnen den Datacamp Kurs [Intermediate R](https://app.datacamp.com/learn/courses/intermediate-r).
 :::
 
 
@@ -90,9 +85,9 @@ Probieren Sie die Funktion mit dem einzelnen `.csv` File von oben.
 ## Alle Files in einem Ordner auflisten
 
 ```{r}
-datadir <- "data/"
+datadir <- "data"
 list_of_files <- datadir |>
-    list.files(pattern = "csv", recursive = TRUE, full.names = TRUE)
+    list.files(pattern = "csv", full.names = TRUE)
 ```
 
 ```{r}
@@ -104,8 +99,52 @@ list_of_files
 ```{r}
 #| message: false
 #| warning: false
+#| eval: false
 data <- list_of_files |> 
     map_dfr(~ import_function(.x))
+```
+
+```{r}
+#| message: false
+#| warning: false
+data <- list_of_files |> 
+    map(\(x) import_function(x))
+    # map(import_function)
+```
+
+
+```{r}
+data2 <- list_of_files |> 
+    map(read_csv) |>
+    list_rbind()
+```
+
+```{r}
+data2  <- data2 |>  
+        filter(!is.na(main_blocks_loop.thisN)) |>
+        select(-contains("practice_block_loop"))
+```
+```{r}
+data2 <- data2 |>
+    select(-contains("static"),
+           -contains("fixation"),
+           -contains("image"),
+           -contains("instruction"),
+           -contains("feedback")) |>
+    select(trial = main_blocks_loop.thisN,
+           ID = Pseudonym,
+           cue,
+           direction,
+           response = dots_keyboard_response.keys,
+           rt = dots_keyboard_response.rt)
+```
+```{r}
+data[[1]]
+```
+
+```{r}
+data <- data |> 
+    list_rbind()
 ```
 
 ## Variablen auswählen und umbennen

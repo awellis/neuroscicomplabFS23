@@ -29,21 +29,16 @@ format:
 
 In der heutigen Sitzung lernen wir:
 
-- Mit RStudio arbeiten
-- Einzelne Psychopy `.csv` Datensätze importieren
-- Variablen auswählen/umbenennen
-- Neue Variablen berechnen
-- Mehrere Datensätze importieren
-- Mit ChatGPT Code verstehen
+- Funktionen erstellen
+- Loops anwenden
 :::
+
 
 
 :::{.callout-caution collapse="true"}
 ## Datacamp
-- Falls Sie eine Starthilfe zu RStudio brauchen, empfehlen wir dieses [RStudio Tutorial](https://www.datacamp.com/tutorial/r-studio-tutorial).
-- Falls Sie mir R und den `tidyverse` Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: [Introduction to the Tidyverse](https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse).
+- Falls Sie eine Einführung in Programmierkonzepte (Conditionals and Control Flow, Functions, Loops) benötigen, empfehlen wir Ihnen den Datacamp Kurs [Intermediate R](https://app.datacamp.com/learn/courses/intermediate-r).
 :::
-
 
 
 # Funktionen
@@ -60,3 +55,63 @@ add_one(2)
 ```
 
 # Loops    
+
+
+
+```{r}
+names <- c("Socrates", "Nietzsche", "Kant", "Hume", "Plato")
+```
+
+
+```{r}
+for (name in names) {
+  print(paste("Hello", name))
+}
+
+```
+
+
+```{r}
+for (i in seq_along(names)) {
+  print(paste("Hello", names[i]))
+}
+```
+
+```{r}
+lapply(names, function(x) paste("Hello", x))
+```
+
+```{r}
+sapply(names, function(x) paste("Hello", x))
+```
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+names |> map(\(x) paste("Hello", x))
+```
+
+```{r}
+say_hello <- function(x) {
+  paste("Hello", x)
+}
+```
+
+```{r}
+names |> map(say_hello)
+```
+
+```{r}
+names |> map(say_hello) |> unlist()
+```
+
+```{r
+```
+
+```{r}
+```
+
+```{r}
