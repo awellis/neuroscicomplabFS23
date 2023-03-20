@@ -250,7 +250,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">Tasks automatisieren</a>
+  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">Automatisieren</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -286,9 +286,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>
 <a href="#mehrere-datens%C3%A4tze-bearbeiten" id="toc-mehrere-datensätze-bearbeiten" class="nav-link active" data-scroll-target="#mehrere-datens%C3%A4tze-bearbeiten">Mehrere Datensätze bearbeiten</a>
   <ul class="collapse">
-<li><a href="#funktion-definieren" id="toc-funktion-definieren" class="nav-link" data-scroll-target="#funktion-definieren">Funktion definieren</a></li>
-  <li><a href="#alle-files-in-einem-ordner-auflisten" id="toc-alle-files-in-einem-ordner-auflisten" class="nav-link" data-scroll-target="#alle-files-in-einem-ordner-auflisten">Alle Files in einem Ordner auflisten</a></li>
-  <li><a href="#funktion-auf-liste-anwenden" id="toc-funktion-auf-liste-anwenden" class="nav-link" data-scroll-target="#funktion-auf-liste-anwenden">Funktion auf Liste anwenden</a></li>
+<li><a href="#alle-files-in-einem-ordner-auflisten" id="toc-alle-files-in-einem-ordner-auflisten" class="nav-link" data-scroll-target="#alle-files-in-einem-ordner-auflisten">Alle Files in einem Ordner auflisten</a></li>
+  <li><a href="#mit-for-loop" id="toc-mit-for-loop" class="nav-link" data-scroll-target="#mit-for-loop">Mit <code>for</code>-Loop</a></li>
+  <li><a href="#mit-map-und-list_rbind" id="toc-mit-map-und-list_rbind" class="nav-link" data-scroll-target="#mit-map-und-list_rbind">Mit <code>map</code> und <code>list_rbind</code></a></li>
   <li><a href="#variablen-ausw%C3%A4hlen-und-umbennen" id="toc-variablen-auswählen-und-umbennen" class="nav-link" data-scroll-target="#variablen-ausw%C3%A4hlen-und-umbennen">Variablen auswählen und umbennen</a></li>
   <li>
 <a href="#neue-variablen-definieren" id="toc-neue-variablen-definieren" class="nav-link" data-scroll-target="#neue-variablen-definieren">Neue Variablen definieren</a>
@@ -299,6 +299,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul>
 </li>
   <li><a href="#gruppierungsvariablen" id="toc-gruppierungsvariablen" class="nav-link" data-scroll-target="#gruppierungsvariablen">Gruppierungsvariablen</a></li>
+  <li><a href="#daten-%C3%BCberpr%C3%BCfen" id="toc-daten-überprüfen" class="nav-link" data-scroll-target="#daten-%C3%BCberpr%C3%BCfen">Daten überprüfen</a></li>
   <li><a href="#accuracy-pro-personbedingung" id="toc-accuracy-pro-personbedingung" class="nav-link" data-scroll-target="#accuracy-pro-personbedingung">Accuracy pro Person/Bedingung</a></li>
   <li><a href="#visualisieren" id="toc-visualisieren" class="nav-link" data-scroll-target="#visualisieren">Visualisieren</a></li>
   </ul>
@@ -385,7 +386,7 @@ Datacamp
 </div>
 </div>
 <section id="mehrere-datensätze-bearbeiten" class="level1 page-columns page-full"><h1>Mehrere Datensätze bearbeiten</h1>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-2_768c2607c174b442b5990275dcfb8ecc">
+<div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
@@ -400,222 +401,104 @@ Datacamp
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
-<p>Nun werden wir dasselbe wie oben machen, aber dieses Mal für alle <code>.csv</code> Files, die in einem Ordner gespeichert sind.</p>
+<p>Meist werden Daten für jede Versuchsperson einzeln abgespeichert. Um nicht jeden Datensatz einzeln einlesen zu müssen können wir Schleifen (loops) und Funktionen nutzen. Schleifen und Funktionen sind immer extrem zeitsparend, wenn ein Prozess wiederholt werden muss. Dies kommt in der Verarbeitung grosser Datensätze häufig vor. Zudem werden so Tippfehler vermieden, die häufig passieren, wenn man dreissig Mal dasselbe schreiben muss.</p>
+<p>Nun werden wir dasselbe wie im Teil 1 machen; dort haben wir ein <code>csv</code> File importiert, und dessen Variablen ausgewählt und umbenannt. Dieses Mal wollen wir aber alle <code>.csv</code> Files laden, die in einem Ordner gespeichert sind.</p>
 <aside>
-In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert (Hier in einem Ordner names <code>data/rdkdata</code>). Bitte passen Sie den Pfad dementsprechend an, oder verwenden Sie das R Script im RStudio Projekt.
-</aside><section id="funktion-definieren" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="funktion-definieren">Funktion definieren</h2>
-<p>Nun wollen wir die ersten paar Schritte gleichzeitig auf mehrere Files anwenden:</p>
-<ol type="1">
-<li>
-<code>CSV</code> File einlesen</li>
-<li>Filename hinzufügen</li>
-<li>Practice Trials löschen</li>
-<li>Practice Variablen löschen</li>
-</ol>
-<p>Dieser Vorgang ist in R ziemlich elegant. Anstatt dass wir manuell über alle Files iterieren müssen, können wir eine Funktion definieren, die wir auf ein File anwenden können, und dann wenden wir diese Funktion auf alle Files an.</p>
-<aside>
-Mit <code>map_*</code> Funktionen können wir eine Funktion auf alle Elemente einer Liste anwenden. <code>map_dfr</code> macht genau das, und gibt einen Dataframe als Output, in welchem die einzelnen Elemente <em>row-wise</em> zusamengesetzt werden.
-</aside><p>Die Funktion, welche wir auf ein einzelnes <code>.csv</code> File anweden möchten, ist diese:</p>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-3_04c946e36e055a2733f917893f5bac26">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">import_function</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">filename</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>filename <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/basename.html">basename</a></span><span class="op">(</span><span class="va">filename</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">main_blocks_loop.thisN</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"practice_block_loop"</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<aside>
-Probieren Sie die Funktion mit dem einzelnen <code>.csv</code> File von oben.
-</aside></section><section id="alle-files-in-einem-ordner-auflisten" class="level2"><h2 class="anchored" data-anchor-id="alle-files-in-einem-ordner-auflisten">Alle Files in einem Ordner auflisten</h2>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-4_bc60e7e4e5f1a456d08ac8db005c23dd">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datadir</span> <span class="op">&lt;-</span> <span class="st">"data"</span></span>
-<span><span class="va">list_of_files</span> <span class="op">&lt;-</span> <span class="va">datadir</span> <span class="op">|&gt;</span></span>
+In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert.
+</aside><section id="alle-files-in-einem-ordner-auflisten" class="level2"><h2 class="anchored" data-anchor-id="alle-files-in-einem-ordner-auflisten">Alle Files in einem Ordner auflisten</h2>
+<p>Zuerst erstellen wir mit <code><a href="https://rdrr.io/r/base/list.files.html">list.files()</a></code> eine Liste aller <code>.csv</code> Files im Ordner <code>data</code>.</p>
+<div class="cell">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datadir</span> <span class="op">&lt;-</span> <span class="st">"data"</span></span>
+<span></span>
+<span><span class="va">csv_files</span> <span class="op">&lt;-</span> <span class="va">datadir</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://rdrr.io/r/base/list.files.html">list.files</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"csv"</span>, full.names <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-5_c204f8edf1255c689e9773316440be0e">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">list_of_files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">csv_files</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "data//JH_rdk-discrimination_2022_Mar_07_1403.csv"   
-[2] "data//NS_rdk-discrimination_2022_Mar_07_1331.csv"   
-[3] "data//rh_rdk-discrimination_2022_Mar_02_1105.csv"   
-[4] "data//sb_rdk-discrimination_2022_Mar_06_0746.csv"   
-[5] "data//SS91_rdk-discrimination_2022_Mar_06_0953.csv" 
-[6] "data//VP1_rdk-discrimination_2022_Mar_07_1237.csv"  
-[7] "data//VP2_rdk-discrimination_2022_Mar_07_1302.csv"  
-[8] "data//VPN01_rdk-discrimination_2022_Mar_01_2142.csv"
-[9] "data//VPN02_rdk-discrimination_2022_Mar_01_2208.csv"</code></pre>
+<pre><code>[1] "data/JH_rdk-discrimination_2022_Mar_07_1403.csv"   
+[2] "data/NS_rdk-discrimination_2022_Mar_07_1331.csv"   
+[3] "data/rh_rdk-discrimination_2022_Mar_02_1105.csv"   
+[4] "data/sb_rdk-discrimination_2022_Mar_06_0746.csv"   
+[5] "data/SS91_rdk-discrimination_2022_Mar_06_0953.csv" 
+[6] "data/VP1_rdk-discrimination_2022_Mar_07_1237.csv"  
+[7] "data/VP2_rdk-discrimination_2022_Mar_07_1302.csv"  
+[8] "data/VPN01_rdk-discrimination_2022_Mar_01_2142.csv"
+[9] "data/VPN02_rdk-discrimination_2022_Mar_01_2208.csv"</code></pre>
 </div>
 </div>
-</section><section id="funktion-auf-liste-anwenden" class="level2"><h2 class="anchored" data-anchor-id="funktion-auf-liste-anwenden">Funktion auf Liste anwenden</h2>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-6_3ff8989b3d1101935179b3b54baf26d9">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">list_of_files</span> <span class="op">|&gt;</span> </span>
-<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map_dfr.html">map_dfr</a></span><span class="op">(</span><span class="op">~</span> <span class="fu">import_function</span><span class="op">(</span><span class="va">.x</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><code>csv_files</code> enthält nun die “Pfade” zu allen <code>.csv</code> Files im Ordner <code>data</code>. Diese Pfade können nun einzeln and <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> übergeben werden.</p>
+</section><section id="mit-for-loop" class="level2"><h2 class="anchored" data-anchor-id="mit-for-loop">Mit <code>for</code>-Loop</h2>
+<p>Zuerst brauchen wir eine Liste, in die wir die Daten einlesen können. Wir erstellen eine Liste mit der Länge der Anzahl Files, die wir haben.</p>
+<div class="cell">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/vector.html">vector</a></span><span class="op">(</span><span class="st">"list"</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-7_a82e783bb75c4e7128bcf9b94451369d">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">list_of_files</span> <span class="op">|&gt;</span> </span>
-<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span>\<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu">import_function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="co"># map(import_function)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Nun können wir entweder über die Elemente der Liste iterieren, oder über die Indizes. Wir wählen letzteres, da wir die Indizes später für die Zuweisung der Daten verwenden können.</p>
+<div class="cell">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>            <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">csv_files</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>            <span class="va">data_list</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">df</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-8_94b4dc091bee8ebf988dc3492294a64c">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">list_of_files</span> <span class="op">|&gt;</span> </span>
-<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">read_csv</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-New names:
-Rows: 167 Columns: 40
-── Column specification
-──────────────────────────────────────────────────────── Delimiter: "," chr
-(17): cue, direction, fixation_pre.stopped, image.stopped, fixation_post... dbl
-(22): practice_block_loop.thisRepN, practice_block_loop.thisTrialN, prac... lgl
-(1): ...40
-ℹ Use `spec()` to retrieve the full column specification for this data. ℹ
-Specify the column types or set `show_col_types = FALSE` to quiet this message.
-• `` -&gt; `...40`</code></pre>
-</div>
-</div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-9_c001a3c3e39a0118a759c646133891ef">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data2</span>  <span class="op">&lt;-</span> <span class="va">data2</span> <span class="op">|&gt;</span>  </span>
-<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">main_blocks_loop.thisN</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"practice_block_loop"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-10_2b831bc40555482e5e589a164ce28c1a">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data2</span> <span class="op">&lt;-</span> <span class="va">data2</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"static"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"fixation"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"image"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"instruction"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"feedback"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>trial <span class="op">=</span> <span class="va">main_blocks_loop.thisN</span>,</span>
-<span>           ID <span class="op">=</span> <span class="va">Pseudonym</span>,</span>
-<span>           <span class="va">cue</span>,</span>
-<span>           <span class="va">direction</span>,</span>
-<span>           response <span class="op">=</span> <span class="va">dots_keyboard_response.keys</span>,</span>
-<span>           rt <span class="op">=</span> <span class="va">dots_keyboard_response.rt</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-11_9350f475c4ee61a20607cbae740bd80d">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Das Resultat ist eine Liste, in deren Elementen die neun <code>csv</code> Files gepesichert sind.</p>
+<div class="cell">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">data_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 160 × 37
-   cue   direc…¹ main_…² main_…³ main_…⁴ main_…⁵ stati…⁶ stati…⁷ fixat…⁸ fixat…⁹
-   &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;  
- 1 right right         0       0       0      18  0.0160    2.02    86.5 None   
- 2 right right         0       1       1      31  0.0318    2.03    96.2 None   
- 3 none  right         0       2       2      66  0.0321    2.03   105.  None   
- 4 none  right         0       3       3      75  0.0321    2.03   114.  None   
- 5 left  left          0       4       4      13  0.0321    2.03   123.  None   
- 6 none  right         0       5       5      62  0.0321    2.03   133.  None   
- 7 none  left          0       6       6      41  0.0321    2.03   142.  None   
- 8 left  left          0       7       7      15  0.0321    2.03   152.  None   
- 9 left  right         0       8       8      32  0.0321    2.03   161.  None   
-10 none  right         0       9       9      68  0.0321    2.03   172.  None   
-# … with 150 more rows, 27 more variables: image.started &lt;dbl&gt;,
-#   image.stopped &lt;chr&gt;, fixation_post.started &lt;dbl&gt;,
+<pre><code>[1] 9</code></pre>
+</div>
+</div>
+<p>Diese wollen wir nun zu einem Dataframe zusammenfügen. Dazu können wir <code><a href="https://rdrr.io/r/base/do.call.html">do.call()</a></code> verwenden. <code><a href="https://rdrr.io/r/base/do.call.html">do.call()</a></code> nimmt eine Funktion und eine Liste als Argumente. Die Liste werden wiederum als Argumente der Funktion verwendet.</p>
+<div class="cell">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_loop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">rbind</span>, <span class="va">data_list</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">data_loop</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 40
+  cue   direct…¹ pract…² pract…³ pract…⁴ pract…⁵ main_…⁶ main_…⁷ main_…⁸ main_…⁹
+  &lt;chr&gt; &lt;chr&gt;      &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1 none  right          0       0       0       5      NA      NA      NA      NA
+2 left  right          0       1       1       2      NA      NA      NA      NA
+3 right right          0       2       2       1      NA      NA      NA      NA
+4 left  left           0       3       3       0      NA      NA      NA      NA
+5 none  left           0       4       4       4      NA      NA      NA      NA
+6 right left           0       5       5       3      NA      NA      NA      NA
+# … with 30 more variables: static_isi.started &lt;dbl&gt;, static_isi.stopped &lt;dbl&gt;,
+#   fixation_pre.started &lt;dbl&gt;, fixation_pre.stopped &lt;chr&gt;,
+#   image.started &lt;dbl&gt;, image.stopped &lt;chr&gt;, fixation_post.started &lt;dbl&gt;,
 #   fixation_post.stopped &lt;chr&gt;, dots_background.started &lt;dbl&gt;,
 #   dots_background.stopped &lt;chr&gt;, dots_stimulus.started &lt;dbl&gt;,
 #   dots_stimulus.stopped &lt;chr&gt;, dots_keyboard_response.keys &lt;chr&gt;,
-#   dots_keyboard_response.started &lt;dbl&gt;, dots_keyboard_response.stopped &lt;chr&gt;,
-#   feedback_text.started &lt;dbl&gt;, feedback_text.stopped &lt;chr&gt;, …</code></pre>
+#   dots_keyboard_response.started &lt;dbl&gt;, …</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-12_a0d2069f472fdc5b184ee051438a9655">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span> </span>
+</section><section id="mit-map-und-list_rbind" class="level2"><h2 class="anchored" data-anchor-id="mit-map-und-list_rbind">Mit <code>map</code> und <code>list_rbind</code>
+</h2>
+<p>Dasselbe können wir auch mit <code><a href="https://purrr.tidyverse.org/reference/map.html">map()</a></code> machen. Da auch hier der Output eine Liste ist, müssen wir diese auch zu einem Dataframe zusammenfügen. Dazu können wir <code><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind()</a></code> verwenden.</p>
+<div class="cell">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">csv_files</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">read_csv</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>New names:
-New names:
-New names:
-New names:
-New names:
-New names:
-New names:
-New names:
-New names:
-• `...40` -&gt; `...36`</code></pre>
 </div>
+<p>Nun können wir wie in Teil 1 die Practice Trials entfernen.</p>
+<div class="cell">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span>  <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span>  </span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">main_blocks_loop.thisN</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"practice_block_loop"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="variablen-auswählen-und-umbennen" class="level2"><h2 class="anchored" data-anchor-id="variablen-auswählen-und-umbennen">Variablen auswählen und umbennen</h2>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-13_df48050ba2da67c2a671efe59d5ada73">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<p>Wir eliminieren die Variablen, die wir nicht brauchen (ISI, Fixatoinskreuz, Zeitangaben der Bilder, etc.).</p>
+<div class="cell">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"static"</span><span class="op">)</span>,</span>
 <span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"fixation"</span><span class="op">)</span>,</span>
 <span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"image"</span><span class="op">)</span>,</span>
 <span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"instruction"</span><span class="op">)</span>,</span>
 <span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"feedback"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-14_428bfd801f4532041243b0b24832f5bf">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<p>Zum Schluss geben wir den Variablen, die wir behalten, noch deskriptivere Namen.</p>
+<div class="cell">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>trial <span class="op">=</span> <span class="va">main_blocks_loop.thisN</span>,</span>
 <span>           ID <span class="op">=</span> <span class="va">Pseudonym</span>,</span>
 <span>           <span class="va">cue</span>,</span>
@@ -624,17 +507,37 @@ New names:
 <span>           rt <span class="op">=</span> <span class="va">dots_keyboard_response.rt</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="neue-variablen-definieren" class="level2"><h2 class="anchored" data-anchor-id="neue-variablen-definieren">Neue Variablen definieren</h2>
+<p>Eine Antwort ist korrekt, wenn die gewählte Richtung der Richtung des Dot-Stimulus entspricht. Zuvor definieren wir zwei Variablen: <code>choice</code> besteht aus den Angaben “right” und “left”, <code>response</code> ist eine numerische Version davon (0 = “left”, 1 = “right”).</p>
 <section id="korrekte-antworten" class="level3"><h3 class="anchored" data-anchor-id="korrekte-antworten">Korrekte Antworten</h3>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-15_5c7de16010731300a361e3cd60beecd5">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<div class="cell">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>choice <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">response</span> <span class="op">==</span> <span class="st">"j"</span>, <span class="st">"right"</span>, <span class="st">"left"</span><span class="op">)</span>,</span>
 <span>           response <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">choice</span> <span class="op">==</span> <span class="st">"right"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-16_b280c42e5189b86900d6d3f24ddb5aad">
+<p><code>correct</code> ist <code>TRUE</code> wenn <code>choice == direction</code>, <code>FALSE</code> wenn nicht. Wir konvertieren diese logische Variable mit <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> in eine numerische Variable. <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> konvertiert <code>TRUE</code> in 1 und <code>FALSE</code> in 0.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Lösung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell">
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1 0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="cell">
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>correct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">choice</span> <span class="op">==</span> <span class="va">direction</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-17_801eff9fa4658cec850206abd4723c62">
+<div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,440
@@ -649,49 +552,46 @@ $ choice    &lt;chr&gt; "right", "right", "left", "right", "right", "right", "ri
 $ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-18_c616eac24d41744847d81e9246cd126f">
+<p>Wir schauen uns die ersten 20 Zeilen an.</p>
+<div class="cell">
 <div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 20 × 9
-   trial ID    cue   direction response    rt choice correct condition
-   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;chr&gt;    
- 1     0 JH    right right            1 0.714 right        1 valid    
- 2     1 JH    right right            1 0.627 right        1 valid    
- 3     2 JH    none  right            0 0.670 left         0 neutral  
- 4     3 JH    none  right            1 0.574 right        1 neutral  
- 5     4 JH    left  left             1 0.841 right        0 valid    
- 6     5 JH    none  right            1 0.668 right        1 neutral  
- 7     6 JH    none  left             1 1.12  right        0 neutral  
- 8     7 JH    left  left             0 0.640 left         1 valid    
- 9     8 JH    left  right            0 1.13  left         0 invalid  
-10     9 JH    none  right            1 1.03  right        1 neutral  
-11    10 JH    none  left             0 1.35  left         1 neutral  
-12    11 JH    left  left             0 0.688 left         1 valid    
-13    12 JH    left  left             0 0.721 left         1 valid    
-14    13 JH    none  left             0 0.655 left         1 neutral  
-15    14 JH    right right            1 1.02  right        1 valid    
-16    15 JH    none  right            1 1.12  right        1 neutral  
-17    16 JH    left  left             0 1.08  left         1 valid    
-18    17 JH    right left             0 0.643 left         1 invalid  
-19    18 JH    right right            1 0.716 right        1 valid    
-20    19 JH    left  left             0 0.578 left         1 valid    </code></pre>
+<pre><code># A tibble: 20 × 8
+   trial ID    cue   direction response    rt choice correct
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt;
+ 1     0 JH    right right            1 0.714 right        1
+ 2     1 JH    right right            1 0.627 right        1
+ 3     2 JH    none  right            0 0.670 left         0
+ 4     3 JH    none  right            1 0.574 right        1
+ 5     4 JH    left  left             1 0.841 right        0
+ 6     5 JH    none  right            1 0.668 right        1
+ 7     6 JH    none  left             1 1.12  right        0
+ 8     7 JH    left  left             0 0.640 left         1
+ 9     8 JH    left  right            0 1.13  left         0
+10     9 JH    none  right            1 1.03  right        1
+11    10 JH    none  left             0 1.35  left         1
+12    11 JH    left  left             0 0.688 left         1
+13    12 JH    left  left             0 0.721 left         1
+14    13 JH    none  left             0 0.655 left         1
+15    14 JH    right right            1 1.02  right        1
+16    15 JH    none  right            1 1.12  right        1
+17    16 JH    left  left             0 1.08  left         1
+18    17 JH    right left             0 0.643 left         1
+19    18 JH    right right            1 0.716 right        1
+20    19 JH    left  left             0 0.578 left         1</code></pre>
 </div>
 </div>
 </section><section id="cue-bedingungsvariable" class="level3"><h3 class="anchored" data-anchor-id="cue-bedingungsvariable">Cue-Bedingungsvariable</h3>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-19_0ce15f62bda22b0eb77ae2be6dadd36d">
+<p>Nun brauchen wir eine Variable, die angibt, ob die Bedingung “neutral”, “valid” oder “invalid” ist. Wir erstellen eine neue Variable <code>condition</code> und füllen sie mit <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> mit den Werten “neutral”, “valid” oder “invalid”. <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> erlaubt, mehrere <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code>-Bedingungen zu kombinieren. So wird hier der Variablen <code>condition</code> der Wert <code>neutral</code> zugewiesen, wenn <code>cue == "none"</code> ist. Falls <code>cue == direction</code> ist, wird der Wert <code>valid</code> zugewiesen. Falls <code>cue != direction</code> ist, wird der Wert <code>invalid</code> zugewiesen.</p>
+<div class="cell">
 <div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">cue</span> <span class="op">==</span> <span class="st">"none"</span> <span class="op">~</span> <span class="st">"neutral"</span>,</span>
 <span>                                 <span class="va">cue</span> <span class="op">==</span> <span class="va">direction</span> <span class="op">~</span> <span class="st">"valid"</span>,</span>
 <span>                                 <span class="va">cue</span> <span class="op">!=</span> <span class="va">direction</span> <span class="op">~</span> <span class="st">"invalid"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="daten-als-csv-speichern" class="level3"><h3 class="anchored" data-anchor-id="daten-als-csv-speichern">Daten als CSV speichern</h3>
-<p>An dieser Stelle speichern wir den neu kreierten Datensatz als <code>.csv</code> File. Somit können wir die Daten einfach importieren, ohne die ganzen Schritte wiederholen zu müssen.</p>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-20_b4bb8754484de1e97008b1501f3188b0">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data_clean/rdkdata.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-21_1abed1b8c0864e2ecd0cdbd3622ec395">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> </span>
+<div class="cell">
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 9
@@ -719,12 +619,18 @@ $ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 20    19 JH    left  left             0 0.578 left         1 valid    </code></pre>
 </div>
 </div>
-</section></section><section id="gruppierungsvariablen" class="level2"><h2 class="anchored" data-anchor-id="gruppierungsvariablen">Gruppierungsvariablen</h2>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-22_929b66d738b64f53055ad7af71c2a814">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate_all.html">mutate_if</a></span><span class="op">(</span><span class="va">is.character</span>, <span class="va">as.factor</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="daten-als-csv-speichern" class="level3"><h3 class="anchored" data-anchor-id="daten-als-csv-speichern">Daten als CSV speichern</h3>
+<p>An dieser Stelle speichern wir den neu kreierten Datensatz als <code>.csv</code> File. Somit können wir zu einem späteren Zeitpunkt die Daten einfach importieren, ohne die ganzen Schritte wiederholen zu müssen.</p>
+<div class="cell">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data_clean/rdkdata.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-23_73d9aa5c29ecd5fcfa2eb4fbe2d533f7">
+</section></section><section id="gruppierungsvariablen" class="level2"><h2 class="anchored" data-anchor-id="gruppierungsvariablen">Gruppierungsvariablen</h2>
+<p>Alle Gruppierungsvariablen sollten nun zu Faktoren konvertiert werden.</p>
+<div class="cell">
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span>, <span class="va">as_factor</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,440
@@ -740,10 +646,39 @@ $ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 $ condition &lt;fct&gt; valid, valid, neutral, neutral, valid, neutral, neutral, val…</code></pre>
 </div>
 </div>
+</section><section id="daten-überprüfen" class="level2"><h2 class="anchored" data-anchor-id="daten-überprüfen">Daten überprüfen</h2>
+<p>Wir überprüfen, ob die Daten korrekt sind. Dazu schauen wir uns die Anzahl der Trials pro Person und pro Bedingung an. Sie können mehr Zeilen anzeigen, indem sie <code>n =</code> in der Funktion <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head()</a></code> ändern.</p>
+<div class="cell">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n_trials <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'ID'. You can override using the `.groups`
+argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 27 × 3
+# Groups:   ID [9]
+   ID    condition n_trials
+   &lt;fct&gt; &lt;fct&gt;        &lt;int&gt;
+ 1 JH    valid           64
+ 2 JH    neutral         80
+ 3 JH    invalid         16
+ 4 NS    valid           64
+ 5 NS    neutral         80
+ 6 NS    invalid         16
+ 7 rh    valid           64
+ 8 rh    neutral         80
+ 9 rh    invalid         16
+10 sb    valid           64
+# … with 17 more rows</code></pre>
+</div>
+</div>
 </section><section id="accuracy-pro-personbedingung" class="level2"><h2 class="anchored" data-anchor-id="accuracy-pro-personbedingung">Accuracy pro Person/Bedingung</h2>
-<p>Accuracy pro Person und pro Bedingung berechnen.</p>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-24_7a0abdf25c61303e429df291af03c41f">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<p>Nun berechnen wir pro Person und pro Bedingung die Anzahl der korrekten Antworten und die Accuracy. Die Accuracy ist die Anzahl der korrekten Antworten geteilt durch die Anzahl der Trials.</p>
+<div class="cell">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>N <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>              ncorrect <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">correct</span><span class="op">)</span>,</span>
@@ -753,29 +688,29 @@ $ condition &lt;fct&gt; valid, valid, neutral, neutral, valid, neutral, neutral,
 argument.</code></pre>
 </div>
 </div>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-25_a03901d2a72d2cdfad96f014239a4b7a">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 27 × 5
 # Groups:   ID [9]
    ID    condition     N ncorrect accuracy
    &lt;fct&gt; &lt;fct&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;
- 1 JH    invalid      16       13   0.812 
- 2 JH    neutral      80       66   0.825 
- 3 JH    valid        64       60   0.938 
- 4 NS    invalid      16       11   0.688 
- 5 NS    neutral      80       56   0.7   
- 6 NS    valid        64       58   0.906 
- 7 rh    invalid      16        2   0.125 
- 8 rh    neutral      80       64   0.8   
- 9 rh    valid        64       61   0.953 
-10 sb    invalid      16        1   0.0625
+ 1 JH    valid        64       60    0.938
+ 2 JH    neutral      80       66    0.825
+ 3 JH    invalid      16       13    0.812
+ 4 NS    valid        64       58    0.906
+ 5 NS    neutral      80       56    0.7  
+ 6 NS    invalid      16       11    0.688
+ 7 rh    valid        64       61    0.953
+ 8 rh    neutral      80       64    0.8  
+ 9 rh    invalid      16        2    0.125
+10 sb    valid        64       62    0.969
 # … with 17 more rows</code></pre>
 </div>
 </div>
 </section><section id="visualisieren" class="level2"><h2 class="anchored" data-anchor-id="visualisieren">Visualisieren</h2>
-<div class="cell" data-hash="importing_data-2_cache/html/unnamed-chunk-26_a386aa46c746dc90a7a108f5f0134acc">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span> <span class="op">|&gt;</span> </span>
+<div class="cell">
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">accuracy</span>, fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span></span>
@@ -791,7 +726,7 @@ argument.</code></pre>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">28</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">ID</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="importing_data-2_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="1440"></p>
+<p><img src="importing_data-2_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="1440"></p>
 </div>
 </div>
 

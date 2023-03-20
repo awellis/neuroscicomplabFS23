@@ -185,7 +185,7 @@ testdata <- testdata |>
 testdata
 ```
 
-## Variablen umbennen
+## Variablen umbenennen
 
 Nun wollen Variablen identifizieren, die uns interessieren. Diese wollen wir umbenennen.
 

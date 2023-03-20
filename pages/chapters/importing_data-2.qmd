@@ -15,6 +15,8 @@ format:
     html:
         toc: true
         code-link: true
+execute: 
+  cache: false
 ---
 
 ```{r}
@@ -46,109 +48,93 @@ In der heutigen Sitzung lernen wir:
 library(tidyverse)
 ```
 
-Nun werden wir dasselbe wie oben machen, aber dieses Mal für alle `.csv` Files, die  in einem Ordner gespeichert sind. 
+Meist werden Daten für jede Versuchsperson einzeln abgespeichert. Um nicht jeden Datensatz einzeln einlesen zu müssen können wir Schleifen (loops) und Funktionen nutzen. Schleifen und Funktionen sind immer extrem zeitsparend, wenn ein Prozess wiederholt werden muss. Dies kommt in der Verarbeitung grosser Datensätze häufig vor. Zudem werden so Tippfehler vermieden, die häufig passieren, wenn man dreissig Mal dasselbe schreiben muss.
+
+Nun werden wir dasselbe wie im Teil 1 machen; dort haben wir ein `csv` File importiert, und dessen Variablen ausgewählt und umbenannt. Dieses Mal wollen wir aber alle `.csv` Files laden, die  in einem Ordner gespeichert sind.
 
 <aside>
-In Ihrem Rstudio Projekt sind die Files im Ordner `data` gespeichert (Hier in einem Ordner names `data/rdkdata`). Bitte passen Sie den Pfad dementsprechend an, oder verwenden Sie das R Script im RStudio Projekt.
-</aside>
-
-## Funktion definieren
-
-Nun wollen wir die ersten paar Schritte gleichzeitig auf mehrere Files anwenden:
-
-1. `CSV` File einlesen
-2. Filename hinzufügen
-3. Practice Trials löschen
-4. Practice Variablen löschen
-
-Dieser Vorgang ist in R ziemlich elegant. Anstatt dass wir manuell über alle Files iterieren müssen, können wir eine Funktion definieren, die wir auf ein File anwenden können, und dann wenden wir diese Funktion auf alle Files an.
-
-<aside>
-Mit `map_*` Funktionen können wir eine Funktion auf alle Elemente einer Liste anwenden. `map_dfr` macht genau das, und gibt einen Dataframe als Output, in welchem die einzelnen Elemente _row-wise_ zusamengesetzt werden.
-</aside>
-
-Die Funktion, welche wir auf ein einzelnes `.csv` File anweden möchten, ist diese:
-
-```{r}
-import_function <- function(filename) {
-    read_csv(filename) |>
-        mutate(filename = basename(filename)) |>
-        filter(!is.na(main_blocks_loop.thisN)) |>
-        select(-contains("practice_block_loop"))
-}
-```
-
-<aside>
-Probieren Sie die Funktion mit dem einzelnen `.csv` File von oben. 
+In Ihrem Rstudio Projekt sind die Files im Ordner `data` gespeichert.
 </aside>
 
 ## Alle Files in einem Ordner auflisten
 
+Zuerst erstellen wir mit `list.files()` eine Liste aller `.csv` Files im Ordner `data`. 
+
+
 ```{r}
 datadir <- "data"
-list_of_files <- datadir |>
+
+csv_files <- datadir |>
     list.files(pattern = "csv", full.names = TRUE)
 ```
 
+
 ```{r}
-list_of_files
+csv_files
 ```
 
-## Funktion auf Liste anwenden
+`csv_files` enthält nun die "Pfade" zu allen `.csv` Files im Ordner `data`. Diese Pfade können nun einzeln and `read_csv()` übergeben werden.
+
+
+## Mit `for`-Loop
+
+Zuerst brauchen wir eine Liste, in die wir die Daten einlesen können. Wir erstellen eine Liste mit der Länge der Anzahl Files, die wir haben.
+```{r}
+data_list <- vector("list", length(csv_files))
+```
+
+Nun können wir entweder über die Elemente der Liste iterieren, oder über die Indizes. Wir wählen letzteres, da wir die Indizes später für die Zuweisung der Daten verwenden können.
 
 ```{r}
-#| message: false
 #| warning: false
-#| eval: false
-data <- list_of_files |> 
-    map_dfr(~ import_function(.x))
-```
-
-```{r}
 #| message: false
-#| warning: false
-data <- list_of_files |> 
-    map(\(x) import_function(x))
-    # map(import_function)
+for (i in seq_along(csv_files)) {
+            df <- read_csv(csv_files[i])
+            data_list[[i]] <- df
+}
 ```
 
 
+Das Resultat ist eine Liste, in deren Elementen die neun `csv` Files gepesichert sind.
+
 ```{r}
-data2 <- list_of_files |> 
+length(data_list)
+```
+
+Diese wollen wir nun zu einem Dataframe zusammenfügen. Dazu können wir `do.call()` verwenden. `do.call()` nimmt eine Funktion und eine Liste als Argumente. Die Liste werden wiederum als Argumente der Funktion verwendet.
+
+```{r}
+data_loop <- do.call(rbind, data_list)
+```
+
+```{r}
+head(data_loop)
+```
+
+## Mit `map` und `list_rbind`
+
+Dasselbe können wir auch mit `map()` machen. Da auch hier der Output eine Liste ist, müssen wir diese auch zu einem Dataframe zusammenfügen. Dazu können wir `list_rbind()` verwenden.
+
+
+```{r}
+#| warning: false
+#| message: false
+data <- csv_files |> 
     map(read_csv) |>
     list_rbind()
 ```
 
+Nun können wir wie in Teil 1 die Practice Trials entfernen.
 ```{r}
-data2  <- data2 |>  
+data  <- data |>  
         filter(!is.na(main_blocks_loop.thisN)) |>
         select(-contains("practice_block_loop"))
 ```
-```{r}
-data2 <- data2 |>
-    select(-contains("static"),
-           -contains("fixation"),
-           -contains("image"),
-           -contains("instruction"),
-           -contains("feedback")) |>
-    select(trial = main_blocks_loop.thisN,
-           ID = Pseudonym,
-           cue,
-           direction,
-           response = dots_keyboard_response.keys,
-           rt = dots_keyboard_response.rt)
-```
-```{r}
-data[[1]]
-```
 
-```{r}
-data <- data |> 
-    list_rbind()
-```
 
 ## Variablen auswählen und umbennen
 
+Wir eliminieren die Variablen, die wir nicht brauchen (ISI, Fixatoinskreuz, Zeitangaben der Bilder, etc.).
 ```{r}
 data <- data |>
     select(-contains("static"),
@@ -158,6 +144,7 @@ data <- data |>
            -contains("feedback"))
 ```
 
+Zum Schluss geben wir den Variablen, die wir behalten, noch deskriptivere Namen.
 ```{r}
 data <- data |>
     select(trial = main_blocks_loop.thisN,
@@ -171,6 +158,9 @@ data <- data |>
 
 ## Neue Variablen definieren
 
+
+Eine Antwort ist korrekt, wenn die gewählte Richtung der Richtung des Dot-Stimulus entspricht. Zuvor definieren wir zwei Variablen: `choice` besteht aus den Angaben "right" und "left", `response` ist eine numerische Version davon (0 = "left", 1 = "right").
+
 ### Korrekte Antworten
 ```{r}
 data <- data |>
@@ -178,6 +168,16 @@ data <- data |>
            response = if_else(choice == "right", 1, 0))
 
 ```
+
+`correct` ist `TRUE` wenn `choice == direction`, `FALSE` wenn nicht. Wir konvertieren diese logische Variable mit `as.numeric()` in eine numerische Variable. `as.numeric()` konvertiert `TRUE` in 1 und `FALSE` in 0.
+
+
+:::{.callout-tip}
+
+```{r}
+as.numeric(c(TRUE, FALSE))
+```
+:::
 
 ```{r}
 data <- data |>
@@ -188,12 +188,17 @@ data <- data |>
 glimpse(data)
 ```
 
+Wir schauen uns die ersten 20 Zeilen an.
 ```{r}
 data |> 
   slice_head(n = 20)
 ```
 
 ### Cue-Bedingungsvariable
+
+
+Nun brauchen wir eine Variable, die angibt, ob die Bedingung "neutral", "valid" oder "invalid" ist. Wir erstellen eine neue Variable `condition` und füllen sie mit `case_when()` mit den Werten "neutral", "valid" oder "invalid". `case_when()` erlaubt, mehrere `if_else()`-Bedingungen zu kombinieren. So wird hier der Variablen `condition` der Wert `neutral` zugewiesen, wenn `cue == "none"` ist. Falls `cue == direction` ist, wird der Wert `valid` zugewiesen. Falls `cue != direction` ist, wird der Wert `invalid` zugewiesen.
+
 
 ```{r}
 data <- data |>
@@ -202,33 +207,49 @@ data <- data |>
                                  cue != direction ~ "invalid"))
 ```
 
-### Daten als CSV speichern
-
-An dieser Stelle speichern wir den neu kreierten Datensatz als `.csv` File. Somit können wir die Daten einfach importieren, ohne die ganzen Schritte wiederholen zu müssen.
-
-```{r}
-data |> write_csv(file = "data_clean/rdkdata.csv")
-```
-
 ```{r}
 data |> 
   slice_head(n = 20)
 ```
 
-## Gruppierungsvariablen 
+### Daten als CSV speichern
+
+An dieser Stelle speichern wir den neu kreierten Datensatz als `.csv` File. Somit können wir zu einem späteren Zeitpunkt die Daten einfach importieren, ohne die ganzen Schritte wiederholen zu müssen.
 
 ```{r}
+data |> write_csv(file = "data_clean/rdkdata.csv")
+```
+
+
+## Gruppierungsvariablen 
+
+Alle Gruppierungsvariablen sollten nun zu Faktoren konvertiert werden. 
+```{r}
 data <- data |>
-    mutate_if(is.character, as.factor)
+    mutate(across(where(is.character), as_factor))
 ```
 
 ```{r}
 glimpse(data)
 ```
 
+
+## Daten überprüfen
+
+Wir überprüfen, ob die Daten korrekt sind. Dazu schauen wir uns die Anzahl der Trials pro Person und pro Bedingung an. Sie können mehr Zeilen anzeigen, indem sie `n = `  in der Funktion `slice_head()` ändern.
+
+
+```{r}
+data |> 
+  group_by(ID, condition) |>
+  summarise(n_trials = n()) |>
+  slice_head(n = 20)
+```
+    
+
 ## Accuracy pro Person/Bedingung
 
-Accuracy pro Person und pro Bedingung berechnen.
+Nun berechnen wir pro Person und pro Bedingung die Anzahl der korrekten Antworten und die Accuracy. Die Accuracy ist die Anzahl der korrekten Antworten geteilt durch die Anzahl der Trials.
 
 ```{r}
 accuracy <- data |>

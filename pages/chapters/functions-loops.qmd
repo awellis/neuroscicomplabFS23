@@ -1,5 +1,5 @@
 ---
-title: "Tasks automatisieren"
+title: "Automatisieren"
 description: Ein Exkurs zu den Themen Conditionals, Funktionen und Loops.
 date: "2023-03-13"
 author:
@@ -121,7 +121,7 @@ add_one <- function(x) {
   if (is.numeric(x)) {
     x + 1
   } else {
-    print("x is not numeric")
+    print("Hey, this only works if x is a number!")
   }
 }
 ```
@@ -152,6 +152,48 @@ for (fruit in fruits) {
     print(fruit)
 }
 ```
+
+Anstatt die Elemente direkt zu verwenden, macht es manchmal Sinn, über die Indizes zu iterieren. Wir können dies mit der Funktion `seq_along()` tun. `seq_along()` gibt eine Folge von Zahlen zurück, welche die Indizes der Elemente des Vektors repräsentieren. 
+
+
+:::{.callout-tip}
+## Iteration: Elemente oder Indizes?
+
+```{r}
+first_three_letters <- c("a", "b", "c")
+```
+```{r}
+for (letter in first_three_letters) {
+  print(letter)
+}
+```
+
+
+```{r}
+for (i in seq_along(first_three_letters)) {
+  print(i)
+}
+```
+
+Wenn wir die trotz Iteration über Indizes die Elemente haben wollen, müssen wir den Vektor indizieren.
+```{r}
+for (i in seq_along(first_three_letters)) {
+  print(first_three_letters[i])
+}
+```
+:::
+
+Mit dem Früchte-Beispiel:
+
+```{r}
+for (i in seq_along(fruits)) {
+  print(fruits[i])
+}
+```
+
+
+
+
 
 Wir können auch eine deskriptive Nachricht ausgeben. 
 
