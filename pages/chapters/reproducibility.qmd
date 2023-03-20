@@ -1,0 +1,60 @@
+---
+title: "Reproducibility"
+description: Datenverarbeitung reproduzierbar machen.
+date: "2023-03-20"
+author:
+  - name: Gerda Wyssen
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: true
+bibliography: ../../bibliography_gw.bib
+format:
+    html:
+        toc: true
+        code-link: true
+---
+
+# Replizierbarkeit und Reproduzierbarkeit
+
+Die Replikationskrise hat in der Psychologie, aber auch in den kognitiven Neurowissenschaften viel Kritik an früheren Studien ausgelöst. _Replikation_ bedeutet, dass ein Experiment von einer anderen Forschungsgruppe mit einer neuen Stichprobe durchgeführt werden kann, und ähnliche oder dieselben Resultate hervorbringt, wie die Originalstudie. Wird eine Studie mehrmals repliziert, steigt die Wahrscheinlichkeit, dass kein Zufallsbefund vorliegt.
+
+_Reproduzierbarkeit_ _(reproducibility)_ hängt eng mit der _Replizierbarkeit_ _(replicability)_ zusammen, ist aber nicht dasselbe. Reproduzierbarkeit beschreibt, ob die durchgeführte Analyse wiederholt werden kann. Die Reproduzierbarkeit ist hoch, wenn Forschende die für das Experiment verwendeten Skripte sowie die Daten bereitstellen und andere Forschende damit dieselben Analysen durchführen können und zu denselben Resultaten kommen.
+
+## Hindernisse bei der Reproduzierbarkeit
+Reproduzierbarkeit kann laut @nosekReplicabilityRobustnessReproducibility aus zwei Gründen nicht gegeben sein: Weil die Daten/Skripte nicht zur Verfügung stehen, oder weil diese Fehler enthalten.
+
+> In principle, all reported evidence should be reproducible. If someone applies the same analysis to the same data, the same result should occur. Reproducibility tests can fail for two reasons. A process reproducibility failure occurs when the original analysis cannot be repeated because of the unavailability of data, code, information needed to recreate the code, or necessary software or tools. An outcome reproducibility failure occurs when the reanalysis obtains a different result than the one reported originally. This can occur because of an error in either the original or the reproduction study.
+
+Führt die Reproduktion nicht zum selben Outcome, löst das Fragen aus. Wenn die Reproduzierbarkeit am Prozess scheitert, etwa weil die Daten nicht vorhanden sind, kann kein Schluss gezogen werden, ob die Resultate stimmen. 
+
+<aside>Auf der Seite des [Stanford Center of Reproducible Neuroscience](https://reproducibility.stanford.edu/coding-error-postmortem) finden Sie einen Beschrieb, wie relevant Code-Fehler in neurowissenschaftlichen Studien sein können.</aside>
+
+> Achieving reproducibility is a basic foundation of credibility, and yet many efforts to test reproducibility reveal success rates below 100%. For example, Artner and colleagues (2020) successfully reproduced just 70% of the 232 findings analyzed, and 18 of those were reproduced only after deviating from the analysis reported in the original papers (see also Bakker & Wicherts 2011; Hardwicke et al. 2018, 2021; Maassen et al. 2020; Nuijten et al. 2016). Whereas an outcome reproducibility failure suggests that the original result may be wrong, a process reproducibility failure merely indicates that the original result cannot be verified. Either reason challenges credibility and increases uncertainty about the value of investing additional resources to replicate or extend the findings (Nuijten et al. 2018). Sharing data and code reduces process reproducibility failures (Kidwell et al. 2016), which can reveal more outcome reproducibility failures (Hardwicke et al. 2018, 2021; Wicherts et al. 2011).  @nosek_replicability_2022
+
+Das Teilen von Daten und Datenverarbeitungsskripten erhöht die Wahrscheinlichkeit, dass mögliche Fehler im Prozess gefunden werden, da auch andere Forschende die Daten/Skripts verwenden können. Das ist vorerst unangenehm, gehört aber zum Prozess der Wissenschaft dazu.
+Reproduzierbarkeit erhöht also indirekt auch die Replizierbarkeit.
+
+<aside>Eine kostenfreie und unkomplizierte Möglichkeit Daten und Skripte zu teilen ist es auf [Open Science Foundation](https://osf.io/) ein Projekt anzulegen. Es lässt sich dafür sogar ein *doi* erstellen.</aside>
+
+
+## Code kommentieren
+
+Das Teilen von Skripts macht am meisten Sinn, wenn sie verständlich strukturiert und kommentiert sind. Beim Kommentieren von Code sollte folgendes beachtet werden:
+
+-   Kommentare sollten geschrieben werden, wenn der Code erstellt wird und laufend überarbeitet werden. Oft wird es sonst nicht nachgeholt.
+
+-   Wenn man nicht genau kommentieren kann, was man im Code macht, dann ist evtl. der Code unklar, oder man versteht ihn noch nicht. Vielleicht kann man Variablennamen vereinfachen/präzisieren und es braucht weniger Kommentare?
+
+-   Wenn Code kopiert wird, sollte die Quelle angegeben werden.
+
+-   Vor dem Veröffentlichen, lohnt es sich jemanden den Code ausführen lassen - so zeigt sich wo noch unklare Stellen sind, die Kommentare benötigen.
+
+

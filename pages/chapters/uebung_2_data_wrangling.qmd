@@ -1,0 +1,90 @@
+---
+title: "Übung 2"
+description: Datensätze einlesen.
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: true
+bibliography: ../../bibliography_gw.bib
+format:
+    html:
+        toc: true
+---
+
+Die Übung 2 besteht aus folgenden Aufgaben:
+
+- Skript zum Einlesen der Daten unseres PsychoPy-Experiments schreiben. Das Skript muss reproduzierbar und gut kommentiert sein. Zeit: 1 Woche.
+
+- Peer Feedback: Mittels Ilias wird Ihnen ein Skript einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses Skript auszuführen und dazu Feedback zu geben. Zeit: 1 Woche.
+
+
+# Skript erstellen
+
+## Vorbereitung
+
+1. Laden Sie zuerst das [RStudio Projekt](../../downloadable_files/uebung-2.zip) für Übung 2 herunter. Dieses muss zuerst "entzippt" werden. In dem Projektordner finden Sie den Ordner `data`. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das File `uebung-2.Rproj` geöffnet werden.
+
+<aside>Projekte ermöglichen, *relative* Pfade. So stellen wir sicher, dass andere Personen, die dieses Projekt öffnen, dieses File auch sehen und ausführen können.</aside>
+
+2. Öffnen Sie das File `uebung-2.r`. Dieses File können Sie genau so verwenden.
+
+<aside>Für Interessierte/Fortgeschrittene: Praktischer ist es mit *RMarkdown* zu arbeiten. Dafür eignen sich z.B. `.qmd`-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben. Sie können nachdem Sie das `.r`-File erstellt haben, auch noch ein `.qmd`-File ausprobieren. <\aside>
+
+
+## Skript für das Einlesen der Datenhttp://localhost:4772/downloadable_files/uebung-2.zip
+
+Kommentare werden mit `#`davor gekennzeichnet, so weiss `R`, dass dies Text und nicht ausführbarer Code ist.
+
+2. Laden Sie zu Beginn des Experiments die nötigen `libraries` mit:
+
+```{r eval=FALSE}
+library(tidyverse)
+```
+
+3. Nutzen Sie die Schleife, die Sie [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/importing_data.html) gelernt hatten, um alle Datensätze des PsychoPy Experiments einzulesen. Es sollten XX sein.
+
+4. Benennen Sie die Variablen um, wie HIER beschrieben.
+
+5. Schreiben Sie als Kommentar in das Skript, wie der Mittelwert der Variable `x` ist, über alle Personen hinweg.
+
+
+## Reproduzierbar machen
+
+6. Kommentieren Sie das Skript knapp und präzise. So dass es für Ihren Peer Reviewer verständlich wird, was sie tun.
+
+7. Prüfen Sie, dass alle Variablen relativ sind, und nicht an Ihren Rechner gebunden sind. 
+
+## Hochladen
+
+8. Zippen Sie den Ordner mit dem R-Projekt darin und laden Sie den Ordner unter Übung 2 auf Ilias hoch.
+
+
+# Peer Feedback geben
+
+_Diese Infos werden im Verlauf der Woche noch ergänzt. Das Peer Review startet erst in einer Woche._
+
+
+1. Lesen Sie [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html) die _Peer Feedback_-Grundsätze durch.
+
+2. Laden Sie das Ihnen zugeordnete R-Projekt herunter und öffnen Sie das Projekt. Öffnen Sie das `.r`-File und testen Sie, ob der Code läuft.
+
+4. Schreiben Sie zu folgenden Punkten eine Rückmeldung:
+
+- Läuft der Code? Wenn nein, wo gab es Probleme?
+
+- Kamen Sie bei dem Ausführen des Codes auf denselben Mittelwert, wie im Code beschrieben?
+
+- War der Code angemessen kommentiert? 
+
+- Was hätte man besser machen können? Was war gut?
+
+

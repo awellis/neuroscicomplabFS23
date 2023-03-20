@@ -371,6 +371,13 @@
     "text": "Degrees of Visual Angle\nOftmals werden Grössenangaben von Stimuli noch in Pixel oder Zentimeter, sondern in degrees of visual angle gemacht. Dies hat den Vorteil, dass die Angaben nicht vom Monitor selber oder der Entferung vom Monitor abhängig sind. Degrees of visual angle gibt die wahrgenommene Grösse des Stimulus an, und berücksichtigt die Grösse des Monitors und des Stimulus, und die Entfernung der Versuchsperson vom Monitor. Weitere Informationen dazu finden Sie auf der Website von 👉 OpenSesame. Üblicherweise entspricht ein degrees of visual angle etwa einem cm bei einer Entfernung von 57 cm vom Monitor.\nZur Umrechnung zwischen cm und degrees of visual angle finden Sie unter diesem 👉 Link mehr Information.\n\nOpenSesame ist ein weiteres, Python-basierendes Programm für die Erstellung behavioraler Experimente."
   },
   {
+    "objectID": "pages/chapters/reproducibility.html",
+    "href": "pages/chapters/reproducibility.html",
+    "title": "Reproducibility",
+    "section": "",
+    "text": "Die Replikationskrise hat in der Psychologie, aber auch in den kognitiven Neurowissenschaften viel Kritik an früheren Studien ausgelöst. Replikation bedeutet, dass ein Experiment von einer anderen Forschungsgruppe mit einer neuen Stichprobe durchgeführt werden kann, und ähnliche oder dieselben Resultate hervorbringt, wie die Originalstudie. Wird eine Studie mehrmals repliziert, steigt die Wahrscheinlichkeit, dass kein Zufallsbefund vorliegt.\nReproduzierbarkeit (reproducibility) hängt eng mit der Replizierbarkeit (replicability) zusammen, ist aber nicht dasselbe. Reproduzierbarkeit beschreibt, ob die durchgeführte Analyse wiederholt werden kann. Die Reproduzierbarkeit ist hoch, wenn Forschende die für das Experiment verwendeten Skripte sowie die Daten bereitstellen und andere Forschende damit dieselben Analysen durchführen können und zu denselben Resultaten kommen.\n\n\nReproduzierbarkeit kann laut (nosekReplicabilityRobustnessReproducibility?) aus zwei Gründen nicht gegeben sein: Weil die Daten/Skripte nicht zur Verfügung stehen, oder weil diese Fehler enthalten.\n\nIn principle, all reported evidence should be reproducible. If someone applies the same analysis to the same data, the same result should occur. Reproducibility tests can fail for two reasons. A process reproducibility failure occurs when the original analysis cannot be repeated because of the unavailability of data, code, information needed to recreate the code, or necessary software or tools. An outcome reproducibility failure occurs when the reanalysis obtains a different result than the one reported originally. This can occur because of an error in either the original or the reproduction study.\n\nFührt die Reproduktion nicht zum selben Outcome, löst das Fragen aus. Wenn die Reproduzierbarkeit am Prozess scheitert, etwa weil die Daten nicht vorhanden sind, kann kein Schluss gezogen werden, ob die Resultate stimmen.\n\nAuf der Seite des Stanford Center of Reproducible Neuroscience finden Sie einen Beschrieb, wie relevant Code-Fehler in neurowissenschaftlichen Studien sein können.\n\n\nAchieving reproducibility is a basic foundation of credibility, and yet many efforts to test reproducibility reveal success rates below 100%. For example, Artner and colleagues (2020) successfully reproduced just 70% of the 232 findings analyzed, and 18 of those were reproduced only after deviating from the analysis reported in the original papers (see also Bakker & Wicherts 2011; Hardwicke et al. 2018, 2021; Maassen et al. 2020; Nuijten et al. 2016). Whereas an outcome reproducibility failure suggests that the original result may be wrong, a process reproducibility failure merely indicates that the original result cannot be verified. Either reason challenges credibility and increases uncertainty about the value of investing additional resources to replicate or extend the findings (Nuijten et al. 2018). Sharing data and code reduces process reproducibility failures (Kidwell et al. 2016), which can reveal more outcome reproducibility failures (Hardwicke et al. 2018, 2021; Wicherts et al. 2011). (nosek_replicability_2022?)\n\nDas Teilen von Daten und Datenverarbeitungsskripten erhöht die Wahrscheinlichkeit, dass mögliche Fehler im Prozess gefunden werden, da auch andere Forschende die Daten/Skripts verwenden können. Das ist vorerst unangenehm, gehört aber zum Prozess der Wissenschaft dazu. Reproduzierbarkeit erhöht also indirekt auch die Replizierbarkeit.\n\nEine kostenfreie und unkomplizierte Möglichkeit Daten und Skripte zu teilen ist es auf Open Science Foundation ein Projekt anzulegen. Es lässt sich dafür sogar ein doi erstellen.\n\n\n\n\nDas Teilen von Skripts macht am meisten Sinn, wenn sie verständlich strukturiert und kommentiert sind. Beim Kommentieren von Code sollte folgendes beachtet werden:\n\nKommentare sollten geschrieben werden, wenn der Code erstellt wird und laufend überarbeitet werden. Oft wird es sonst nicht nachgeholt.\nWenn man nicht genau kommentieren kann, was man im Code macht, dann ist evtl. der Code unklar, oder man versteht ihn noch nicht. Vielleicht kann man Variablennamen vereinfachen/präzisieren und es braucht weniger Kommentare?\nWenn Code kopiert wird, sollte die Quelle angegeben werden.\nVor dem Veröffentlichen, lohnt es sich jemanden den Code ausführen lassen - so zeigt sich wo noch unklare Stellen sind, die Kommentare benötigen."
+  },
+  {
     "objectID": "pages/chapters/software.html",
     "href": "pages/chapters/software.html",
     "title": "Programmiersprachen",
@@ -488,6 +495,41 @@
     "title": "Übung 1",
     "section": "Trouble shooting",
     "text": "Trouble shooting\nBitte Fehlermeldung im Fenster genau durchlesen. Dort finden Sie Hinweise darauf, was schief gelaufen ist.\nDas Experiment startet nicht.\n\nUnter Einstellungen (Radsymbol) den Reiter Basic auswählen. Bei Use PsychoPy version die laufende PsychoPy Version auswählen (z.B. 2022.2.5).\n\nDas Experiment startet zwar, der Bildschirm ist aber dann einfach für eine kurze Zeit grau und das Fenster schliesst sich wieder.\n\nZugriffsrechte gegeben?\nUnter Einstellungen (Radsymbol) den Reiter Input auswählen. Keyboard Backend auf PsychToolbox statt ioHub."
+  },
+  {
+    "objectID": "pages/chapters/uebung_2_data_wrangling.html",
+    "href": "pages/chapters/uebung_2_data_wrangling.html",
+    "title": "Übung 2",
+    "section": "",
+    "text": "Die Übung 2 besteht aus folgenden Aufgaben:"
+  },
+  {
+    "objectID": "pages/chapters/uebung_2_data_wrangling.html#vorbereitung",
+    "href": "pages/chapters/uebung_2_data_wrangling.html#vorbereitung",
+    "title": "Übung 2",
+    "section": "Vorbereitung",
+    "text": "Vorbereitung\n\nLaden Sie zuerst das RStudio Projekt für Übung 2 herunter. Dieses muss zuerst “entzippt” werden. In dem Projektordner finden Sie den Ordner data. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das File uebung-2.Rproj geöffnet werden.\n\n\nProjekte ermöglichen, relative Pfade. So stellen wir sicher, dass andere Personen, die dieses Projekt öffnen, dieses File auch sehen und ausführen können.\n\n\nÖffnen Sie das File uebung-2.r. Dieses File können Sie genau so verwenden.\n\n\nFür Interessierte/Fortgeschrittene: Praktischer ist es mit RMarkdown zu arbeiten. Dafür eignen sich z.B. .qmd-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben. Sie können nachdem Sie das .r-File erstellt haben, auch noch ein .qmd-File ausprobieren. <>"
+  },
+  {
+    "objectID": "pages/chapters/uebung_2_data_wrangling.html#skript-für-das-einlesen-der-datenhttplocalhost4772downloadable_filesuebung-2.zip",
+    "href": "pages/chapters/uebung_2_data_wrangling.html#skript-für-das-einlesen-der-datenhttplocalhost4772downloadable_filesuebung-2.zip",
+    "title": "Übung 2",
+    "section": "Skript für das Einlesen der Datenhttp://localhost:4772/downloadable_files/uebung-2.zip",
+    "text": "Skript für das Einlesen der Datenhttp://localhost:4772/downloadable_files/uebung-2.zip\nKommentare werden mit #davor gekennzeichnet, so weiss R, dass dies Text und nicht ausführbarer Code ist.\n\nLaden Sie zu Beginn des Experiments die nötigen libraries mit:\n\n\nlibrary(tidyverse)\n\n\nNutzen Sie die Schleife, die Sie hier gelernt hatten, um alle Datensätze des PsychoPy Experiments einzulesen. Es sollten XX sein.\nBenennen Sie die Variablen um, wie HIER beschrieben.\nSchreiben Sie als Kommentar in das Skript, wie der Mittelwert der Variable x ist, über alle Personen hinweg."
+  },
+  {
+    "objectID": "pages/chapters/uebung_2_data_wrangling.html#reproduzierbar-machen",
+    "href": "pages/chapters/uebung_2_data_wrangling.html#reproduzierbar-machen",
+    "title": "Übung 2",
+    "section": "Reproduzierbar machen",
+    "text": "Reproduzierbar machen\n\nKommentieren Sie das Skript knapp und präzise. So dass es für Ihren Peer Reviewer verständlich wird, was sie tun.\nPrüfen Sie, dass alle Variablen relativ sind, und nicht an Ihren Rechner gebunden sind."
+  },
+  {
+    "objectID": "pages/chapters/uebung_2_data_wrangling.html#hochladen",
+    "href": "pages/chapters/uebung_2_data_wrangling.html#hochladen",
+    "title": "Übung 2",
+    "section": "Hochladen",
+    "text": "Hochladen\n\nZippen Sie den Ordner mit dem R-Projekt darin und laden Sie den Ordner unter Übung 2 auf Ilias hoch."
   },
   {
     "objectID": "slides/01_introduction.html#model-based-cognitive-neuroscience",
