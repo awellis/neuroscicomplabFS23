@@ -162,6 +162,12 @@ data <- data |>
 
 ```
 
+
+```{r}
+data |>
+  slice_head(n = 20)
+```
+
 ## Neue Variablen definieren
 
 
