@@ -280,5 +280,5 @@ accuracy |>
       title = "Accuracy per person/condition") +
   facet_wrap(~ID) +
   theme_linedraw(base_size = 28) +
-  theme(legend.position = "none") theme(legend.position = "none")
+  theme(legend.position = "none")
 ```

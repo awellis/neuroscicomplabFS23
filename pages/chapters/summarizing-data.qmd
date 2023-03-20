@@ -51,24 +51,55 @@ data <- data |>
 glimpse(data)
 ```
 
-
-# Individuelle und Aggregierte Kennzahlen
-
-In neurowissenschaftlichen Fragestellungen interessieren wir uns sowohl für durchschnittliche Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir über Personen aggregieren, als auch für individuelle Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir die Daten für jede Versuchsperson einzeln betrachten.
-
-
-
-
-
-# Binary Choices
-
-Wir schauen uns zuerst (wie im letzten Kapitel) die Anzahl korrekter Entscheidungen an. 
-## Pro Versuchsperson
-
 ```{r}
 data |>
   slice_head(n = 10)
 ```
+
+
+# Individuelle und Aggregierte Kennzahlen
+
+In neurowissenschaftlichen Fragestellungen interessieren wir uns sowohl für durchschnittliche Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir über Personen aggregieren, als auch für individuelle Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir die Daten für jede Versuchsperson einzeln betrachten. Wir schauen uns dies am Beispiel der korrekten Antworten in der RDK Entscheidungsaufgabe an.
+
+
+# Binary Choices
+
+Wir schauen uns zuerst (wie im letzten Kapitel) die Anzahl korrekter Entscheidungen an. Nun betrachten wir nicht mehr nur den Mittelwert, sondern auch die Standardabweichung und den Standardfehler. Letzteres ist eine Mss für die Unsicherheit, die wir in der Schätzung des Mittelwerts haben. Leider gibt es keine Funktion in R, die uns den Standardfehler berechnet. Wir definieren eine solche Funktion einfach selber. Der Standardfehler ist definiert als die Stichprobenstandardabweichung geteilt durch die Wurzel aus der Anzahl der Datenpunkte:  $$SE = sd/ \sqrt{n}$$.
+
+
+
+```{r}
+se <- function(x) {
+  sd(x) / sqrt(length(x))
+}
+```
+
+
+## Pro Bedingung, über alle Personen aggregiert
+
+Eine Möglichkeit wäre, die Anzahl korrekter Entscheidungen in jeder Bedingung insgesamt, d.h. über alle Personen aggregiert, zu berechnen. 
+
+```{r}
+data |>
+    group_by(condition) |>
+            summarise(
+                  n = n(),
+                  ncorrect = sum(correct),
+                  accuracy = mean(correct),
+                  se = se(correct)
+            )
+```
+
+
+:::{.callout-caution}
+Was sagen uns diese Kennzahlen? Welche Informationen gehen dabei verloren?
+:::
+
+
+
+
+## Pro Versuchsperson
+
 
 ```{r}
 #| message: false
@@ -76,14 +107,17 @@ accuracy <- data |>
     group_by(ID, condition) |>
     summarise(N = n(),
               ncorrect = sum(correct),
-              accuracy = mean(correct))
+              accuracy = mean(correct),
+              se = se(correct))
 ```
 
 ```{r}
 accuracy
 ```
 
-## Visualisieren
+Wir können diese Tabelle grafisch darstellen; Grafiken sind oft einfacher zu interpretieren als Tabellen. 
+
+
 
 ```{r fig.height=12, fig.width=15}
 accuracy |> 
@@ -104,7 +138,6 @@ accuracy |>
 
 
 
-## Über Versuchsperson aggregieren
 
 ## Ein Exkurs über Within-person Standardfehler 
 
@@ -126,7 +159,9 @@ dfw <- tribble(
     mutate(subject = as.factor(subject))
 ```
 
-
+```{r}
+dfw
+```
 
 ```{r}
 dfl <- dfw |>
@@ -134,6 +169,10 @@ dfl <- dfw |>
                  names_to = "condition",
                  values_to = "value") |>
     mutate(condition = as_factor(condition))
+```
+
+```{r}
+dfl
 ```
 
 ```{r}
@@ -210,13 +249,8 @@ accuracy |>
 
 ```
 
-Der Standardfehler is definiert als: $$SE = sd/ \sqrt{n}$$
 
-Leider gibt es in R keine Funktion, welche den Standardfehler berechnet (schätzt); wir können aber ganz einfach selber eine Funktion definieren.
 
-```{r}
-se <- function(x) sd(x)/sqrt(length(x))
-```
 
 ```{r}
 datasum <- data |>
