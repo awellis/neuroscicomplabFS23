@@ -69,6 +69,7 @@ Beim Veröffentlichen von wissenschaftlichen Artikeln ist es empfohlen, die Date
 
 - Für Datensätze gelten die _FAIR Guiding Principles_ (@wilkinson_fair_2016): 
     - **F** indability: Es ist klar unter welchen Umständen und wie die Daten zugänglich sind
+    - **A** ccessibility: Daten sind zugänglich bzw. es ist klar wo sie zu finden wären
     - **I** nteroperability: Verwendbare Datenformate/strukturen
     - **R** eusability: gute Beschreibung des Datensatzes/der enthaltenen Variablen
     
