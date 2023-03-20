@@ -51,20 +51,21 @@ Auf DataCamp den Python Einführungskurs ausprobieren.
 
 
 ### 4 Visualisieren 
-```Sitzung 7```
+```Sitzungen 7 und 8```
 
+- Rmarkdown
 - Explorative Datenanalyse und grafische Darstellung mit mit `R` package `ggplot2`.
 
 
 ### 5 Signal Detection Theory 
-```Sitzungen 8 und 9```
+```Sitzungen 9 und 10```
 
 - Wir verwenden ein in den Neurowissenschaften und der Psychologie beliebtes Modell für kategoriale oder ordinale Verhaltensdaten, um Daten aus unserem Experiment zu analysieren. 
 
-### 6 Reaktionszeiten 
+<!-- ### 6 Reaktionszeiten 
 ```Sitzung 10```
 
-- In diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an.
+- In diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an. -->
 
 ### 7 Bayesianische Datenanalyse 
 ```Sitzungen 11, 12, 13, und 14```

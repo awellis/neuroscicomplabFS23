@@ -61,9 +61,6 @@ website:
       - section: "Signal detection"
         contents:
           # - pages/admin/02_syllabus.qmd
-      - section: "Reaktionszeiten"
-        contents:
-          # - pages/admin/02_syllabus.qmd
       - section: "Bayesianische Datenanalyse"
         contents:
           # - pages/admin/02_syllabus.qmd
