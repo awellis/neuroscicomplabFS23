@@ -16,11 +16,12 @@ format:
     html:
         toc: true
         code-link: true
+execute: 
+  cache: false
 ---
 
 ```{r}
 #| include: false
-
 # Set working directory of R
 knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
 ```
@@ -29,42 +30,48 @@ knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
 👉 [R Code für dieses Kapitel downloaden](../../downloadable_files/summarizing-data.R)
 ::: -->
 
+Wir haben in den vorherigen Kapiteln gesehen, wie wir Daten aus Verhaltensexperimenten in R einlesen und bearbeiten können. In diesem Kapitel werden wir uns mit der Frage beschäftigen, wie wir die Daten zusammenfassen können, um sie besser zu verstehen.
 
-
+Zuerst laden wir das `tidyverse` Package und lesen das gespeicherte `csv` File ein.
 ```{r}
 #| message: false
 #| warning: false
-
 library(tidyverse)
 data <- read_csv("data_clean/rdkdata.csv")
 ```
-Ob eine Variable als `factor` definiert ist, wird als Attribut gespeichert. Attribute werden aber in einem `.csv.` File nicht mitgespeichert; deshalb müssen wir die Gruppierungsvariablen wieder als `factor` definieren. 
+
+Im ersten Schritt konvertieren wir wieder alle Gruppierungsvariablen zu Faktoren. Ob eine Variable als `factor` definiert ist, wird als Attribut gespeichert. Attribute werden aber in einem `.csv.` File nicht mitgespeichert; deshalb müssen wir diesen Schritt nach dem Einlesen jedesmal neu ausführen. 
 
 ```{r}
 data <- data |>
-    mutate_if(is.character, as.factor)
+    mutate(across(where(is.character), as_factor))
 ```
 
 ```{r}
 glimpse(data)
 ```
 
+
+# Individuelle und Aggregierte Kennzahlen
+
+In neurowissenschaftlichen Fragestellungen interessieren wir uns sowohl für durchschnittliche Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir über Personen aggregieren, als auch für individuelle Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir die Daten für jede Versuchsperson einzeln betrachten.
+
+
+
+
+
 # Binary Choices
 
+Wir schauen uns zuerst (wie im letzten Kapitel) die Anzahl korrekter Entscheidungen an. 
 ## Pro Versuchsperson
 
 ```{r}
-data
-```
-
-```{r}
-data |> 
-  group_by(ID, condition)
+data |>
+  slice_head(n = 10)
 ```
 
 ```{r}
 #| message: false
-
 accuracy <- data |>
     group_by(ID, condition) |>
     summarise(N = n(),
@@ -82,21 +89,20 @@ accuracy
 accuracy |> 
   ggplot(aes(x = condition, y = accuracy, fill = condition)) +
   geom_col() +
-  geom_line(aes(group = ID), size = 2) +
-  geom_point(size = 8) +
-  scale_fill_manual(
-    values = c(invalid = "#9E0142",
-    neutral = "#C4C4B7",
-    valid = "#2EC762")
-  ) +
-  labs(
-    x = "Cue",
-    y = "Proportion correct",
-    title = "Accuracy per person/condition"
-  ) +
+  geom_line(aes(group = ID), linewidth = 2) +
+  geom_point(size = 4) +
+  scale_fill_manual(values = c(invalid = "#9E0142",
+                    neutral = "#C4C4B7",
+                    valid = "#2EC762")) +
+  labs(x = "Cue",
+      y = "Proportion correct",
+      title = "Accuracy per person/condition") +
+  facet_wrap(~ID) +
   theme_linedraw(base_size = 28) +
-  facet_wrap(~ID)
+  theme(legend.position = "none")
 ```
+
+
 
 ## Über Versuchsperson aggregieren
 
