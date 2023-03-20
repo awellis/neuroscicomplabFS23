@@ -124,6 +124,12 @@ data <- csv_files |>
     list_rbind()
 ```
 
+```{r}
+data |>
+  slice_head(n = 20)
+```
+
+
 Nun können wir wie in Teil 1 die Practice Trials entfernen.
 ```{r}
 data  <- data |>  
