@@ -1,5 +1,5 @@
 ---
-title: "Kennzahlen berechnen"
+title: "Deskriptive Statistik"
 description: |
   Daten aus Verhaltensexperiments bearbeiten und zusammenfassen.
 date: "2022-03-20"
@@ -25,9 +25,11 @@ format:
 knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
 ```
 
-:::{.callout-note}
+<!-- :::{.callout-note}
 👉 [R Code für dieses Kapitel downloaden](../../downloadable_files/summarizing-data.R)
-:::
+::: -->
+
+
 
 ```{r}
 #| message: false
