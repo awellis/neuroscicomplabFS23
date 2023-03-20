@@ -140,7 +140,7 @@ data  <- data |>
 
 ## Variablen auswählen und umbennen
 
-Wir eliminieren die Variablen, die wir nicht brauchen (ISI, Fixatoinskreuz, Zeitangaben der Bilder, etc.).
+Wir eliminieren die Variablen, die wir nicht brauchen (ISI, Fixationskreuz, Zeitangaben der Bilder, etc.).
 ```{r}
 data <- data |>
     select(-contains("static"),
