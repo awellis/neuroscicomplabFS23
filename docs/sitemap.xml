@@ -2,6 +2,101 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/index.html</loc>
+<<<<<<< HEAD
+    <lastmod>2023-03-20T08:04:26.270Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/01_overview.html</loc>
+    <lastmod>2023-03-20T08:04:32.909Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/03_zulip_forum.html</loc>
+    <lastmod>2023-03-20T08:04:33.558Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/dozierende.html</loc>
+    <lastmod>2023-03-20T08:04:34.013Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html</loc>
+    <lastmod>2023-03-20T08:04:34.443Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/syllabus.html</loc>
+    <lastmod>2023-03-20T08:04:34.827Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/chatgpt.html</loc>
+    <lastmod>2023-03-20T08:04:35.532Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/data-cleaning.html</loc>
+    <lastmod>2023-03-20T08:04:38.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/datacamp.html</loc>
+    <lastmod>2023-03-20T08:04:39.375Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/experiment_stepbystep.html</loc>
+    <lastmod>2023-03-20T08:04:39.926Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/functions-loops.html</loc>
+    <lastmod>2023-03-20T08:04:41.966Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/functions_and_loops-2.html</loc>
+    <lastmod>2023-03-20T08:04:43.870Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/importing_data-2.html</loc>
+    <lastmod>2023-03-20T08:04:51.265Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/importing_data.html</loc>
+    <lastmod>2023-03-20T08:04:54.100Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/psychopy_experiments.html</loc>
+    <lastmod>2023-03-20T08:04:55.038Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/software.html</loc>
+    <lastmod>2023-03-20T08:04:55.868Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/summarizing-data.html</loc>
+    <lastmod>2023-03-20T08:04:59.220Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/uebung_1_experiment.html</loc>
+    <lastmod>2023-03-20T08:04:59.747Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/slides/01_introduction.html</loc>
+    <lastmod>2023-03-20T08:05:00.123Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/slides/02_psychopy.html</loc>
+    <lastmod>2023-03-20T08:05:00.483Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/slides/02_psychopy_gw.html</loc>
+    <lastmod>2023-03-20T08:05:00.891Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/exercises/exercise_01.html</loc>
+    <lastmod>2023-03-20T08:05:01.438Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/exercises/exercise_02.html</loc>
+    <lastmod>2023-03-20T08:05:01.991Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/solutions/solution_03.html</loc>
+    <lastmod>2023-03-20T08:05:04.168Z</lastmod>
+=======
     <lastmod>2023-03-18T17:03:52.759Z</lastmod>
   </url>
   <url>
@@ -87,5 +182,6 @@
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/solutions/solution_03.html</loc>
     <lastmod>2023-03-18T17:02:59.115Z</lastmod>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
   </url>
 </urlset>

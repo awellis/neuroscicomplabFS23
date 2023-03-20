@@ -1,0 +1,285 @@
+---
+title: "Daten importieren: Teil 2"
+description: Mehrere Datensätze programmatisch bearbeiten.
+date: "2023-03-20"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+license: CC BY
+citation: true
+bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+        code-link: true
+execute: 
+  cache: false
+---
+
+```{r}
+#| include: false
+
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
+```
+
+:::{.callout-tip collapse="false"}
+## Lernziele
+
+In der heutigen Sitzung lernen wir:
+
+- Arbeitsschritte automatisieren: mehrere Datensätze automatisch importieren
+- Mit ChatGPT Code verstehen
+:::
+
+
+:::{.callout-caution collapse="true"}
+## Datacamp
+- Falls Sie eine Einführung in Programmierkonzepte (Conditionals and Control Flow, Functions, Loops) benötigen, empfehlen wir Ihnen den Datacamp Kurs [Intermediate R](https://app.datacamp.com/learn/courses/intermediate-r).
+:::
+
+
+# Mehrere Datensätze bearbeiten
+
+```{r}
+library(tidyverse)
+```
+
+Meist werden Daten für jede Versuchsperson einzeln abgespeichert. Um nicht jeden Datensatz einzeln einlesen zu müssen können wir Schleifen (loops) und Funktionen nutzen. Schleifen und Funktionen sind immer extrem zeitsparend, wenn ein Prozess wiederholt werden muss. Dies kommt in der Verarbeitung grosser Datensätze häufig vor. Zudem werden so Tippfehler vermieden, die häufig passieren, wenn man dreissig Mal dasselbe schreiben muss.
+
+Nun werden wir dasselbe wie im Teil 1 machen; dort haben wir ein `csv` File importiert, und dessen Variablen ausgewählt und umbenannt. Dieses Mal wollen wir aber alle `.csv` Files laden, die  in einem Ordner gespeichert sind.
+
+<aside>
+In Ihrem Rstudio Projekt sind die Files im Ordner `data` gespeichert.
+</aside>
+
+## Alle Files in einem Ordner auflisten
+
+Zuerst erstellen wir mit `list.files()` eine Liste aller `.csv` Files im Ordner `data`. 
+
+
+```{r}
+datadir <- "data"
+
+csv_files <- datadir |>
+    list.files(pattern = "csv", full.names = TRUE)
+```
+
+
+```{r}
+csv_files
+```
+
+`csv_files` enthält nun die "Pfade" zu allen `.csv` Files im Ordner `data`. Diese Pfade können nun einzeln and `read_csv()` übergeben werden.
+
+
+## Mit `for`-Loop
+
+Zuerst brauchen wir eine Liste, in die wir die Daten einlesen können. Wir erstellen eine Liste mit der Länge der Anzahl Files, die wir haben.
+```{r}
+data_list <- vector("list", length(csv_files))
+```
+
+Nun können wir entweder über die Elemente der Liste iterieren, oder über die Indizes. Wir wählen letzteres, da wir die Indizes später für die Zuweisung der Daten verwenden können.
+
+```{r}
+#| warning: false
+#| message: false
+for (i in seq_along(csv_files)) {
+            df <- read_csv(csv_files[i])
+            data_list[[i]] <- df
+}
+```
+
+
+Das Resultat ist eine Liste, in deren Elementen die neun `csv` Files gepesichert sind.
+
+```{r}
+length(data_list)
+```
+
+Diese wollen wir nun zu einem Dataframe zusammenfügen. Dazu können wir `do.call()` verwenden. `do.call()` nimmt eine Funktion und eine Liste als Argumente. Die Liste werden wiederum als Argumente der Funktion verwendet.
+
+```{r}
+data_loop <- do.call(rbind, data_list)
+```
+
+```{r}
+head(data_loop)
+```
+
+## Mit `map` und `list_rbind`
+
+Dasselbe können wir auch mit `map()` machen. Da auch hier der Output eine Liste ist, müssen wir diese auch zu einem Dataframe zusammenfügen. Dazu können wir `list_rbind()` verwenden.
+
+
+```{r}
+#| warning: false
+#| message: false
+data <- csv_files |> 
+    map(read_csv) |>
+    list_rbind()
+```
+
+Nun können wir wie in Teil 1 die Practice Trials entfernen.
+```{r}
+data  <- data |>  
+        filter(!is.na(main_blocks_loop.thisN)) |>
+        select(-contains("practice_block_loop"))
+```
+
+
+## Variablen auswählen und umbennen
+
+Wir eliminieren die Variablen, die wir nicht brauchen (ISI, Fixatoinskreuz, Zeitangaben der Bilder, etc.).
+```{r}
+data <- data |>
+    select(-contains("static"),
+           -contains("fixation"),
+           -contains("image"),
+           -contains("instruction"),
+           -contains("feedback"))
+```
+
+Zum Schluss geben wir den Variablen, die wir behalten, noch deskriptivere Namen.
+```{r}
+data <- data |>
+    select(trial = main_blocks_loop.thisN,
+           ID = Pseudonym,
+           cue,
+           direction,
+           response = dots_keyboard_response.keys,
+           rt = dots_keyboard_response.rt)
+
+```
+
+## Neue Variablen definieren
+
+
+Eine Antwort ist korrekt, wenn die gewählte Richtung der Richtung des Dot-Stimulus entspricht. Zuvor definieren wir zwei Variablen: `choice` besteht aus den Angaben "right" und "left", `response` ist eine numerische Version davon (0 = "left", 1 = "right").
+
+### Korrekte Antworten
+```{r}
+data <- data |>
+    mutate(choice = if_else(response == "j", "right", "left"),
+           response = if_else(choice == "right", 1, 0))
+
+```
+
+`correct` ist `TRUE` wenn `choice == direction`, `FALSE` wenn nicht. Wir konvertieren diese logische Variable mit `as.numeric()` in eine numerische Variable. `as.numeric()` konvertiert `TRUE` in 1 und `FALSE` in 0.
+
+
+:::{.callout-tip}
+
+```{r}
+as.numeric(c(TRUE, FALSE))
+```
+:::
+
+```{r}
+data <- data |>
+    mutate(correct = as.numeric(choice == direction))
+```
+
+```{r}
+glimpse(data)
+```
+
+Wir schauen uns die ersten 20 Zeilen an.
+```{r}
+data |> 
+  slice_head(n = 20)
+```
+
+### Cue-Bedingungsvariable
+
+
+Nun brauchen wir eine Variable, die angibt, ob die Bedingung "neutral", "valid" oder "invalid" ist. Wir erstellen eine neue Variable `condition` und füllen sie mit `case_when()` mit den Werten "neutral", "valid" oder "invalid". `case_when()` erlaubt, mehrere `if_else()`-Bedingungen zu kombinieren. So wird hier der Variablen `condition` der Wert `neutral` zugewiesen, wenn `cue == "none"` ist. Falls `cue == direction` ist, wird der Wert `valid` zugewiesen. Falls `cue != direction` ist, wird der Wert `invalid` zugewiesen.
+
+
+```{r}
+data <- data |>
+    mutate(condition = case_when(cue == "none" ~ "neutral",
+                                 cue == direction ~ "valid",
+                                 cue != direction ~ "invalid"))
+```
+
+```{r}
+data |> 
+  slice_head(n = 20)
+```
+
+### Daten als CSV speichern
+
+An dieser Stelle speichern wir den neu kreierten Datensatz als `.csv` File. Somit können wir zu einem späteren Zeitpunkt die Daten einfach importieren, ohne die ganzen Schritte wiederholen zu müssen.
+
+```{r}
+data |> write_csv(file = "data_clean/rdkdata.csv")
+```
+
+
+## Gruppierungsvariablen 
+
+Alle Gruppierungsvariablen sollten nun zu Faktoren konvertiert werden. 
+```{r}
+data <- data |>
+    mutate(across(where(is.character), as_factor))
+```
+
+```{r}
+glimpse(data)
+```
+
+
+## Daten überprüfen
+
+Wir überprüfen, ob die Daten korrekt sind. Dazu schauen wir uns die Anzahl der Trials pro Person und pro Bedingung an. Sie können mehr Zeilen anzeigen, indem sie `n = `  in der Funktion `slice_head()` ändern.
+
+
+```{r}
+data |> 
+  group_by(ID, condition) |>
+  summarise(n_trials = n()) |>
+  slice_head(n = 20)
+```
+    
+
+## Accuracy pro Person/Bedingung
+
+Nun berechnen wir pro Person und pro Bedingung die Anzahl der korrekten Antworten und die Accuracy. Die Accuracy ist die Anzahl der korrekten Antworten geteilt durch die Anzahl der Trials.
+
+```{r}
+accuracy <- data |>
+    group_by(ID, condition) |>
+    summarise(N = n(),
+              ncorrect = sum(correct),
+              accuracy = mean(correct))
+
+```   
+
+```{r}
+accuracy
+```
+
+## Visualisieren
+
+```{r fig.height=12, fig.width=15}
+accuracy |> 
+  ggplot(aes(x = condition, y = accuracy, fill = condition)) +
+  geom_col() +
+  scale_fill_manual(
+    values = c(invalid = "#9E0142",
+    neutral = "#C4C4B7",
+    valid = "#2EC762")
+  ) +
+  labs(
+    x = "Cue",
+    y = "Proportion correct",
+    title = "Accuracy per person/condition"
+  ) +
+  theme_linedraw(base_size = 28) +
+  facet_wrap(~ID)
+```

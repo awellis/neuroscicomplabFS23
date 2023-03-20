@@ -1,6 +1,6 @@
 ---
-title: "Tasks automatisieren"
-description: Ein Exkurs zu den Themen Funktionen und Loops.
+title: "Automatisieren"
+description: Ein Exkurs zu den Themen Conditionals, Funktionen und Loops.
 date: "2023-03-13"
 author:
   - name: Andrew Ellis
@@ -17,36 +17,82 @@ format:
         code-link: true
 ---
 
-```{r}
-#| include: false
-
-# Set working directory of R
-# knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
-```
-
 :::{.callout-tip collapse="false"}
 ## Lernziele
 
 In der heutigen Sitzung lernen wir:
 
-- Mit RStudio arbeiten
-- Einzelne Psychopy `.csv` Datensätze importieren
-- Variablen auswählen/umbenennen
-- Neue Variablen berechnen
-- Mehrere Datensätze importieren
-- Mit ChatGPT Code verstehen
+- Conditionals und Control Flow
+- Funktionen erstellen
+- Loops anwenden
 :::
+
+Wir nun zwei Programmierkonzepte kennenlernen, die uns dabei helfen, Tasks zu automatisieren. Wir werden hier nicht in die Tiefe gehen; es geht uns vielmehr darum, Ihnen einen Überblick zu geben, was Sie mit diesen Konzepten machen können. Falls Sie tiefer in die Materie einsteigen möchten, gibt es entsprechende Kurse auf Datacamp.
 
 
 :::{.callout-caution collapse="true"}
 ## Datacamp
-- Falls Sie eine Starthilfe zu RStudio brauchen, empfehlen wir dieses [RStudio Tutorial](https://www.datacamp.com/tutorial/r-studio-tutorial).
-- Falls Sie mir R und den `tidyverse` Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: [Introduction to the Tidyverse](https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse).
+- Falls Sie eine Einführung in Programmierkonzepte (Conditionals and Control Flow, Functions, Loops) benötigen, empfehlen wir Ihnen den Datacamp Kurs [Intermediate R](https://app.datacamp.com/learn/courses/intermediate-r).
+:::
+
+
+# Conditionals und Control Flow
+
+Conditionals und Control Flow sind Konzepte, die es uns ermöglichen, den Programmablauf zu steuern. Wir können damit zum Beispiel entscheiden, ob ein bestimmter Codeblock ausgeführt wird oder nicht. Wir können auch den Programmablauf abhängig von bestimmten Bedingungen steuern. Dies ist nützlich, wenn wir zum Beispiel eine bestimmte Aktion nur dann ausführen wollen, wenn eine Bedingung erfüllt ist.
+
+Als simples Beispiel wollen wir eine Zahl `x` definieren und prüfen, ob diese grösser als 0 ist. Wenn ja, dann wollen wir die Zahl ausgeben. Wenn nein, dann wollen wir eine Fehlermeldung ausgeben. Um diesen Test `x > 0` auszuführen, können wir `if` verwenden. `if` testet, ob eine Bedingung wahr ist. Falls ja, wird ein Codeblock ausgeführt. Der Codeblock wird in geschweiften Klammern `{}` eingeschlossen. Wenn die Bedingung nicht erfüllt ist, dann wird der Codeblock nicht ausgeführt. Falls die Bedingung nicht wahr ist, können wir eine Alternative mit `else` angeben. Der Codeblock, der ausgeführt wird, wenn die Bedingung nicht wahr ist, wird ebenfalls in geschweiften Klammern `{}` eingeschlossen.
+
+```{r}
+x <- 1
+```
+
+```{r}
+if (x > 0) {
+  print(x)
+} else {
+  print("x is not greater than 0")
+}
+```
+
+
+
+:::{.callout-important}
+Ändern sie den Wert von `x` und führen Sie den Codeblock erneut aus. Was passiert, wenn `x` negativ ist?
 :::
 
 
 
+Wir können nun auch mehrere Bedingungen testen. Dazu verwenden wir `if`, `else if` und `else`. `else if` ist eine Alternative zu `else`, wenn die erste Bedingung nicht wahr ist. `else if` wird  dann ausgeführt, wenn die erste Bedingung nicht wahr war. `else` wird nur dann ausgeführt, wenn alle vorherigen Bedingungen nicht wahr waren.
+
+Zum Beispiel wollen nun ebenfalls prüfen, ob `x` gleich 0 ist. Falls ja, dann wollen wir eine andere Fehlermeldung ausgeben. Falls nein, dann wollen wir die Fehlermeldung ausgeben, die wir bereits definiert haben.
+
+```{r}
+if (x > 0) {
+  print(x)
+} else if (x == 0) {
+  print("x is 0")
+} else  {
+    print("x is not greater than 0")
+}
+```
+
+:::{.callout-important}
+Ändern sie den Wert von `x` erneut und führen Sie den Codeblock aus. Was passiert, wenn `x` Null ist?
+:::
+
 # Funktionen
+
+In R kann man Funktionen selber definieren. Dies ist einerseits nützlich, wenn man etwas berechnen will, es in R aber dafür keine Funktion gibt; andererseits sind Funktion nützlich, um Code zu strukturieren und zu modularisieren. Dies bedeutet, dass man Schritte in einer Funktion zusammenfassen kann, und diese dann testen und wiederverwenden kann. Eine Daumenregel ist: Wenn Sie einen Codeblock mehr als einmal verwenden, dann sollten Sie ihn in eine Funktion packen.
+
+
+Eine Funktion besteht aus einem Funktionsnamen, einem oder mehreren Argumenten und einem Funktionskörper. Der Funktionskörper ist der Code, der ausgeführt wird, wenn die Funktion aufgerufen wird. Der Funktionsname ist der Name, unter dem die Funktion in R bekannt ist. Die Argumente sind Werte, welche die Funktion als Input erhält. Funktionen werden mit der Funktion `function()` definiert.
+
+
+Wir definieren nun eine Funktion, welche irgendeine eine Zahl `x` 
+als Input erhält und die Zahl `x + 1` als Output zurückgibt.
+
+`add_one` ist der Funktionsname. `x` ist das beliebige Argument. Innerhalb der geschweiften Klammern `{}` ist der Funktionskörper, d.h. der Code, welcher ausgeführt wird, wenn die Funktion aufgerufen wird.
+
 
 ```{r}
 add_one <- function(x) {
@@ -54,9 +100,250 @@ add_one <- function(x) {
 }
 ```
 
+Dieser Code muss in R einmal ausgeführt werden, damit die Funktion `add_one` definiert wird. Danach kann 
+`add_one` aufgerufen werden.
 
 ```{r}
-add_one(2)
+add_one(30)
 ```
 
+Was passiert aber nun, wenn wir `add_one` mit einem String aufrufen? Wir erhalten einen Fehler, da wir die Funktion `add_one` nicht mit einem String aufrufen können. Wir können die Funktion `add_one` nur mit Zahlen aufrufen.
+
+```{r}
+#| eval: false
+add_one("Hello")
+```
+
+Es wäre sinnvoll, den Input zu prüfen, bevor die Funktion ausgeführt wird. Dies bedeutet, dass wir mit der Funktion `is.numeric()` prüfen, ob der Input eine Zahl ist. Falls der Input keine Zahl ist, dann wollen wir eine Fehlermeldung ausgeben. Falls der Input eine Zahl ist, dann wollen wir die Funktion `add_one` ausführen. Wir können dies mit `if` und `else` tun.
+
+```{r}  
+add_one <- function(x) {
+  if (is.numeric(x)) {
+    x + 1
+  } else {
+    print("Hey, this only works if x is a number!")
+  }
+}
+```
+
+```{r}
+add_one("Hello")
+```
+
+
+
+
 # Loops    
+
+Mit Loops können wir über Vektoren oder Listen iterieren. Dies bedeutet, dass wir einen oder mehrere Schritte in einem Codeblock für jedes Element eines Vektors oder einer Liste ausführen können. Wir können Loops mit `for` definieren. 
+
+Der Codeblock wird in geschweiften Klammern `{}` eingeschlossen. Der Codeblock wird für jedes Element des Vektors oder der Liste ausgeführt. In einer `for`-Schleife brauchen wir eine spezielle Variable, welche bei jedem Durchlauf des Loops den Wert des aktuellen Elements erhält. Diese Variable nennt man eine Iterationsvariable; diese wird oft `i` genannt (dies ist aber keine Vorschrift, wir können genausogut auch andere Namen verwenden).
+
+
+
+Als erstes Beispiel wollen wir die Namen einzelner Früchte aus einem Vektor ausgeben. 
+
+```{r}
+fruits <- c("apple", "banana", "orange", "cherry")
+```
+
+```{r}
+for (fruit in fruits) {
+    print(fruit)
+}
+```
+
+Anstatt die Elemente direkt zu verwenden, macht es manchmal Sinn, über die Indizes zu iterieren. Wir können dies mit der Funktion `seq_along()` tun. `seq_along()` gibt eine Folge von Zahlen zurück, welche die Indizes der Elemente des Vektors repräsentieren. 
+
+
+:::{.callout-tip}
+## Iteration: Elemente oder Indizes?
+
+```{r}
+first_three_letters <- c("a", "b", "c")
+```
+```{r}
+for (letter in first_three_letters) {
+  print(letter)
+}
+```
+
+
+```{r}
+for (i in seq_along(first_three_letters)) {
+  print(i)
+}
+```
+
+Wenn wir die trotz Iteration über Indizes die Elemente haben wollen, müssen wir den Vektor indizieren.
+```{r}
+for (i in seq_along(first_three_letters)) {
+  print(first_three_letters[i])
+}
+```
+:::
+
+Mit dem Früchte-Beispiel:
+
+```{r}
+for (i in seq_along(fruits)) {
+  print(fruits[i])
+}
+```
+
+
+
+
+
+Wir können auch eine deskriptive Nachricht ausgeben. 
+
+
+```{r}
+for (fruit in fruits) {
+  print(paste(fruit, "is a fruit"))
+}
+
+```
+
+
+Nun können wir einige der Konzepte kombinieren. Wir wollen nun jedes Element einer Liste testen, ob es eine Frucht oder ein Gemüse ist. Falls es eine Frucht ist, wollen wir die Message "is a fruit" ausgeben. Falls es ein Gemüse ist, wollen wir die Message "is a vegetable" ausgeben. 
+
+```{r}
+fruits <- c("apple", "banana", "orange", "cherry")
+vegetables <- c("carrot", "potato", "tomato", "cucumber")
+```
+
+
+
+Wir erstellen nun eine zufällige Liste von Früchten und Gemüse. 
+
+```{r}
+```{r}
+set.seed(589)
+foods <- sample(c(sample(fruits, 3), sample(vegetables, 3)))
+foods
+```
+
+Wie können wir nun feststellen, ob ein Element in der Liste eine Frucht oder ein Gemüse ist? Wir können dies z.B. mit `%in%` tun. `%in%` prüft, ob ein Element in einem Vektor enthalten ist. 
+
+```{r}
+"apple" %in% fruits
+```
+
+```{r}
+for (food in foods) {
+    if (food %in% fruits) {
+        print(paste(food, "is a fruit"))
+    } else if (food %in% vegetables) {
+        print(paste(food, "is a vegetable"))
+    } else {
+        print(paste(food, "is neither fruit nor vegetable"))
+    }
+}
+```
+
+:::{.callout-important}
+Was passiert, wenn ein Element weder Frucht noch Gemüse ist?
+:::
+
+Im obigen Code verwenden wir die Funktion `paste()` mehrmals. Es könnte Sinn machen, eine eigene Funktion definieren. Wir verwenden die Funktion `stopifnot()`, um zu prüfen, ob das Argument ein String ist. Falls dies nicht der Fall ist, wird die Funktion mit einer passenden Fehlermeldung abgebrochen. 
+
+
+
+```{r}
+what_is <- function(x) {
+    stopifnot(is.character(x))
+
+    if (x %in% fruits) {
+        paste(x, "is a fruit") |> print()
+    } else if (x %in% vegetables) {
+        paste(x, "is a vegetable") |> print()
+    } else {
+        paste(x, "is neither fruit nor vegetable") |> print()
+    }
+}
+```
+
+```{r}
+for (food in foods) {
+    what_is(food)
+}
+```
+
+
+
+
+## Alternativen zu `for`-Loops
+
+Es gibt in R mehrere Möglichkeiten, um über Vektoren oder Listen zu iterieren, ohne dabei explizite  `for`-Loops zu schreiben. Dies hat den Vorteil, dass der Code kürzer und übersichtlicher wird. 
+
+
+### `lapply` und `sapply`
+
+`lapply` und `sapply` sind zwei Funktionen, welche über Listen iterieren. `lapply` und `sapply` sind sehr ähnlich. `lapply` gibt eine Liste zurück, während `sapply` eine Liste retournieren kann.
+
+
+Als Beispiel wollen wir jedes Element eines Vektors verdoppeln (dies kann in R auch einfacher gemacht werden, aber dies ist nur ein Übungsbeispiel). 
+
+```{r}
+numbers <- c(1, 2, 3, 4, 5)
+```
+
+
+Mit `for` können wir dies wie folgt tun.
+
+```{r}
+for (number in numbers) {
+    print(number * 2)
+}
+```
+
+
+Mit `lapply` und `sapply` haben wir zwei Möglichkeiten. Wir können entweder eine anonyme Funktion definieren, oder wir können eine Funktion zuerst definieren, und dann verwenden. 
+
+`\(x) x * 2` definiert eine sogenannte anonyme Funktion. Diese Funktion nimmt ein Argument `x` und multipliziert es mit 2, erhält aber keinen eigenen Namen. Folglich können wir diese Funktion nicht wiederverwenden. 
+
+```{r}
+lapply(numbers, \(x) x * 2)
+```
+
+
+Mit einer Funktion, die wir zuerst definieren, sieht unser Beispiel so aus.
+
+```{r}
+double <- function(x) {
+    x * 2
+}
+```
+
+```{r}
+lapply(numbers, double)
+```
+
+
+```{r}
+sapply(numbers, double)
+```
+
+
+
+
+### `map`
+Eine weitere Möglichkeit, über Listen zu iterieren, ist die Funktion `map`. `map` ist eine Funktion aus dem Paket `purrr` (wird automatisch geladen, wenn `tidyverse` geladen wird). `map` gibt immer eine Liste zurück. 
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+numbers |> map(double)
+```
+
+Wenn wir als Output einen Vektor haben wollen, müssen wir die Funktion `unlist()` verwenden. 
+
+
+```{r}
+numbers |> map(double) |> unlist()
+```
+
+

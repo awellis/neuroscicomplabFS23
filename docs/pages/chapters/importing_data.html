@@ -7,7 +7,7 @@
 <meta name="author" content="Andrew Ellis">
 <meta name="dcterms.date" content="2023-03-13">
 <meta name="description" content="Daten aus Verhaltensexperimenten importieren und bearbeiten.">
-<title>Neurowissenschaft Computerlab - Daten importieren</title>
+<title>Neurowissenschaft Computerlab - Daten importieren: Teil 1</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -172,7 +172,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Daten importieren</h1>
+      <h1 class="quarto-secondary-nav-title">Daten importieren: Teil 1</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -246,7 +246,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link active">Daten importieren</a>
+  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link active">Daten importieren: Teil 1</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">Automatisieren</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 2</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">Kennzahlen berechnen</a>
   </div>
 </li>
       </ul>
@@ -281,7 +296,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
   <li><a href="#practice-trials-l%C3%B6schen" id="toc-practice-trials-löschen" class="nav-link" data-scroll-target="#practice-trials-l%C3%B6schen">Practice Trials löschen</a></li>
   <li><a href="#variablen-ausw%C3%A4hlen" id="toc-variablen-auswählen" class="nav-link" data-scroll-target="#variablen-ausw%C3%A4hlen">Variablen auswählen</a></li>
-  <li><a href="#variablen-umbennen" id="toc-variablen-umbennen" class="nav-link" data-scroll-target="#variablen-umbennen">Variablen umbennen</a></li>
+  <li><a href="#variablen-umbenennen" id="toc-variablen-umbenennen" class="nav-link" data-scroll-target="#variablen-umbenennen">Variablen umbenennen</a></li>
   <li><a href="#neue-variablen-definieren" id="toc-neue-variablen-definieren" class="nav-link" data-scroll-target="#neue-variablen-definieren">Neue Variablen definieren</a></li>
   <li><a href="#gruppierungsvariablen" id="toc-gruppierungsvariablen" class="nav-link" data-scroll-target="#gruppierungsvariablen">Gruppierungsvariablen</a></li>
   <li><a href="#accuracy-pro-bedingung" id="toc-accuracy-pro-bedingung" class="nav-link" data-scroll-target="#accuracy-pro-bedingung">Accuracy pro Bedingung</a></li>
@@ -291,7 +306,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">Daten importieren</h1>
+<h1 class="title d-none d-lg-block">Daten importieren: Teil 1</h1>
 </div>
 
 <div>
@@ -1193,7 +1208,7 @@ testdata &lt;- testdata |&gt;
 #   variable names ¹​direction, ²​practice_block_loop.thisRepN, …</code></pre>
 </div>
 </div>
-</section><section id="variablen-umbennen" class="level2"><h2 class="anchored" data-anchor-id="variablen-umbennen">Variablen umbennen</h2>
+</section><section id="variablen-umbenennen" class="level2"><h2 class="anchored" data-anchor-id="variablen-umbenennen">Variablen umbenennen</h2>
 <p>Nun wollen Variablen identifizieren, die uns interessieren. Diese wollen wir umbenennen.</p>
 <div class="cell" data-hash="importing_data_cache/html/unnamed-chunk-11_19adc14a5b2aa7cd24f276c3aaa2cd71">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">testdata</span> <span class="op">&lt;-</span> <span class="va">testdata</span> <span class="op">|&gt;</span></span>
@@ -1323,13 +1338,14 @@ $ correct   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, NA, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1
 
 </section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2023,
   author = {Andrew Ellis},
-  title = {Daten Importieren},
+  title = {Daten Importieren: {Teil} 1},
   date = {2023-03-13},
   url = {https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Andrew Ellis. 2023. <span>“Daten Importieren.”</span> March 13, 2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html">https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html</a>.
+Andrew Ellis. 2023. <span>“Daten Importieren: Teil 1.”</span> March 13,
+2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html">https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

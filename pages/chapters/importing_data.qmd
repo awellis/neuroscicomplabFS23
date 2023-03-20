@@ -1,5 +1,5 @@
 ---
-title: "Daten importieren"
+title: "Daten importieren: Teil 1"
 description: Daten aus Verhaltensexperimenten importieren und bearbeiten.
 date: "2023-03-13"
 author:
@@ -185,7 +185,7 @@ testdata <- testdata |>
 testdata
 ```
 
-## Variablen umbennen
+## Variablen umbenennen
 
 Nun wollen Variablen identifizieren, die uns interessieren. Diese wollen wir umbenennen.
 

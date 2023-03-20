@@ -1,0 +1,165 @@
+---
+title: "Funktionen und Schleifen"
+description: Mehrere Datensätze importieren und bearbeiten mit Funktionen und Schleifen.
+date: "2023-03-13"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+license: CC BY
+citation: true
+bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+        code-link: true
+---
+
+```{r eval=TRUE, include=FALSE}
+#| include: FALSE
+
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
+```
+
+:::{.callout-tip collapse="false"}
+## Lernziele
+
+In der heutigen Sitzung lernen wir:
+
+- Mehrere Datensätze importieren
+- Eine Schleife (loop) zu schreiben
+- Eine eigene Funktion schreiben
+- 
+:::
+
+
+:::{.callout-caution collapse="true"}
+## Datacamp
+- Falls Sie mir R und den `tidyverse` Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: [Introduction to the Tidyverse](https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse).
+- In folgendem Datacamp Kurs können Sie Ihr Wissen über Funktionen und Schleifen erweitern und festigen: [Intermediate R](https://app.datacamp.com/learn/courses/intermediate-r)
+
+:::
+
+
+# Mehrere Datensätze einlesen 
+
+Meist werden Daten für jede Versuchsperson einzeln abgespeichert. Um nicht jeden Datensatz einzeln einlesen zu müssen können wir Schleifen (loops) und Funktionen nutzen. Schleifen und Funktionen sind immer extrem zeitsparend, wenn ein Prozess wiederholt werden muss. Dies kommt in der Verarbeitung grosser Datensätze häufig vor. Zudem werden so Tippfehler vermieden, die häufig passieren, wenn man dreissig Mal dasselbe schreiben muss.
+
+
+## Schleifen (loops)
+
+Schleifen ermöglichen das x-beliebige Wiederholen eines Schrittes z.B. statt dem einzelnen Einlesen eines Datensatzes, werden alle Datensätze in einem Ordner eingelesen auf einmal eingelesen. 
+
+Um mehrere Datensätze einzulesen benötigen wir:
+
+1. Eine Liste aller Datensätze, die man einlesen möchte
+
+2. Eine Schleife, die besagt, dass wir für jedes Objekt in der Liste etwas machen möchten
+
+3. Eine Aufgabe, die wir mit jedem Objekt ausführen möchten
+
+Mit einer Schleife sagt man dem Programm "Führe für jeden Datensatz dieser Liste folgendes durch: Lade den Datensatz."
+
+
+Eine Schleife wird in R wie folgt formuliert:
+
+
+```{r include=FALSE}
+
+seq = 0
+expr = 0
+```
+
+```{r eval=FALSE}
+for (var in seq){
+    expr
+}
+```
+
+Mit `var` ist eine Variable in einer Sequenz `seq` gemeint. Bei uns wäre die Variable ein Name eines Datensatzes, und die Sequenz wäre eine Liste mit Datensätzen (z.B. alle Files in einem Ordner). `expr` meint _expression_, also was wir mit dieser Variable tun wollen, in unserem Beispiel wollen wir den Datensatz öffnen.
+
+
+|              | Inhalt         | Bsp. Datensatz einlesen |
+|------------- |--------------- |------------------------|
+| `var`        | Laufvariable   | Name des einzelnen Datensatzes|
+| `seq`        | Sequenz/Vektor | Liste mit Namen aller Datensätze |
+| `expr`       | Schritt/Aufgabe| Öffnen des Datensatzes |
+
+Nun müssen wir statt `var`, `seq` und `expr` natürlich sinnvolle Variablen und Schritte einfügen.
+Zuerst erstellen wir die Liste, über die die Schleife laufen soll. 
+
+```{r}
+myFiles <- list.files(path = "../../data/rdk_decision_experiment/data",  # Pfad des Ordners mit den Datensätzen
+                      pattern = ".csv", # Endung der Datensätze, hier .csv
+                      full.names = TRUE) 
+
+myFiles # zeige die Liste
+```
+
+Die Variable `var` können wir beliebig benennen, wir wählen hier `file`. Danach können wir die Schleife erstellen, die für jedes `file` in `myFiles` den Schritt _Daten laden_ mit `read.csv` ausführt. Das sieht dann so aus:
+
+<aside> Diese Variable wird oft `i` oder `j` genannt. </aside>
+
+```{r}
+
+d <- NULL # Vorbereiten des Datensatzes 
+
+for (file in myFiles){
+    dataset <- read.csv(file)
+    d <- rbind(d, dataset) # wir fügen jeden neu eingelesenen Datensatz hinzu
+} 
+```
+
+
+## Funktionen
+
+Statt der Schleife, können wir es uns aber noch einfacher machen, in dem wir statt einer Schleide die Funktion `map`verwenden. 
+Funktionen sind sehr hilfreich, wenn man einen Schritt mehrmals machen will. Funktionen sind kleine Programme, denen man Infos geben muss (Parameter) und die dann immer dasselbe mit diesen Infos machen. Eine Funktion hat folgende Struktur:
+
+```{r eval=FALSE}
+functionname <- function(parameter) {
+  body
+}
+```
+
+
+Die Funktion `mean()`zum Beispiel macht immer dasselbe mit den Zahlen, die man ihr füttert.
+
+```{r eval=FALSE}
+x <- c(1, 21, 3, 234, 5) # verschiedene Zahlen
+
+mean(x)
+```
+:::{.callout-important}
+Was macht die Funktion `mean()`?
+
+Tipp: Geben Sie `?mean` in Ihre R-Konsole ein. 
+
+- Was kann man bei der Funktion `mean()` als Parameter eingeben?
+
+- Muss die eingegebene Variable `x` heissen? Probieren Sie aus.
+
+- Was passiert, wenn man `mean(x, trim = 1)` eingibt? 
+
+- Was bedeutet `na.rm`? Fügen Sie im Vektor `x` ein `NA`hinzu und probieren Sie es aus.
+:::
+
+
+Um unsere Daten einzulesen verwenden wir die Funktion `map` vom Package `purrr`. Diese Funktion ist sehr praktisch. Sie nimmt als Parameter unsere Liste mit den Datensätzen und wendet für jeden Punkt in der Liste das an, was wir in Klammern angeben. Wir wollen Daten einlesen also schreiben wir hier: `read.csv`. Anschliessend müssen wir die Listen noch zu einem Datensatz umwandeln indem wir alle untereinander anordnen, also die `List`en `r`eihenweise `bind`en: `list_rbind()`. 
+
+<aside> Falls Sie das Package `purrr` noch nicht installiert haben, können Sie in der Konsole `install.packages("purrr")` eingeben. Jedes Package muss nur einmal installiert werden. Will man es verwenden, muss es aber mit `library(purrr)` geladen werden. Statt `list_rbind`zu verwenden könnten wir auch `map_dfr`nutzen, dann wäre der Code noch kompakter. </aside>
+
+```{r}
+library(tidyverse)
+library(purrr)
+
+d <- myFiles %>%
+    map(read.csv) |>
+    list_rbind()
+
+glimpse(d, width = 10)
+```
+

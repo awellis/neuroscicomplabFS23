@@ -6,8 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Andrew Ellis">
 <meta name="dcterms.date" content="2023-03-13">
+<<<<<<< HEAD
+<meta name="description" content="Ein Exkurs zu den Themen Conditionals, Funktionen und Loops.">
+<title>Neurowissenschaft Computerlab - Automatisieren</title>
+=======
 <meta name="description" content="Ein Exkurs zu den Themen Funktionen und Loops.">
 <title>Neurowissenschaft Computerlab - Tasks automatisieren</title>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -171,7 +176,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+<<<<<<< HEAD
+      <h1 class="quarto-secondary-nav-title">Automatisieren</h1>
+=======
       <h1 class="quarto-secondary-nav-title">Tasks automatisieren</h1>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -245,7 +254,26 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+<<<<<<< HEAD
+  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 1</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link active">Automatisieren</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 2</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">Kennzahlen berechnen</a>
+=======
   <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">Daten importieren</a>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
   </div>
 </li>
       </ul>
@@ -268,18 +296,43 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
+<<<<<<< HEAD
+<li><a href="#conditionals-und-control-flow" id="toc-conditionals-und-control-flow" class="nav-link active" data-scroll-target="#conditionals-und-control-flow">Conditionals und Control Flow</a></li>
+  <li><a href="#funktionen" id="toc-funktionen" class="nav-link" data-scroll-target="#funktionen">Funktionen</a></li>
+  <li>
+<a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a>
+  <ul class="collapse">
+<li>
+<a href="#alternativen-zu-for-loops" id="toc-alternativen-zu-for-loops" class="nav-link" data-scroll-target="#alternativen-zu-for-loops">Alternativen zu <code>for</code>-Loops</a>
+  <ul class="collapse">
+<li><a href="#lapply-und-sapply" id="toc-lapply-und-sapply" class="nav-link" data-scroll-target="#lapply-und-sapply"><code>lapply</code> und <code>sapply</code></a></li>
+  <li><a href="#map" id="toc-map" class="nav-link" data-scroll-target="#map"><code>map</code></a></li>
+  </ul>
+</li>
+  </ul>
+</li>
+=======
 <li><a href="#funktionen" id="toc-funktionen" class="nav-link active" data-scroll-target="#funktionen">Funktionen</a></li>
   <li><a href="#loops" id="toc-loops" class="nav-link" data-scroll-target="#loops">Loops</a></li>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<<<<<<< HEAD
+<h1 class="title d-none d-lg-block">Automatisieren</h1>
+=======
 <h1 class="title d-none d-lg-block">Tasks automatisieren</h1>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
 </div>
 
 <div>
   <div class="description">
+<<<<<<< HEAD
+    Ein Exkurs zu den Themen Conditionals, Funktionen und Loops.
+=======
     Ein Exkurs zu den Themen Funktionen und Loops.
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
   </div>
 </div>
 
@@ -327,16 +380,26 @@ Lernziele
 <div class="callout-body-container callout-body">
 <p>In der heutigen Sitzung lernen wir:</p>
 <ul>
+<<<<<<< HEAD
+<li>Conditionals und Control Flow</li>
+<li>Funktionen erstellen</li>
+<li>Loops anwenden</li>
+=======
 <li>Mit RStudio arbeiten</li>
 <li>Einzelne Psychopy <code>.csv</code> Datensätze importieren</li>
 <li>Variablen auswählen/umbenennen</li>
 <li>Neue Variablen berechnen</li>
 <li>Mehrere Datensätze importieren</li>
 <li>Mit ChatGPT Code verstehen</li>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
 </ul>
 </div>
 </div>
 </div>
+<<<<<<< HEAD
+<p>Wir nun zwei Programmierkonzepte kennenlernen, die uns dabei helfen, Tasks zu automatisieren. Wir werden hier nicht in die Tiefe gehen; es geht uns vielmehr darum, Ihnen einen Überblick zu geben, was Sie mit diesen Konzepten machen können. Falls Sie tiefer in die Materie einsteigen möchten, gibt es entsprechende Kurse auf Datacamp.</p>
+=======
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -350,12 +413,394 @@ Datacamp
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
+<<<<<<< HEAD
+<li>Falls Sie eine Einführung in Programmierkonzepte (Conditionals and Control Flow, Functions, Loops) benötigen, empfehlen wir Ihnen den Datacamp Kurs <a href="https://app.datacamp.com/learn/courses/intermediate-r">Intermediate R</a>.</li>
+=======
 <li>Falls Sie eine Starthilfe zu RStudio brauchen, empfehlen wir dieses <a href="https://www.datacamp.com/tutorial/r-studio-tutorial">RStudio Tutorial</a>.</li>
 <li>Falls Sie mir R und den <code>tidyverse</code> Packages (noch) nicht sattelfest sind, empfehlen wir Ihnen das erste Kapitel im folgenden Kurs auf DataCamp: <a href="https://app.datacamp.com/learn/courses/introduction-to-the-tidyverse">Introduction to the Tidyverse</a>.</li>
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
 </ul>
 </div>
 </div>
 </div>
+<<<<<<< HEAD
+<section id="conditionals-und-control-flow" class="level1"><h1>Conditionals und Control Flow</h1>
+<p>Conditionals und Control Flow sind Konzepte, die es uns ermöglichen, den Programmablauf zu steuern. Wir können damit zum Beispiel entscheiden, ob ein bestimmter Codeblock ausgeführt wird oder nicht. Wir können auch den Programmablauf abhängig von bestimmten Bedingungen steuern. Dies ist nützlich, wenn wir zum Beispiel eine bestimmte Aktion nur dann ausführen wollen, wenn eine Bedingung erfüllt ist.</p>
+<p>Als simples Beispiel wollen wir eine Zahl <code>x</code> definieren und prüfen, ob diese grösser als 0 ist. Wenn ja, dann wollen wir die Zahl ausgeben. Wenn nein, dann wollen wir eine Fehlermeldung ausgeben. Um diesen Test <code>x &gt; 0</code> auszuführen, können wir <code>if</code> verwenden. <code>if</code> testet, ob eine Bedingung wahr ist. Falls ja, wird ein Codeblock ausgeführt. Der Codeblock wird in geschweiften Klammern <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code> eingeschlossen. Wenn die Bedingung nicht erfüllt ist, dann wird der Codeblock nicht ausgeführt. Falls die Bedingung nicht wahr ist, können wir eine Alternative mit <code>else</code> angeben. Der Codeblock, der ausgeführt wird, wenn die Bedingung nicht wahr ist, wird ebenfalls in geschweiften Klammern <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code> eingeschlossen.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-1_767354ab9c3ff56de80f0be51b9d0bf7">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">x</span> <span class="op">&lt;-</span> <span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-2_966fa521e9e1ea7ab75d60a99e7cb5bd">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"x is not greater than 0"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hands-on
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ändern sie den Wert von <code>x</code> und führen Sie den Codeblock erneut aus. Was passiert, wenn <code>x</code> negativ ist?</p>
+</div>
+</div>
+<p>Wir können nun auch mehrere Bedingungen testen. Dazu verwenden wir <code>if</code>, <code>else if</code> und <code>else</code>. <code>else if</code> ist eine Alternative zu <code>else</code>, wenn die erste Bedingung nicht wahr ist. <code>else if</code> wird dann ausgeführt, wenn die erste Bedingung nicht wahr war. <code>else</code> wird nur dann ausgeführt, wenn alle vorherigen Bedingungen nicht wahr waren.</p>
+<p>Zum Beispiel wollen nun ebenfalls prüfen, ob <code>x</code> gleich 0 ist. Falls ja, dann wollen wir eine andere Fehlermeldung ausgeben. Falls nein, dann wollen wir die Fehlermeldung ausgeben, die wir bereits definiert haben.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-3_5c3e268a7410dae0a3e25ca47d258023">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">&gt;</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op">==</span> <span class="fl">0</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"x is 0"</span><span class="op">)</span></span>
+<span><span class="op">}</span> <span class="kw">else</span>  <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"x is not greater than 0"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hands-on
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ändern sie den Wert von <code>x</code> erneut und führen Sie den Codeblock aus. Was passiert, wenn <code>x</code> Null ist?</p>
+</div>
+</div>
+</section><section id="funktionen" class="level1"><h1>Funktionen</h1>
+<p>In R kann man Funktionen selber definieren. Dies ist einerseits nützlich, wenn man etwas berechnen will, es in R aber dafür keine Funktion gibt; andererseits sind Funktion nützlich, um Code zu strukturieren und zu modularisieren. Dies bedeutet, dass man Schritte in einer Funktion zusammenfassen kann, und diese dann testen und wiederverwenden kann. Eine Daumenregel ist: Wenn Sie einen Codeblock mehr als einmal verwenden, dann sollten Sie ihn in eine Funktion packen.</p>
+<p>Eine Funktion besteht aus einem Funktionsnamen, einem oder mehreren Argumenten und einem Funktionskörper. Der Funktionskörper ist der Code, der ausgeführt wird, wenn die Funktion aufgerufen wird. Der Funktionsname ist der Name, unter dem die Funktion in R bekannt ist. Die Argumente sind Werte, welche die Funktion als Input erhält. Funktionen werden mit der Funktion <code>function()</code> definiert.</p>
+<p>Wir definieren nun eine Funktion, welche irgendeine eine Zahl <code>x</code> als Input erhält und die Zahl <code>x + 1</code> als Output zurückgibt.</p>
+<p><code>add_one</code> ist der Funktionsname. <code>x</code> ist das beliebige Argument. Innerhalb der geschweiften Klammern <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code> ist der Funktionskörper, d.h. der Code, welcher ausgeführt wird, wenn die Funktion aufgerufen wird.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-4_20b65af503ffcc451d2fb8f82f0a42bd">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_one</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Dieser Code muss in R einmal ausgeführt werden, damit die Funktion <code>add_one</code> definiert wird. Danach kann <code>add_one</code> aufgerufen werden.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-5_c7623324864a968450de17cbf3c5f1e0">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_one</span><span class="op">(</span><span class="fl">30</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 31</code></pre>
+</div>
+</div>
+<p>Was passiert aber nun, wenn wir <code>add_one</code> mit einem String aufrufen? Wir erhalten einen Fehler, da wir die Funktion <code>add_one</code> nicht mit einem String aufrufen können. Wir können die Funktion <code>add_one</code> nur mit Zahlen aufrufen.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-6_1de586173fd39a058f9e1c6ec61d5086">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_one</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Es wäre sinnvoll, den Input zu prüfen, bevor die Funktion ausgeführt wird. Dies bedeutet, dass wir mit der Funktion <code><a href="https://rdrr.io/r/base/numeric.html">is.numeric()</a></code> prüfen, ob der Input eine Zahl ist. Falls der Input keine Zahl ist, dann wollen wir eine Fehlermeldung ausgeben. Falls der Input eine Zahl ist, dann wollen wir die Funktion <code>add_one</code> ausführen. Wir können dies mit <code>if</code> und <code>else</code> tun.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-7_c20d92c73f7711dfea6fadea1a1649c0">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_one</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="kw">if</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">is.numeric</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">x</span> <span class="op">+</span> <span class="fl">1</span></span>
+<span>  <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="st">"Hey, this only works if x is a number!"</span><span class="op">)</span></span>
+<span>  <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-8_705dd3129821026696a86b90add5b441">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">add_one</span><span class="op">(</span><span class="st">"Hello"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "x is not numeric"</code></pre>
+</div>
+</div>
+</section><section id="loops" class="level1"><h1>Loops</h1>
+<p>Mit Loops können wir über Vektoren oder Listen iterieren. Dies bedeutet, dass wir einen oder mehrere Schritte in einem Codeblock für jedes Element eines Vektors oder einer Liste ausführen können. Wir können Loops mit <code>for</code> definieren.</p>
+<p>Der Codeblock wird in geschweiften Klammern <code><a href="https://rdrr.io/r/base/Paren.html">{}</a></code> eingeschlossen. Der Codeblock wird für jedes Element des Vektors oder der Liste ausgeführt. In einer <code>for</code>-Schleife brauchen wir eine spezielle Variable, welche bei jedem Durchlauf des Loops den Wert des aktuellen Elements erhält. Diese Variable nennt man eine Iterationsvariable; diese wird oft <code>i</code> genannt (dies ist aber keine Vorschrift, wir können genausogut auch andere Namen verwenden).</p>
+<p>Als erstes Beispiel wollen wir die Namen einzelner Früchte aus einem Vektor ausgeben.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-9_a0430e9fdd0eea1d167b5f53860edaca">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>, <span class="st">"cherry"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-10_a545524bccdb8e37b44b2d72628bb24c">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">fruit</span> <span class="kw">in</span> <span class="va">fruits</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">fruit</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apple"
+[1] "banana"
+[1] "orange"
+[1] "cherry"</code></pre>
+</div>
+</div>
+<p>Anstatt die Elemente direkt zu verwenden, macht es manchmal Sinn, über die Indizes zu iterieren. Wir können dies mit der Funktion <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> tun. <code><a href="https://rdrr.io/r/base/seq.html">seq_along()</a></code> gibt eine Folge von Zahlen zurück, welche die Indizes der Elemente des Vektors repräsentieren.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Iteration: Elemente oder Indizes?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-11_84266235336f2443cbb8f34fd6932b77">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">first_three_letters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-12_dcbeb77699b33f4bc53a4258c24d773e">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">letter</span> <span class="kw">in</span> <span class="va">first_three_letters</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">letter</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a"
+[1] "b"
+[1] "c"</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-13_dd8fa1171c0de3bc4517c7bd630904a0">
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">first_three_letters</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">i</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1
+[1] 2
+[1] 3</code></pre>
+</div>
+</div>
+<p>Wenn wir die trotz Iteration über Indizes die Elemente haben wollen, müssen wir den Vektor indizieren.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-14_f61839180d32bff7c6c448ab62cbb44b">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">first_three_letters</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">first_three_letters</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a"
+[1] "b"
+[1] "c"</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Mit dem Früchte-Beispiel:</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-15_03922c56f4b34d0a23b0c8494fc9974f">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">fruits</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">fruits</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apple"
+[1] "banana"
+[1] "orange"
+[1] "cherry"</code></pre>
+</div>
+</div>
+<p>Wir können auch eine deskriptive Nachricht ausgeben.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-16_1f1ccbd005fd3b12287283958fa0f907">
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">fruit</span> <span class="kw">in</span> <span class="va">fruits</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">fruit</span>, <span class="st">"is a fruit"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "apple is a fruit"
+[1] "banana is a fruit"
+[1] "orange is a fruit"
+[1] "cherry is a fruit"</code></pre>
+</div>
+</div>
+<p>Nun können wir einige der Konzepte kombinieren. Wir wollen nun jedes Element einer Liste testen, ob es eine Frucht oder ein Gemüse ist. Falls es eine Frucht ist, wollen wir die Message “is a fruit” ausgeben. Falls es ein Gemüse ist, wollen wir die Message “is a vegetable” ausgeben.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-17_b8a5371558c0725efcc4b533e36c5d22">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">fruits</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"apple"</span>, <span class="st">"banana"</span>, <span class="st">"orange"</span>, <span class="st">"cherry"</span><span class="op">)</span></span>
+<span><span class="va">vegetables</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"carrot"</span>, <span class="st">"potato"</span>, <span class="st">"tomato"</span>, <span class="st">"cucumber"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Wir erstellen nun eine zufällige Liste von Früchten und Gemüse.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-18_f924527424773fb988c0e191b42d4525">
+
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-19_f90c0be9486c2fbea09cc9c4c35fb1ee">
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html">set.seed</a></span><span class="op">(</span><span class="fl">589</span><span class="op">)</span></span>
+<span><span class="va">foods</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">fruits</span>, <span class="fl">3</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">vegetables</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">foods</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "cucumber" "carrot"   "orange"   "cherry"   "banana"   "tomato"  </code></pre>
+</div>
+</div>
+<p>Wie können wir nun feststellen, ob ein Element in der Liste eine Frucht oder ein Gemüse ist? Wir können dies z.B. mit <code>%in%</code> tun. <code>%in%</code> prüft, ob ein Element in einem Vektor enthalten ist.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-20_e778645a0bda025adb887cbcbac295af">
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="st">"apple"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fruits</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-21_4de5a4823ae9c14fd164b6aaed9e829d">
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">food</span> <span class="kw">in</span> <span class="va">foods</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">food</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fruits</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">food</span>, <span class="st">"is a fruit"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">food</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">vegetables</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">food</span>, <span class="st">"is a vegetable"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">food</span>, <span class="st">"is neither fruit nor vegetable"</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "cucumber is a vegetable"
+[1] "carrot is a vegetable"
+[1] "orange is a fruit"
+[1] "cherry is a fruit"
+[1] "banana is a fruit"
+[1] "tomato is a vegetable"</code></pre>
+</div>
+</div>
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Hands-on
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Was passiert, wenn ein Element weder Frucht noch Gemüse ist?</p>
+</div>
+</div>
+<p>Im obigen Code verwenden wir die Funktion <code><a href="https://rdrr.io/r/base/paste.html">paste()</a></code> mehrmals. Es könnte Sinn machen, eine eigene Funktion definieren. Wir verwenden die Funktion <code><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot()</a></code>, um zu prüfen, ob das Argument ein String ist. Falls dies nicht der Fall ist, wird die Funktion mit einer passenden Fehlermeldung abgebrochen.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-22_2e28ddaf3a8fe2af46d6a5b94e28b2da">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">what_is</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/stopifnot.html">stopifnot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/character.html">is.character</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span>    <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">fruits</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"is a fruit"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">x</span> <span class="op"><a href="https://rdrr.io/r/base/match.html">%in%</a></span> <span class="va">vegetables</span><span class="op">)</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"is a vegetable"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span>
+<span>        <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="va">x</span>, <span class="st">"is neither fruit nor vegetable"</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="op">)</span></span>
+<span>    <span class="op">}</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-23_3d5d17f44bb3121a3f9d66dba8268524">
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">food</span> <span class="kw">in</span> <span class="va">foods</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu">what_is</span><span class="op">(</span><span class="va">food</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "cucumber is a vegetable"
+[1] "carrot is a vegetable"
+[1] "orange is a fruit"
+[1] "cherry is a fruit"
+[1] "banana is a fruit"
+[1] "tomato is a vegetable"</code></pre>
+</div>
+</div>
+<section id="alternativen-zu-for-loops" class="level2"><h2 class="anchored" data-anchor-id="alternativen-zu-for-loops">Alternativen zu <code>for</code>-Loops</h2>
+<p>Es gibt in R mehrere Möglichkeiten, um über Vektoren oder Listen zu iterieren, ohne dabei explizite <code>for</code>-Loops zu schreiben. Dies hat den Vorteil, dass der Code kürzer und übersichtlicher wird.</p>
+<section id="lapply-und-sapply" class="level3"><h3 class="anchored" data-anchor-id="lapply-und-sapply">
+<code>lapply</code> und <code>sapply</code>
+</h3>
+<p><code>lapply</code> und <code>sapply</code> sind zwei Funktionen, welche über Listen iterieren. <code>lapply</code> und <code>sapply</code> sind sehr ähnlich. <code>lapply</code> gibt eine Liste zurück, während <code>sapply</code> eine Liste retournieren kann.</p>
+<p>Als Beispiel wollen wir jedes Element eines Vektors verdoppeln (dies kann in R auch einfacher gemacht werden, aber dies ist nur ein Übungsbeispiel).</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-24_b1e3cc1382509cc730fdc82484184b36">
+<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">4</span>, <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mit <code>for</code> können wir dies wie folgt tun.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-25_eb5f178c7d73d6491688886befd8cfc2">
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">number</span> <span class="kw">in</span> <span class="va">numbers</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/r/base/print.html">print</a></span><span class="op">(</span><span class="va">number</span> <span class="op">*</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2
+[1] 4
+[1] 6
+[1] 8
+[1] 10</code></pre>
+</div>
+</div>
+<p>Mit <code>lapply</code> und <code>sapply</code> haben wir zwei Möglichkeiten. Wir können entweder eine anonyme Funktion definieren, oder wir können eine Funktion zuerst definieren, und dann verwenden.</p>
+<p><code>\(x) x * 2</code> definiert eine sogenannte anonyme Funktion. Diese Funktion nimmt ein Argument <code>x</code> und multipliziert es mit 2, erhält aber keinen eigenen Namen. Folglich können wir diese Funktion nicht wiederverwenden.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-26_5e5d3455bb04aaba4968bb0101a97c26">
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">numbers</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 2
+
+[[2]]
+[1] 4
+
+[[3]]
+[1] 6
+
+[[4]]
+[1] 8
+
+[[5]]
+[1] 10</code></pre>
+</div>
+</div>
+<p>Mit einer Funktion, die wir zuerst definieren, sieht unser Beispiel so aus.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-27_d272739b85eba0eedb1e201becf8d293">
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">double</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<span>    <span class="va">x</span> <span class="op">*</span> <span class="fl">2</span></span>
+<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-28_09c757e9256f725b66b584f00b2fe6e1">
+<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">lapply</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">double</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 2
+
+[[2]]
+[1] 4
+
+[[3]]
+[1] 6
+
+[[4]]
+[1] 8
+
+[[5]]
+[1] 10</code></pre>
+</div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-29_60f841206b369580540411eb80d047aa">
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html">sapply</a></span><span class="op">(</span><span class="va">numbers</span>, <span class="va">double</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2  4  6  8 10</code></pre>
+</div>
+</div>
+</section><section id="map" class="level3"><h3 class="anchored" data-anchor-id="map"><code>map</code></h3>
+<p>Eine weitere Möglichkeit, über Listen zu iterieren, ist die Funktion <code>map</code>. <code>map</code> ist eine Funktion aus dem Paket <code>purrr</code> (wird automatisch geladen, wenn <code>tidyverse</code> geladen wird). <code>map</code> gibt immer eine Liste zurück.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-30_03932247441d1ece02902596f66f87ea">
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-31_22746bb047d7e01e9dca7f5034f8a630">
+<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">double</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] 2
+
+[[2]]
+[1] 4
+
+[[3]]
+[1] 6
+
+[[4]]
+[1] 8
+
+[[5]]
+[1] 10</code></pre>
+</div>
+</div>
+<p>Wenn wir als Output einen Vektor haben wollen, müssen wir die Funktion <code><a href="https://rdrr.io/r/base/unlist.html">unlist()</a></code> verwenden.</p>
+<div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-32_ebcd6b1b03a00f0a8e80e13cf065aba9">
+<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">numbers</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">double</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/unlist.html">unlist</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  2  4  6  8 10</code></pre>
+</div>
+</div>
+
+
+</section></section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2023,
+  author = {Andrew Ellis},
+  title = {Automatisieren},
+=======
 <section id="funktionen" class="level1"><h1>Funktionen</h1>
 <div class="cell" data-hash="functions-loops_cache/html/unnamed-chunk-2_707d9128396bbb0606fa8bf301f6e470">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_one</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
@@ -374,13 +819,18 @@ Datacamp
 </section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2023,
   author = {Andrew Ellis},
   title = {Tasks Automatisieren},
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
   date = {2023-03-13},
   url = {https://kogpsy.github.io/neuroscicomplabFS23//functions-loops.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+<<<<<<< HEAD
+Andrew Ellis. 2023. <span>“Automatisieren.”</span> March 13, 2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//functions-loops.html">https://kogpsy.github.io/neuroscicomplabFS23//functions-loops.html</a>.
+=======
 Andrew Ellis. 2023. <span>“Tasks Automatisieren.”</span> March 13, 2023.
 <a href="https://kogpsy.github.io/neuroscicomplabFS23//functions-loops.html">https://kogpsy.github.io/neuroscicomplabFS23//functions-loops.html</a>.
+>>>>>>> f9a33107e6f757fd3e423636305352452c3af52a
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
