@@ -1191,26 +1191,26 @@ testdata &lt;- testdata |&gt;
 <div class="cell" data-hash="importing_data_cache/html/unnamed-chunk-10_d90ec7fe7626099f449e1def9d05b53b">
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">testdata</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 167 × 23
-   cue   direc…¹ pract…² pract…³ pract…⁴ pract…⁵ main_…⁶ main_…⁷ main_…⁸ main_…⁹
-   &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
- 1 none  right         0       0       0       5      NA      NA      NA      NA
- 2 left  right         0       1       1       2      NA      NA      NA      NA
- 3 right right         0       2       2       1      NA      NA      NA      NA
- 4 left  left          0       3       3       0      NA      NA      NA      NA
- 5 none  left          0       4       4       4      NA      NA      NA      NA
- 6 right left          0       5       5       3      NA      NA      NA      NA
- 7 &lt;NA&gt;  &lt;NA&gt;         NA      NA      NA      NA      NA      NA      NA      NA
- 8 right right        NA      NA      NA      NA       0       0       0      18
- 9 right right        NA      NA      NA      NA       0       1       1      31
-10 none  right        NA      NA      NA      NA       0       2       2      66
-# … with 157 more rows, 13 more variables: dots_background.started &lt;dbl&gt;,
-#   dots_background.stopped &lt;chr&gt;, dots_stimulus.started &lt;dbl&gt;,
-#   dots_stimulus.stopped &lt;chr&gt;, dots_keyboard_response.keys &lt;chr&gt;,
+<pre><code># A tibble: 160 × 19
+   cue   direc…¹ main_…² main_…³ main_…⁴ main_…⁵ dots_…⁶ dots_…⁷ dots_…⁸ dots_…⁹
+   &lt;chr&gt; &lt;chr&gt;     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;  
+ 1 right right         0       0       0      18    92.9 None       92.9 None   
+ 2 right right         0       1       1      31   102.  None      102.  None   
+ 3 none  right         0       2       2      66   111.  None      111.  None   
+ 4 none  right         0       3       3      75   120.  None      120.  None   
+ 5 left  left          0       4       4      13   129.  None      129.  None   
+ 6 none  right         0       5       5      62   139.  None      139.  None   
+ 7 none  left          0       6       6      41   148.  None      148.  None   
+ 8 left  left          0       7       7      15   158.  None      158.  None   
+ 9 left  right         0       8       8      32   168.  None      168.  None   
+10 none  right         0       9       9      68   178.  None      178.  None   
+# … with 150 more rows, 9 more variables: dots_keyboard_response.keys &lt;chr&gt;,
 #   dots_keyboard_response.started &lt;dbl&gt;, dots_keyboard_response.stopped &lt;chr&gt;,
 #   dots_keyboard_response.rt &lt;dbl&gt;, Pseudonym &lt;chr&gt;, date &lt;chr&gt;,
 #   expName &lt;chr&gt;, psychopyVersion &lt;chr&gt;, frameRate &lt;dbl&gt;, and abbreviated
-#   variable names ¹​direction, ²​practice_block_loop.thisRepN, …</code></pre>
+#   variable names ¹​direction, ²​main_blocks_loop.thisRepN,
+#   ³​main_blocks_loop.thisTrialN, ⁴​main_blocks_loop.thisN,
+#   ⁵​main_blocks_loop.thisIndex, ⁶​dots_background.started, …</code></pre>
 </div>
 </div>
 </section><section id="variablen-umbenennen" class="level2"><h2 class="anchored" data-anchor-id="variablen-umbenennen">Variablen umbenennen</h2>
@@ -1227,20 +1227,20 @@ testdata &lt;- testdata |&gt;
 <div class="cell" data-hash="importing_data_cache/html/unnamed-chunk-12_746ffaea23256bd72bb04421f30fdaa4">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">testdata</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 167 × 6
-   trial ID    cue   direction response     rt
-   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt;
- 1    NA ZZ    none  right     None     NA    
- 2    NA ZZ    left  right     f         0.934
- 3    NA ZZ    right right     j         0.849
- 4    NA ZZ    left  left      f         0.940
- 5    NA ZZ    none  left      None     NA    
- 6    NA ZZ    right left      f         0.749
- 7    NA ZZ    &lt;NA&gt;  &lt;NA&gt;      &lt;NA&gt;     NA    
- 8     0 ZZ    right right     j         0.714
- 9     1 ZZ    right right     j         0.627
-10     2 ZZ    none  right     f         0.670
-# … with 157 more rows</code></pre>
+<pre><code># A tibble: 160 × 6
+   trial ID    cue   direction response    rt
+   &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;     &lt;chr&gt;    &lt;dbl&gt;
+ 1     0 ZZ    right right     j        0.714
+ 2     1 ZZ    right right     j        0.627
+ 3     2 ZZ    none  right     f        0.670
+ 4     3 ZZ    none  right     j        0.574
+ 5     4 ZZ    left  left      j        0.841
+ 6     5 ZZ    none  right     j        0.668
+ 7     6 ZZ    none  left      j        1.12 
+ 8     7 ZZ    left  left      f        0.640
+ 9     8 ZZ    left  right     f        1.13 
+10     9 ZZ    none  right     j        1.03 
+# … with 150 more rows</code></pre>
 </div>
 </div>
 </section><section id="neue-variablen-definieren" class="level2"><h2 class="anchored" data-anchor-id="neue-variablen-definieren">Neue Variablen definieren</h2>
@@ -1285,17 +1285,17 @@ ChatGPT
 <div class="cell" data-hash="importing_data_cache/html/unnamed-chunk-17_ad9325f2dc4377c08777faf035ccecd5">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 167
+<pre><code>Rows: 160
 Columns: 9
-$ trial     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10…
+$ trial     &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
 $ ID        &lt;chr&gt; "ZZ", "ZZ", "ZZ", "ZZ", "ZZ", "ZZ", "ZZ", "ZZ", "ZZ", "ZZ", …
-$ cue       &lt;chr&gt; "none", "left", "right", "left", "none", "right", NA, "right…
-$ direction &lt;chr&gt; "right", "right", "right", "left", "left", "left", NA, "righ…
-$ response  &lt;dbl&gt; 0, 0, 1, 0, 0, 0, NA, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0,…
-$ rt        &lt;dbl&gt; NA, 0.9339199, 0.8488816, 0.9396018, NA, 0.7490084, NA, 0.71…
-$ choice    &lt;chr&gt; "left", "left", "right", "left", "left", "left", NA, "right"…
-$ condition &lt;chr&gt; "neutral", "invalid", "valid", "valid", "neutral", "invalid"…
-$ correct   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, NA, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1,…</code></pre>
+$ cue       &lt;chr&gt; "right", "right", "none", "none", "left", "none", "none", "l…
+$ direction &lt;chr&gt; "right", "right", "right", "right", "left", "right", "left",…
+$ response  &lt;dbl&gt; 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, …
+$ rt        &lt;dbl&gt; 0.7136441, 0.6271285, 0.6703410, 0.5738488, 0.8405913, 0.667…
+$ choice    &lt;chr&gt; "right", "right", "left", "right", "right", "right", "right"…
+$ condition &lt;chr&gt; "valid", "valid", "neutral", "neutral", "valid", "neutral", …
+$ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</code></pre>
 </div>
 </div>
 <div class="cell" data-hash="importing_data_cache/html/unnamed-chunk-18_3f45271349cf3a6e4ba7c9a4c1b971b3">
@@ -1305,17 +1305,17 @@ $ correct   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, NA, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1
 <div class="cell" data-hash="importing_data_cache/html/unnamed-chunk-19_9e51102a4bbd303e57bfb41cb70b30d0">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">testdata</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Rows: 167
+<pre><code>Rows: 160
 Columns: 9
-$ trial     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10…
+$ trial     &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17…
 $ ID        &lt;fct&gt; ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, ZZ, …
-$ cue       &lt;fct&gt; none, left, right, left, none, right, NA, right, right, none…
-$ direction &lt;fct&gt; right, right, right, left, left, left, NA, right, right, rig…
-$ response  &lt;dbl&gt; 0, 0, 1, 0, 0, 0, NA, 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0,…
-$ rt        &lt;dbl&gt; NA, 0.9339199, 0.8488816, 0.9396018, NA, 0.7490084, NA, 0.71…
-$ choice    &lt;fct&gt; left, left, right, left, left, left, NA, right, right, left,…
-$ condition &lt;fct&gt; neutral, invalid, valid, valid, neutral, invalid, NA, valid,…
-$ correct   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, NA, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1,…</code></pre>
+$ cue       &lt;fct&gt; right, right, none, none, left, none, none, left, left, none…
+$ direction &lt;fct&gt; right, right, right, right, left, right, left, left, right, …
+$ response  &lt;dbl&gt; 1, 1, 0, 1, 1, 1, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, …
+$ rt        &lt;dbl&gt; 0.7136441, 0.6271285, 0.6703410, 0.5738488, 0.8405913, 0.667…
+$ choice    &lt;fct&gt; right, right, left, right, right, right, right, left, left, …
+$ condition &lt;fct&gt; valid, valid, neutral, neutral, valid, neutral, neutral, val…
+$ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, …</code></pre>
 </div>
 </div>
 </section><section id="accuracy-pro-bedingung" class="level2"><h2 class="anchored" data-anchor-id="accuracy-pro-bedingung">Accuracy pro Bedingung</h2>
@@ -1330,13 +1330,12 @@ $ correct   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, NA, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1
 <span></span>
 <span><span class="va">testaccuracy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 5
+<pre><code># A tibble: 3 × 5
   condition     N ncorrect accuracy accuracy2
   &lt;fct&gt;     &lt;int&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1 invalid      18       14    0.778     0.778
-2 neutral      82       67    0.817     0.817
-3 valid        66       62    0.939     0.939
-4 &lt;NA&gt;          1       NA   NA        NA    </code></pre>
+1 invalid      16       13    0.812     0.812
+2 neutral      80       66    0.825     0.825
+3 valid        64       60    0.938     0.938</code></pre>
 </div>
 </div>
 
@@ -1345,12 +1344,12 @@ $ correct   &lt;dbl&gt; 0, 0, 1, 1, 1, 1, NA, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1
   author = {Andrew Ellis},
   title = {Daten Importieren: {Teil} 1},
   date = {2023-03-13},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/importing_data.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
 Andrew Ellis. 2023. <span>“Daten Importieren: Teil 1.”</span> March 13,
-2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html">https://kogpsy.github.io/neuroscicomplabFS23//importing_data.html</a>.
+2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/importing_data.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/importing_data.html</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
