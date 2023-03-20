@@ -15,6 +15,8 @@ format:
     html:
         toc: true
         code-link: true
+execute: 
+  cache: false
 ---
 
 :::{.callout-tip collapse="false"}
@@ -109,10 +111,13 @@ add_one(30)
 
 Was passiert aber nun, wenn wir `add_one` mit einem String aufrufen? Wir erhalten einen Fehler, da wir die Funktion `add_one` nicht mit einem String aufrufen können. Wir können die Funktion `add_one` nur mit Zahlen aufrufen.
 
+:::{.callout-important}
+Was passiert, wenn sie die Funktion mit einem String aufrufen?
 ```{r}
 #| eval: false
 add_one("Hello")
 ```
+:::
 
 Es wäre sinnvoll, den Input zu prüfen, bevor die Funktion ausgeführt wird. Dies bedeutet, dass wir mit der Funktion `is.numeric()` prüfen, ob der Input eine Zahl ist. Falls der Input keine Zahl ist, dann wollen wir eine Fehlermeldung ausgeben. Falls der Input eine Zahl ist, dann wollen wir die Funktion `add_one` ausführen. Wir können dies mit `if` und `else` tun.
 
@@ -121,7 +126,7 @@ add_one <- function(x) {
   if (is.numeric(x)) {
     x + 1
   } else {
-    print("Hey, this only works if x is a number!")
+    print("Hey, this only works if x is a number! Try again!")
   }
 }
 ```

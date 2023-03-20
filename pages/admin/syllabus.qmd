@@ -45,24 +45,24 @@ Auf DataCamp den Python Einführungskurs ausprobieren.
 - Wir erstellen selber ein Experiment mit `Python` und `PsychoPy`. 
 
 ### 3 Data Wrangling 
-```Sitzungen 4 und 5```
+```Sitzungen 4, 5 und 6```
 
 - Wir schauen uns an, wie wir mit `R` die Daten aus unserem selber programmierten Experiment einlesen und bearbeiten können, um damit statistische Analysen durchzuführen.
 
 
 ### 4 Visualisieren 
-```Sitzung 6```
+```Sitzung 7```
 
 - Explorative Datenanalyse und grafische Darstellung mit mit `R` package `ggplot2`.
 
 
 ### 5 Signal Detection Theory 
-```Sitzungen 7 und 8```
+```Sitzungen 8 und 9```
 
 - Wir verwenden ein in den Neurowissenschaften und der Psychologie beliebtes Modell für kategoriale oder ordinale Verhaltensdaten, um Daten aus unserem Experiment zu analysieren. 
 
 ### 6 Reaktionszeiten 
-```Sitzungen 9 und 10```
+```Sitzung 10```
 
 - In diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an.
 
