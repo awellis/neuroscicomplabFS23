@@ -3,7 +3,7 @@ title: "Reproducibility"
 description: Datenverarbeitung reproduzierbar machen.
 date: "2023-03-20"
 author:
-  - name: Gerda Wyssen
+  - name: Andrew Ellis
     url: https://github.com/awellis
     affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
     affiliation-url: https://www.kog.psy.unibe.ch
