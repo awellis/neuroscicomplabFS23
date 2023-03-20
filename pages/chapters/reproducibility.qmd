@@ -15,7 +15,7 @@ author:
     orcid: 0000-0001-7427-3149
 license: CC BY
 citation: true
-bibliography: ../../bibliography_gw.bib
+bibliography: ../../bibliography.bib
 format:
     html:
         toc: true
@@ -29,7 +29,7 @@ Die Replikationskrise hat in der Psychologie, aber auch in den kognitiven Neurow
 _Reproduzierbarkeit_ _(reproducibility)_ hängt eng mit der _Replizierbarkeit_ _(replicability)_ zusammen, ist aber nicht dasselbe. Reproduzierbarkeit beschreibt, ob die durchgeführte Analyse wiederholt werden kann. Die Reproduzierbarkeit ist hoch, wenn Forschende die für das Experiment verwendeten Skripte sowie die Daten bereitstellen und andere Forschende damit dieselben Analysen durchführen können und zu denselben Resultaten kommen.
 
 ## Hindernisse bei der Reproduzierbarkeit
-Reproduzierbarkeit kann laut @nosekReplicabilityRobustnessReproducibility aus zwei Gründen nicht gegeben sein: Weil die Daten/Skripte nicht zur Verfügung stehen, oder weil diese Fehler enthalten.
+Reproduzierbarkeit kann laut @nosekReplicabilityRobustnessReproducibility2022 aus zwei Gründen nicht gegeben sein: Weil die Daten/Skripte nicht zur Verfügung stehen, oder weil diese Fehler enthalten.
 
 > In principle, all reported evidence should be reproducible. If someone applies the same analysis to the same data, the same result should occur. Reproducibility tests can fail for two reasons. A process reproducibility failure occurs when the original analysis cannot be repeated because of the unavailability of data, code, information needed to recreate the code, or necessary software or tools. An outcome reproducibility failure occurs when the reanalysis obtains a different result than the one reported originally. This can occur because of an error in either the original or the reproduction study.
 
