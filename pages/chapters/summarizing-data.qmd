@@ -256,7 +256,7 @@ accuracy |>
 datasum <- data |>
    group_by(condition) |> 
    summarise(N = n(),
-             ccuracy = mean(correct),
+             accuracy = mean(correct),
              sd = sd(correct),
              se = se(correct))
 datasum
