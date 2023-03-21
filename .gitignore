@@ -1,4 +1,8 @@
 /.quarto/
+
+*_cache/
+*_files/
+
 .Rproj.user
 .Rhistory
 JASP/
