@@ -1,4 +1,8 @@
 /.quarto/
+
+pages/chapters/*_cache/
+pages/chapters/*_files/
+
 .Rproj.user
 .Rhistory
 JASP/
