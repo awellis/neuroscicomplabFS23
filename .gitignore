@@ -1,7 +1,7 @@
 /.quarto/
 
-*_cache/
-*_files/
+pages/chapters/*_cache/
+pages/chapters/*_files/
 
 .Rproj.user
 .Rhistory
