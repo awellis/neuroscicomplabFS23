@@ -8,7 +8,7 @@
 
 <meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
-<meta name="description" content="Datensätze einlesen.">
+<meta name="description" content="Datensätze einlesen und bearbeiten mit reproduzierbarem Code.">
 
 <title>Neurowissenschaft Computerlab - Übung 2</title>
 <style>
@@ -268,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Datensätze einlesen.
+    Datensätze einlesen und bearbeiten mit reproduzierbarem Code.
   </div>
 </div>
 
@@ -318,8 +318,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="vorbereitung" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="vorbereitung">Vorbereitung</h2>
 <ul>
-<li>Laden Sie zuerst das <a href="../../downloadable_files/uebung-2.zip">RStudio Projekt</a> für Übung 2 herunter. Dieses muss “entzippt” werden. In dem Projektordner finden Sie den Ordner <code>data</code>. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das Projekt-File <code>uebung-2.Rproj</code> geöffnet werden.</li>
+<li>Laden Sie zuerst das RStudio Projekt für Übung 2 herunter. Dieses muss “entzippt” werden. In dem Projektordner finden Sie den Ordner <code>data</code>. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das Projekt-File <code>uebung-2.Rproj</code> geöffnet werden.</li>
 </ul>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Vertiefung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>👉 <a href="../../downloadable_files/uebung-2.zip">RStudio Projekt für Übung 2 herunterladen</a></p>
+</div>
+</div>
 <aside>
 Projekte ermöglichen, <em>relative</em> Pfade. So stellen wir sicher, dass andere Personen, die dieses Projekt öffnen, dieses File auch sehen und ausführen können.
 </aside>
@@ -334,13 +347,13 @@ Praktischer ist es mit <em>RMarkdown</em> zu arbeiten. Das werden wir in den nä
 <h2 class="anchored" data-anchor-id="kommentare-code">Kommentare &amp; Code</h2>
 <ul>
 <li><p>Kommentare werden mit <code>#</code>davor gekennzeichnet, so weiss <code>R</code>, dass dies Text und nicht ausführbarer Code ist. Verwenden Sie also vor jedem Kommentar ein <code>#</code>.</p></li>
-<li><p>Kommentieren Sie kurz und konzise. So weiss Ihr Peer Reviewer, was das Skript machen wird und was das Ziel des Codes ist.</p></li>
+<li><p>Kommentieren Sie mit knappen, genauen Angaben. So weiss Ihr Peer Reviewer, was das Skript machen wird und was das Ziel des Codes ist.</p></li>
 </ul>
 </section>
 <section id="aufgaben" class="level2">
 <h2 class="anchored" data-anchor-id="aufgaben">Aufgaben</h2>
 <ul>
-<li><p>Gehen Sie das Skript durch. Das Skript enthält ein “Gerüst” an Code, mit dem Sie arbeiten können. Sie können auch den Code der Website übernehmen und etwas anpassen, wenn nötig. Überall wo <code>___</code> steht, müssen Sie das Fehlende einfügen. Manchmal ist das ein Kommentar. Manchmal ist es ein Codestück.</p></li>
+<li><p>Gehen Sie das Skript durch. Das Skript enthält ein “Gerüst” an Code, mit dem Sie arbeiten können. Sie können auch den Code der Website übernehmen und etwas anpassen, wenn nötig. <strong>Überall wo <code>___</code> steht, müssen Sie das Fehlende einfügen.</strong> Manchmal ist das ein Kommentar. Manchmal ist es ein Codestück.</p></li>
 <li><p>Sie finden <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/importing_data-2.html">hier</a> Infos dazu, wie die Daten bearbeitet werden können.</p></li>
 </ul>
 </section>
@@ -369,22 +382,19 @@ Praktischer ist es mit <em>RMarkdown</em> zu arbeiten. Das werden wir in den nä
 </ul>
 <section id="fragen-für-peer-review" class="level3">
 <h3 class="anchored" data-anchor-id="fragen-für-peer-review">Fragen für Peer Review</h3>
-<p>Schreiben Sie zu folgenden Punkten eine Rückmeldung.</p>
-<ol type="1">
-<li>Reproduzierbarkeit des Codes</li>
-</ol>
+<p>Schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.</p>
+<p><strong>1. Reproduzierbarkeit des Codes</strong></p>
 <ul>
 <li><p>Ist das Skript ausführbar?</p></li>
 <li><p>Wenn nein: Wo genau gibt es eine Fehlermeldung, weshalb kommt diese und wie könnte diese behoben werden?</p></li>
 <li><p>Stimmen die 3 <em>Accuracy pro Bedingung</em> - Werte mit den im Kommentar beschriebenen Werten überein?</p></li>
 <li><p>Stimmen die Werte mit den von Ihnen selber errechneten Werten überein?</p></li>
 </ul>
-<ol start="2" type="1">
-<li>Kommentare des Codes</li>
-</ol>
+<p><strong>2. Kommentierung/Implementierung des Codes</strong></p>
 <ul>
-<li>Geben Sie mit mind. 3 Sätzen Rückmeldung zu den Kommentaren im Skript. War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können?</li>
+<li>Geben Sie mit mind. 5 Sätzen Rückmeldung zum Skript. Mögliche Themen könnten z.B. sein: War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können? Sind Ihnen an den Daten ähnliche Dinge aufgefallen? Haben Sie etwas gelernt? Oder haben Sie etwas besser gelöst gehabt in Ihrem Skript? usw.</li>
 </ul>
+<p>Laden Sie Ihr Peer Review anschliessend auf Ilias hoch.</p>
 
 
 </section>
