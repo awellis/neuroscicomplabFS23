@@ -494,7 +494,7 @@
     "href": "pages/chapters/uebung_2_data_wrangling.html#vorbereitung",
     "title": "Übung 2",
     "section": "Vorbereitung",
-    "text": "Vorbereitung\n\nLaden Sie zuerst das RStudio Projekt für Übung 2 herunter. Dieses muss “entzippt” werden. In dem Projektordner finden Sie den Ordner data. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das Projekt-File uebung-2.Rproj geöffnet werden.\n\n\nProjekte ermöglichen, relative Pfade. So stellen wir sicher, dass andere Personen, die dieses Projekt öffnen, dieses File auch sehen und ausführen können.\n\n\nÖffnen Sie das File uebung-2_script.r. Dieses File können Sie genau so verwenden und nach Bearbeitung speichern. Fügen Sie dem Filenamen Ihre Initialen an, das könnte dann so aussehen: uebung-2_script_gw.r.\n\n\nPraktischer ist es mit RMarkdown zu arbeiten. Das werden wir in den nächsten Wochen lernen. Dafür eignen sich z.B. .qmd-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben. Sie können nachdem Sie das .r-File erstellt haben, auch noch ein .qmd-File ausprobieren."
+    "text": "Vorbereitung\n\nLaden Sie zuerst das RStudio Projekt für Übung 2 herunter. Dieses muss “entzippt” werden. In dem Projektordner finden Sie den Ordner data. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das Projekt-File uebung-2.Rproj geöffnet werden.\n\n\n\n\n\n\n\nVertiefung\n\n\n\n👉 RStudio Projekt für Übung 2 herunterladen\n\n\n\nProjekte ermöglichen, relative Pfade. So stellen wir sicher, dass andere Personen, die dieses Projekt öffnen, dieses File auch sehen und ausführen können.\n\n\nÖffnen Sie das File uebung-2_script.r. Dieses File können Sie genau so verwenden und nach Bearbeitung speichern. Fügen Sie dem Filenamen Ihre Initialen an, das könnte dann so aussehen: uebung-2_script_gw.r.\n\n\nPraktischer ist es mit RMarkdown zu arbeiten. Das werden wir in den nächsten Wochen lernen. Dafür eignen sich z.B. .qmd-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben. Sie können nachdem Sie das .r-File erstellt haben, auch noch ein .qmd-File ausprobieren."
   },
   {
     "objectID": "pages/chapters/uebung_2_data_wrangling.html#skript-für-das-einlesen-der-datenhttplocalhost4772downloadable_filesuebung-2.zip",
@@ -725,7 +725,7 @@
     "href": "pages/chapters/uebung_2_data_wrangling.html#kommentare-code",
     "title": "Übung 2",
     "section": "Kommentare & Code",
-    "text": "Kommentare & Code\n\nKommentare werden mit #davor gekennzeichnet, so weiss R, dass dies Text und nicht ausführbarer Code ist. Verwenden Sie also vor jedem Kommentar ein #.\nKommentieren Sie kurz und konzise. So weiss Ihr Peer Reviewer, was das Skript machen wird und was das Ziel des Codes ist."
+    "text": "Kommentare & Code\n\nKommentare werden mit #davor gekennzeichnet, so weiss R, dass dies Text und nicht ausführbarer Code ist. Verwenden Sie also vor jedem Kommentar ein #.\nKommentieren Sie mit knappen, genauen Angaben. So weiss Ihr Peer Reviewer, was das Skript machen wird und was das Ziel des Codes ist."
   },
   {
     "objectID": "pages/chapters/uebung_2_data_wrangling.html#aufgaben",

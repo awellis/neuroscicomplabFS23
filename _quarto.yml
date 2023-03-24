@@ -54,7 +54,7 @@ website:
           - pages/chapters/functions-loops.qmd
           - pages/chapters/importing_data-2.qmd
           - pages/chapters/summarizing-data.qmd
-          - pages/exercises/uebung_2_data_wrangling.qmd
+          - pages/chapters/uebung_2_data_wrangling.qmd
 
       - section: "Visualisieren"
         contents:
