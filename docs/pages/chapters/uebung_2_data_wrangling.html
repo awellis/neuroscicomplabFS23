@@ -248,7 +248,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#skript-erstellen" id="toc-skript-erstellen" class="nav-link active" data-scroll-target="#skript-erstellen">Skript erstellen</a>
+  <li><a href="#skript-erstellen" id="toc-skript-erstellen" class="nav-link active" data-scroll-target="#skript-erstellen">1. Skript erstellen</a>
   <ul class="collapse">
   <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link" data-scroll-target="#vorbereitung">Vorbereitung</a></li>
   <li><a href="#kommentare-code" id="toc-kommentare-code" class="nav-link" data-scroll-target="#kommentare-code">Kommentare &amp; Code</a></li>
@@ -256,9 +256,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#reproduzierbar-machen" id="toc-reproduzierbar-machen" class="nav-link" data-scroll-target="#reproduzierbar-machen">Reproduzierbar machen</a></li>
   <li><a href="#hochladen" id="toc-hochladen" class="nav-link" data-scroll-target="#hochladen">Hochladen</a></li>
   </ul></li>
-  <li><a href="#peer-feedback-geben" id="toc-peer-feedback-geben" class="nav-link" data-scroll-target="#peer-feedback-geben">Peer Feedback geben</a>
+  <li><a href="#peer-feedback-geben" id="toc-peer-feedback-geben" class="nav-link" data-scroll-target="#peer-feedback-geben">2. Peer Feedback geben</a>
   <ul class="collapse">
+  <li><a href="#vorbereitung-1" id="toc-vorbereitung-1" class="nav-link" data-scroll-target="#vorbereitung-1">Vorbereitung</a></li>
   <li><a href="#fragen-für-peer-review" id="toc-fragen-für-peer-review" class="nav-link" data-scroll-target="#fragen-für-peer-review">Fragen für Peer Review</a></li>
+  <li><a href="#hochladen-1" id="toc-hochladen-1" class="nav-link" data-scroll-target="#hochladen-1">Hochladen</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -313,25 +315,23 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Die Übung 2 besteht aus folgenden Aufgaben:</p>
-<ol type="1">
-<li><p><strong>Skript erstellen und ausführen</strong>: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen, Variablen erstellt und erste Werte berechnet. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.</p></li>
-<li><p><strong>Peer Feedback</strong>: Mittels Ilias wird Ihnen ein Skript einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses Skript auszuführen und dazu Feedback zu geben. Zeit: 1 Woche.</p></li>
-</ol>
+<p>Die Übung 2 besteht aus den zwei folgenden Aufgaben:</p>
+<p><strong>1. Skript erstellen und ausführen</strong>: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen, Variablen erstellt und erste Werte berechnet. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.</p>
+<p><strong>2. Peer Feedback</strong>: Mittels Ilias wird Ihnen ein Skript einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses Skript auszuführen und dazu Feedback zu geben. Zeit: 1 Woche.</p>
 <section id="skript-erstellen" class="level1 page-columns page-full">
-<h1>Skript erstellen</h1>
+<h1>1. Skript erstellen</h1>
 <section id="vorbereitung" class="level2 page-columns page-full">
 <h2 class="anchored" data-anchor-id="vorbereitung">Vorbereitung</h2>
 <ul>
 <li>Laden Sie zuerst das RStudio Projekt für Übung 2 herunter. Dieses muss “entzippt” werden. In dem Projektordner finden Sie den Ordner <code>data</code>. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das Projekt-File <code>uebung-2.Rproj</code> geöffnet werden.</li>
 </ul>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Vertiefung
+Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -345,13 +345,13 @@ Projekte ermöglichen, <em>relative</em> Pfade. So stellen wir sicher, dass ande
 <li>Öffnen Sie das File <code>uebung-2_script.r</code>. Dieses File können Sie genau so verwenden und nach Bearbeitung speichern. Fügen Sie dem Filenamen Ihre Initialen an, das könnte dann so aussehen: <code>uebung-2_script_gw.r</code>.</li>
 </ul>
 <aside>
-Praktischer ist es mit <em>RMarkdown</em> zu arbeiten. Das werden wir in den nächsten Wochen lernen. Dafür eignen sich z.B. <code>.qmd</code>-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben. Sie können nachdem Sie das <code>.r</code>-File erstellt haben, auch noch ein <code>.qmd</code>-File ausprobieren.
+Praktischer ist es mit <em>RMarkdown</em> zu arbeiten. Das werden wir in den nächsten Wochen lernen. Dafür eignen sich z.B. <code>.qmd</code>-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben.
 </aside>
 </section>
 <section id="kommentare-code" class="level2">
 <h2 class="anchored" data-anchor-id="kommentare-code">Kommentare &amp; Code</h2>
 <ul>
-<li><p>Kommentare werden mit <code>#</code>davor gekennzeichnet, so weiss <code>R</code>, dass dies Text und nicht ausführbarer Code ist. Verwenden Sie also vor jedem Kommentar ein <code>#</code>.</p></li>
+<li><p>Kommentare werden mit <code>#</code>davor gekennzeichnet, so weiss <code>R</code>, dass dies Text und nicht ausführbarer Code ist. Verwenden Sie also vor jedem Kommentar am Anfang der Zeile ein <code>#</code>.</p></li>
 <li><p>Kommentieren Sie mit knappen, genauen Angaben. So weiss Ihr Peer Reviewer, was das Skript machen wird und was das Ziel des Codes ist.</p></li>
 </ul>
 </section>
@@ -364,11 +364,12 @@ Praktischer ist es mit <em>RMarkdown</em> zu arbeiten. Das werden wir in den nä
 </section>
 <section id="reproduzierbar-machen" class="level2">
 <h2 class="anchored" data-anchor-id="reproduzierbar-machen">Reproduzierbar machen</h2>
+<p>Sobald Sie den Code und die Kommentare ergänzt haben, ist es wichtig, das Skript auf seine Reproduzierbarkeit zu testen.</p>
 <ul>
 <li><p>Löschen Sie die Variablen im Workspace. Verwenden Sie dazu z.B. das “Besen”-Icon unter <code>Environment</code> oder nutzen Sie unter dem Reiter <code>Session</code> den Befehl <code>Clear Workspace</code>. Führen Sie <strong>danach</strong> das Skript nochmals von oben bis unten aus.</p></li>
-<li><p>Prüfen Sie, ob alle Pfade relativ sind, und nicht an Ihren Rechner gebunden sind.</p></li>
+<li><p>Prüfen Sie, ob alle Pfade relativ, also nicht an Ihren Rechner gebunden sind.</p></li>
 <li><p>Prüfen Sie, ob alles gut und verständlich kommentiert ist.</p></li>
-<li><p>Prüfen Sie, ob Sie die Werte für <em>Accuracy pro Bedingung</em> als Kommentar in das Skript geschrieben haben.</p></li>
+<li><p>Prüfen Sie, ob Sie die 3 Werte für <em>Accuracy pro Bedingung</em> (für valide, invalide und neutral) als Kommentar in das Skript geschrieben haben.</p></li>
 </ul>
 </section>
 <section id="hochladen" class="level2">
@@ -377,17 +378,18 @@ Praktischer ist es mit <em>RMarkdown</em> zu arbeiten. Das werden wir in den nä
 </section>
 </section>
 <section id="peer-feedback-geben" class="level1">
-<h1>Peer Feedback geben</h1>
+<h1>2. Peer Feedback geben</h1>
+<section id="vorbereitung-1" class="level2">
+<h2 class="anchored" data-anchor-id="vorbereitung-1">Vorbereitung</h2>
 <ul>
 <li><p>Lesen Sie <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html">hier</a> die <em>Peer Feedback</em>-Grundsätze durch.</p></li>
-<li><p>Laden Sie das Ihnen zugeordnete R-Projekt herunter und speichern Sie es in Ihr Projektordner, wo sich auch das Projekt-File <code>uebung-2.Rproj</code>befindet.</p></li>
-<li><p>Öffnen Sie das Projekt. löschen Sie alle gespeicherten Variablen im Workspace. Verwenden Sie dazu z.B. das “Besen”-Icon unter <code>Environment</code> oder nutzen Sie unter dem Reiter <code>Session</code> den Befehl <code>Clear Workspace</code>.</p></li>
-<li><p>Öffnen Sie das <code>.r</code>-File und führen Sie das Skript von oben bis unten aus und beantworten dazu untenstehende Fragen in einem Word/Text-File.</p></li>
-<li><p>Laden Sie danach Ihr Peer Feedback hoch.</p></li>
+<li><p>Laden Sie das Ihnen zugeordnete <code>.r</code>-Skript herunter und speichern Sie es in Ihr R-Projektordner, wo sich auch das Projekt-File <code>uebung-2.Rproj</code> und Ihr eigenens <code>.r</code>-Skript befindet.</p></li>
+<li><p>Öffnen Sie das Projekt. Löschen Sie alle gespeicherten Variablen im Workspace. Verwenden Sie dazu z.B. das “Besen”-Icon unter <code>Environment</code> oder nutzen Sie unter dem Reiter <code>Session</code> den Befehl <code>Clear Workspace</code>.</p></li>
 </ul>
-<section id="fragen-für-peer-review" class="level3">
-<h3 class="anchored" data-anchor-id="fragen-für-peer-review">Fragen für Peer Review</h3>
-<p>Schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.</p>
+</section>
+<section id="fragen-für-peer-review" class="level2">
+<h2 class="anchored" data-anchor-id="fragen-für-peer-review">Fragen für Peer Review</h2>
+<p>Öffnen Sie das <code>.r</code>-Skript und führen Sie es von oben bis unten aus und schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.</p>
 <p><strong>1. Reproduzierbarkeit des Codes</strong></p>
 <ul>
 <li><p>Ist das Skript ausführbar?</p></li>
@@ -397,9 +399,12 @@ Praktischer ist es mit <em>RMarkdown</em> zu arbeiten. Das werden wir in den nä
 </ul>
 <p><strong>2. Kommentierung/Implementierung des Codes</strong></p>
 <ul>
-<li>Geben Sie mit mind. 5 Sätzen Rückmeldung zum Skript. Mögliche Themen könnten z.B. sein: War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können? Sind Ihnen an den Daten ähnliche Dinge aufgefallen? Haben Sie etwas gelernt? Oder haben Sie etwas besser gelöst gehabt in Ihrem Skript? usw.</li>
+<li>Geben Sie mit mind. 5 Sätzen Rückmeldung zum <code>.r</code>-Skript. Mögliche Themen könnten z.B. sein: War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können? Sind Ihnen an den Daten ähnliche Dinge aufgefallen? Haben Sie etwas gelernt von dem gereviewten Skript? Oder haben Sie etwas besser gelöst gehabt in Ihrem Skript? Haben Sie Vorschläge? usw.</li>
 </ul>
-<p>Laden Sie Ihr Peer Review anschliessend auf Ilias hoch.</p>
+</section>
+<section id="hochladen-1" class="level2">
+<h2 class="anchored" data-anchor-id="hochladen-1">Hochladen</h2>
+<p>Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch.</p>
 
 
 </section>

@@ -20,20 +20,22 @@ format:
         toc: true
 ---
 
-Die Übung 2 besteht aus folgenden Aufgaben:
+Die Übung 2 besteht aus den zwei folgenden Aufgaben:
 
-1. **Skript erstellen und ausführen**: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen, Variablen erstellt und erste Werte berechnet. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.
+**1. Skript erstellen und ausführen**: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen, Variablen erstellt und erste Werte berechnet. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.
 
-2.  **Peer Feedback**: Mittels Ilias wird Ihnen ein Skript einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses Skript auszuführen und dazu Feedback zu geben. Zeit: 1 Woche.
+**2.  Peer Feedback**: Mittels Ilias wird Ihnen ein Skript einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses Skript auszuführen und dazu Feedback zu geben. Zeit: 1 Woche.
 
 
-# Skript erstellen
+# 1. Skript erstellen
 
 ## Vorbereitung
 
 - Laden Sie zuerst das RStudio Projekt für Übung 2 herunter. Dieses muss "entzippt" werden. In dem Projektordner finden Sie den Ordner `data`. Darin befinden sich alle Datensätze des PsychoPy Experiments. Das Projekt kann durch einen Doppelklick auf das Projekt-File `uebung-2.Rproj` geöffnet werden.
 
-:::{.callout-note}
+:::{.callout-tip}
+## Wichtig
+
 👉 [RStudio Projekt für Übung 2 herunterladen](../../downloadable_files/uebung-2.zip)
 :::
 
@@ -41,12 +43,12 @@ Die Übung 2 besteht aus folgenden Aufgaben:
 
 - Öffnen Sie das File `uebung-2_script.r`. Dieses File können Sie genau so verwenden und nach Bearbeitung speichern. Fügen Sie dem Filenamen Ihre Initialen an, das könnte dann so aussehen: `uebung-2_script_gw.r`. 
 
-<aside>Praktischer ist es mit *RMarkdown* zu arbeiten. Das werden wir in den nächsten Wochen lernen. Dafür eignen sich z.B. `.qmd`-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben. Sie können nachdem Sie das `.r`-File erstellt haben, auch noch ein `.qmd`-File ausprobieren.</aside>
+<aside>Praktischer ist es mit *RMarkdown* zu arbeiten. Das werden wir in den nächsten Wochen lernen. Dafür eignen sich z.B. `.qmd`-Files. Hier kann für Text die Markdown-Syntax verwendet werden, und der Code wird in Code-Blocks geschrieben.</aside>
 
 
 ## Kommentare & Code
 
-- Kommentare werden mit `#`davor gekennzeichnet, so weiss `R`, dass dies Text und nicht ausführbarer Code ist. Verwenden Sie also vor jedem Kommentar ein `#`.
+- Kommentare werden mit `#`davor gekennzeichnet, so weiss `R`, dass dies Text und nicht ausführbarer Code ist. Verwenden Sie also vor jedem Kommentar am Anfang der Zeile ein `#`.
 
 - Kommentieren Sie mit knappen, genauen Angaben. So weiss Ihr Peer Reviewer, was das Skript machen wird und was das Ziel des Codes ist.
 
@@ -62,13 +64,15 @@ Manchmal ist es ein Codestück.
 
 ## Reproduzierbar machen
 
+Sobald Sie den Code und die Kommentare ergänzt haben, ist es wichtig, das Skript auf seine Reproduzierbarkeit zu testen.
+
 - Löschen Sie die Variablen im Workspace. Verwenden Sie dazu z.B. das "Besen"-Icon unter `Environment` oder nutzen Sie unter dem Reiter `Session` den Befehl `Clear Workspace`. Führen Sie __danach__ das Skript nochmals von oben bis unten aus.
 
-- Prüfen Sie, ob alle Pfade relativ sind, und nicht an Ihren Rechner gebunden sind. 
+- Prüfen Sie, ob alle Pfade relativ, also nicht an Ihren Rechner gebunden sind. 
 
 - Prüfen Sie, ob alles gut und verständlich kommentiert ist.
 
-- Prüfen Sie, ob Sie die Werte für *Accuracy pro Bedingung* als Kommentar in das Skript geschrieben haben.
+- Prüfen Sie, ob Sie die 3 Werte für *Accuracy pro Bedingung* (für valide, invalide und neutral) als Kommentar in das Skript geschrieben haben.
 
 
 ## Hochladen
@@ -76,22 +80,20 @@ Manchmal ist es ein Codestück.
 Laden Sie das `uebung-2_script_initialen.r` - Skript auf Ilias hoch.
 
 
-# Peer Feedback geben
+# 2. Peer Feedback geben
+
+## Vorbereitung
 
 - Lesen Sie [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html) die _Peer Feedback_-Grundsätze durch.
 
-- Laden Sie das Ihnen zugeordnete R-Projekt herunter und speichern Sie es in Ihr Projektordner, wo sich auch das Projekt-File `uebung-2.Rproj`befindet.
+- Laden Sie das Ihnen zugeordnete `.r`-Skript herunter und speichern Sie es in Ihr R-Projektordner, wo sich auch das Projekt-File `uebung-2.Rproj` und Ihr eigenens `.r`-Skript befindet.
 
-- Öffnen Sie das Projekt. löschen Sie alle gespeicherten Variablen im Workspace. Verwenden Sie dazu z.B. das "Besen"-Icon unter `Environment` oder nutzen Sie unter dem Reiter `Session` den Befehl `Clear Workspace`. 
-
-- Öffnen Sie das `.r`-File und führen Sie das Skript von oben bis unten aus und beantworten dazu untenstehende Fragen in einem Word/Text-File.
-
-- Laden Sie danach Ihr Peer Feedback hoch.
+- Öffnen Sie das Projekt. Löschen Sie alle gespeicherten Variablen im Workspace. Verwenden Sie dazu z.B. das "Besen"-Icon unter `Environment` oder nutzen Sie unter dem Reiter `Session` den Befehl `Clear Workspace`. 
 
 
-### Fragen für Peer Review
+## Fragen für Peer Review
 
-Schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.
+Öffnen Sie das `.r`-Skript und führen Sie es von oben bis unten aus und schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.
 
 **1. Reproduzierbarkeit des Codes**
 
@@ -106,7 +108,9 @@ Schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.
 
 **2. Kommentierung/Implementierung des Codes**
     
-- Geben Sie mit mind. 5 Sätzen Rückmeldung zum Skript. Mögliche Themen könnten z.B. sein: War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können? Sind Ihnen an den Daten ähnliche Dinge aufgefallen? Haben Sie etwas gelernt? Oder haben Sie etwas besser gelöst gehabt in Ihrem Skript? usw.
+- Geben Sie mit mind. 5 Sätzen Rückmeldung zum `.r`-Skript. Mögliche Themen könnten z.B. sein: War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können? Sind Ihnen an den Daten ähnliche Dinge aufgefallen? Haben Sie etwas gelernt von dem gereviewten Skript? Oder haben Sie etwas besser gelöst gehabt in Ihrem Skript? Haben Sie Vorschläge? usw.
 
 
-Laden Sie Ihr Peer Review anschliessend auf Ilias hoch.
+## Hochladen
+
+Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch.
