@@ -1,5 +1,6 @@
 ---
 title: "Aggregierte Statistiken"
+title: "Aggregierte Statistiken"
 description: |
   Daten aus Verhaltensexperimenten zusammenfassen.
 date: "2022-03-27"
@@ -189,8 +190,7 @@ se <- function(x) {
 ```
 
 
-
-## Aggregierte Accuracy mit Standardfehler
+## Pro Bedingung, über alle Personen aggregiert
 
 Eine Möglichkeit wäre, die Anzahl korrekter Entscheidungen in jeder Bedingung insgesamt, d.h. über alle Personen aggregiert, zu berechnen. Wir berechnen dabei den Standardfehler des Mittelwertes um ein Mass für die Unsicherheit zu enthalten, mit der wir die Mittelwerte schätzen können.
 
