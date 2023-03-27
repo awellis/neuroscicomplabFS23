@@ -79,9 +79,9 @@ format:
       dark: [darkly, styles/dark.scss]
     css: /styles/global.css
     link-external-newwindow: true
-  pdf:
-    documentclass: scrreprt
-    include-in-header: preamble.tex
+  # pdf:
+  #   documentclass: scrreprt
+  #   include-in-header: preamble.tex
 
 execute:
   cache: true

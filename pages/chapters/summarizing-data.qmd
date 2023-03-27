@@ -1,8 +1,8 @@
 ---
-title: "Deskriptive Statistik"
+title: "Aggregierte Statistiken"
 description: |
-  Daten aus Verhaltensexperiments bearbeiten und zusammenfassen.
-date: "2022-03-20"
+  Daten aus Verhaltensexperimenten zusammenfassen.
+date: "2022-03-27"
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -18,6 +18,7 @@ format:
         code-link: true
 execute: 
   cache: false
+code-annotations: select
 ---
 
 ```{r}
@@ -30,9 +31,30 @@ knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
 👉 [R Code für dieses Kapitel downloaden](../../downloadable_files/summarizing-data.R)
 ::: -->
 
-Wir haben in den vorherigen Kapiteln gesehen, wie wir Daten aus Verhaltensexperimenten in R einlesen und bearbeiten können. In diesem Kapitel werden wir uns mit der Frage beschäftigen, wie wir die Daten zusammenfassen können, um sie besser zu verstehen.
+
+
+:::{.callout-tip collapse="false"}
+## Lernziele
+
+In der heutigen Sitzung lernen wir:
+
+- Zusammenfassende Statistiken berechnen.
+- In _within-subject_ Designs aggregierte Statistiken berechnen.
+- Standardfehler berechnen, welche Messwiederholungen berücksichtigen.
+:::
+
+
+
+Wir haben in den vorherigen Kapiteln gesehen, wie wir Daten aus Verhaltensexperimenten in R einlesen und bearbeiten können. In diesem Kapitel werden wir uns mit der Frage beschäftigen, wie wir zusammenfassende Statistiken erstellen können, um diese grafisch darzustellen und zu interpretieren. Da wir uns in den Neurowissenschaften meist mit _within-subject_ Designs beschäftigen, werden wir uns in diesem Kapitel auf Messwiederholungsdaten konzentrieren.
+
+
+
+# Daten aus dem RDK Experiment einlesen
+Zum Schluss der letzten Sitzung haben wir für jede Versuchsperson pro Bedingung die `accuracy` berechnet, und grafisch dargestellt. Wir wiederholen diesen Schritt hier nochmals, um die Daten für die folgenden Analysen vorzubereiten.
+
 
 Zuerst laden wir das `tidyverse` Package und lesen das gespeicherte `csv` File ein.
+
 ```{r}
 #| message: false
 #| warning: false
@@ -40,16 +62,21 @@ library(tidyverse)
 data <- read_csv("data_clean/rdkdata.csv")
 ```
 
+
 Im ersten Schritt konvertieren wir wieder alle Gruppierungsvariablen zu Faktoren. Ob eine Variable als `factor` definiert ist, wird als Attribut gespeichert. Attribute werden aber in einem `.csv.` File nicht mitgespeichert; deshalb müssen wir diesen Schritt nach dem Einlesen jedesmal neu ausführen. 
 
 ```{r}
 data <- data |>
-    mutate(across(where(is.character), as_factor))
+  mutate(across(where(is.character), as_factor))
 ```
+
 
 ```{r}
 glimpse(data)
 ```
+
+Die ersten 20 Zeilen der Tabelle sehen wie folgt aus:
+
 
 ```{r}
 data |>
@@ -59,15 +86,102 @@ data |>
 
 # Individuelle und Aggregierte Kennzahlen
 
-In neurowissenschaftlichen Fragestellungen interessieren wir uns sowohl für durchschnittliche Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir über Personen aggregieren, als auch für individuelle Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir die Daten für jede Versuchsperson einzeln betrachten. Wir schauen uns dies am Beispiel der korrekten Antworten in der RDK Entscheidungsaufgabe an.
+In neurowissenschaftlichen Fragestellungen interessieren wir uns sowohl für aggregierte Statistiken, als auch für individuelle Kennzahlen, d.h. für die Kennzahlen, die wir erhalten, wenn wir die Daten für jede Versuchsperson einzeln betrachten. Wir schauen uns dies am Beispiel der korrekten Antworten in der RDK Entscheidungsaufgabe an.
+
+:::{.callout-important}
+- Überlegen Sie sich, in welchen Fällen Sie aggregierte Statistiken benötigen, und in welchen Fällen individuelle Kennzahlen.
+:::
 
 
-# Binary Choices
 
-Wir schauen uns zuerst (wie im letzten Kapitel) die Anzahl korrekter Entscheidungen an. Nun betrachten wir nicht mehr nur den Mittelwert, sondern auch die Standardabweichung und den Standardfehler. Letzteres ist eine Mss für die Unsicherheit, die wir in der Schätzung des Mittelwerts haben. Leider gibt es keine Funktion in R, die uns den Standardfehler berechnet. Wir definieren eine solche Funktion einfach selber. Der Standardfehler ist definiert als die Stichprobenstandardabweichung geteilt durch die Wurzel aus der Anzahl der Datenpunkte:  $$SE = sd/ \sqrt{n}$$.
-
+# Korrekte Entscheidungen
 
 
+
+Wir schauen uns zuerst (wie im letzten Kapitel) die Anzahl korrekter Entscheidungen an. Wir können diese entweder für jede Person in jeder Bedingung berechnen, oder für jede Bedingung, aggregiert über alle Personen.
+
+## Individuell für jede Person in jeder Bedingung
+
+```{r}
+accuracy_individual <- data |>
+    group_by(ID, condition) |>
+    summarise(
+        N = n(),
+        ncorrect = sum(correct),
+        accuracy = mean(correct)
+    )
+accuracy_individual
+```
+
+
+
+```{r}
+accuracy_individual |> 
+  ggplot(aes(x = condition, y = accuracy, fill = condition)) +
+  geom_col() +
+  geom_line(aes(group = ID), linewidth = 2) +
+  geom_point(size = 4) +
+  scale_fill_manual(values = c(invalid = "#9E0142",
+                    neutral = "#C4C4B7",
+                    valid = "#2EC762")) +
+  labs(x = "Cue",
+      y = "Proportion correct",
+      title = "Accuracy per person/condition") +
+  facet_wrap(~ID) +
+  theme_linedraw(base_size = 14) +
+  theme(legend.position = "none")
+```
+
+
+##  Pro Bedingung, über alle Personen aggregiert
+
+
+```{r}
+accuracy_aggregated <- data |>
+    group_by(condition) |>
+    summarise(N = n(),
+              ncorrect = sum(correct),
+              accuracy = mean(correct))
+
+accuracy_aggregated
+```
+
+```{r}
+accuracy_aggregated |> 
+  ggplot(aes(x = condition, y = accuracy, fill = condition)) +
+  geom_col() +
+  geom_line(aes(group = 1), linewidth = 2) +
+  geom_point(size = 4) +
+  scale_fill_manual(values = c(invalid = "#9E0142",
+                    neutral = "#C4C4B7",
+                    valid = "#2EC762")) +
+  labs(x = "Cue",
+      y = "Proportion correct",
+      title = "Accuracy per condition") +
+  theme_linedraw(base_size = 14) +
+  theme(legend.position = "none")
+```
+
+:::{.callout-important}
+## Hands-on
+Wir beurteilen Sie die beiden obenstehenden Plots. Was fällt Ihnen auf? Sind die Mittelwerte aussagekräftig?
+:::
+
+:::{.callout-tip collapse="true"}
+## Lösung
+Es fehlt eine Darstellung der Unsicherheit, die wir in der Schätzung des Mittelwerts haben. 
+:::
+
+
+
+## Standardfehler
+
+Wir wollen wir nicht mehr nur den Mittelwert betrachten, sondern auch die Standardabweichung und den Standardfehler. Letzteres ist eine Mass für die Unsicherheit, die wir in der Schätzung des Mittelwerts haben. Leider gibt es keine Funktion in R, die uns den Standardfehler berechnet. Der Standardfehler ist definiert als die Standardabweichung geteilt durch die Wurzel aus der Anzahl der Datenpunkte:  $$SE = sd/ \sqrt{n}$$.
+
+
+Wir können eine solche Funktion einfach selber definieren. `sd()` berechnet die Standardabweichung eines Vektors, und die Anzahl Datenpunkte ist die Länge des Vektors (`length()`), den wir als Argument übergeben.
+
+```{r}
 ```{r}
 se <- function(x) {
   sd(x) / sqrt(length(x))
@@ -75,9 +189,15 @@ se <- function(x) {
 ```
 
 
-## Pro Bedingung, über alle Personen aggregiert
 
-Eine Möglichkeit wäre, die Anzahl korrekter Entscheidungen in jeder Bedingung insgesamt, d.h. über alle Personen aggregiert, zu berechnen. 
+
+#TODO
+
+
+
+## Aggregierte Accuracy mit Standardfehler
+
+Eine Möglichkeit wäre, die Anzahl korrekter Entscheidungen in jeder Bedingung insgesamt, d.h. über alle Personen aggregiert, zu berechnen. Wir berechnen dabei den Standardfehler des Mittelwertes um ein Mass für die Unsicherheit zu enthalten, mit der wir die Mittelwerte schätzen können.
 
 ```{r}
 data |>
@@ -92,55 +212,19 @@ data |>
 
 
 :::{.callout-caution}
-Was sagen uns diese Kennzahlen? Welche Informationen gehen dabei verloren?
+## Hands-on
+- Was sagen uns diese Kennzahlen? 
+- Welche Informationen gehen dabei verloren?
+- Überlegen Sie sich, was wir genau berechnet haben.
 :::
 
 
 
+:::{.callout-tip collapse="true"}
 
-## Pro Versuchsperson
+## Ein Exkurs über within-person Standardfehler 
 
-
-```{r}
-#| message: false
-accuracy <- data |>
-    group_by(ID, condition) |>
-    summarise(N = n(),
-              ncorrect = sum(correct),
-              accuracy = mean(correct),
-              se = se(correct))
-```
-
-```{r}
-accuracy
-```
-
-Wir können diese Tabelle grafisch darstellen; Grafiken sind oft einfacher zu interpretieren als Tabellen. 
-
-
-
-```{r fig.height=12, fig.width=15}
-accuracy |> 
-  ggplot(aes(x = condition, y = accuracy, fill = condition)) +
-  geom_col() +
-  geom_line(aes(group = ID), linewidth = 2) +
-  geom_point(size = 4) +
-  scale_fill_manual(values = c(invalid = "#9E0142",
-                    neutral = "#C4C4B7",
-                    valid = "#2EC762")) +
-  labs(x = "Cue",
-      y = "Proportion correct",
-      title = "Accuracy per person/condition") +
-  facet_wrap(~ID) +
-  theme_linedraw(base_size = 28) +
-  theme(legend.position = "none")
-```
-
-
-
-
-## Ein Exkurs über Within-person Standardfehler 
-
+Folgender Code erstellt einen Dataframe mit 10 Personen, die jeweils zu zwei  Messzeitpunkten getestet werden. Es handelt sich also um ein within-subject Design.
 ```{r}
 library(tidyverse)
 
@@ -156,8 +240,10 @@ dfw <- tribble(
        8,   54.3,     54.1,
        9,   45.4,     49.6,
       10,   38.9,     48.5) |>
-    mutate(subject = as.factor(subject))
+    mutate(subject = as_factor(subject))
 ```
+
+Der Dataframe ist im `wide` Format -- um die Daten zu analysieren, ist das `long` Format besser geeignet. Wir konvertieren vom `wide` ins `long` Format mit der Funktion `pivot_longer()`.
 
 ```{r}
 dfw
@@ -175,23 +261,8 @@ dfl <- dfw |>
 dfl
 ```
 
-```{r}
-dflsum <- dfl |>
-    Rmisc::summarySEwithin(measurevar = "value",
-                               withinvars = "condition",
-                               idvar = "subject",
-                               na.rm = FALSE,
-                               conf.interval = 0.95)
-```
 
-```{r}
-dflsum |>
-    ggplot(aes(x = condition, y = value, group = 1)) +
-    geom_line() +
-    geom_errorbar(width = 0.1, aes(ymin = value-ci, ymax = value+ci)) +
-    geom_point(shape = 21, size = 3, fill = "white") +
-    ylim(40,60)
-```
+Was uns hier interessiert ist vor allem die "Verbesserung" jeder Person vom ersten zum zweiten Messzeitpunkt. Diese können wir grafisch darstellen.
 
 
 ```{r}
@@ -208,16 +279,23 @@ dfl |>
     ylim(ymin,ymax)
 ```
 
-```{r}
-dfNorm_long <- Rmisc::normDataWithin(data=dfl, idvar="subject", measurevar="value")
-?Rmisc::normDataWithin
+Wir stellen fest, dass fast jede Person zum zweiten Messzeitpunkt einen höheren Wert als beim ersten aufweist. Gleichzeitig gibt es aber auch erhebliche Unterschiede zwischen den Personen in Bezug auf ihren Anfangswert. Diese interindividuellen Unterschiede sind aber hier nicht von Interesse. Wir können davon ausgehen, dass diese Unterschiede auf "stabile" Eigenschaften der Personen zurückzuführen sind. Die Personen sind also eine Quelle der Variabilität, die unsere Fragestellung "stört" - diese lautet: wie ist die Änderung zwischen den beiden Zeitpunkten?
 
-dfNorm_long |>
-    ggplot(aes(x=condition, y=valueNormed, colour=subject, group=subject)) +
-    geom_line() + geom_point(shape=21, fill="white") +
-    ylim(ymin,ymax)
+
+Wir können so tun, als ob der Messzeitpunkt eine __between__-subject Variable wäre. In diesem Fall würden wir die Standardfehler wie folgt berechnen.
+```{r}
+dflsum_between_1 <- dfl |>
+    group_by(condition) |>
+    summarize(
+        mean = mean(value),
+        se = se(value)
+    )
+
+dflsum_between_1
 ```
 
+
+Eine Alternative dazu bietet die Funktion `summarySE()` aus dem `Rmisc` Package.
 ```{r}
 # Instead of summarySEwithin, use summarySE, which treats condition as though it were a between-subjects variable
 dflsum_between <- Rmisc::summarySE(data = dfl, 
@@ -228,28 +306,149 @@ dflsum_between <- Rmisc::summarySE(data = dfl,
 dflsum_between
 ```
 
+
+
+
+DIe Fehlerbalken im folgenden Plot berücksichtigen folgendermassen nicht die Tatsachen, dass ein grosser Anteil der Variabilität auf "stabile" Personenunterschiede zurückzuführen ist. In diesem Fall sind die "errorbars" sehr gross, und es sieht so aus, als ob es keinen feststellbaren Unterschied zwischen den Zeitpunkten gibt. Wir vermuten aber aufgrund der individuellen Grafiken, dass es sehr wohl einen Unterschied gibt.
+  
+
+
 ```{r}
-# Show the between-S CI's in red, and the within-S CI's in black
 dflsum_between |>
     ggplot(aes(x=condition, y=value, group=1)) +
     geom_line() +
     geom_errorbar(width=.1, aes(ymin=value-ci, ymax=value+ci), colour="red") +
-    geom_errorbar(width=.1, aes(ymin=value-ci, ymax=value+ci), data=dflsum) +
     geom_point(shape=21, size=3, fill="white") +
     ylim(ymin,ymax)
 ```
 
-## Within-person Standardfehler
+
+
+Wenn wir nur die Unterschiede zwischen den Personen berücksichtigen könnten, hätten wir in diesem Fall kleinere Standardfehler, da wir sozusagen die Personenvariabilität subtrahieren können.
+
+
+Im `Rmisc` Package gibt es eine solche Funktion: mit `summarySEwithin()` können wir korrekt Standardfehler in __within__-subject Designs berechnen.
+```{r}
+dflsum <- dfl |>
+    Rmisc::summarySEwithin(measurevar = "value",
+                               withinvars = "condition",
+                               idvar = "subject",
+                               na.rm = FALSE,
+                               conf.interval = 0.95)
+```
+
+
+Die resultierenden Fehlerbalken sind nun kleiner.
 
 ```{r}
-accuracy |> 
+dflsum |>
+    ggplot(aes(x = condition, y = value, group = 1)) +
+    geom_line() +
+    geom_errorbar(width = 0.1, aes(ymin = value-ci, ymax = value+ci)) +
+    geom_point(shape = 21, size = 3, fill = "white") +
+    ylim(40,60) +
+    ggtitle("Correct within standard errors")
+```
+
+
+
+Wenn wir beide Varianten zusammen darstellen, wird der Unterschiedlich offentsichtlich. In dieser Grafik sind die `between` Standardfehler in rot eingezeichnet; die `within` Standardfehler sind in schwarz.
+```{r}
+dflsum_between |>
+    ggplot(aes(x=condition, y=value, group=1)) +
+    geom_line() +
+    geom_errorbar(width=.1, aes(ymin=value-ci, ymax=value+ci), colour="red") +
+    geom_errorbar(width=.1, aes(ymin=value-ci, ymax=value+ci), colour="black", data = dflsum) +
+    geom_point(shape=21, size=3, fill="white") +
+    ylim(ymin,ymax)
+```
+
+
+
+
+
+Was wir hier machen ist eigentlich einfach. Um die `within` Standardfehler zu berechnen, müssen wir zuerst die personen-spezifische Mittelwerte von den Daten subtrahieren. Dies können wir mit der Funktion `normDataWithin()` machen.
+
+```{r}
+dfNorm_long <- Rmisc::normDataWithin(data=dfl, 
+                                     idvar="subject",    
+                                     measurevar="value")
+dfNorm_long
+```
+
+Wenn wir nun die "normierten" Daten plotten, sind die Unterschiede zwischen den Personen "verschwunden", weil wir eben die Daten normiert haben.
+```{r}
+dfNorm_long |>
+    ggplot(aes(x=condition, y=valueNormed, colour=subject, group=subject)) +
+    geom_line() + geom_point(shape=21, fill="white") +
+    ylim(ymin,ymax)
+```
+
+
+
+Die Argumente der Funktion `summarySEwithin()` sind folgende:
+
+- `measurevar`: die outcome` Variable
+- `withinvars`: eine o(oder mehrere) within-subject Variablen
+- `idvar`: die Gruppierungsvariable der within-subject Variablen (Versuchsperson)
+- `na.rm`: sollen fehlende Werte ignoriert werden?  
+- `conf.interval`: der gewünschte Konfidenzintervall (default: 0.95)
+
+Im Output erhalten wir die Mittelwerte der `outcome` Variablen für jede Stufe der within-Variable, sowie Standardabweichungen, Standardfehler und Konfidenzintervalle.
+
+```{r}
+
+
+```{r}
+dflsum <- dfl |>
+    Rmisc::summarySEwithin(measurevar = "value",
+                               withinvars = "condition",
+                               idvar = "subject",
+                               na.rm = FALSE,
+                               conf.interval = 0.95)
+```
+
+
+Zum Vergleich: die Berechnung der Standardfehler in `dflsum` berücksichtigt die Tatsache, dass Personen sich von Anfang an unterscheiden, und subtrahiert von jedem Datenpunkt den Mittelwert der Person. 
+
+```{r}
+```{r}
+dflsum
+```
+
+Bei der Berechnung der Standardfehler in `dflsum_between` haben wir im Prinzip so getan, als seien die Messzeitpunkte unabhängig voneinander. Wir haben also die Standardfehler in `dflsum_between` so berechnet, als ob wir die Daten in zwei unabhängige Gruppen aufgeteilt hätten. 
+ 
+```{r}
+dflsum_between
+```
+
+<!-- end excursion -->
+:::
+
+
+
+
+
+
+## Accuracy mit within-person Standardfehler
+
+Wir können nun dieses Prinzip auf unsere RDK daten anwenden. Die messwiederholte Variable ist nun nicht mehr der Messzeitunkt, sondern die `cue`-Bedingung, und die `outcome` Variable ist `accuracy`, also die Proportion korrekter Antworten.
+
+
+```{r}
+accuracy_individual |> 
   ggplot(aes(x = condition, y = accuracy, colour = ID, group = ID)) +
     geom_line() + 
   geom_point(shape=21, fill="white")
 
 ```
 
+Auch hier stellen wir fest, dass es scheinbar einen Trend gibt, dass die Proportion korrekter Antworten in der `valid` Bedingung hoch, und in der `invalid` Bedingung niedrig ist. In der `neutral` Bedingung liegt die `accuracy` dazwischen.
 
+
+Ohne Berücksichtigung der Messwiederholungen erhalten wir folgende Standarfehler:
+
+Von Hand berechnet:
 
 
 ```{r}
@@ -262,6 +461,8 @@ datasum <- data |>
 datasum
 ```
 
+Mit der Funktion `summarySE()`:
+
 ```{r}
 datasum_2 <- data |>
     Rmisc::summarySE(measurevar = "correct",
@@ -271,6 +472,7 @@ datasum_2 <- data |>
 datasum_2
 ```
 
+Wenn wir nun die `within` Standardfehler berechnen, erhalten wir folgende Ergebnisse:
 ```{r}
 datasum_3 <- data |>
     Rmisc::summarySEwithin(measurevar = "correct",
@@ -281,6 +483,7 @@ datasum_3 <- data |>
 datasum_3
 ```
 
+
 ```{r}
 p_accuracy <- datasum_3 |>
     ggplot(aes(x = condition, y = correct, group = 1)) +
@@ -290,16 +493,35 @@ p_accuracy <- datasum_3 |>
 p_accuracy
 ```
 
+
+
+
 # Reaktionszeiten
+
+Dasselbe können wir nun auch mit den mittleren Reaktionszeiten machen.
+
 
 ## Pro Versuchsperson
 
-Wir fassen die Daten pro Person pro Block mit Mittelwert, Median und Standarabweichung zusammen.
+Wir fassen die Daten pro Person pro Block mit Mittelwert, Median und Standarabweichung zusammen. Wenn wir Daten anhand mehrerer statistischer Kennzahlen zusammenfassen möchten, können wir dies entweder manuell machen, oder die Funktion `across()` verwenden.
+
+Einfachere Version:
 
 ```{r}
 #| message: false
+by_subj <- data |> 
+  drop_na(rt) |> 
+  group_by(ID, condition) |>  
+  dplyr::summarise(mean = mean(rt),
+                   median = median(rt),
+                   sd = sd(rt))
+```
 
-funs <- list(mean = mean, median = median, sd = sd)
+Komplizierte Version:
+
+```{r}
+#| message: false
+funs <- list(mean = mean, median = median, sd = sd, se = se)
 
 by_subj <- data %>%
   drop_na(rt) |> 
@@ -311,18 +533,7 @@ by_subj <- data %>%
 by_subj 
 ```
 
-Einfachere Version:
 
-```{r}
-#| message: false
-
-by_subj <- data |> 
-  drop_na(rt) |> 
-  group_by(ID, condition) |>  
-  dplyr::summarise(mean = mean(rt),
-                   median = median(rt),
-                   sd = sd(rt))
-```
 
 ```{r}
 #| fig.height: 12
@@ -331,7 +542,7 @@ by_subj <- data |>
 by_subj |> 
   ggplot(aes(x = condition, y = mean, fill = condition)) +
   geom_col() +
-  geom_line(aes(group = ID), size = 2) +
+  geom_line(aes(group = ID), linewidth = 2) +
   geom_point(size = 8) +
   scale_fill_manual(
     values = c(invalid = "#9E0142",
@@ -345,23 +556,11 @@ by_subj |>
   facet_wrap(~ID)
 ```
 
-```{r}
-#| message: false
 
-se <- function(x, ...) sd(x, ...)/sqrt(length(x))
-
-by_subj <- data %>% 
-  group_by(ID, condition) %>% 
-  summarise(mean = mean(rt, na.rm = TRUE), 
-            median = median(rt, na.rm = TRUE), 
-            sd = sd(rt, na.rm = TRUE), 
-            se = se(rt, na.rm = TRUE))
-```
-
+Wir können selbstverständlich auch die indivuellen mittleren Reaktionszeiten mit Standardfehler plotten:
 ```{r}
 #| fig.height: 6
 #| fig.width: 8
-
 by_subj |> 
   ggplot(aes(condition, mean)) +
   geom_line(aes(group = 1), linetype = 3) +    
@@ -371,7 +570,7 @@ by_subj |>
   facet_wrap(~ID, scales = "free_y")
 ```
 
-## Über Versuchsperson aggregieren
+## Über Versuchsperson aggregiert
 ```{r}
 rtsum <- data |>
   drop_na(rt) |> 
@@ -397,6 +596,13 @@ p_rt <- rtsum |>
 
 p_rt
 ```
+
+
+Wir haben oben die beiden Grafiken als Variablen `p_accuracy` und  `p_rt` gespeichert. Nun können wir diese Grafiken mit dem `patchwork` Package kombinieren.
+
+<aside>
+`patchwork` muss zuerst installiert werden: `install.packages("patchwork")`
+</aside>
 
 ```{r}
 library(patchwork)
