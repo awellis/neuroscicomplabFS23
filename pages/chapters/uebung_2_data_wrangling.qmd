@@ -80,6 +80,27 @@ Sobald Sie den Code und die Kommentare ergänzt haben, ist es wichtig, das Skrip
 Laden Sie das `uebung-2_script_initialen.r` - Skript auf Ilias hoch.
 
 
+## Trouble Shooting
+
+__Packages updaten__
+
+-  Updaten Sie alle packages mit `update.packages(ask = FALSE)` in der Konsole. Oder unter dem Reiter `Tools` > `Check for Package Updates ... `
+
+__Probleme mit `read_csv`__
+
+- Verwenden Sie `read.csv()` als Alternative
+
+
+__Falls nichts hilft ...__
+
+- Fragen Sie Mitstudierende. Ziemlich sicher hat jemand dieses Problem schon gelöst.
+
+- Schreiben Sie eine Mail mit folgenden Infos:
+    - Output von `sessionInfo()` in derKonsole 
+    - ausgeführter Code 
+    - Fehlermeldung
+    - was haben Sie schon versucht als Lösung?
+
 # 2. Peer Feedback geben
 
 ## Vorbereitung
@@ -101,7 +122,7 @@ Laden Sie das `uebung-2_script_initialen.r` - Skript auf Ilias hoch.
 
 - Wenn nein: Wo genau gibt es eine Fehlermeldung, weshalb kommt diese und wie könnte diese behoben werden?
 
-- Stimmen die 3 _Accuracy pro Bedingung_ - Werte mit den im Kommentar beschriebenen Werten überein?
+- Stimmen die 3 _Accuracy pro Bedingung_- Werte mit den im Kommentar beschriebenen Werten überein?
 
 - Stimmen die Werte mit den von Ihnen selber errechneten Werten überein?
 

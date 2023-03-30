@@ -1,6 +1,5 @@
 ---
 title: "Aggregierte Statistiken"
-title: "Aggregierte Statistiken"
 description: |
   Daten aus Verhaltensexperimenten zusammenfassen.
 date: "2022-03-27"
