@@ -295,6 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#pro-bedingung-%C3%BCber-alle-personen-aggregiert" id="toc-pro-bedingung-über-alle-personen-aggregiert" class="nav-link" data-scroll-target="#pro-bedingung-%C3%BCber-alle-personen-aggregiert">Pro Bedingung, über alle Personen aggregiert</a></li>
   <li><a href="#standardfehler" id="toc-standardfehler" class="nav-link" data-scroll-target="#standardfehler">Standardfehler</a></li>
   <li><a href="#pro-bedingung-%C3%BCber-alle-personen-aggregiert-1" id="toc-pro-bedingung-über-alle-personen-aggregiert-1" class="nav-link" data-scroll-target="#pro-bedingung-%C3%BCber-alle-personen-aggregiert-1">Pro Bedingung, über alle Personen aggregiert</a></li>
+  <li><a href="#ein-exkurs-%C3%BCber-within-person-standardfehler" id="toc-ein-exkurs-über-within-person-standardfehler" class="nav-link" data-scroll-target="#ein-exkurs-%C3%BCber-within-person-standardfehler">Ein Exkurs über within-person Standardfehler</a></li>
   <li><a href="#accuracy-mit-within-person-standardfehler" id="toc-accuracy-mit-within-person-standardfehler" class="nav-link" data-scroll-target="#accuracy-mit-within-person-standardfehler">Accuracy mit within-person Standardfehler</a></li>
   </ul>
 </li>
@@ -613,13 +614,14 @@ Hands-on
 </ul>
 </div>
 </div>
+</section><section id="ein-exkurs-über-within-person-standardfehler" class="level2"><h2 class="anchored" data-anchor-id="ein-exkurs-über-within-person-standardfehler">Ein Exkurs über within-person Standardfehler</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Ein Exkurs über within-person Standardfehler
+Within-person Standardfehler berechnen
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -747,7 +749,7 @@ Ein Exkurs über within-person Standardfehler
 2  posttest 10 51.43 7.253972 2.293907 5.189179</code></pre>
 </div>
 </div>
-<p>DIe Fehlerbalken im folgenden Plot berücksichtigen folgendermassen nicht die Tatsachen, dass ein grosser Anteil der Variabilität auf “stabile” Personenunterschiede zurückzuführen ist. In diesem Fall sind die “errorbars” sehr gross, und es sieht so aus, als ob es keinen feststellbaren Unterschied zwischen den Zeitpunkten gibt. Wir vermuten aber aufgrund der individuellen Grafiken, dass es sehr wohl einen Unterschied gibt.</p>
+<p>Die Fehlerbalken im folgenden Plot berücksichtigen folgendermassen nicht die Tatsachen, dass ein grosser Anteil der Variabilität auf “stabile” Personenunterschiede zurückzuführen ist. In diesem Fall sind die “errorbars” sehr gross, und es sieht so aus, als ob es keinen feststellbaren Unterschied zwischen den Zeitpunkten gibt. Wir vermuten aber aufgrund der individuellen Grafiken, dass es sehr wohl einen Unterschied gibt.</p>
 <div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum_between</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">condition</span>, y<span class="op">=</span><span class="va">value</span>, group<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
@@ -795,9 +797,46 @@ Ein Exkurs über within-person Standardfehler
 <p><img src="summarizing-data_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Was wir hier machen ist eigentlich einfach. Um die <code>within</code> Standardfehler zu berechnen, müssen wir zuerst die personen-spezifische Mittelwerte von den Daten subtrahieren. Dies können wir mit der Funktion <code>normDataWithin()</code> machen.</p>
+<p>Was wir hier machen ist eigentlich einfach. Um die <code>within</code> Standardfehler zu berechnen, müssen wir zuerst die personen-spezifische Mittelwerte von den Daten subtrahieren, und den Gesamtmittelwert (<code>grand mean</code>) addieren. Dies können wir entweder mit <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code>, oder mit der Funktion <code>normDataWithin()</code> machen.</p>
+<p><strong>Mit <code><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate()</a></code></strong>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfNorm_long</span> <span class="op">&lt;-</span> <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/normDataWithin.html">normDataWithin</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">dfl</span>, </span>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_norm</span> <span class="op">&lt;-</span> <span class="va">dfl</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>grand_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">subject</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>person_mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span>,</span>
+<span>           value_normed <span class="op">=</span> <span class="va">value</span> <span class="op">-</span> <span class="va">person_mean</span> <span class="op">+</span> <span class="va">grand_mean</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">df_norm</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 20 × 6
+# Groups:   subject [10]
+   subject condition value grand_mean person_mean value_normed
+   &lt;fct&gt;   &lt;fct&gt;     &lt;dbl&gt;      &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;
+ 1 1       pretest    59.4       49.6        62.0         47.0
+ 2 1       posttest   64.5       49.6        62.0         52.1
+ 3 2       pretest    46.4       49.6        49.4         46.6
+ 4 2       posttest   52.4       49.6        49.4         52.6
+ 5 3       pretest    46         49.6        47.8         47.7
+ 6 3       posttest   49.7       49.6        47.8         51.4
+ 7 4       pretest    49         49.6        48.8         49.7
+ 8 4       posttest   48.7       49.6        48.8         49.4
+ 9 5       pretest    32.5       49.6        35.0         47.1
+10 5       posttest   37.4       49.6        35.0         52.0
+11 6       pretest    45.2       49.6        47.4         47.4
+12 6       posttest   49.5       49.6        47.4         51.7
+13 7       pretest    60.3       49.6        60.1         49.8
+14 7       posttest   59.9       49.6        60.1         49.4
+15 8       pretest    54.3       49.6        54.2         49.7
+16 8       posttest   54.1       49.6        54.2         49.5
+17 9       pretest    45.4       49.6        47.5         47.5
+18 9       posttest   49.6       49.6        47.5         51.7
+19 10      pretest    38.9       49.6        43.7         44.8
+20 10      posttest   48.5       49.6        43.7         54.4</code></pre>
+</div>
+</div>
+<p><strong>Mit <code>normDataWithin()</code></strong>:</p>
+<div class="cell">
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfNorm_long</span> <span class="op">&lt;-</span> <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/normDataWithin.html">normDataWithin</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">dfl</span>, </span>
 <span>                                     idvar<span class="op">=</span><span class="st">"subject"</span>,    </span>
 <span>                                     measurevar<span class="op">=</span><span class="st">"value"</span><span class="op">)</span></span>
 <span><span class="va">dfNorm_long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -827,12 +866,12 @@ Ein Exkurs über within-person Standardfehler
 </div>
 <p>Wenn wir nun die “normierten” Daten plotten, sind die Unterschiede zwischen den Personen “verschwunden”, weil wir eben die Daten normiert haben.</p>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfNorm_long</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">condition</span>, y<span class="op">=</span><span class="va">valueNormed</span>, colour<span class="op">=</span><span class="va">subject</span>, group<span class="op">=</span><span class="va">subject</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df_norm</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">condition</span>, y<span class="op">=</span><span class="va">value_normed</span>, colour<span class="op">=</span><span class="va">subject</span>, group<span class="op">=</span><span class="va">subject</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">21</span>, fill<span class="op">=</span><span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="va">ymin</span>,<span class="va">ymax</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">ylim</a></span><span class="op">(</span><span class="va">ymin</span>, <span class="va">ymax</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summarizing-data_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
+<p><img src="summarizing-data_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Die Argumente der Funktion <code>summarySEwithin()</code> sind folgende:</p>
@@ -851,7 +890,7 @@ Ein Exkurs über within-person Standardfehler
 </ul>
 <p>Im Output erhalten wir die Mittelwerte der <code>outcome</code> Variablen für jede Stufe der within-Variable, sowie Standardabweichungen, Standardfehler und Konfidenzintervalle.</p>
 <div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum</span> <span class="op">&lt;-</span> <span class="va">dfl</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum</span> <span class="op">&lt;-</span> <span class="va">dfl</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"value"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               idvar <span class="op">=</span> <span class="st">"subject"</span>,</span>
@@ -860,7 +899,7 @@ Ein Exkurs über within-person Standardfehler
 </div>
 <p>Zum Vergleich: die Berechnung der Standardfehler in <code>dflsum</code> berücksichtigt die Tatsache, dass Personen sich von Anfang an unterscheiden, und subtrahiert von jedem Datenpunkt den Mittelwert der Person.</p>
 <div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  condition  N value       sd        se       ci
 1   pretest 10 47.74 2.262361 0.7154214 1.618396
@@ -869,7 +908,7 @@ Ein Exkurs über within-person Standardfehler
 </div>
 <p>Bei der Berechnung der Standardfehler in <code>dflsum_between</code> haben wir im Prinzip so getan, als seien die Messzeitpunkte unabhängig voneinander. Wir haben also die Standardfehler in <code>dflsum_between</code> so berechnet, als ob wir die Daten in zwei unabhängige Gruppen aufgeteilt hätten.</p>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum_between</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum_between</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  condition  N value       sd       se       ci
 1   pretest 10 47.74 8.598992 2.719240 6.151348
@@ -883,19 +922,19 @@ Ein Exkurs über within-person Standardfehler
 </section><section id="accuracy-mit-within-person-standardfehler" class="level2"><h2 class="anchored" data-anchor-id="accuracy-mit-within-person-standardfehler">Accuracy mit within-person Standardfehler</h2>
 <p>Wir können nun dieses Prinzip auf unsere RDK daten anwenden. Die messwiederholte Variable ist nun nicht mehr der Messzeitunkt, sondern die <code>cue</code>-Bedingung, und die <code>outcome</code> Variable ist <code>accuracy</code>, also die Proportion korrekter Antworten.</p>
 <div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy_individual</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy_individual</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">accuracy</span>, colour <span class="op">=</span> <span class="va">ID</span>, group <span class="op">=</span> <span class="va">ID</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">21</span>, fill<span class="op">=</span><span class="st">"white"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summarizing-data_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid" width="672"></p>
+<p><img src="summarizing-data_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Auch hier stellen wir fest, dass es scheinbar einen Trend gibt, dass die Proportion korrekter Antworten in der <code>valid</code> Bedingung hoch, und in der <code>invalid</code> Bedingung niedrig ist. In der <code>neutral</code> Bedingung liegt die <code>accuracy</code> dazwischen.</p>
 <p>Ohne Berücksichtigung der Messwiederholungen erhalten wir folgende Standarfehler:</p>
 <p>Von Hand berechnet:</p>
 <div class="cell">
-<div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>N <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>             accuracy <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">correct</span><span class="op">)</span>,</span>
@@ -913,7 +952,7 @@ Ein Exkurs über within-person Standardfehler
 </div>
 <p>Mit der Funktion <code>summarySE()</code>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum_2</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum_2</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySE.html">summarySE</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
 <span>                              groupvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -928,7 +967,7 @@ Ein Exkurs über within-person Standardfehler
 </div>
 <p>Wenn wir nun die <code>within</code> Standardfehler berechnen, erhalten wir folgende Ergebnisse:</p>
 <div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum_3</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum_3</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               idvar <span class="op">=</span> <span class="st">"ID"</span>,</span>
@@ -943,14 +982,14 @@ Ein Exkurs über within-person Standardfehler
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_accuracy</span> <span class="op">&lt;-</span> <span class="va">datasum_3</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_accuracy</span> <span class="op">&lt;-</span> <span class="va">datasum_3</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">correct</span>, group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">correct</span><span class="op">-</span><span class="va">se</span>, ymax <span class="op">=</span> <span class="va">correct</span><span class="op">+</span><span class="va">se</span><span class="op">)</span>, colour<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">21</span>, size<span class="op">=</span><span class="fl">3</span>, fill<span class="op">=</span><span class="st">"white"</span><span class="op">)</span></span>
 <span><span class="va">p_accuracy</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summarizing-data_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+<p><img src="summarizing-data_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section></section><section id="reaktionszeiten" class="level1 page-columns page-full"><h1>Reaktionszeiten</h1>
@@ -959,7 +998,7 @@ Ein Exkurs über within-person Standardfehler
 <p>Wir fassen die Daten pro Person pro Block mit Mittelwert, Median und Standarabweichung zusammen. Wenn wir Daten anhand mehrerer statistischer Kennzahlen zusammenfassen möchten, können wir dies entweder manuell machen, oder die Funktion <code><a href="https://dplyr.tidyverse.org/reference/across.html">across()</a></code> verwenden.</p>
 <p>Einfachere Version:</p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">rt</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span>  </span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">rt</span><span class="op">)</span>,</span>
@@ -968,7 +1007,7 @@ Ein Exkurs über within-person Standardfehler
 </div>
 <p>Komplizierte Version:</p>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">funs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="va">mean</span>, median <span class="op">=</span> <span class="va">median</span>, sd <span class="op">=</span> <span class="va">sd</span>, se <span class="op">=</span> <span class="va">se</span><span class="op">)</span></span>
+<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">funs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="va">mean</span>, median <span class="op">=</span> <span class="va">median</span>, sd <span class="op">=</span> <span class="va">sd</span>, se <span class="op">=</span> <span class="va">se</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">by_subj</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">rt</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
@@ -976,7 +1015,7 @@ Ein Exkurs über within-person Standardfehler
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="va">rt</span>, <span class="va">funs</span>, .names <span class="op">=</span> <span class="st">"{.fn}"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb52"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 27 × 6
 # Groups:   ID [9]
@@ -996,7 +1035,7 @@ Ein Exkurs über within-person Standardfehler
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb54"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb56"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">mean</span>, fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">ID</span><span class="op">)</span>, linewidth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
@@ -1012,12 +1051,12 @@ Ein Exkurs über within-person Standardfehler
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">28</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">ID</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summarizing-data_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid" width="1440"></p>
+<p><img src="summarizing-data_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="1440"></p>
 </div>
 </div>
 <p>Wir können selbstverständlich auch die indivuellen mittleren Reaktionszeiten mit Standardfehler plotten:</p>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">by_subj</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">condition</span>, <span class="va">mean</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>, linetype <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span>    </span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">mean</span><span class="op">-</span><span class="va">se</span>, ymax <span class="op">=</span> <span class="va">mean</span><span class="op">+</span><span class="va">se</span><span class="op">)</span>,</span>
@@ -1029,12 +1068,12 @@ Ein Exkurs über within-person Standardfehler
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="summarizing-data_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="768"></p>
+<p><img src="summarizing-data_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 </section><section id="über-versuchsperson-aggregiert" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="über-versuchsperson-aggregiert">Über Versuchsperson aggregiert</h2>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rtsum</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rtsum</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">rt</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"rt"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
@@ -1050,27 +1089,27 @@ Ein Exkurs über within-person Standardfehler
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_rt</span> <span class="op">&lt;-</span> <span class="va">rtsum</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_rt</span> <span class="op">&lt;-</span> <span class="va">rtsum</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">rt</span>, group <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span>width <span class="op">=</span> <span class="fl">.1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin <span class="op">=</span> <span class="va">rt</span><span class="op">-</span><span class="va">se</span>, ymax <span class="op">=</span> <span class="va">rt</span><span class="op">+</span><span class="va">se</span><span class="op">)</span>, colour<span class="op">=</span><span class="st">"red"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">21</span>, size<span class="op">=</span><span class="fl">3</span>, fill<span class="op">=</span><span class="st">"white"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_rt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_rt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summarizing-data_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="768"></p>
+<p><img src="summarizing-data_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 <p>Wir haben oben die beiden Grafiken als Variablen <code>p_accuracy</code> und <code>p_rt</code> gespeichert. Nun können wir diese Grafiken mit dem <code>patchwork</code> Package kombinieren.</p>
 <aside><code>patchwork</code> muss zuerst installiert werden: <code>install.packages("patchwork")</code>
 </aside><div class="cell">
-<div class="sourceCode" id="cb61"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb63"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_accuracy</span> <span class="op">/</span> <span class="va">p_rt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb64"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_accuracy</span> <span class="op">/</span> <span class="va">p_rt</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="summarizing-data_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid" width="768"></p>
+<p><img src="summarizing-data_files/figure-html/unnamed-chunk-47-1.png" class="img-fluid" width="768"></p>
 </div>
 </div>
 

@@ -218,10 +218,11 @@ data |>
 :::
 
 
+## Ein Exkurs über within-person Standardfehler 
 
 :::{.callout-tip collapse="true"}
 
-## Ein Exkurs über within-person Standardfehler 
+## Within-person Standardfehler berechnen
 
 Folgender Code erstellt einen Dataframe mit 10 Personen, die jeweils zu zwei  Messzeitpunkten getestet werden. Es handelt sich also um ein within-subject Design.
 ```{r}
@@ -308,7 +309,7 @@ dflsum_between
 
 
 
-DIe Fehlerbalken im folgenden Plot berücksichtigen folgendermassen nicht die Tatsachen, dass ein grosser Anteil der Variabilität auf "stabile" Personenunterschiede zurückzuführen ist. In diesem Fall sind die "errorbars" sehr gross, und es sieht so aus, als ob es keinen feststellbaren Unterschied zwischen den Zeitpunkten gibt. Wir vermuten aber aufgrund der individuellen Grafiken, dass es sehr wohl einen Unterschied gibt.
+Die Fehlerbalken im folgenden Plot berücksichtigen folgendermassen nicht die Tatsachen, dass ein grosser Anteil der Variabilität auf "stabile" Personenunterschiede zurückzuführen ist. In diesem Fall sind die "errorbars" sehr gross, und es sieht so aus, als ob es keinen feststellbaren Unterschied zwischen den Zeitpunkten gibt. Wir vermuten aber aufgrund der individuellen Grafiken, dass es sehr wohl einen Unterschied gibt.
   
 
 
@@ -366,8 +367,21 @@ dflsum_between |>
 
 
 
-Was wir hier machen ist eigentlich einfach. Um die `within` Standardfehler zu berechnen, müssen wir zuerst die personen-spezifische Mittelwerte von den Daten subtrahieren. Dies können wir mit der Funktion `normDataWithin()` machen.
+Was wir hier machen ist eigentlich einfach. Um die `within` Standardfehler zu berechnen, müssen wir zuerst die personen-spezifische Mittelwerte von den Daten subtrahieren, und den Gesamtmittelwert (`grand mean`) addieren. Dies können wir entweder mit `mutate()`, oder mit der Funktion `normDataWithin()` machen.
 
+
+__Mit `mutate()`__:
+```{r}
+df_norm <- dfl |>
+    mutate(grand_mean = mean(value)) |>
+    group_by(subject) |>
+    mutate(person_mean = mean(value),
+           value_normed = value - person_mean + grand_mean)
+
+df_norm
+```
+
+__Mit `normDataWithin()`__:
 ```{r}
 dfNorm_long <- Rmisc::normDataWithin(data=dfl, 
                                      idvar="subject",    
@@ -375,12 +389,13 @@ dfNorm_long <- Rmisc::normDataWithin(data=dfl,
 dfNorm_long
 ```
 
+
 Wenn wir nun die "normierten" Daten plotten, sind die Unterschiede zwischen den Personen "verschwunden", weil wir eben die Daten normiert haben.
 ```{r}
-dfNorm_long |>
-    ggplot(aes(x=condition, y=valueNormed, colour=subject, group=subject)) +
+df_norm |> 
+    ggplot(aes(x=condition, y=value_normed, colour=subject, group=subject)) +
     geom_line() + geom_point(shape=21, fill="white") +
-    ylim(ymin,ymax)
+    ylim(ymin, ymax)
 ```
 
 
