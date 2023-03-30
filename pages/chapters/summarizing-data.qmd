@@ -43,6 +43,11 @@ In der heutigen Sitzung lernen wir:
 - Standardfehler berechnen, welche Messwiederholungen berücksichtigen.
 :::
 
+:::{.callout-tip}
+## Wichtig
+
+👉 [Daten für diese Sitzung herunterladen](../../downloadable_files/rdkdata.csv)
+:::
 
 
 Wir haben in den vorherigen Kapiteln gesehen, wie wir Daten aus Verhaltensexperimenten in R einlesen und bearbeiten können. In diesem Kapitel werden wir uns mit der Frage beschäftigen, wie wir zusammenfassende Statistiken erstellen können, um diese grafisch darzustellen und zu interpretieren. Da wir uns in den Neurowissenschaften meist mit _within-subject_ Designs beschäftigen, werden wir uns in diesem Kapitel auf Messwiederholungsdaten konzentrieren.
