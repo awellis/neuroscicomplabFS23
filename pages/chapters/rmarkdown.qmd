@@ -1,7 +1,7 @@
 ---
 title: "R Markdown"
 description: Data Reports mit Text und Code.
-date: "2023-03-20"
+date: "2023-04-02"
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -24,6 +24,8 @@ format:
 
 :::{.callout-tip collapse="false"}
 ## Lernziele
+
+Erstellen eines (reproduzierbaren) Data Reports mit Datenvisualisierungen zu unserem Experiment.
 
 In der heutigen Sitzung lernen wir die Basics, die man braucht um einen Data Report in R Markdown erstellen zu können.
 
