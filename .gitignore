@@ -5,6 +5,7 @@ pages/chapters/*_files/
 
 .Rproj.user
 .Rhistory
+.Rdata
 JASP/
 
 .vscode
