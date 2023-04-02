@@ -453,7 +453,7 @@ Mit <code>ggplot</code>könnte man sogar Kunstwerke erstellen, wie bspw. <a href
 </ul>
 <p>Wir werden uns heute vor allem mit den Daten, Geomen und Mappings befassen. Zudem werden wir vor allem Facets und Themes genauer anschauen.</p>
 <section id="daten" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="daten">Daten</h2>
-<p>Zuerst laden wir das <code>tidyverse</code> Package und lesen das im Ordner <code>data_example</code> gespeicherte <code>.csv</code> File ein und machen die Variable <code>dataset</code> zu einem Faktor. Wir schauen uns die Daten mit <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> an.</p>
+<p>Zuerst laden wir das <code>tidyverse</code> Package und lesen das im Ordner <code>data_example</code> gespeicherte <code>.csv</code> File ein und machen die Variable <code>condition</code> zu einem Faktor. Wir schauen uns die Daten mit <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> an.</p>
 <div class="cell" data-hash="data_visualization_1_cache/html/unnamed-chunk-2_4ad02b79365633cd479b80986b591a55">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
@@ -470,7 +470,12 @@ $ value2    &lt;dbl&gt; 61.411101, 26.186880, 30.832194, 82.533649, 45.734551, 3
 </div>
 </div>
 <section id="datenformat" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="datenformat">Datenformat</h3>
-<p>Am einfachsten ist das plotten, wenn die Daten im <em>long</em>-Format vorliegen. Jede Variable die gemessen/erhoben wird hat eine Spalte (z.B. Versuchspersonennummer, Reaktionszeit, Taste). Jede Messung hat eine Zeile. In unserem PsychoPy-Experiment entspricht dies einer Zeile pro Trial. Auch die hier eingelesenen Daten sind schon im <em>long</em>-Format.</p>
+<p>Am einfachsten ist das plotten, wenn die Daten im <em>long</em>-Format vorliegen. Das bedeutet:</p>
+<ul>
+<li>Jede Variable die gemessen/erhoben wird hat eine Spalte (z.B. Versuchspersonennummer, Reaktionszeit, Taste).</li>
+<li>Jede Messung hat eine Zeile. In unserem PsychoPy-Experiment entspricht dies einer Zeile pro Trial.</li>
+</ul>
+<p>Die hier eingelesenen Daten sind schon im <em>long</em>-Format.</p>
 <aside>
 Falls die Daten im <em>wide</em>-Format abgespeichert sind, lohnt es sich diese umzuformatieren z.B. mit <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>.
 </aside></section><section id="variablen" class="level3"><h3 class="anchored" data-anchor-id="variablen">Variablen</h3>
@@ -499,7 +504,7 @@ Hands-on
 </div>
 </div>
 </section><section id="subsetting" class="level3"><h3 class="anchored" data-anchor-id="subsetting">Subsetting</h3>
-<p>Manchmal möchte man nur einen Teil der Daten plotten. Der Datensatz enthält beispielsweise verschiedene Bedingungen, jeweils mit Werten für Variable <code>value1</code> und <code>value2</code>. Folgende 13 Bedingungen sind enthalten:</p>
+<p>Manchmal möchte man nur einen Teil der Daten plotten. Der aktuelle Datensatz enthält beispielsweise verschiedene Bedingungen, jeweils mit Werten für Variable <code>value1</code> und <code>value2</code>. Folgende 13 Bedingungen sind enthalten:</p>
 <div class="cell" data-hash="data_visualization_1_cache/html/unnamed-chunk-3_1d58e657755fac1722ea16fb211d8d19">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">data</span><span class="op">$</span><span class="va">condition</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -544,7 +549,7 @@ $ sd_v2   &lt;dbl&gt; 26.84777</code></pre>
 </div>
 <p>Diese Werte geben Ihnen einen Anhaltspunkt, in welchem Bereich sich die Werte bewegen werden.</p>
 </section><section id="plot" class="level3"><h3 class="anchored" data-anchor-id="plot">Plot</h3>
-<p>Die Daten der Bedingung <code>away</code> verwenden wir im Folgenden für die Beispiele. Wir geben in die Funktion <code>ggplot</code> also als erstes Argument <code>data = data_away</code> ein.</p>
+<p>In den folgenden Beispielen verwenden wir die Daten der Bedingung <code>away</code>. Wir geben in die Funktion <code>ggplot</code> als erstes Argument <code>data = data_away</code> ein.</p>
 <div class="cell" data-hash="data_visualization_1_cache/html/unnamed-chunk-6_51ae0a976be12a4dbcfaeca53fba58c6">
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -554,9 +559,7 @@ $ sd_v2   &lt;dbl&gt; 26.84777</code></pre>
 <p>Wir haben nun die Daten eingegeben, aber noch keine Formen und kein Mapping, deshalb ist die Grafik leer.</p>
 </section></section><section id="geom-formen" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="geom-formen">Geom / Formen</h2>
 <p>In <code>ggplot</code> wird die Form mit <code>geom_</code> hinzugefügt. Beispielsweise werden mit <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> Punkte erstellt, mit <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line()</a></code> Linien, mit <code>geom_boxplot</code> Boxplots, usw. Bei der Wahl der passenden Form kommt es einerseits auf die Daten an. Sind die Daten nominal, ordinal, interval oder ratio skaliert? Wie viele Variablen werden gleichzeitig in die Grafik einbezogen? Andererseits ist es wichtig, was mit der Grafik gezeigt werden soll: Unterschiede? Gemeinsamkeiten? Veränderungen über Zeit?</p>
-<aside>
-👉 <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">Hier</a> finden Sie das <code>ggplot</code>-Cheatsheet.
-</aside><p>Oft verwendete Formen sind:</p>
+<p>Oft verwendete Formen sind:</p>
 <ul>
 <li>Punkte / Scatterplots - <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>
 </li>
@@ -576,8 +579,9 @@ $ sd_v2   &lt;dbl&gt; 26.84777</code></pre>
 <li>Violinplots - <code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code>
 </li>
 </ul>
-<p>Es gibt auch weitere Arten informative Arten der Darstellung wie <em>heat maps</em> oder <em>shift functions</em>, auf die wir in dieser Veranstaltung nicht eingehen.</p>
-<div class="callout-caution callout callout-style-default callout-captioned">
+<aside>
+Es gibt auch weitere Arten informative Arten der Darstellung wie <em>heat maps</em> oder <em>shift functions</em>, auf die wir in dieser Veranstaltung nicht eingehen.
+</aside><div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
@@ -588,6 +592,7 @@ Hands-on
 </div>
 <div class="callout-body-container callout-body">
 <p>Welche <code>geoms</code> eignen sich für welches Skalenniveau und welche Variablenanzahl?</p>
+<p>👉 <a href="https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf">Hier</a> finden Sie das <code>ggplot</code>-Cheatsheet.</p>
 <p>Schauen Sie sich die verschiedenen Formen von Plots <a href="https://www.data-to-viz.com">hier</a> an.</p>
 </div>
 </div>

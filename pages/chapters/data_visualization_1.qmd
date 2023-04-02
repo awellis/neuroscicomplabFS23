@@ -94,7 +94,7 @@ Wir werden uns heute vor allem mit den Daten, Geomen und Mappings befassen. Zude
 
 ## Daten
  
-Zuerst laden wir das `tidyverse` Package und lesen das im Ordner `data_example` gespeicherte `.csv` File ein und machen die Variable `dataset` zu einem Faktor. Wir schauen uns die Daten mit `glimpse()` an.
+Zuerst laden wir das `tidyverse` Package und lesen das im Ordner `data_example` gespeicherte `.csv` File ein und machen die Variable `condition` zu einem Faktor. Wir schauen uns die Daten mit `glimpse()` an.
 
 ```{r}
 #| message: false
@@ -109,7 +109,12 @@ glimpse(data)
 
 ### Datenformat
 
-Am einfachsten ist das plotten, wenn die Daten im *long*-Format vorliegen. Jede Variable die gemessen/erhoben wird hat eine Spalte (z.B. Versuchspersonennummer, Reaktionszeit, Taste). Jede Messung hat eine Zeile. In unserem PsychoPy-Experiment entspricht dies einer Zeile pro Trial. Auch die hier eingelesenen Daten sind schon im *long*-Format. 
+Am einfachsten ist das plotten, wenn die Daten im *long*-Format vorliegen. Das bedeutet:
+
+- Jede Variable die gemessen/erhoben wird hat eine Spalte (z.B. Versuchspersonennummer, Reaktionszeit, Taste). 
+- Jede Messung hat eine Zeile. In unserem PsychoPy-Experiment entspricht dies einer Zeile pro Trial. 
+
+Die hier eingelesenen Daten sind schon im *long*-Format. 
 
 <aside> Falls die Daten im *wide*-Format abgespeichert sind, lohnt es sich diese umzuformatieren z.B. mit `pivot_longer()`. </aside>
 
@@ -132,7 +137,7 @@ Schauen Sie sich den Datensatz an.
 
 ### Subsetting
 
-Manchmal möchte man nur einen Teil der Daten plotten. Der Datensatz enthält beispielsweise verschiedene Bedingungen, jeweils mit Werten für Variable `value1` und `value2`. Folgende 13 Bedingungen sind enthalten:
+Manchmal möchte man nur einen Teil der Daten plotten. Der aktuelle Datensatz enthält beispielsweise verschiedene Bedingungen, jeweils mit Werten für Variable `value1` und `value2`. Folgende 13 Bedingungen sind enthalten:
 
 ```{r}
 unique(data$condition)
@@ -175,7 +180,7 @@ Diese Werte geben Ihnen einen Anhaltspunkt, in welchem Bereich sich die Werte be
 
 ### Plot
 
-Die Daten der Bedingung `away` verwenden wir im Folgenden für die Beispiele. Wir geben in die Funktion `ggplot` also als erstes Argument `data = data_away` ein.
+In den folgenden Beispielen verwenden wir die Daten der Bedingung `away`. Wir geben in die Funktion `ggplot` als erstes Argument `data = data_away` ein.
 
 ```{r}
 ggplot(data = data_away)
@@ -187,8 +192,6 @@ Wir haben nun die Daten eingegeben, aber noch keine Formen und kein Mapping, des
 ## Geom / Formen
 
 In `ggplot` wird die Form mit `geom_` hinzugefügt. Beispielsweise werden mit `geom_point()` Punkte erstellt, mit `geom_line()` Linien, mit `geom_boxplot` Boxplots, usw. Bei der Wahl der passenden Form kommt es einerseits auf die Daten an. Sind die Daten nominal, ordinal, interval oder ratio skaliert? Wie viele Variablen werden gleichzeitig in die Grafik einbezogen? Andererseits ist es wichtig, was mit der Grafik gezeigt werden soll: Unterschiede? Gemeinsamkeiten? Veränderungen über Zeit? 
-
-<aside>👉 [Hier](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf) finden Sie das `ggplot`-Cheatsheet.</aside>
 
 Oft verwendete Formen sind:
 
@@ -203,12 +206,14 @@ Oder wenn zusammenfassende Werte geplottet werden sollen:
 - Boxplots - `geom_boxplot()`
 - Violinplots - `geom_violin()`
 
-Es gibt auch weitere Arten informative Arten der Darstellung wie *heat maps* oder *shift functions*, auf die wir in dieser Veranstaltung nicht eingehen.
+<aside>Es gibt auch weitere Arten informative Arten der Darstellung wie *heat maps* oder *shift functions*, auf die wir in dieser Veranstaltung nicht eingehen.</aside>
 
 ::: callout-caution
 ## Hands-on
 
 Welche `geoms` eignen sich für welches Skalenniveau und welche Variablenanzahl?
+
+👉 [Hier](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf) finden Sie das `ggplot`-Cheatsheet.
 
 Schauen Sie sich die verschiedenen Formen von Plots [hier](https://www.data-to-viz.com) an. 
 
