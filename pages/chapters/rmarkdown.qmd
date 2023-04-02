@@ -1,0 +1,175 @@
+---
+title: "R Markdown"
+description: Data Reports mit Text und Code.
+date: "2023-03-20"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: true
+bibliography: ../../bibliography_gw.bib
+format:
+    html:
+        toc: true
+        code-link: true
+---
+
+:::{.callout-tip collapse="false"}
+## Lernziele
+
+In der heutigen Sitzung lernen wir die Basics, die man braucht um einen Data Report in R Markdown erstellen zu können.
+
+- R Markdown File erstellen
+- R Markdown File ausführen (knitten)
+- Titel und Layout anpassen
+- Text schreiben in R Markdown
+- Code verwenden in R Markdown
+
+:::
+
+
+# R Markdown 
+
+R Markdown ist eine simple Markup-Sprache, die es uns ermöglicht reproduzierbare Data Reports zu erstellen. R Markdown ist praktisch, weil wir gleichzeitig Text und Code verwenden und den Output des Codes anzeigen können. Den Text können wir schreiben, ohne dass vor jede Zeile ein `#` gesetzt werden muss und wir können ihn formatieren. Das Skript der R Markdown Files wid *geknittet* und so zu einem HTML, PDF oder Word-Dokument (je nach Wahl). Wir können mit R Markdown also beispielsweise eine Text-Beschreibung, Code zum Erstellen einer Grafik und auch die erstellte Grafik kombinieren. 
+
+<aside>Man kann mit R Markdown auch Präsentationen, Webseiten, Bücher, Lebensläufe, Artikel oder Arbeiten erstellen. [Hier](https://rmarkdown.rstudio.com/gallery.html) finden Sie eine Gallerie. </aside>
+
+## R Markdown File erstellen und ausführen 
+
+Zuerst erstellen wir ein R Markdown File und schauen uns die wichtigsten Funktionen an. Wir wählen als Outputformat `html`.
+
+:::{.callout-caution}
+## Hands-on
+
+- Laden Sie [hier](../../downloadable_files/data_viz.zip) den Projektordner herunter und entzippen Sie diesen.
+- Öffnen Sie das Projekt und erstellen Sie unter `File` > `New File` > `R Markdown ...` ein neues RMarkdown-File.
+- Geben Sie einen Titel und Ihren Namen ein und wählen Sie `HTML`als Output-Format
+- Speichern Sie dass Dokument unter dem Namen `rmarkdown_example`ab. 
+:::
+
+<aside>**Weiterführende Informationen:** 
+
+👉 Einführung in die Verwendung von R/RStudio/Notebooks im Rahmen des Psychologie Studiums von Andrew Ellis und Boris Mayer [Einführung in R](https://methodenlehre.github.io/einfuehrung-in-R/chapters/01-workflow.html#r-notebooks-verwenden)
+
+👉 Sehr kompakte, praxisnahe Einführung in R Markdown von Danielle Navarro (Slidedeck in englisch) [Einführung in R Markdown](https://djnavarro.net/slides-starting-rmarkdown)
+</aside>
+
+Wenn Sie die obigen Schritte ausgeführt haben, beantworten Sie bitte folgende Fragen:
+
+:::{.callout-important}
+## Aufgabe 1
+Welches Format (Endung) hat das abgespeicherte R Markdown Skript nun in Ihrem Ordner?
+:::
+
+:::{.callout-tip collapse="true"}
+## Lösung 1
+`.Rmd` für R Markdown
+:::
+
+
+## Knitten
+
+Mit **Knit** führen wir das R Markdown Skript nun aus und erstellen so (wie vorher ausgewählt) ein `html`-File.
+
+:::{.callout-important}
+## Aufgabe 2
+Führen Sie das File mit `Knit` aus und vergleichen Sie das R Markdown Skript mit dem Output den Sie erhalten haben. Was fällt Ihnen auf?
+
+- Was ist nicht mehr zu sehen?
+- Was ist zusätzlich zu sehen?
+- Was hat sich im Projekt-Ordner verändert?
+:::
+
+:::{.callout-tip collapse="true"}
+## Lösung 2
+Nicht mehr zu sehen ist der vollständige YAML-header, ganz oben im R Markdown Skript. 
+
+Auch nicht mehr zu sehen ist die "Umrandung" des Code-Snippets.
+
+Neu sieht man nun den Output des Codes.
+
+Im Projektordner wurde ein `.html`-File erstellt. Sie können dieses öffnen, um zu schauen wie das aussieht.
+
+:::
+
+## YAML header
+Zu Beginn des R Markdown Skripts finden Sie den YAML header. Hier werden Informationen zu Titel, Autor:Innen, Datum, Outputformat, Literaturverzeichnis und Layout festgelegt.
+
+<aside>YAML: Yet Another Markdown Language</aside> 
+
+Das Layout kann unter `theme`geändert werden. Das kann beispielsweise wie folgt aussehen:
+
+```
+output:
+  html_document:
+    theme: cosmo
+```
+Achtung: Einrückungen müssen stimmen! Hier wurde das `theme` namens `cosmo` ausgewählt. Mögliche andere `themes`sind z.B. `default`, `cerulean`, `journal`, `flatly`, `darkly`, `readable`, `spacelab`, `united`, `cosmo`, `lumen`, `paper`, `sandstone`, `simplex`, `yeti`. 
+
+:::{.callout-caution}
+## Hands-on
+- Geben Sie dem Dokument einen neuen Titel z.B. `R Markdown Einführung`
+
+- Ändern Sie das Layout so, dass es Ihnen gefällt. 
+    
+:::
+
+
+## Text erstellen in R Markdown
+
+Text kann in R Markdown Files nicht nur geschrieben, sondern auch relativ simpel formatiert werden.
+
+👉 [Hier](https://github.com/rstudio/cheatsheets/raw/main/rmarkdown-2.0.pdf) können Sie das Cheatsheet herunterladen. Auf der rechten Seite finden Sie die Informationen für die Textformatierung.
+
+Knitten Sie das Skript immer wieder um zu überprüfen, ob alles passt. Es empfiehlt sich anfangs häufig zu knitten, so findet man den Fehler schneller, weil man noch weiss, was man verändert hat.
+
+:::{.callout-caution}
+## Hands-on
+
+- Löschen Sie alles bis auf den YAML-Header
+
+- Schreiben Sie im Textbereich eine Überschrift für ein Kapitel, ein Unterkapitel und normalen Text.
+
+- Schreiben Sie im Text etwas kursiv und etwas fett.
+
+- Erstellen Sie im Textbereich eine Liste mit 3 Punkten.
+
+- Fügen Sie die Formel `a^2 + b^2 = c^2` in den Text ein. Verwenden Sie dafür zwei Dollarzeichen am Anfang und am Ende. Was passiert? Schreiben Sie `alpha` innerhalb von Dollarzeichen, was passiert?
+
+- Fügen Sie einen Link ein, knitten Sie das File und schauen Sie ob der Link funktioniert. Können Sie einen Link nur mit einem unterstrichenen Text anzeigen, so dass die Linkadresse nicht sichtbar ist?
+
+- Fügen Sie ein Bild ein. Sie können beispielsweise das Bild `logo_landing.png` aus dem Projektordner nutzen oder ein eigenes verwenden.
+
+:::
+
+
+
+## Code erstellen in R Markdown
+
+Nun erstellen wir Code. Zuerst fügen wir ein Code-Chunk ein, darin muss der Code stehen um ausgeführt zu werden. Dies können Sie unter `Code` > `Insert Chunk` tun oder `Ctrl`+`Alt`+ `I` drücken. Code-Chunks werden mit ` ``` ` begonnen und beendet. In den geschweiften Klammern steht `r`, das bedeutet das der Code in der Sprache `R` geschrieben ist. In dieser Klammer können wir dem Code-Chunk einen Namen geben und bestimmen, ob der Code ausgeführt und angezeigt wird, und ob der Output des Codes angezeigt werden soll. 
+
+Sie können mit dem grünen Pfeil den Code-Chunk ausführen. Aber auch einzelne Zeilen können ausgeführt werden, genau so wie in einem `.R`- Skript.
+
+:::{.callout-caution}
+## Hands-on
+- Erstellen Sie einen Code-Chunk, der ausgeführt, aber nicht angezeigt wird. Erstellen Sie eine Variable mit dem Namen `numbers`, die 10 Zahlen enthält. 
+
+- Erstellen Sie ein Code-Chunk, der ausgeführt wird und dessen Output angezeigt wird. Berechnen Sie in diesem Chunk den Mittelwert und die Standardabweichung von `numbers`.
+
+👉 Schauen Sie dafür nochmals im Cheatsheet nach oder drücken Sie auf das Zahnrädchen-Symbol beim Code-Chunk.
+
+- Erstellen Sie einen Plot mit `plot(numbers)`.
+
+- Knitten Sie das File, um zu überprüfen, ob alles funktioniert 
+
+
+:::
+
