@@ -59,7 +59,7 @@ website:
       - section: "Visualisieren"
         contents:
           - pages/chapters/rmarkdown.qmd
-
+          - pages/chapters/data_visualization_1.qmd
       - section: "Signal detection"
         contents:
           # - pages/admin/02_syllabus.qmd

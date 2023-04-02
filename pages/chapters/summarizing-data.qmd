@@ -25,6 +25,7 @@ code-annotations: select
 #| include: false
 # Set working directory of R
 knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
+getwd()
 ```
 
 <!-- :::{.callout-note}

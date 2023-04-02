@@ -1,0 +1,307 @@
+---
+title: "Grafiken erstellen mit `ggplot`"
+description: Wissenschaftliche Daten sichtbar machen.
+date: "2023-04-03"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+  - name: Gerda Wyssen
+    # url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0001-7427-3149
+license: CC BY
+citation: true
+bibliography: ../../bibliography_gw.bib
+format:
+    html:
+        toc: true
+        code-link: true
+---
+
+```{r}
+#| include: false
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data')
+getwd()
+```
+
+::: {.callout-tip collapse="false"}
+## Lernziele
+
+Erstellen eines (reproduzierbaren) Data Reports mit Datenvisualisierungen zu unserem Experiment.
+
+-   das Erstellen von R Markdown Files
+-   das Verwenden des `ggplot2`-packages
+<!-- -   die Vor- und Nachteile verschiedener Formen von Datenvisualisierungen -->
+<!-- -   was eine gute Grafik ausmacht -->
+:::
+
+<!-- ## Arten von Grafiken -->
+
+<!-- Daten können ganz unterschiedlich dargestellt werden.  -->
+
+<!-- -   Datenverarbeitung: Es können Rohwerte geplottet werden oder *summary statistics* (z.B. Mittelwerte, Standardabweichungen) -->
+<!-- -   Anzahl Variablen: Es kann eine unterschiedliche Anzahl Variablen geplottet werden, z.B. nur eine Variable mit einem Histogramm oder mehrere, wie Reaktionszeit in einem 2x2 Design (3 Variablen). -->
+<!-- -   Form der Grafik: Punkte, Linien, usw. -->
+
+::: callout-caution
+## Hands-on
+
+Wir arbeiten heute in einem R-Markdown-File. So können wir Code und normalen Text verbinden, auch die Outputs des Codes (unsere Grafiken) werden anzeigt. Auf diese Weise erstellen wir reproduzierbare Grafiken.
+
+-   Öffnen Sie das RStudio-Project `dataviz`. Falls Sie diesen noch nicht heruntergeladen haben, laden Sie [hier](../../downloadable_files/data_viz.zip) den Projektordner herunter und entzippen Sie diesen.
+
+-   Öffnen Sie unter `File` \> `New File` \> `R Markdown ...` ein neues RMarkdown-File.
+
+-   Geben Sie einen Titel und Ihren Namen ein und wählen Sie `HTML`als Output-Format
+
+-   Speichern Sie dass Dokument unter dem Namen `data_viz_example`ab.
+:::
+
+# Grafiken erstellen mit `ggplot`
+
+Wir werden das package `ggplot2`in `R`verwenden. `gg`steht hierbei für *Grammar of Graphics*. Die anfangs etwas unintuitive Verwendung von `ggplot` lässt sich vereinfachen, wenn man berücksichtigt, dass Grafiken aus den unten beschriebenen Eigenschaften bestehen und sich damit beschreiben lassen.
+
+<aside>Mit `ggplot`könnte man sogar Kunstwerke erstellen, wie bspw. [hier](https://www.data-imaginist.com/art) gezeigt wird.</aside>
+
+Daten visualisieren erfordert:
+
+-   **Daten**
+
+-   **Geome**, also sichtbare Formen (*aesthetics),* z.B. Punkte, Linien oder Boxen.
+
+-   **Koordinatensystem/Mapping**: wie sind Daten und Geome verbunden?
+
+Weitere optionale Parameter sind:
+
+-   Statistische Parameter
+
+-   Position
+
+-   Koordinatenfunktionen
+
+-   **Facets**
+
+-   Scales
+
+-   **Themes**
+
+Wir werden uns heute vor allem mit den Daten, Geomen und Mappings befassen. Zudem werden wir vor allem Facets und Themes genauer anschauen.
+
+## Daten
+ 
+Zuerst laden wir das `tidyverse` Package und lesen das im Ordner `data_example` gespeicherte `.csv` File ein und machen die Variable `dataset` zu einem Faktor. Wir schauen uns die Daten mit `glimpse()` an.
+
+```{r}
+#| message: false
+#| warning: false
+library(tidyverse)
+
+data <- read.csv("../../data/data_example/DatasaurusDozen.csv") %>%
+    mutate(condition = as.factor(condition))
+
+glimpse(data)
+```
+
+### Datenformat
+
+Am einfachsten ist das plotten, wenn die Daten im *long*-Format vorliegen. Jede Variable die gemessen/erhoben wird hat eine Spalte (z.B. Versuchspersonennummer, Reaktionszeit, Taste). Jede Messung hat eine Zeile. In unserem PsychoPy-Experiment entspricht dies einer Zeile pro Trial. Auch die hier eingelesenen Daten sind schon im *long*-Format. 
+
+<aside> Falls die Daten im *wide*-Format abgespeichert sind, lohnt es sich diese umzuformatieren z.B. mit `pivot_longer()`. </aside>
+
+### Variablen
+
+Bevor wir weiterfahren, müssen wir wissen, welche Variablen wir plotten möchten und welches Skalenniveau diese Variablen haben. Je nach Anzahl Variablen und den entsprechenden Skalenniveaus eignen sich andere Grafik-Formen. 
+
+![CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=724035](/assets/images/Skalenniveau.png)
+
+::: callout-caution
+## Hands-on
+
+Schauen Sie sich den Datensatz an. 
+
+- Wie viele unterschiedliche Variablen gibt es? 
+- Wie heissen die Variablen? 
+- Welches Skalenniveau haben sie?
+
+:::
+
+### Subsetting
+
+Manchmal möchte man nur einen Teil der Daten plotten. Der Datensatz enthält beispielsweise verschiedene Bedingungen, jeweils mit Werten für Variable `value1` und `value2`. Folgende 13 Bedingungen sind enthalten:
+
+```{r}
+unique(data$condition)
+```
+
+<!-- Wir können uns nun für jede Bedingung den Mittelwert und die Standardabweichung ausgeben lassen. -->
+
+<!-- ```{r} -->
+<!-- data_summary <- data %>% -->
+<!--     group_by(dataset) %>% -->
+<!--     summarise(mean_x = mean(x), -->
+<!--               mean_y = mean(y), -->
+<!--               sd_x = sd(x), -->
+<!--               sd_y = sd(y))  -->
+
+<!-- glimpse(data_summary) -->
+<!-- ``` -->
+
+Fürs erste entscheiden wir uns für die Bedingung `away`.
+
+```{r}
+data_away <- data %>%
+    filter(condition == "away")
+```
+
+
+Wir können für diese Bedingung zusätzlich *summary statistics* berechnen, hier Mittelwert und Standardabweichung.
+
+```{r}
+data_away_summary <- data %>%
+    summarise(mean_v1 = mean(value1),
+              sd_v1 = sd(value1),
+              mean_v2 = mean(value2),
+              sd_v2 = sd(value2))
+
+glimpse(data_away_summary)
+```
+Diese Werte geben Ihnen einen Anhaltspunkt, in welchem Bereich sich die Werte bewegen werden. 
+
+
+### Plot
+
+Die Daten der Bedingung `away` verwenden wir im Folgenden für die Beispiele. Wir geben in die Funktion `ggplot` also als erstes Argument `data = data_away` ein.
+
+```{r}
+ggplot(data = data_away)
+```
+
+Wir haben nun die Daten eingegeben, aber noch keine Formen und kein Mapping, deshalb ist die Grafik leer. 
+
+
+## Geom / Formen
+
+In `ggplot` wird die Form mit `geom_` hinzugefügt. Beispielsweise werden mit `geom_point()` Punkte erstellt, mit `geom_line()` Linien, mit `geom_boxplot` Boxplots, usw. Bei der Wahl der passenden Form kommt es einerseits auf die Daten an. Sind die Daten nominal, ordinal, interval oder ratio skaliert? Wie viele Variablen werden gleichzeitig in die Grafik einbezogen? Andererseits ist es wichtig, was mit der Grafik gezeigt werden soll: Unterschiede? Gemeinsamkeiten? Veränderungen über Zeit? 
+
+<aside>👉 [Hier](https://github.com/rstudio/cheatsheets/blob/main/data-visualization.pdf) finden Sie das `ggplot`-Cheatsheet.</aside>
+
+Oft verwendete Formen sind:
+
+- Punkte / Scatterplots - `geom_point()`
+- Linien - `geom_line()`
+
+Oder wenn zusammenfassende Werte geplottet werden sollen:
+
+- Histogramme - `geom_histogram()`
+- Mittelwerte und Standardabweichungen - `geom_pointrange()`
+- Dichte - `geom_density()`
+- Boxplots - `geom_boxplot()`
+- Violinplots - `geom_violin()`
+
+Es gibt auch weitere Arten informative Arten der Darstellung wie *heat maps* oder *shift functions*, auf die wir in dieser Veranstaltung nicht eingehen.
+
+::: callout-caution
+## Hands-on
+
+Welche `geoms` eignen sich für welches Skalenniveau und welche Variablenanzahl?
+
+Schauen Sie sich die verschiedenen Formen von Plots [hier](https://www.data-to-viz.com) an. 
+
+:::
+
+Wenn wir nun aber 
+
+```
+ggplot(data = data_away) +
+    geom_point()
+```
+ausführen würden, ergäbe das  eine Fehlermeldung. Wir haben nämlich nicht angegeben, wie die Daten mit `geom` verbunden werden soll: Das `mapping` fehlt.
+
+## Mapping
+
+Jede `geom`-Funktion in `ggplot` benötigt Angaben zum `mapping`. Damit wird definiert, wie die Variablen auf die Formen (*aesthetics*) gemappt werden sollen. Am einfachsten geht das, wenn wir dies zu Beginn festlegen (wir könnten es auch in der Funktion `geom_` eingeben). Wir geben ein welche Variable auf der x-Achse und auf der y-Achse abgetragen werden soll. Eine weitere Variable könnten wir hier als `group = ...` oder `color = ...` einfügen.
+
+```{r}
+ggplot(data = data_away,
+       mapping = aes(x = value1,
+                     y = value2))
+```
+
+Jetzt können wir das `geom` hinzufügen:
+
+```{r}
+ggplot(data = data_away,
+       mapping = aes(x = value1,
+                     y = value2)) +
+    geom_point()
+```
+
+## Beschriftungen und Themes
+
+Schönere und informativere Plots lassen sich gestalten, wenn wir einen Titel hinzufügen, die Achsenbeschriftung anpassen und das `theme` verändern:
+
+```{r}
+
+ggplot(data = data_away,
+       mapping = aes(x = value1,
+                     y = value2)) +
+    geom_point() +
+    ggtitle ("Ein etwas schönerer Plot") +
+    xlab("Wert 1 [a.u.]") +
+    ylab("Wert 2 [a.u.]") +
+    theme_minimal()
+
+```
+<aside> Auch `theme_classic` oder `theme_bw` eignen sich gut. </aside>
+
+# Daten plotten: Hands on
+
+Im Folgenden können Sie den Datensatz mit Grafiken erkunden. Sie können entweder in Ihrem R Markdown File weiterarbeiten oder Sie können ein GUI (graphical user interface) verwenden, dass für Sie den Code schreibt.
+
+
+::: callout-note
+## GUI
+Falls Sie ein GUI verwenden möchten, gehen Sie wie folgt vor: 
+
+- Installieren Sie das package `esquisse` mit `install.packages("esquisse")` in Ihrer Konsole oder über `Tools` > `Install packages...`
+
+- Geben Sie in Ihrer Konsole `esquisse::esquisser()` ein und wählen Sie dann unter `Import Data` den Datensatz `DatasaurusDozen.csv` aus
+:::
+
+<aside>Ein weiteres `R`-basiertes Visualisierungstool in welchem der Code per GUI erstellt wird, ist [trelliscopejs](https://hafen.github.io/trelliscopejs/)</aside>
+
+
+::: callout-caution
+## Hands-on
+
+- Welche `geom_`s/Formen eignen sich gut für diesen Datensatz? 
+
+- Welche Abbildungen können alle 3 Variablen des Datensatzes berücksichtigen?
+
+- Wie kann man Bedingungen miteinander vergleichen?
+
+- Wie können Grösse und Farbe der Geome bestimmt werden?
+
+- Wie passt man Schriftgrössen an?
+
+- Können Sie eine Grafik speichern?
+
+Erstellen Sie eine möglichst informative Grafik. Kopieren Sie den Code in das R Markdown File. Dieser Code dient Ihnen nächste Woche evtl. als gute Vorlage.
+
+:::
+
+## Weitere hilfreiche Informationen
+
+- [Dokumentation](https://ggplot2.tidyverse.org/) von `ggplot2`
+
+- Kurzweilige, sehr informative Informationen und Videos über das Erstellen von Grafiken in `ggplot` finden Sie hier: [Website Psy TeachR: Data Skills for reproducible research](https://psyteachr.github.io/reprores-v3)
+
+- [Hier](https://youtu.be/90IdULVGmYY) ist der Start der PsyTeachR Videoliste von Lisa deBruine, dort finden sich auch hilfreiche Kurzvideos zu Themen von Daten einlesen bis zu statistischen Analysen. Beispielsweise zu [Basic Plots](https://youtu.be/tOFQFPRgZ3M), [Common Plots](https://youtu.be/kKlQupjD__g) und [Plot Themes and Customization](https://youtu.be/6pHuCbOh86s)
+
+- [Einführung in R](https://methodenlehre.github.io/einfuehrung-in-R/chapters/05-plotting.html) von Andrew Ellis und Boris Mayer
+
