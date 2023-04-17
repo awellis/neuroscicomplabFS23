@@ -15,136 +15,147 @@ format:
         toc: true
 ---
 
-<!-- Die Übung 3 besteht aus den zwei folgenden Aufgaben: -->
+Die Übung 3 besteht aus den zwei folgenden Aufgaben:
 
-<!-- **1. RMarkdown-File erstellen und ausführen**: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen und damit eine Grafik erstellt. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche. -->
+**1. RMarkdown-File erstellen und ausführen**: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen und damit eine Grafik erstellt. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.
 
-<!-- **2. Peer Feedback**: Mittels Ilias wird Ihnen das RMarkdown-File einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses RMarkdown-File auszuführen und dazu Feedback zu geben. Zeit: 1 Woche. -->
+**2. Peer Feedback**: Mittels Ilias wird Ihnen das RMarkdown-File und die Grafik einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses RMarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.
 
 
-<!-- # 1. RMarkdown-File erstellen -->
+# 1. RMarkdown-File erstellen
 
-<!-- ## Vorbereitung -->
+## Vorbereitung
 
-<!-- :::{.callout-tip} -->
-<!-- ## Wichtig -->
+:::{.callout-tip}
+## Wichtig
 
-<!-- 👉 Falls Sie noch keinen Projektordner `dataviz` haben: [RStudio Projekt für Übung 3 herunterladen](../../downloadable_files/data_viz.zip) und entzippen. -->
+👉 Falls Sie noch keinen Projektordner `dataviz` haben: [RStudio Projekt für Übung 3 herunterladen](../../downloadable_files/data_viz.zip) und entzippen.
 
-<!-- 👉 Falls Sie den Datensatz `rdkdata_clean.csv` nicht im Ordner `data_rdk` haben: [Datensatz `rdkdata_clean.csv` laden](../../downloadable_files/rdkdata_clean.csv) und im Ordner `dataviz` vom RStudio-Projektordner `dataviz` speichern. -->
-<!-- ::: -->
+👉 Falls Sie den Datensatz `rdkdata_clean.csv` nicht im Ordner `data_rdk` haben: [Datensatz `rdkdata_clean.csv` laden](../../downloadable_files/rdkdata_clean.csv) und im Ordner `dataviz` vom RStudio-Projektordner `dataviz` speichern.
+:::
 
 
-<!-- - Öffnen Sie das RStudio-Projekt `dataviz`. -->
+- Öffnen Sie das RStudio-Projekt `dataviz`.
 
-<!-- - Öffnen Sie unter `File` > `New File` > `R Markdown ...` ein neues RMarkdown-File. -->
+- Öffnen Sie unter `File` > `New File` > `R Markdown ...` ein neues RMarkdown-File.
 
-<!-- - Geben Sie einen Titel und Ihren Namen ein und wählen Sie `HTML`als Output-Format. -->
+- Geben Sie einen Titel und Ihren Namen ein und wählen Sie `HTML`als Output-Format.
 
-<!-- - Erstellen Sie ein RMarkdown-File `uebung-3_dataviz.Rmd` und wählen Sie `html` als Output. Geben Sie unter Autor `Complab` ein, damit das File anonymisiert ist. -->
+- Erstellen Sie ein RMarkdown-File `uebung-3_dataviz.Rmd` und wählen Sie `html` als Output. Geben Sie unter Autor `Complab` ein, damit das File anonymisiert ist.
 
-<!-- - Löschen Sie alles ausser den YAML header (alles unter dem zweiten `---`) -->
+- Löschen Sie alles ausser den YAML header (alles unter dem zweiten `---`)
 
-<!-- - Laden Sie die Daten. Sie finden die Daten für diese Übung im Projektordner `dataviz` im Ordner `data_rdk` -->
 
+## Kommentare & Code
 
+Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. Wählen Sie aus, welche die Codechunks ausgeführt / angezeigt werden sollen.
 
+## Aufgaben
 
-<!-- ## Kommentare & Code -->
+- Laden Sie nötige Packages.
 
-<!-- Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. Wählen Sie mit Bedacht aus, welche die Codechunks ausgeführt / angezeigt werden sollen.  -->
+- Laden Sie die Daten unseres Experiments. Sie finden den Datensatz `rdkdata_clean.csv` für diese Übung im Projektordner `dataviz` > `data_rdk`.
 
+- Machen Sie Textvariablen und die Personen-Id-Variable zu Faktoren und schauen Sie den Datensatz kurz an (mit `slice_head()` oder `glimpse()`), um zu überprüfen, ob die Daten richtig eingelesen wurden.
 
-<!-- ## Aufgaben -->
+- Ihre Aufgabe ist es eine Forschungsfrage zu dem vorhandenen Datensatz zu stellen, dazu eine Grafik zu plotten und die Antwort damit zu visualisieren, sowie in schriftlicher Form zu geben.
 
-<!-- - Laden Sie nötige Packages. -->
+    - Beschreiben Sie in Textform, welche Frage Sie mit Ihrer Grafik beantworten möchten.
 
-<!-- - Laden Sie die Daten. Sie finden die Daten für diese Übung im Projektordner `dataviz` im Ordner `data_rdk`, machen Sie Textvariablen zu Faktoren und schauen Sie den Datensatz kurz an (mit `slice_head()` oder `glimpse()`, um zu überprüfen, ob die Daten richtig eingelesen wurden.) -->
+    - Falls nötig: Bearbeiten Sie den Datensatz / erstellen Sie einen neuen Datensatz für die Grafik.
 
-<!-- - Ihre Aufgabe ist es 3 Grafiken zu erstellen, eine diagnostische, eine analytische und eine zur Kommunikation. Für jede Grafik: -->
+    - Erstellen Sie die Grafik, und lassen Sie diese anzeigen.
 
-<!--     - Beschreiben Sie in Textform, welche Frage Sie mit Ihrer Grafik beantworten möchten und in welche Kategorie diese fällt (Diagnostik, Analyse, Kommunikation). -->
+    - Speichern Sie die Grafik zusätzlich als `.jpg` oder `.png` ab. So kann Ihr Peer Reviewer auch bei nicht funktionierendem Code Rückmeldung zur Grafik geben. 
+    
+    - Fügen Sie der Grafik passende Beschriftungen hinzu.
+    
+    - Beantworten Sie Ihre Forschungsfrage schriftlich.
+    
 
-<!--     - Falls nötig: Bearbeiten Sie den Datensatz / erstellen Sie einen neuen Datensatz für die Grafik. -->
+## Reproduzierbar machen
 
-<!--     - Erstellen Sie die Grafik, und lassen Sie diese anzeigen. -->
+Sobald Sie Text und Code geschrieben haben, ist es wichtig, das Skript auf seine Reproduzierbarkeit zu testen.
 
-<!--     - Speichern Sie die Grafik zusätzlich als `.jpg` oder `.png` ab. So kann Ihr Peer Reviewer auch bei nicht funktionierendem Code Rückmeldung zur Grafik geben. Benennen Sie die Grafik "diagnostic", "analytic", "communication" oder ähnlich. -->
+- Löschen Sie die Variablen im Workspace. Verwenden Sie dazu z.B. das "Besen"-Icon unter `Environment` oder nutzen Sie unter dem Reiter `Session` den Befehl `Clear Workspace`. Führen Sie __danach__ das Skript nochmals von oben bis unten aus.
 
+- Prüfen Sie, ob alle Pfade relativ, also nicht an Ihren Rechner gebunden sind.
 
-<!-- ## Reproduzierbar machen -->
+- Prüfen Sie, ob alles gut und verständlich kommentiert ist.
 
-<!-- Sobald Sie Text und Code geschrieben haben, ist es wichtig, das Skript auf seine Reproduzierbarkeit zu testen. -->
+## Grafik abspeichern
 
-<!-- - Löschen Sie die Variablen im Workspace. Verwenden Sie dazu z.B. das "Besen"-Icon unter `Environment` oder nutzen Sie unter dem Reiter `Session` den Befehl `Clear Workspace`. Führen Sie __danach__ das Skript nochmals von oben bis unten aus. -->
+Speichern Sie die Grafik zusätzlich als `.jpg` oder `.png` ab. So kann Ihr Peer Reviewer auch bei nicht funktionierendem Code Rückmeldung zur Grafik geben. 
 
-<!-- - Prüfen Sie, ob alle Pfade relativ, also nicht an Ihren Rechner gebunden sind.  -->
+## Hochladen
 
-<!-- - Prüfen Sie, ob alles gut und verständlich kommentiert ist. -->
+Laden Sie das `uebung-3_dataviz.Rmd` **und** die Grafik auf Ilias hoch.
 
-<!-- ## Grafik abspeichern  -->
 
+## Trouble Shooting
 
+__Packages updaten__
 
-<!-- ## Hochladen -->
+-  Updaten Sie alle packages mit `update.packages(ask = FALSE)` in der Konsole. Oder unter dem Reiter `Tools` > `Check for Package Updates ... `
 
-<!-- Laden Sie das `uebung-3_dataviz.Rmd` und die Grafik auf Ilias hoch. -->
+__Probleme mit `read_csv`__
 
+- Verwenden Sie `read.csv()` als Alternative
 
-<!-- ## Trouble Shooting -->
 
-<!-- __Packages updaten__ -->
+__Falls nichts hilft ...__
 
-<!-- -  Updaten Sie alle packages mit `update.packages(ask = FALSE)` in der Konsole. Oder unter dem Reiter `Tools` > `Check for Package Updates ... ` -->
+- Fragen Sie Mitstudierende. Ziemlich sicher hat jemand dieses Problem schon gelöst.
 
-<!-- __Probleme mit `read_csv`__ -->
+- Schreiben Sie eine Mail mit folgenden Infos:
+    - Output von `sessionInfo()` in derKonsole
+    - ausgeführter Code
+    - Fehlermeldung
+    - was haben Sie schon versucht als Lösung?
 
-<!-- - Verwenden Sie `read.csv()` als Alternative -->
 
 
-<!-- __Falls nichts hilft ...__ -->
+# 2. Peer Feedback geben
 
-<!-- - Fragen Sie Mitstudierende. Ziemlich sicher hat jemand dieses Problem schon gelöst. -->
+## Vorbereitung
 
-<!-- - Schreiben Sie eine Mail mit folgenden Infos: -->
-<!--     - Output von `sessionInfo()` in derKonsole  -->
-<!--     - ausgeführter Code  -->
-<!--     - Fehlermeldung -->
-<!--     - was haben Sie schon versucht als Lösung? -->
+- Lesen Sie [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html) die _Peer Feedback_-Grundsätze durch.
 
+- Laden Sie das Ihnen zugeordnete `.Rmd`-Skript herunter und speichern Sie es in Ihren `data_viz` R-Projektordner, wo sich auch Ihr eigenens `.Rmd`-Skript befindet.
 
+- Laden Sie auch die Grafik herunter. 
 
-<!-- # 2. Peer Feedback geben -->
+- Öffnen Sie das Projekt. Löschen Sie alle gespeicherten Variablen im Workspace. Verwenden Sie dazu z.B. das "Besen"-Icon unter `Environment` oder nutzen Sie unter dem Reiter `Session` den Befehl `Clear Workspace`.
 
-<!-- ## Vorbereitung -->
 
-<!-- - Lesen Sie [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html) die _Peer Feedback_-Grundsätze durch. -->
+## Fragen für Peer Review
 
-<!-- - Laden Sie das Ihnen zugeordnete `.Rmd`-Skript herunter und speichern Sie es in Ihr R-Projektordner, wo sich auch das Projekt-File `uebung-2.Rproj` und Ihr eigenens `.r`-Skript befindet. -->
+Öffnen Sie das `.Rmd`-Skript und führen Sie es mit `Knit` oder von oben bis unten aus und schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.
 
-<!-- - Öffnen Sie das Projekt. Löschen Sie alle gespeicherten Variablen im Workspace. Verwenden Sie dazu z.B. das "Besen"-Icon unter `Environment` oder nutzen Sie unter dem Reiter `Session` den Befehl `Clear Workspace`.  -->
+**1. Reproduzierbarkeit des Codes**
 
+Geben Sie mit mind. 5 Sätzen Rückmeldung zum `.Rmd`-Skript.
 
-<!-- ## Fragen für Peer Review -->
+- Ist das Skript ausführbar? Wenn nein: Wo genau gibt es eine Fehlermeldung, weshalb kommt diese und wie könnte diese behoben werden?
+- War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können? 
+- Haben Sie etwas gelernt von dem gereviewten Skript? Oder haben Sie etwas besser gelöst gehabt in Ihrem Skript? 
+- Haben Sie Vorschläge? usw.
 
-<!-- Öffnen Sie das `.r`-Skript und führen Sie es von oben bis unten aus und schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File. -->
 
-<!-- **1. Reproduzierbarkeit des Codes** -->
+**2. Datenvisualisierung**
+Geben Sie Rückmeldung zur Grafik. Beachten Sie dabei die Punkte aus dem Kapitel [Kommunikation: Forschungsergebnisse visualisieren](https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/data_visualization_2.html#kommunikation-forschungsergebnisse-visualisieren). Schreiben Sie zu jedem Punkt mindestens 1 Satz / Stichworte:
 
-<!-- - Ist das Skript ausführbar?  -->
+- Waren die Beschriftungen genau und passend?
 
-<!-- - Wenn nein: Wo genau gibt es eine Fehlermeldung, weshalb kommt diese und wie könnte diese behoben werden? -->
+- Fragestellung und Beantwortung. War der gewählte Plot passend? War er informativ? Gäbe es Alternativen?
 
-<!-- - Stimmen die 3 _Accuracy pro Bedingung_- Werte mit den im Kommentar beschriebenen Werten überein? -->
+- Wurden die Daten angemessen abgebildet?
 
-<!-- - Stimmen die Werte mit den von Ihnen selber errechneten Werten überein? -->
+- Data-Ink-Ratio gut gelöst? Was fehlte? Was war vielleicht zu viel?
 
+- Ästhetik? 
 
-<!-- **2. Kommentierung/Implementierung des Codes** -->
 
-<!-- - Geben Sie mit mind. 5 Sätzen Rückmeldung zum `.r`-Skript. Mögliche Themen könnten z.B. sein: War der Code angemessen kommentiert? Was war gut? Was hätte man besser machen können? Sind Ihnen an den Daten ähnliche Dinge aufgefallen? Haben Sie etwas gelernt von dem gereviewten Skript? Oder haben Sie etwas besser gelöst gehabt in Ihrem Skript? Haben Sie Vorschläge? usw. -->
+## Hochladen
 
-
-<!-- ## Hochladen -->
-
-<!-- Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch. -->
+Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch.
