@@ -60,6 +60,9 @@ website:
         contents:
           - pages/chapters/rmarkdown.qmd
           - pages/chapters/data_visualization_1.qmd
+          - pages/chapters/data_visualization_2.qmd
+          - pages/chapters/uebung_3_data_visualization.qmd
+        
       - section: "Signal detection"
         contents:
           # - pages/admin/02_syllabus.qmd

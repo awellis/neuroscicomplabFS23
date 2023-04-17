@@ -3,11 +3,6 @@ title: "Grafiken erstellen mit `ggplot`"
 description: Wissenschaftliche Daten sichtbar machen.
 date: "2023-04-03"
 author:
-  - name: Andrew Ellis
-    url: https://github.com/awellis
-    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
-    affiliation-url: https://www.kog.psy.unibe.ch
-    orcid: 0000-0002-2788-936X
   - name: Gerda Wyssen
     # url: https://github.com/awellis
     affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
@@ -36,17 +31,8 @@ Erstellen eines (reproduzierbaren) Data Reports mit Datenvisualisierungen zu uns
 
 -   das Erstellen von R Markdown Files
 -   das Verwenden des `ggplot2`-packages
-<!-- -   die Vor- und Nachteile verschiedener Formen von Datenvisualisierungen -->
-<!-- -   was eine gute Grafik ausmacht -->
+
 :::
-
-<!-- ## Arten von Grafiken -->
-
-<!-- Daten können ganz unterschiedlich dargestellt werden.  -->
-
-<!-- -   Datenverarbeitung: Es können Rohwerte geplottet werden oder *summary statistics* (z.B. Mittelwerte, Standardabweichungen) -->
-<!-- -   Anzahl Variablen: Es kann eine unterschiedliche Anzahl Variablen geplottet werden, z.B. nur eine Variable mit einem Histogramm oder mehrere, wie Reaktionszeit in einem 2x2 Design (3 Variablen). -->
-<!-- -   Form der Grafik: Punkte, Linien, usw. -->
 
 ::: callout-caution
 ## Hands-on
@@ -62,9 +48,10 @@ Wir arbeiten heute in einem R-Markdown-File. So können wir Code und normalen Te
 -   Speichern Sie dass Dokument unter dem Namen `data_viz_example`ab.
 :::
 
+
 # Grafiken erstellen mit `ggplot`
 
-Wir werden das package `ggplot2`in `R`verwenden. `gg`steht hierbei für *Grammar of Graphics*. Die anfangs etwas unintuitive Verwendung von `ggplot` lässt sich vereinfachen, wenn man berücksichtigt, dass Grafiken aus den unten beschriebenen Eigenschaften bestehen und sich damit beschreiben lassen.
+Wir werden das package `ggplot2`in `R`verwenden. `gg`steht hierbei für *Grammar of Graphics*. Der anfangs oft etwas unintuitive Aufbauvon `ggplot` lässt sich vereinfachen, wenn man berücksichtigt, dass Grafiken aus den unten beschriebenen Bauteilen zusammengesetzt werden und sich damit vollständig beschreiben lassen.
 
 <aside>Mit `ggplot`könnte man sogar Kunstwerke erstellen, wie bspw. [hier](https://www.data-imaginist.com/art) gezeigt wird.</aside>
 
@@ -72,7 +59,7 @@ Daten visualisieren erfordert:
 
 -   **Daten**
 
--   **Geome**, also sichtbare Formen (*aesthetics),* z.B. Punkte, Linien oder Boxen.
+-   **Geome**, also sichtbare Formen (*aesthetics*), z.B. Punkte, Linien oder Boxen.
 
 -   **Koordinatensystem/Mapping**: wie sind Daten und Geome verbunden?
 
@@ -94,7 +81,9 @@ Wir werden uns heute vor allem mit den Daten, Geomen und Mappings befassen. Zude
 
 ## Daten
  
-Zuerst laden wir das `tidyverse` Package und lesen das im Ordner `data_example` gespeicherte `.csv` File ein und machen die Variable `condition` zu einem Faktor. Wir schauen uns die Daten mit `glimpse()` an.
+Zuerst laden wir das `tidyverse` Package und lesen das im Ordner `data_example` gespeicherte `.csv` File ein und machen die Variable `condition` zu einem Faktor. Wir schauen uns die Daten mit `glimpse()` an. Passen Sie hierzu den Datei-Pfad an Ihren Ordner an.
+
+<aside>Der verwendete Datensatz stammt von @matejka_same_2017. </aside>
 
 ```{r}
 #| message: false
@@ -304,7 +293,7 @@ Erstellen Sie eine möglichst informative Grafik. Kopieren Sie den Code in das R
 
 - [Dokumentation](https://ggplot2.tidyverse.org/) von `ggplot2`
 
-- Kurzweilige, sehr informative Informationen und Videos über das Erstellen von Grafiken in `ggplot` finden Sie hier: [Website Psy TeachR: Data Skills for reproducible research](https://psyteachr.github.io/reprores-v3)
+- Kurzweilige, sehr informative Informationen und Videos über das Erstellen von Grafiken in `ggplot` finden Sie hier: [Website PsyTeachR: Data Skills for reproducible research](https://psyteachr.github.io/reprores-v3)
 
 - [Hier](https://youtu.be/90IdULVGmYY) ist der Start der PsyTeachR Videoliste von Lisa deBruine, dort finden sich auch hilfreiche Kurzvideos zu Themen von Daten einlesen bis zu statistischen Analysen. Beispielsweise zu [Basic Plots](https://youtu.be/tOFQFPRgZ3M), [Common Plots](https://youtu.be/kKlQupjD__g) und [Plot Themes and Customization](https://youtu.be/6pHuCbOh86s)
 

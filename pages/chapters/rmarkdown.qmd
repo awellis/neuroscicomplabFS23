@@ -3,11 +3,6 @@ title: "R Markdown"
 description: Data Reports mit Text und Code.
 date: "2023-04-02"
 author:
-  - name: Andrew Ellis
-    url: https://github.com/awellis
-    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
-    affiliation-url: https://www.kog.psy.unibe.ch
-    orcid: 0000-0002-2788-936X
   - name: Gerda Wyssen
     # url: https://github.com/awellis
     affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 

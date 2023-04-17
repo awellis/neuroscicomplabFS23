@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
 <meta name="dcterms.date" content="2023-04-03">
 <meta name="description" content="Wissenschaftliche Daten sichtbar machen.">
@@ -84,6 +83,25 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
 </style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -295,6 +313,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../../pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link active">Grafiken erstellen mit <code>ggplot</code></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">Daten Visualisierung</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link">Übung 3</a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -347,20 +375,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Author</div>
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <a href="https://github.com/awellis">Andrew Ellis</a> <a href="https://orcid.org/0000-0002-2788-936X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
-  </div>
-    <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            <a href="https://www.kog.psy.unibe.ch">
-            Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern
-            </a>
-          </p>
-      </div>
-      <div class="quarto-title-meta-contents">
     Gerda Wyssen <a href="https://orcid.org/0000-0001-7427-3149" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
   </div>
     <div class="quarto-title-meta-contents">
@@ -401,17 +419,11 @@ Lernziele
 <p>Erstellen eines (reproduzierbaren) Data Reports mit Datenvisualisierungen zu unserem Experiment.</p>
 <ul>
 <li>das Erstellen von R Markdown Files</li>
-<li>das Verwenden des <code>ggplot2</code>-packages <!-- -   die Vor- und Nachteile verschiedener Formen von Datenvisualisierungen --> <!-- -   was eine gute Grafik ausmacht -->
-</li>
+<li>das Verwenden des <code>ggplot2</code>-packages</li>
 </ul>
 </div>
 </div>
 </div>
-<!-- ## Arten von Grafiken -->
-<!-- Daten können ganz unterschiedlich dargestellt werden.  -->
-<!-- -   Datenverarbeitung: Es können Rohwerte geplottet werden oder *summary statistics* (z.B. Mittelwerte, Standardabweichungen) -->
-<!-- -   Anzahl Variablen: Es kann eine unterschiedliche Anzahl Variablen geplottet werden, z.B. nur eine Variable mit einem Histogramm oder mehrere, wie Reaktionszeit in einem 2x2 Design (3 Variablen). -->
-<!-- -   Form der Grafik: Punkte, Linien, usw. -->
 <div class="callout-caution callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -433,13 +445,13 @@ Hands-on
 </div>
 <section id="grafiken-erstellen-mit-ggplot" class="level1 page-columns page-full"><h1>Grafiken erstellen mit <code>ggplot</code>
 </h1>
-<p>Wir werden das package <code>ggplot2</code>in <code>R</code>verwenden. <code>gg</code>steht hierbei für <em>Grammar of Graphics</em>. Die anfangs etwas unintuitive Verwendung von <code>ggplot</code> lässt sich vereinfachen, wenn man berücksichtigt, dass Grafiken aus den unten beschriebenen Eigenschaften bestehen und sich damit beschreiben lassen.</p>
+<p>Wir werden das package <code>ggplot2</code>in <code>R</code>verwenden. <code>gg</code>steht hierbei für <em>Grammar of Graphics</em>. Der anfangs oft etwas unintuitive Aufbauvon <code>ggplot</code> lässt sich vereinfachen, wenn man berücksichtigt, dass Grafiken aus den unten beschriebenen Bauteilen zusammengesetzt werden und sich damit vollständig beschreiben lassen.</p>
 <aside>
 Mit <code>ggplot</code>könnte man sogar Kunstwerke erstellen, wie bspw. <a href="https://www.data-imaginist.com/art">hier</a> gezeigt wird.
 </aside><p>Daten visualisieren erfordert:</p>
 <ul>
 <li><p><strong>Daten</strong></p></li>
-<li><p><strong>Geome</strong>, also sichtbare Formen (<em>aesthetics),</em> z.B. Punkte, Linien oder Boxen.</p></li>
+<li><p><strong>Geome</strong>, also sichtbare Formen (<em>aesthetics</em>), z.B. Punkte, Linien oder Boxen.</p></li>
 <li><p><strong>Koordinatensystem/Mapping</strong>: wie sind Daten und Geome verbunden?</p></li>
 </ul>
 <p>Weitere optionale Parameter sind:</p>
@@ -453,8 +465,10 @@ Mit <code>ggplot</code>könnte man sogar Kunstwerke erstellen, wie bspw. <a href
 </ul>
 <p>Wir werden uns heute vor allem mit den Daten, Geomen und Mappings befassen. Zudem werden wir vor allem Facets und Themes genauer anschauen.</p>
 <section id="daten" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="daten">Daten</h2>
-<p>Zuerst laden wir das <code>tidyverse</code> Package und lesen das im Ordner <code>data_example</code> gespeicherte <code>.csv</code> File ein und machen die Variable <code>condition</code> zu einem Faktor. Wir schauen uns die Daten mit <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> an.</p>
-<div class="cell" data-hash="data_visualization_1_cache/html/unnamed-chunk-2_4ad02b79365633cd479b80986b591a55">
+<p>Zuerst laden wir das <code>tidyverse</code> Package und lesen das im Ordner <code>data_example</code> gespeicherte <code>.csv</code> File ein und machen die Variable <code>condition</code> zu einem Faktor. Wir schauen uns die Daten mit <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> an. Passen Sie hierzu den Datei-Pfad an Ihren Ordner an.</p>
+<aside>
+Der verwendete Datensatz stammt von <span class="citation" data-cites="matejka_same_2017">Matejka and Fitzmaurice (<a href="#ref-matejka_same_2017" role="doc-biblioref">2017</a>)</span>.
+</aside><div class="cell" data-hash="data_visualization_1_cache/html/unnamed-chunk-2_4ad02b79365633cd479b80986b591a55">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"../../data/data_example/DatasaurusDozen.csv"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
@@ -682,22 +696,27 @@ Hands-on
 <section id="weitere-hilfreiche-informationen" class="level2"><h2 class="anchored" data-anchor-id="weitere-hilfreiche-informationen">Weitere hilfreiche Informationen</h2>
 <ul>
 <li><p><a href="https://ggplot2.tidyverse.org/">Dokumentation</a> von <code>ggplot2</code></p></li>
-<li><p>Kurzweilige, sehr informative Informationen und Videos über das Erstellen von Grafiken in <code>ggplot</code> finden Sie hier: <a href="https://psyteachr.github.io/reprores-v3">Website Psy TeachR: Data Skills for reproducible research</a></p></li>
+<li><p>Kurzweilige, sehr informative Informationen und Videos über das Erstellen von Grafiken in <code>ggplot</code> finden Sie hier: <a href="https://psyteachr.github.io/reprores-v3">Website PsyTeachR: Data Skills for reproducible research</a></p></li>
 <li><p><a href="https://youtu.be/90IdULVGmYY">Hier</a> ist der Start der PsyTeachR Videoliste von Lisa deBruine, dort finden sich auch hilfreiche Kurzvideos zu Themen von Daten einlesen bis zu statistischen Analysen. Beispielsweise zu <a href="https://youtu.be/tOFQFPRgZ3M">Basic Plots</a>, <a href="https://youtu.be/kKlQupjD__g">Common Plots</a> und <a href="https://youtu.be/6pHuCbOh86s">Plot Themes and Customization</a></p></li>
 <li><p><a href="https://methodenlehre.github.io/einfuehrung-in-R/chapters/05-plotting.html">Einführung in R</a> von Andrew Ellis und Boris Mayer</p></li>
 </ul>
 
 
-</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2023,
-  author = {Andrew Ellis and Gerda Wyssen},
+
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-matejka_same_2017" class="csl-entry" role="doc-biblioentry">
+Matejka, Justin, and George Fitzmaurice. 2017. <span>“Same <span>Stats</span>, <span>Different</span> <span>Graphs</span>: <span>Generating</span> <span>Datasets</span> with <span>Varied</span> <span>Appearance</span> and <span>Identical</span> <span>Statistics</span> Through <span>Simulated</span> <span>Annealing</span>.”</span> In <em>Proceedings of the 2017 <span>CHI</span> <span>Conference</span> on <span>Human</span> <span>Factors</span> in <span>Computing</span> <span>Systems</span></em>, 1290–94. Denver Colorado USA: ACM. <a href="https://doi.org/10.1145/3025453.3025912">https://doi.org/10.1145/3025453.3025912</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{wyssen2023,
+  author = {Gerda Wyssen},
   title = {Grafiken Erstellen Mit `Ggplot`},
   date = {2023-04-03},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/data_visualization_1.html},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//data_visualization_1.html},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
-Andrew Ellis, and Gerda Wyssen. 2023. <span>“Grafiken Erstellen Mit
-`Ggplot`.”</span> April 3, 2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/data_visualization_1.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/data_visualization_1.html</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-wyssen2023" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Gerda Wyssen. 2023. <span>“Grafiken Erstellen Mit `Ggplot`.”</span>
+April 3, 2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//data_visualization_1.html">https://kogpsy.github.io/neuroscicomplabFS23//data_visualization_1.html</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
