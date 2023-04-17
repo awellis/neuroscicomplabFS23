@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<head>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
 
-<meta charset="utf-8" />
-<meta name="generator" content="quarto-1.2.335" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<meta name="author" content="Gerda Wyssen">
+<meta name="description" content="Daten visualisieren mit reproduzierbarem Code.">
 
-<meta name="author" content="Gerda Wyssen" />
-<meta name="description" content="Daten visualisieren mit reproduzierbarem Code." />
-
-<title>Neurowissenschaft Computerlab – Übung 3</title>
+<title>Neurowissenschaft Computerlab - Übung 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,7 +24,26 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-<!-- htmldependencies:E3FAD763 -->
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//assets/logo_landing.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -48,26 +65,24 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="/styles/global.css" />
+<link rel="stylesheet" href="../../styles/global.css">
 </head>
 
-<body>
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="/index.html" class="navbar-brand navbar-brand-logo">
-    <img src="/assets/logo.png" alt="" class="navbar-logo" />
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="/index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Neurowissenschaft Computerlab</span>
     </a>
   </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
-  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
-  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -78,15 +93,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">    
         <li>
-    <a class="dropdown-item" href="/pages/admin/syllabus.html">
+    <a class="dropdown-item" href="../../pages/admin/syllabus.html">
  <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/pages/admin/leistungsnachweise.html">
+    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html">
  <span class="dropdown-text">📝 Leistungsnachweise</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="/pages/admin/dozierende.html">
+    <a class="dropdown-item" href="../../pages/admin/dozierende.html">
  <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
     </ul>
@@ -104,15 +119,10 @@ ul.task-list li input[type="checkbox"] {
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" 
-        data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" 
-        aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
-        onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"
-  >
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
-      <button type="button" 
-        class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+      <h1 class="quarto-secondary-nav-title">Übung 3</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
@@ -139,17 +149,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/software.html" class="sidebar-item-text sidebar-link">Programmiersprachen</a>
+  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">Programmiersprachen</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">ChatGPT</a>
+  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">ChatGPT</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">DataCamp</a>
+  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">DataCamp</a>
   </div>
 </li>
       </ul>
@@ -164,17 +174,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">Verhaltensexperiment mit PsychoPy</a>
+  <a href="../../pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">Verhaltensexperiment mit PsychoPy</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">Experiment erstellen: Step by step</a>
+  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">Experiment erstellen: Step by step</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">Übung 1</a>
+  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">Übung 1</a>
   </div>
 </li>
       </ul>
@@ -189,32 +199,32 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">Reproducibility</a>
+  <a href="../../pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">Reproducibility</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 1</a>
+  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 1</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">Automatisieren</a>
+  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">Automatisieren</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 2</a>
+  <a href="../../pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 2</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">Aggregierte Statistiken</a>
+  <a href="../../pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">Aggregierte Statistiken</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">Übung 2</a>
+  <a href="../../pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">Übung 2</a>
   </div>
 </li>
       </ul>
@@ -229,22 +239,22 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">R Markdown</a>
+  <a href="../../pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">R Markdown</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">Grafiken erstellen mit `ggplot`</a>
+  <a href="../../pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">Grafiken erstellen mit <code>ggplot</code></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">Daten Visualisierung</a>
+  <a href="../../pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">Daten Visualisierung</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="/pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link active">Übung 3</a>
+  <a href="../../pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link active">Übung 3</a>
   </div>
 </li>
       </ul>
@@ -260,14 +270,35 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <div id="quarto-toc-target"></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rmarkdown-file-erstellen" id="toc-rmarkdown-file-erstellen" class="nav-link active" data-scroll-target="#rmarkdown-file-erstellen">1. RMarkdown-File erstellen</a>
+  <ul class="collapse">
+  <li><a href="#vorbereitung" id="toc-vorbereitung" class="nav-link" data-scroll-target="#vorbereitung">Vorbereitung</a></li>
+  <li><a href="#kommentare-code" id="toc-kommentare-code" class="nav-link" data-scroll-target="#kommentare-code">Kommentare &amp; Code</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben">Aufgaben</a></li>
+  <li><a href="#reproduzierbar-machen" id="toc-reproduzierbar-machen" class="nav-link" data-scroll-target="#reproduzierbar-machen">Reproduzierbar machen</a></li>
+  <li><a href="#grafik-abspeichern" id="toc-grafik-abspeichern" class="nav-link" data-scroll-target="#grafik-abspeichern">Grafik abspeichern</a></li>
+  <li><a href="#hochladen" id="toc-hochladen" class="nav-link" data-scroll-target="#hochladen">Hochladen</a></li>
+  <li><a href="#trouble-shooting" id="toc-trouble-shooting" class="nav-link" data-scroll-target="#trouble-shooting">Trouble Shooting</a></li>
+  </ul></li>
+  <li><a href="#peer-feedback-geben" id="toc-peer-feedback-geben" class="nav-link" data-scroll-target="#peer-feedback-geben">2. Peer Feedback geben</a>
+  <ul class="collapse">
+  <li><a href="#vorbereitung-1" id="toc-vorbereitung-1" class="nav-link" data-scroll-target="#vorbereitung-1">Vorbereitung</a></li>
+  <li><a href="#fragen-für-peer-review" id="toc-fragen-für-peer-review" class="nav-link" data-scroll-target="#fragen-für-peer-review">Fragen für Peer Review</a></li>
+  <li><a href="#hochladen-1" id="toc-hochladen-1" class="nav-link" data-scroll-target="#hochladen-1">Hochladen</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Übung 3</h1>
+<h1 class="title d-none d-lg-block">Übung 3</h1>
 </div>
 
 <div>
@@ -301,39 +332,18 @@ ul.task-list li input[type="checkbox"] {
   
 
 </header>
-<nav id="TOC" role="doc-toc">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#rmarkdown-file-erstellen" id="toc-rmarkdown-file-erstellen">1. RMarkdown-File erstellen</a>
-  <ul>
-  <li><a href="#vorbereitung" id="toc-vorbereitung">Vorbereitung</a></li>
-  <li><a href="#kommentare-code" id="toc-kommentare-code">Kommentare &amp; Code</a></li>
-  <li><a href="#aufgaben" id="toc-aufgaben">Aufgaben</a></li>
-  <li><a href="#reproduzierbar-machen" id="toc-reproduzierbar-machen">Reproduzierbar machen</a></li>
-  <li><a href="#grafik-abspeichern" id="toc-grafik-abspeichern">Grafik abspeichern</a></li>
-  <li><a href="#hochladen" id="toc-hochladen">Hochladen</a></li>
-  <li><a href="#trouble-shooting" id="toc-trouble-shooting">Trouble Shooting</a></li>
-  </ul></li>
-  <li><a href="#peer-feedback-geben" id="toc-peer-feedback-geben">2. Peer Feedback geben</a>
-  <ul>
-  <li><a href="#vorbereitung-1" id="toc-vorbereitung-1">Vorbereitung</a></li>
-  <li><a href="#fragen-für-peer-review" id="toc-fragen-für-peer-review">Fragen für Peer Review</a></li>
-  <li><a href="#hochladen-1" id="toc-hochladen-1">Hochladen</a></li>
-  </ul></li>
-  </ul>
-</nav>
+
 <p>Die Übung 3 besteht aus den zwei folgenden Aufgaben:</p>
 <p><strong>1. RMarkdown-File erstellen und ausführen</strong>: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen und damit eine Grafik erstellt. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.</p>
 <p><strong>2. Peer Feedback</strong>: Mittels Ilias wird Ihnen das RMarkdown-File und die Grafik einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses RMarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.</p>
 <section id="rmarkdown-file-erstellen" class="level1">
 <h1>1. RMarkdown-File erstellen</h1>
 <section id="vorbereitung" class="level2">
-<h2>Vorbereitung</h2>
+<h2 class="anchored" data-anchor-id="vorbereitung">Vorbereitung</h2>
 <div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class='callout-icon'></i>
+<i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
 Wichtig
@@ -353,11 +363,11 @@ Wichtig
 </ul>
 </section>
 <section id="kommentare-code" class="level2">
-<h2>Kommentare &amp; Code</h2>
+<h2 class="anchored" data-anchor-id="kommentare-code">Kommentare &amp; Code</h2>
 <p>Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. Wählen Sie aus, welche die Codechunks ausgeführt / angezeigt werden sollen.</p>
 </section>
 <section id="aufgaben" class="level2">
-<h2>Aufgaben</h2>
+<h2 class="anchored" data-anchor-id="aufgaben">Aufgaben</h2>
 <ul>
 <li><p>Laden Sie nötige Packages.</p></li>
 <li><p>Laden Sie die Daten unseres Experiments. Sie finden den Datensatz <code>rdkdata_clean.csv</code> für diese Übung im Projektordner <code>dataviz</code> &gt; <code>data_rdk</code>.</p></li>
@@ -374,7 +384,7 @@ Wichtig
 </ul>
 </section>
 <section id="reproduzierbar-machen" class="level2">
-<h2>Reproduzierbar machen</h2>
+<h2 class="anchored" data-anchor-id="reproduzierbar-machen">Reproduzierbar machen</h2>
 <p>Sobald Sie Text und Code geschrieben haben, ist es wichtig, das Skript auf seine Reproduzierbarkeit zu testen.</p>
 <ul>
 <li><p>Löschen Sie die Variablen im Workspace. Verwenden Sie dazu z.B. das “Besen”-Icon unter <code>Environment</code> oder nutzen Sie unter dem Reiter <code>Session</code> den Befehl <code>Clear Workspace</code>. Führen Sie <strong>danach</strong> das Skript nochmals von oben bis unten aus.</p></li>
@@ -383,15 +393,15 @@ Wichtig
 </ul>
 </section>
 <section id="grafik-abspeichern" class="level2">
-<h2>Grafik abspeichern</h2>
+<h2 class="anchored" data-anchor-id="grafik-abspeichern">Grafik abspeichern</h2>
 <p>Speichern Sie die Grafik zusätzlich als <code>.jpg</code> oder <code>.png</code> ab. So kann Ihr Peer Reviewer auch bei nicht funktionierendem Code Rückmeldung zur Grafik geben.</p>
 </section>
 <section id="hochladen" class="level2">
-<h2>Hochladen</h2>
+<h2 class="anchored" data-anchor-id="hochladen">Hochladen</h2>
 <p>Laden Sie das <code>uebung-3_dataviz.Rmd</code> <strong>und</strong> die Grafik auf Ilias hoch.</p>
 </section>
 <section id="trouble-shooting" class="level2">
-<h2>Trouble Shooting</h2>
+<h2 class="anchored" data-anchor-id="trouble-shooting">Trouble Shooting</h2>
 <p><strong>Packages updaten</strong></p>
 <ul>
 <li>Updaten Sie alle packages mit <code>update.packages(ask = FALSE)</code> in der Konsole. Oder unter dem Reiter <code>Tools</code> &gt; <code>Check for Package Updates ...</code></li>
@@ -416,7 +426,7 @@ Wichtig
 <section id="peer-feedback-geben" class="level1">
 <h1>2. Peer Feedback geben</h1>
 <section id="vorbereitung-1" class="level2">
-<h2>Vorbereitung</h2>
+<h2 class="anchored" data-anchor-id="vorbereitung-1">Vorbereitung</h2>
 <ul>
 <li><p>Lesen Sie <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html">hier</a> die <em>Peer Feedback</em>-Grundsätze durch.</p></li>
 <li><p>Laden Sie das Ihnen zugeordnete <code>.Rmd</code>-Skript herunter und speichern Sie es in Ihren <code>data_viz</code> R-Projektordner, wo sich auch Ihr eigenens <code>.Rmd</code>-Skript befindet.</p></li>
@@ -425,7 +435,7 @@ Wichtig
 </ul>
 </section>
 <section id="fragen-für-peer-review" class="level2">
-<h2>Fragen für Peer Review</h2>
+<h2 class="anchored" data-anchor-id="fragen-für-peer-review">Fragen für Peer Review</h2>
 <p>Öffnen Sie das <code>.Rmd</code>-Skript und führen Sie es mit <code>Knit</code> oder von oben bis unten aus und schreiben Sie zu folgenden Punkten eine Rückmeldung in ein Word/Text-File.</p>
 <p><strong>1. Reproduzierbarkeit des Codes</strong></p>
 <p>Geben Sie mit mind. 5 Sätzen Rückmeldung zum <code>.Rmd</code>-Skript.</p>
@@ -445,19 +455,23 @@ Wichtig
 </ul>
 </section>
 <section id="hochladen-1" class="level2">
-<h2>Hochladen</h2>
+<h2 class="anchored" data-anchor-id="hochladen-1">Hochladen</h2>
 <p>Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch.</p>
-<div id="quarto-navigation-envelope" class="hidden">
-<p><span class="hidden" data-render-id="quarto-int-sidebar-title">Neurowissenschaft Computerlab</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Neurowissenschaft Computerlab</span> <span class="hidden" data-render-id="quarto-int-prev">Daten Visualisierung</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-1">Einführung</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/software.html">Programmiersprachen</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/chatgpt.html">ChatGPT</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/datacamp.html">DataCamp</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-2">Experimente</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/psychopy_experiments.html">Verhaltensexperiment mit PsychoPy</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/experiment_stepbystep.html">Experiment erstellen: Step by step</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/uebung_1_experiment.html">Übung 1</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-3">Data wrangling</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/reproducibility.html">Reproducibility</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/importing_data.html">Daten importieren: Teil 1</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/functions-loops.html">Automatisieren</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/importing_data-2.html">Daten importieren: Teil 2</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/summarizing-data.html">Aggregierte Statistiken</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/uebung_2_data_wrangling.html">Übung 2</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-4">Visualisieren</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/rmarkdown.html">R Markdown</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/data_visualization_1.html">Grafiken erstellen mit <code>ggplot</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/data_visualization_2.html">Daten Visualisierung</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/uebung_3_data_visualization.html">Übung 3</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-5">Signal detection</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-6">Bayesianische Datenanalyse</span> <span class="hidden" data-render-id="quarto-int-navbar:🗄️ Admin">🗄️ Admin</span> <span class="hidden" data-render-id="quarto-int-navbar:📚 Syllabus">📚 Syllabus</span> <span class="hidden" data-render-id="quarto-int-navbar:📝 Leistungsnachweise">📝 Leistungsnachweise</span> <span class="hidden" data-render-id="quarto-int-navbar:👨🏻‍🏫👩🏼‍🔬 Dozierende">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></p>
-</div>
-<div id="quarto-meta-markdown" class="hidden">
-<p><span class="hidden" data-render-id="quarto-metatitle">Neurowissenschaft Computerlab - Übung 3</span> <span class="hidden" data-render-id="quarto-twittercardtitle">Neurowissenschaft Computerlab - Übung 3</span> <span class="hidden" data-render-id="quarto-ogcardtitle">Neurowissenschaft Computerlab - Übung 3</span> <span class="hidden" data-render-id="quarto-metasitename">Neurowissenschaft Computerlab</span></p>
-</div>
+
+
 </section>
 </section>
 
-</main> <!-- /main -->
-<script id = "quarto-html-after-body" type="application/javascript">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{wyssen,
+  author = {Gerda Wyssen},
+  title = {Übung 3},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung_3_data_visualization.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-wyssen" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Gerda Wyssen. n.d. <span>“Übung 3.”</span> <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung_3_data_visualization.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung_3_data_visualization.html</a>.
+</div></div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -726,10 +740,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/kogpsy/neuroscicomplabFS23">
-      <i 
-  class="bi bi-github" 
-  role="img" 
->
+      <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  
@@ -738,6 +749,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </footer>
 
-</body>
 
-</html>
+
+</body></html>
