@@ -57,7 +57,7 @@ Wir arbeiten mit einem R-Markdown-File. So können wir Code und normalen Text ve
 - Laden Sie [hier](../../downloadable_files/rdkdata_clean.csv) den Datensatz unseres Experiments herunter und speichern Sie den Datensatz im Ordner mit dem RStudio-Projekt `dataviz` im Ordner `data_rdk` heisst.
 - Öffnen Sie das RStudio-Projekt `dataviz`.
 - Öffnen Sie unter `File` > `New File` > `R Markdown ...` ein neues RMarkdown-File. Geben Sie einen Titel und Ihren Namen ein und wählen Sie `HTML`als Output-Format. Speichern Sie dass Dokument unter dem Namen `data_visualization_2`ab. 
-- oder: Laden Sie den Code [hier](../../downloadable_files/data_viz_2.Rmd) herunter
+<!-- - oder: Laden Sie den Code [hier](../../downloadable_files/data_viz_2.Rmd) herunter -->
 
 :::
 
