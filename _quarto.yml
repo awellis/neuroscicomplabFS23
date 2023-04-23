@@ -90,7 +90,7 @@ format:
 
 execute:
   cache: true
-  freeze: auto
+  freeze: true
   execute-dir: project
 
 callout-icon: true
