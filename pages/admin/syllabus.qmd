@@ -68,7 +68,7 @@ Auf DataCamp den Python Einführungskurs ausprobieren.
 - In diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an. -->
 
 ### 6 Bayesianische Datenanalyse 
-```Sitzungen 11, 12, 13, und 14```
+```Sitzungen 11, 12 und 13```
 
 - Im letzten Thema geht es um einen modernen Ansatz in der Statistik, welcher auf den Axiomen der Wahrscheinlichkeitstheorie beruht, und einige Vorteile gegenüber der herkömmlichen (frequentistischen) Statistik bietet. Wir werden hier mit dem Programm `Jasp` arbeiten.
 
