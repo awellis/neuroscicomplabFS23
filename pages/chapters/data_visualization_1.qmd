@@ -15,13 +15,15 @@ format:
     html:
         toc: true
         code-link: true
+execute: 
+  cache: false
 ---
 
 ```{r}
 #| include: false
 # Set working directory of R
 knitr::opts_knit$set(root.dir = '../../data')
-getwd()
+# getwd()
 ```
 
 ::: {.callout-tip collapse="false"}
@@ -90,7 +92,7 @@ Zuerst laden wir das `tidyverse` Package und lesen das im Ordner `data_example` 
 #| warning: false
 library(tidyverse)
 
-data <- read.csv("../../data/data_example/DatasaurusDozen.csv") %>%
+data <- read.csv("data_example/DatasaurusDozen.csv") %>%
     mutate(condition = as.factor(condition))
 
 glimpse(data)

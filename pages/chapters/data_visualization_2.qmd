@@ -15,8 +15,15 @@ format:
     html:
         toc: true
         code-link: true
+execute: 
+  cache: false
 ---
 
+```{r}
+#| include: false
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data')
+```
 <!-- :::{.callout-tip collapse="false"} -->
 <!-- ## Lernziele -->
 
@@ -71,7 +78,7 @@ Zuerst laden wir das `tidyverse` Package, lesen das gespeicherte `.csv` File ein
 library(tidyverse)
 
 # Daten einlesen (bitte den Pfad "data_rdk/rdkdata_clean.csv" verwenden)
-data <- read_csv("../../data/data_rdk/rdkdata_clean.csv") |>
+data <- read_csv("data_rdk/rdkdata_clean.csv") |>
     mutate(across(where(is.character), as_factor)) |>
     mutate(id = as.factor(id))
 
@@ -330,7 +337,7 @@ Dies wird ersichtlich, wenn wir die Mittelwerte und Standardabweichungen für je
 #| message: false
 #| warning: false
 # load DatasaurusDozen dataset (bitte den Pfad "data_example/DatasaurusDozen.csv" verwenden)
-dino_data <- read.csv("../../data/data_example/DatasaurusDozen.csv") %>%
+dino_data <- read.csv("data_example/DatasaurusDozen.csv") %>%
     mutate(condition = as.factor(condition))
 
 # Plot mean and standard deviation for value 1 per condition 

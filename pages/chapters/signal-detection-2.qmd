@@ -1,0 +1,35 @@
+---
+title: "Signal Detection Theory 1"
+description: |
+  Einführung, Theorie und Simulationen.
+date: "2022-04-24"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+license: CC BY
+citation: true
+bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+        code-link: true
+execute: 
+  cache: false
+code-annotations: select
+---
+
+:::{.callout-tip collapse="false"}
+## Lernziele
+
+In der heutigen Sitzung lernen wir:
+
+- Conditionals und Control Flow
+- Funktionen erstellen
+- Loops anwenden
+:::
+
+# Einleitung
+
