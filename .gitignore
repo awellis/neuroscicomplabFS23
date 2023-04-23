@@ -2,6 +2,7 @@
 
 pages/chapters/*_cache/
 pages/chapters/*_files/
+playground/
 
 .Rproj.user
 .Rhistory
