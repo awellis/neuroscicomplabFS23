@@ -1,7 +1,7 @@
 ---
-title: "Signal Detection Theory 1"
+title: "Datenanalyse mit SDT"
 description: |
-  Einführung, Theorie und Simulationen.
+  SDT Kennzahlen schätzen.
 date: "2022-04-24"
 author:
   - name: Andrew Ellis
@@ -26,9 +26,7 @@ code-annotations: select
 
 In der heutigen Sitzung lernen wir:
 
-- Conditionals und Control Flow
-- Funktionen erstellen
-- Loops anwenden
+🚧
 :::
 
 # Einleitung
