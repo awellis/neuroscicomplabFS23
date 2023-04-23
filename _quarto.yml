@@ -63,7 +63,7 @@ website:
           - pages/chapters/data_visualization_2.qmd
           - pages/chapters/uebung_3_data_visualization.qmd
 
-      - section: "Signal detection"
+      - section: "Signal Detection Theory"
         contents:
           - pages/chapters/signal-detection-1.qmd
           - pages/chapters/signal-detection-2.qmd

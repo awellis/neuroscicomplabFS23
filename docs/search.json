@@ -578,14 +578,14 @@
     "href": "pages/chapters/signal-detection-1.html",
     "title": "Einführung",
     "section": "",
-    "text": "Lernziele\n\n\n\n\n\nIn der heutigen Sitzung lernen wir:\n\nEntscheidungen modellieren\nSignal Detection Theory (SDT) kennenlernen\nIn R anwenden"
+    "text": "Lernziele\n\n\n\n\n\nIn der heutigen Sitzung lernen wir:\n\nSimple binäre Entscheidungen mit Signal Detection Theory modellieren\nKonzepte der Signal Detection Theory (SDT)\nSDT mit R simulieren"
   },
   {
     "objectID": "pages/chapters/signal-detection-2.html",
     "href": "pages/chapters/signal-detection-2.html",
-    "title": "Signal Detection Theory 1",
+    "title": "Datenanalyse mit SDT",
     "section": "",
-    "text": "Lernziele\n\n\n\n\n\nIn der heutigen Sitzung lernen wir:\n\nConditionals und Control Flow\nFunktionen erstellen\nLoops anwenden\n\n\n\n\n\nEinleitung\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis2022,\n  author = {Ellis, Andrew},\n  title = {Signal {Detection} {Theory} 1},\n  date = {2022-04-24},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/signal-detection-2.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nEllis, Andrew. 2022. “Signal Detection Theory 1.” April 24,\n2022. https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/signal-detection-2.html."
+    "text": "Lernziele\n\n\n\n\n\nIn der heutigen Sitzung lernen wir:\n🚧\n\n\n\n\nEinleitung\n\n\n\n\nReusehttps://creativecommons.org/licenses/by/4.0/CitationBibTeX citation:@online{ellis2022,\n  author = {Ellis, Andrew},\n  title = {Datenanalyse Mit {SDT}},\n  date = {2022-04-24},\n  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/signal-detection-2.html},\n  langid = {en}\n}\nFor attribution, please cite this work as:\nEllis, Andrew. 2022. “Datenanalyse Mit SDT.” April 24,\n2022. https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/signal-detection-2.html."
   },
   {
     "objectID": "pages/chapters/software.html",

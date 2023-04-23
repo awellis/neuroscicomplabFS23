@@ -26,22 +26,21 @@ code-annotations: select
 
 In der heutigen Sitzung lernen wir:
 
-- Entscheidungen modellieren
-- Signal Detection Theory (SDT) kennenlernen
-- In R anwenden
+- Simple binäre Entscheidungen mit Signal Detection Theory modellieren
+- Konzepte der Signal Detection Theory (SDT) 
+- SDT mit R simulieren
 :::
 
 # Entscheidungen
-A decision is a deliberative process that results in the commitment to a categorical proposition.
 
-We hope to identify principles that seem likely to contribute to the kinds of flexible and nuanced decisions that are a hallmark of higher cognition.
+Signal detection theory (SDT) is a statistical theory of decision making that can be used to model the performance of a subject in any task requiring a binary decision. SDT has been applied to many areas of psychology and neuroscience. For a slighlty old, but still very good overview, see @goldNeuralBasisDecision2007a. This paper describes several applications of SDT, in particular to the study of random dot motion stimuli.
 
+SDT can be applied whenever two possible stimulus types must be discriminated. Psychologists first applied the theory in studies of perception, where subjects discriminated between signals (stimuli) and noise (no stimuli). The signal and noise labels remain, but SDT has since been applied in many other areas. Examples (and their corresponding signal and noise stimuli) include recognition memory (old and new items), lie detection (lies and truths), personnel selection (desirable and undesirable applicants), jury decision making (guilty and innocent defendants), medical diagnosis (diseased and well patients), industrial inspection (unacceptable and acceptable items), and information retrieval (relevant and irrelevant information
 
-The organization of this review is as follows. 
+SDT assumes that the decision-maker has to make a binary choice between two alternatives (e.g., signal or noise) based on limited or uncertain information. The decision is made by comparing the received information to a criterion or threshold. If the information exceeds this threshold, the decision-maker will choose the signal; otherwise, they will choose the noise.
 
-- We first describe the computational elements that comprise the decision process.
-- We then briefly review signal detection theory (SDT) and sequential analysis (SA), two related branches of statistical decision theory that represent formal, mathematical prescriptions for how to form a decision using these computational elements. 
-- We then dissect several experimental results in the context of this theoretical framework to identify neural substrates of decision making.
+One of the key contributions of SDT is the distinction between sensitivity and bias in the decision-making process. Sensitivity refers to the ability of the decision-maker to correctly distinguish between two different types of signals, whereas bias refers to the tendency of the decision-maker to favor one alternative over the other. By separating these two components, researchers can analyze how different factors affect decision-making performance.
+
 
 
 @goldNeuralBasisDecision2007a
@@ -66,6 +65,8 @@ In a model, we want to make sure that the problem is simple, so we restrict the 
 
 :::
 
+
+
 # Signal detection theory
 
 @shadlenDecisionMakingWindow2013 and @wylieUsingSignalDetection2020
@@ -74,6 +75,8 @@ In a model, we want to make sure that the problem is simple, so we restrict the 
 
 @macmillanDetectionTheoryUser2004a
 
+Calculation of SDT measures @stanislawCalculationSignalDetection1999b
+
 We consider an experiment in which a person has to classify a stimulus into one of two possible categories:
 
 - new / old
@@ -81,6 +84,7 @@ We consider an experiment in which a person has to classify a stimulus into one 
 - yes / no
 
 We can neglect the underlying task, as the math is the same. In the general case, say we present two stimulus categories `A` and `B`, that vary along some dimension. The task of the subject in our experiment is to perform a binary classification with the response options `A` and `B`. The subject's performance can be summarized in a classification table, with four possible outcomes:
+
 
 |              | Signal         |                        |
 |------------- |--------------- |------------------------|
@@ -92,6 +96,10 @@ We can neglect the underlying task, as the math is the same. In the general case
 - Miss: Stimulus is `A`, subject responds `B`
 - **False alarm**: Stimulus is `B`, subject responds `A`
 - Correct rejection: Stimulus is `B`, subject responds `B`
+
+```
+The hit rate equals the proportion of the signal distribution that exceeds the criterion, whereas the false alarm rate equals the proportion of the noise distribution that exceeds the criterion.
+```
 
 > Given the stimulus, the subject has two response options. Therefore, we consider only the `A` responses when the stimulus is `A` (hits) or `B` (false alarms).
 
