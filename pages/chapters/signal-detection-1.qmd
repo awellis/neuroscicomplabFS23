@@ -476,7 +476,7 @@ sdt_summary <- sdt |>
   pivot_wider(names_from = type, values_from = n) 
 ```
 
-Die zweite Funktion dient dazu, Nullen oder Einsen zu ersetzen. Da realtive Häufigkeiten zwischen 0 und 1 liegen, aber nicht genau 0 oder 1 sein können, müssen wir diese Werte korrigieren: $0 < r < 1$.  Die Funktion `correct_zero_one` korrigiert die Werte, indem sie eine kleine Zahl hinzufügt oder subtrahiert.
+Die folgende Funktion dient dazu, Nullen oder Einsen zu ersetzen. Da relative Häufigkeiten zwischen 0 und 1 liegen, aber nicht genau 0 oder 1 sein können, müssen wir diese Werte korrigieren: $0 < r < 1$.  Die Funktion `correct_zero_one` korrigiert die Werte, indem sie eine kleine Zahl hinzufügt oder subtrahiert.
 
 ```{r}
 correct_zero_one <- function(rate, e = 0.001) {
