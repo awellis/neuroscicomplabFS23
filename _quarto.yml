@@ -5,7 +5,7 @@ project:
     - index.qmd
     - pages/admin/*.qmd
     - pages/chapters/*.qmd
-    - slides/*.qmd
+    # - slides/*.qmd
     - pages/exercises/exercise_*.qmd
     - pages/solutions/solution_*.qmd
 
