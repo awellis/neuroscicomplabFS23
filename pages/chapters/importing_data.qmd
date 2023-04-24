@@ -126,7 +126,6 @@ testdata |>
 
 Die Variable `main_blocks_loop.thisN` ist die Trialnummer. Diese können wir verwenden, um die Zeilen auszuschliessen, die nicht zum Main Block gehören -- bei den Übungstrials ist der Wert `NA`. 
 
-```{r}
 
 ```{r}
 #| echo: false

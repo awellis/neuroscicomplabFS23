@@ -62,10 +62,12 @@ website:
           - pages/chapters/data_visualization_1.qmd
           - pages/chapters/data_visualization_2.qmd
           - pages/chapters/uebung_3_data_visualization.qmd
-        
-      - section: "Signal detection"
+
+      - section: "Signal Detection Theory"
         contents:
-          # - pages/admin/02_syllabus.qmd
+          - pages/chapters/signal-detection-1.qmd
+          # - pages/chapters/signal-detection-2.qmd
+
       - section: "Bayesianische Datenanalyse"
         contents:
           # - pages/admin/02_syllabus.qmd
@@ -89,7 +91,7 @@ format:
 
 execute:
   cache: true
-  freeze: auto
+  freeze: true
   execute-dir: project
 
 callout-icon: true
