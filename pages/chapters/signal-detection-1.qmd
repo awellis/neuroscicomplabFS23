@@ -429,147 +429,11 @@ Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnorma
 :::
 
 
+# Gedächtnis-Experiment
 
-# Parameter recovery
+Wir schauen uns ein Beispiel an (von diesem [Blogpost](https://vuorre.netlify.com/post/2017/10/09/bayesian-estimation-of-signal-detection-theory-models-part-1/)).
 
-To get a feel for how the parameters `c` and `d'` relate to observed hit and false alarm rates, we will do the following: we first simulate an observer performing a classification experiment with known parameters, i.e. `c` and `d'` are known to us and used to generate the data. We then attempt to recover `c` and `d'` from the observed hit and false alarm rates.
-
-To do this, we can define a function that takes `c` and `d'` as input, and then simulates $N$ signal and $N$ noise trials, giving a total of $2\cdot N$ trials. 
-
-```{r}
-sim_sdt <- function(dp = 1, c = 0, N = 100) {
-  nS <- nN <- N
-
-  pFA <- 1 - pnorm(c + dp/2)
-  pH <- 1 - pnorm(c - dp/2)
-  
-  FA <- rbinom(1, nN, pFA)
-  Hit <- rbinom(1, nS, pH)
-  
-  CR <- nN-FA
-  Miss <- nS-Hit
-
-  tibble(Hit, Miss, FA, CR)
-}
-```
-
-We first calculate the probability of a hit, `pH`, and a false alarm, `pFA`, as they correspond to the area under the curve to the right of the criterion, under both signal and noise distributions, respectively. 
-
-```r
-pFA <- 1 - pnorm(c + dp/2)
-pH <- 1 - pnorm(c - dp/2)
-```
-
-> We are using the bias `c` to parameterize the distributions here. Alternatively, we could also use the criterion `k`, which would result in 
-
-```r
-pFA <- 1 - pnorm(k)
-pH <- 1 - pnorm(k - dp)
-```
-
-This has the more intuitive interpretation that `pFA` is simply the area under the noise distribution that lies to the right of the criterion `k`, or: "given that my criterion is $k$, what is the probability that my response was a false alarm?". However, `c` is a more interesting quantity for us, because it quantifies the devation from an ideal observer.
-
-We then generate false alarms and hits as binomially distributed random variables, i.e. number of `yes` responses in `N` trials, given the hit and false alarm rates, respectively.
-
-```r
-FA <- rbinom(1, nN, pFA)
-Hit <- rbinom(1, nS, pH)
-```
-
-Once we have the number of hits and false alarms, we can compute the number of misses and correct rejections, given that we know how many trials were performed in each condition.
-
-```r
-CR <- nN-FA
-Miss <- nS-Hit
-```
-
-Now, we can simulate the behaviour of an observer. An ideal observer would be unbiased, i.e. use a value of $c=0$:
-
-```{r}
-set.seed(89)
-ideal_observer <- sim_sdt(d = 1, c = 0)
-ideal_observer
-```
-
-One thing to note is that, even an unbiased,  ideal observer cannot achieve perfect performance given that $d=1$. 
-
-We can compute the observer's accuracy as:
-
-```{r}
-ideal_observer |> 
-  summarise(accuracy = (Hit + CR)/(Hit + CR + Miss + FA))
-```
-<aside>
-There are of course more elegant ways to compute the accuracy.
-</aside>
-
-:::{.callout-note}
-How can you make the ideal observer achieve an (almost) perfect performance?
-:::
-
-We can also simulate the behaviour of an observer that is biased to toward giving `yes` responses, i.e. an observer with a value of $c<0$:
-
-```{r}
-set.seed(89)
-yes_observer <- sim_sdt(d = 1, c = -1)
-yes_observer
-```
-
-```{r}
-yes_observer |> 
-  summarise(accuracy = (Hit + CR)/(Hit + CR + Miss + FA))
-```
-
-:::{.callout-tip}
-Here, it should become clear why accuracy by itself is not that informative. The observer that is biased toward saying `yes` will achieve a very high hit rate, but has to trade this off against a very high false alarm rate. If we just look at accuracy, we might think that the biased observer isn't good at the task, but using SDT we may discover that it is the choice of criterion that is to blame, not the observer's ability!
-:::
-
-## Parameter recovery
-We can now attempt to recover the _known_ parameters `c` and `d'` from the observed hit and false alarm rates.
-
-```{r eval=FALSE, include=FALSE}
-#| eval: false
-#| include: false
-
-yes_observer |> 
-    pivot_longer(everything(), names_to = "type")
-```
-
-```{r}
-yes_observer <- yes_observer |>
-    mutate(hit_rate = Hit/(Hit + Miss),
-           fa_rate = FA/(FA + CR))
-
-yes_observer <- yes_observer |>
-    mutate(zhr = qnorm(hit_rate),
-           zfa = qnorm(fa_rate))
-
-yes_observer <- yes_observer |>
-    mutate(dprime = zhr - zfa,
-           k = - zfa,
-           c = -0.5 * (zhr + zfa)) |>
-    mutate(across(c(dprime, c), round, 2))
-```
-
-```{r}
-yes_observer 
-```
-
-For the biased observer, the valuues we used were $d' = 1$ and $c = -1$. Are we able to recover these? 
-
-```{r}
-yes_observer |> pull(c, dprime)
-```
-
-:::{.callout-note}
-Why is it seemingly difficult to recover theses parameters?
-:::
-
-# Memory experiment
-
-Let's look at an example (borrowing heavily from this [blog post](https://vuorre.netlify.com/post/2017/10/09/bayesian-estimation-of-signal-detection-theory-models-part-1/)).
-
-The data are from a recognition memory experiment:
+Die Daten sind aus einem Experiment, in dem die Teilnehmenden Bilder von bekannten und unbekannten Gesichtern gesehen haben. Sie mussten dann entscheiden, ob sie das Gesicht schon einmal gesehen haben oder nicht. Der  Datensatz `confcontr` ist im Package `sdtalt` enthalten (muss installiert werden).
 
 ```{r}
 #| message: false
@@ -586,15 +450,16 @@ library(tidyverse)
 data(confcontr)
 
 confcontr <- as_tibble(confcontr) |> 
-  mutate(subno = as_factor(subno),
-         item = isold - 0.5)
+  mutate(subno = as_factor(subno))
 ```
 
 ```{r}
 confcontr
 ```
 
-First we classify each response as hit, miss, correct rejection (cr) or false alarm (fa):
+Die Variablen sind `subno` (Teilnehmende), `isold` (wurde das Gesicht schon gesehen, 1 = ja, 0 = nein), `sayold` (wurde das Gesicht schon gesehen, 1 = ja, 0 = nein).
+
+Zuerst klassifizieren wir die Antworten als Hits, Misses, False Alarms oder Correct Rejections.
 
 ```{r}
 sdt <- confcontr |> 
@@ -605,7 +470,7 @@ sdt <- confcontr |>
         isold==0 & sayold==1 ~ "FA"))
 ```
 
-And then count the number of hits, etc.
+Dann zählen wir die Hits, Misses, False Alarms und Correct Rejections pro Teilnehmende.
 
 ```{r}
 sdt_summary <- sdt |>
@@ -614,16 +479,7 @@ sdt_summary <- sdt |>
   pivot_wider(names_from = type, values_from = n) 
 ```
 
-We will need the following two functions later on. The first replaces all instances of `NA` with `0`; i.e. if there is a count of zero, then we have the value `NA` in the data.
-
-```{r}
-replace_NA <- function(x) {
-    x = ifelse(is.na(x), 0, x)
-    x
-}
-```
-
-The second function provides a minor correction in case we have hit or false alarm rates of either `0` or `1`. Since a _rate_ $r$ is a relative frequency, which we interpret as a probability, it must lie within the range `0:1`: $0 < r < 1$. The function adds or subtracts a small number, depending on whether the rate is $0$ or $1$. In this case, neither function is necessary; we apply them anyway, for demonstration.
+Die zweite Funktion dient dazu, Nullen oder Einsen zu ersetzen. Da realtive Häufigkeiten zwischen 0 und 1 liegen, aber nicht genau 0 oder 1 sein können, müssen wir diese Werte korrigieren: $0 < r < 1$.  Die Funktion `correct_zero_one` korrigiert die Werte, indem sie eine kleine Zahl hinzufügt oder subtrahiert.
 
 ```{r}
 correct_zero_one <- function(rate, e = 0.001) {
@@ -640,14 +496,9 @@ correct_zero_one <- function(rate, e = 0.001) {
 sdt_summary
 ```
 
-```{r}
-sdt_summary <- sdt_summary |>
-    mutate(across(c(Hit, Miss, FA, CR), replace_NA))
 
-sdt_summary
-```
+Wir berechnen die relative Häufigkeit der Hits und False Alarms (mit der Tabelle oben vergleichen).
 
-Next, we **estimate** the hit and false alarm rates, based on the observed number of hits and false alarms.
 
 ```{r}
 sdt_summary <- sdt_summary |>
@@ -656,13 +507,16 @@ sdt_summary <- sdt_summary |>
 sdt_summary
 ```
 
+Nun korrigeren wir die Werte, damit sie zwischen 0 und 1 liegen.
+
 ```{r}
 sdt_summary <- sdt_summary |>
     mutate(across(c(hit_rate, fa_rate), correct_zero_one))
 sdt_summary
 ```
 
-Given the hit and false alarm rates, we can calculate the value on the _latent strength_ variable that must result in the hit and false alarm rate.
+Aus den relativen Häufigkeiten berechnen wir die Z-Scores der Hits und False Alarms mit der Quantilfunktion der Standardnormalverteilung, `qnorm()`.
+
 
 ```{r}
 sdt_summary <- sdt_summary |> 
@@ -671,24 +525,36 @@ sdt_summary <- sdt_summary |>
 sdt_summary
 ```
 
-Finally, we compute $d'$, $k$ and $c$ using the formulae given above. 
+Am Schluss berechnen wir  $d'$, $k$ und $c$ mit den Formeln. 
+
+$$ k = -\phi^{-1}(p_{FA}) $$
+
+$$ c = -\frac{1}{2} \left[\phi^{-1}(p_{H}) + \phi^{-1}(p_{FA})\right] $$
+
+$$ d' = \phi^{-1}(p_{H}) - \phi^{-1}(p_{FA}) $$
 
 ```{r}
 sdt_summary <- sdt_summary |> 
   mutate(dprime = zhr - zfa,
          k = -zfa,
          c = -0.5 * (zhr + zfa)) |>
-    mutate(across(c(dprime, k, c), round, 2))
+    mutate(across(c(dprime, k, c), \(x) round(x, 2)))
 
 sdt_summary
 ```
 
-# Memory experiment: single subject
 
-For simplicity, we first look at the data from subject `53` only:
+
+Bevor wir in der nächsten Sitzung weitermachen, schauen wir wir uns die geschätzten Parameter $c$ und $d'$ noch an.
+
 
 ```{r}
 sdt_summary |> 
-  filter(subno == 53) |> 
-  select(subno, hit_rate, fa_rate, zhr, zfa, dprime, k, c)
+  ggplot(aes(x = c, y = dprime)) +
+      geom_hline(yintercept = 0, color = "blue", linetype = 2) +
+      geom_vline(xintercept = 0, color = "blue", linetype = 2) +
+      geom_point(size = 3) +
+      labs(x = "c", y = "d'") +
+      ggtitle("Bias vs. sensitivity") +
+      theme_linedraw()
 ```
