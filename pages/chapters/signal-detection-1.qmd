@@ -42,10 +42,10 @@ Entscheidungsfindung unter Unsicherheit tritt auf, wenn Sie Entscheidungen treff
 
 Mehrere Modelle und Werkzeuge können bei der Bewältigung von Unsicherheit helfen:
 
-    - Erwartungs-Nutzen-Theorie: Schlägt vor, die Option mit dem höchsten erwarteten Nutzen zu wählen, berechnet durch Multiplikation der Wahrscheinlichkeit jedes Ergebnisses mit seinem Nutzen (Zufriedenheit oder Präferenz).
-    - Prospect-Theorie: Berücksichtigt die Verzerrungen und Heuristiken von Menschen bei der Entscheidungsfindung unter Unsicherheit, wie Verlustaversion und Wahrscheinlichkeitsgewichtung.
-    - Entscheidungsbäume: Grafische Darstellungen, die bei der Visualisierung und dem Vergleich von Optionen, Ergebnissen und Wahrscheinlichkeiten helfen.
-    - Bayesianische Entscheidungstheorie: Kombiniert vorhandenes Wissen mit neuen Informationen, um Wahrscheinlichkeiten zu aktualisieren und Entscheidungen auf der Grundlage der aktualisierten Wahrscheinlichkeiten zu treffen. 
+- Erwartungs-Nutzen-Theorie: Schlägt vor, die Option mit dem höchsten erwarteten Nutzen zu wählen, berechnet durch Multiplikation der Wahrscheinlichkeit jedes Ergebnisses mit seinem Nutzen (Zufriedenheit oder Präferenz).
+- Prospect-Theorie: Berücksichtigt die Verzerrungen und Heuristiken von Menschen bei der Entscheidungsfindung unter Unsicherheit, wie Verlustaversion und Wahrscheinlichkeitsgewichtung.
+- Entscheidungsbäume: Grafische Darstellungen, die bei der Visualisierung und dem Vergleich von Optionen, Ergebnissen und Wahrscheinlichkeiten helfen.
+- Bayesianische Entscheidungstheorie: Kombiniert vorhandenes Wissen mit neuen Informationen, um Wahrscheinlichkeiten zu aktualisieren und Entscheidungen auf der Grundlage der aktualisierten Wahrscheinlichkeiten zu treffen. 
   
 Das Verständnis von Entscheidungsfindung unter Unsicherheit ist relevant für Bereiche wie Wirtschaft, Finanzen, Psychologie, Management und öffentliche Politik, in denen Entscheidungen oft unsichere Ergebnisse beinhalten.
 
@@ -60,11 +60,8 @@ Welche Modelle und Werkzeuge könnten Ihnen helfen, diese Entscheidungen zu tref
 ## Beipiele
 - Perzeptuelle Entscheidungen
 - Kaufentscheidungen
-- 
 :::
-
 :::
-
 
 
 # Signal Detection Theory
@@ -97,7 +94,7 @@ Für eine ausführlichere Einführung in die SDT, siehe @stanislawCalculationSig
 
 Die zentrale Fragestellung der SDT lautet: was ist der (unbekannte) Zustand der Welt, angesichts der verrauschten Daten, die von den Sinnessystemen bereitgestellt werden? 
 
-In einem Modell macht es Sinn, sicherzustellen, dass das Problem einfach ist -- wir beschränken die Welt auf zwei mögliche Zustände beschränken. Diese können als Hypothesen betrachtet werden.
+In einem Modell macht es Sinn, sicherzustellen, dass das Problem einfach ist -- wir beschränken die Welt auf zwei mögliche Zustände. Diese können als Hypothesen betrachtet werden.
 
 :::{.callout-important}
 ## Beispiele
@@ -352,7 +349,7 @@ Unser Ziel ist es, die Parameter $d'$ und $c$ zu schätzen, d.h. wir wollen wiss
 
 
 
-:::{.callout-info}
+:::{.callout-important}
 ## Verteilungen in R
 Die Verteilungsfunktion der Normalverteilung heisst in R `pnorm()`. Die Umkehrfunktion dazu heisst Quantilfunktion und heisst in R `qnorm()`.
 
