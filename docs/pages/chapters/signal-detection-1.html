@@ -355,17 +355,18 @@ div.csl-indent {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#entscheidungen" id="toc-entscheidungen" class="nav-link active" data-scroll-target="#entscheidungen">Entscheidungen</a></li>
+<li><a href="#entscheidungen-unter-unsicherheit" id="toc-entscheidungen-unter-unsicherheit" class="nav-link active" data-scroll-target="#entscheidungen-unter-unsicherheit">Entscheidungen unter Unsicherheit</a></li>
   <li>
-<a href="#modelle" id="toc-modelle" class="nav-link" data-scroll-target="#modelle">Modelle</a>
+<a href="#signal-detection-theory" id="toc-signal-detection-theory" class="nav-link" data-scroll-target="#signal-detection-theory">Signal Detection Theory</a>
   <ul class="collapse">
-<li><a href="#elements-of-a-decision" id="toc-elements-of-a-decision" class="nav-link" data-scroll-target="#elements-of-a-decision">Elements of a Decision</a></li>
+<li>
+<a href="#theorie" id="toc-theorie" class="nav-link" data-scroll-target="#theorie">Theorie</a>
+  <ul class="collapse">
+<li><a href="#die-perspektive-der-versuchsperson" id="toc-die-perspektive-der-versuchsperson" class="nav-link" data-scroll-target="#die-perspektive-der-versuchsperson">Die Perspektive der Versuchsperson</a></li>
+  <li><a href="#die-perspektive-desder-externen-beobachterin" id="toc-die-perspektive-desder-externen-beobachterin" class="nav-link" data-scroll-target="#die-perspektive-desder-externen-beobachterin">Die Perspektive des/der externen Beobachter*in</a></li>
   </ul>
 </li>
-  <li>
-<a href="#signal-detection-theory" id="toc-signal-detection-theory" class="nav-link" data-scroll-target="#signal-detection-theory">Signal detection theory</a>
-  <ul class="collapse">
-<li><a href="#signal-detection-parameters" id="toc-signal-detection-parameters" class="nav-link" data-scroll-target="#signal-detection-parameters">Signal detection parameters</a></li>
+  <li><a href="#verteilungen-in-r" id="toc-verteilungen-in-r" class="nav-link" data-scroll-target="#verteilungen-in-r">Verteilungen in R</a></li>
   </ul>
 </li>
   <li>
@@ -434,23 +435,27 @@ Lernziele
 <p>In der heutigen Sitzung lernen wir:</p>
 <ul>
 <li>Simple binäre Entscheidungen mit Signal Detection Theory modellieren</li>
-<li>Konzepte der Signal Detection Theory (SDT)</li>
+<li>Konzepte der Signal Detection Theorie (SDT)</li>
 <li>SDT mit R simulieren</li>
 </ul>
 </div>
 </div>
 </div>
-<section id="entscheidungen" class="level1"><h1>Entscheidungen</h1>
-<p>Signal detection theory (SDT) is a statistical theory of decision making that can be used to model the performance of a subject in any task requiring a binary decision. SDT has been applied to many areas of psychology and neuroscience. For a slighlty old, but still very good overview, see <span class="citation" data-cites="goldNeuralBasisDecision2007a">Gold and Shadlen (<a href="#ref-goldNeuralBasisDecision2007a" role="doc-biblioref">2007</a>)</span>. This paper describes several applications of SDT, in particular to the study of random dot motion stimuli.</p>
-<p>SDT can be applied whenever two possible stimulus types must be discriminated. Psychologists first applied the theory in studies of perception, where subjects discriminated between signals (stimuli) and noise (no stimuli). The signal and noise labels remain, but SDT has since been applied in many other areas. Examples (and their corresponding signal and noise stimuli) include recognition memory (old and new items), lie detection (lies and truths), personnel selection (desirable and undesirable applicants), jury decision making (guilty and innocent defendants), medical diagnosis (diseased and well patients), industrial inspection (unacceptable and acceptable items), and information retrieval (relevant and irrelevant information</p>
-<p>SDT assumes that the decision-maker has to make a binary choice between two alternatives (e.g., signal or noise) based on limited or uncertain information. The decision is made by comparing the received information to a criterion or threshold. If the information exceeds this threshold, the decision-maker will choose the signal; otherwise, they will choose the noise.</p>
-<p>One of the key contributions of SDT is the distinction between sensitivity and bias in the decision-making process. Sensitivity refers to the ability of the decision-maker to correctly distinguish between two different types of signals, whereas bias refers to the tendency of the decision-maker to favor one alternative over the other. By separating these two components, researchers can analyze how different factors affect decision-making performance.</p>
-<p><span class="citation" data-cites="goldNeuralBasisDecision2007a">Gold and Shadlen (<a href="#ref-goldNeuralBasisDecision2007a" role="doc-biblioref">2007</a>)</span></p>
-</section><section id="modelle" class="level1"><h1>Modelle</h1>
-<section id="elements-of-a-decision" class="level2"><h2 class="anchored" data-anchor-id="elements-of-a-decision">Elements of a Decision</h2>
-<p>The decisions required for many sensorimotor tasks can be thought of as a form of statistical inference</p>
-<p>What is the (unknown) state of the world, given the noisy data provided by the sensory systems?</p>
-<p>In a model, we want to make sure that the problem is simple, so we restrict the world to two possible states. These can be thought of as hypotheses.</p>
+<section id="entscheidungen-unter-unsicherheit" class="level1"><h1>Entscheidungen unter Unsicherheit</h1>
+<p>Entscheidungsfindung unter Unsicherheit tritt auf, wenn Sie Entscheidungen treffen müssen, ohne vollständige Informationen über mögliche Ergebnisse zu haben. Der Prozess beinhaltet:</p>
+<ul>
+<li>Identifizierung des Problems oder der Entscheidung. Dies bedeutet, dass wir unsere Hypothesen formulieren müssen.</li>
+<li>Sammeln von Informationen (Evidenz) als Entscheidungsgrundlage.</li>
+<li>Schätzung der Wahrscheinlichkeiten von Ergebnissen für jede Alternative unter Verwendung verrauschter Daten.</li>
+<li>Bewertung potenzieller Kosten und Risiken unter Berücksichtigung objektiver und subjektiver Faktoren.</li>
+<li>Abwägung von Faktoren und Auswahl der Option, die Ihren Zielen und Präferenzen am besten entspricht.</li>
+</ul>
+<p>Mehrere Modelle und Werkzeuge können bei der Bewältigung von Unsicherheit helfen:</p>
+<pre><code>- Erwartungs-Nutzen-Theorie: Schlägt vor, die Option mit dem höchsten erwarteten Nutzen zu wählen, berechnet durch Multiplikation der Wahrscheinlichkeit jedes Ergebnisses mit seinem Nutzen (Zufriedenheit oder Präferenz).
+- Prospect-Theorie: Berücksichtigt die Verzerrungen und Heuristiken von Menschen bei der Entscheidungsfindung unter Unsicherheit, wie Verlustaversion und Wahrscheinlichkeitsgewichtung.
+- Entscheidungsbäume: Grafische Darstellungen, die bei der Visualisierung und dem Vergleich von Optionen, Ergebnissen und Wahrscheinlichkeiten helfen.
+- Bayesianische Entscheidungstheorie: Kombiniert vorhandenes Wissen mit neuen Informationen, um Wahrscheinlichkeiten zu aktualisieren und Entscheidungen auf der Grundlage der aktualisierten Wahrscheinlichkeiten zu treffen. </code></pre>
+<p>Das Verständnis von Entscheidungsfindung unter Unsicherheit ist relevant für Bereiche wie Wirtschaft, Finanzen, Psychologie, Management und öffentliche Politik, in denen Entscheidungen oft unsichere Ergebnisse beinhalten.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -461,55 +466,130 @@ Lernziele
 </div>
 </div>
 <div class="callout-body-container callout-body">
+<p>Überlegen Sie sich einige Beispiele für Entscheidungen, die Sie in Ihrem Leben treffen müssen, bei denen Sie nicht alle Informationen haben, die Sie benötigen, um eine fundierte Entscheidung zu treffen.</p>
+<p>Welche Modelle und Werkzeuge könnten Ihnen helfen, diese Entscheidungen zu treffen? Wie unterscheiden sich die Prozesse der Entscheidungsfindung in diesen Beipielen? welche Gemeinsamkeiten gibt es?</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Lösung
+Beipiele
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-
-</div>
-</div>
-</div>
-</div>
-</div>
-</section></section><section id="signal-detection-theory" class="level1 page-columns page-full"><h1>Signal detection theory</h1>
-<p><span class="citation" data-cites="shadlenDecisionMakingWindow2013">Shadlen and Kiani (<a href="#ref-shadlenDecisionMakingWindow2013" role="doc-biblioref">2013</a>)</span> and <span class="citation" data-cites="wylieUsingSignalDetection2020">Wylie et al. (<a href="#ref-wylieUsingSignalDetection2020" role="doc-biblioref">2020</a>)</span></p>
-<p><span class="citation" data-cites="knoblauchSignalDetectionTheory2012">Knoblauch and Maloney (<a href="#ref-knoblauchSignalDetectionTheory2012" role="doc-biblioref">2012</a>)</span></p>
-<p><span class="citation" data-cites="macmillanDetectionTheoryUser2004a">Macmillan and Creelman (<a href="#ref-macmillanDetectionTheoryUser2004a" role="doc-biblioref">2004</a>)</span></p>
-<p>Calculation of SDT measures <span class="citation" data-cites="stanislawCalculationSignalDetection1999b">Stanislaw and Todorov (<a href="#ref-stanislawCalculationSignalDetection1999b" role="doc-biblioref">1999</a>)</span></p>
-<p>We consider an experiment in which a person has to classify a stimulus into one of two possible categories:</p>
 <ul>
-<li>new / old</li>
-<li>left / right</li>
-<li>yes / no</li>
+<li>Perzeptuelle Entscheidungen</li>
+<li>Kaufentscheidungen</li>
+<li>
+</li></ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="signal-detection-theory" class="level1 page-columns page-full"><h1>Signal Detection Theory</h1>
+<p>Wir schauen uns eine Framework an, das uns hilft, Entscheidungen unter Unsicherheit zu verstehen und zu modellieren.</p>
+<p>Signal-Detektionstheorie (SDT) ist eine statistische Entscheidungstheorie, die verwendet werden kann, um die Leistung eines Probanden in jeder Aufgabe zu modellieren, die eine binäre Entscheidung erfordert. Die SDT wurde auf viele Bereiche der Psychologie und Neurowissenschaften angewendet. Für einen etwas älteren, aber immer noch sehr guten Überblick siehe <span class="citation" data-cites="goldNeuralBasisDecision2007a">Gold and Shadlen (<a href="#ref-goldNeuralBasisDecision2007a" role="doc-biblioref">2007</a>)</span>. Dieses Papier beschreibt mehrere Anwendungen der SDT, insbesondere für die Untersuchung von Reizmustern mit zufälliger Punktverschiebung.</p>
+<p>Die SDT kann angewendet werden, wann immer zwei mögliche Stimulus-Typen unterschieden werden müssen. Die Theorie wurde zuerst in Studien zur Wahrnehmung angewandt, bei denen Probanden zwischen Signalen (Reizen) und Rauschen (keine Reize) unterschieden. Die Bezeichnungen Signal und Rauschen sind geblieben, aber die SDT wurde seitdem in vielen anderen Bereichen angewendet. Beispiele (und ihre entsprechenden Signal- und Rauschreize) sind “Recognition memory” (alte und neue Elemente), Lügendetektion (Lügen und Wahrheiten), Personalauswahl (wünschenswerte und unerwünschte Bewerber), medizinische Diagnose (kranke und gesunde Patienten), industrielle Inspektion (inakzeptable und akzeptable Produkte) und “Information retrieval” (relevante und irrelevante Informationen). In neurowissenschaftlichen Studien werden mit SDT perzeptuelle System, aber auch Entscheidungen in anderen Bereichen untersucht. Ein mögliches Anwendungsgebiet ist “value-based decision making”; hier geht Entscheidungen auf der Basis von geschätzten Kosten und Nutzen einher. Ein Beispiel dafür wäre eine Kaufentscheidung, bei der der Käufer zwischen zwei Produkten wählt, die unterschiedliche Kosten und Nutzen haben.</p>
+<p>Die SDT geht davon aus, dass der Entscheidungsträger eine binäre Wahl zwischen zwei Alternativen (z. B. Signal oder Rauschen) auf der Grundlage begrenzter oder unsicherer Informationen treffen muss. Die Entscheidung wird getroffen, indem die empfangenen Informationen mit einem Kriterium oder Schwellenwert verglichen werden. Wenn die Informationen diesen Schwellenwert überschreiten, wählt der Entscheidungsträger das Signal; andernfalls wählt er das Rauschen.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Übung
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Inwiefern entspricht dieses Vorgehen dem, was Sie über Hypothesentests in der Statistik gelernt haben?</p>
+</div>
+</div>
+<p>Einer der wichtigsten Beiträge der SDT ist die Unterscheidung zwischen Sensitivität und Voreingenommenheit (Bias) im Entscheidungsprozess. Sensitivität bezieht sich auf die Fähigkeit des Entscheidungsträgers, zwischen zwei verschiedenen Arten von Signalen zu unterscheiden, während der Bias die Tendenz des Entscheidungsträgers bezeichnet, eine Alternative gegenüber der anderen a priori zu bevorzugen. Durch die Trennung dieser beiden Komponenten können Forscher analysieren, wie verschiedene Faktoren die Entscheidungsleistung beeinflussen.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Literatur
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Für eine ausführlichere Einführung in die SDT, siehe <span class="citation" data-cites="stanislawCalculationSignalDetection1999b">Stanislaw and Todorov (<a href="#ref-stanislawCalculationSignalDetection1999b" role="doc-biblioref">1999</a>)</span> und <span class="citation" data-cites="macmillanDetectionTheoryUser2004a">Macmillan and Creelman (<a href="#ref-macmillanDetectionTheoryUser2004a" role="doc-biblioref">2004</a>)</span>. <span class="citation" data-cites="knoblauchSignalDetectionTheory2012">Knoblauch and Maloney (<a href="#ref-knoblauchSignalDetectionTheory2012" role="doc-biblioref">2012</a>)</span> bietet eine gute Einführung in die Verwendung von R zur Durchführung von SDT-Analysen. <span class="citation" data-cites="decarloSignalDetectionTheory">DeCarlo (<a href="#ref-decarloSignalDetectionTheory" role="doc-biblioref">n.d.</a>)</span> diskutiert die Beziehung zwischen SDT und verallgemeinerten linearen Modellen.</p>
+</div>
+</div>
+<section id="theorie" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="theorie">Theorie</h2>
+<p>Die zentrale Fragestellung der SDT lautet: was ist der (unbekannte) Zustand der Welt, angesichts der verrauschten Daten, die von den Sinnessystemen bereitgestellt werden?</p>
+<p>In einem Modell macht es Sinn, sicherzustellen, dass das Problem einfach ist – wir beschränken die Welt auf zwei mögliche Zustände beschränken. Diese können als Hypothesen betrachtet werden.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Beispiele
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Signal / Rauschen</li>
+<li>Links / Rechts</li>
+<li>Gedächtnis: alt (schon gesehen) / neu (noch nie gesehen)</li>
 </ul>
-<p>We can neglect the underlying task, as the math is the same. In the general case, say we present two stimulus categories <code>A</code> and <code>B</code>, that vary along some dimension. The task of the subject in our experiment is to perform a binary classification with the response options <code>A</code> and <code>B</code>. The subject’s performance can be summarized in a classification table, with four possible outcomes:</p>
+</div>
+</div>
+<p>Wir werden nun die Signal Detection Theorie anhand eine Beispiels durchgehen. Dieses werden wir aus zwei Perspektiven betrachten: 1) aus der Perspektive einer Person, welche die Aufgabe hat, Stimuli in zwei Klassen zu klassifizieren und 2) aus der Perspektive eines Modells, das die Leistung der Person in der Aufgabe vorhersagt.</p>
+<section id="die-perspektive-der-versuchsperson" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="die-perspektive-der-versuchsperson">Die Perspektive der Versuchsperson</h3>
+<p>Wir betrachten ein Experiment, bei dem eine Person einen Stimulus in eine von zwei möglichen Kategorien einordnen muss; dies könnte ein Random Dot Experiment sein, bei dem die Stimuli entweder nach links oder rechts bewegt sind, oder ein Gedächtnisexperiment, bei dem die Stimuli entweder alt (schon gesehen wurden) oder neu sind.</p>
+<p>Die Aufgabe der Person ist es, eine binäre Klassifikation mit den Antwortoptionen <code>alt</code> und <code>neu</code> durchzuführen. Die Antwortoptionen entsprechen den beiden möglichen Zuständen der Welt, oder genauer gesagt, Hypothesen der Person über die möglichen Zustände der Welt.</p>
+<p>Gegeben den Reiz hat die Person zwei Antwortmöglichkeiten. Daher betrachten wir nur die <code>Ja</code>-Antworten, wenn der Reiz alt (Treffer) oder <code>neu</code> (Falschalarme) ist.</p>
+<section id="annahmen" class="level4 page-columns page-full"><h4 class="anchored" data-anchor-id="annahmen">Annahmen</h4>
+<ol type="1">
+<li><p>Die Person verarbeitet den Stimulus (in diesem Fall ein Wort oder ein Bild) und gelangt zu einer internen Repräsentation des Stimulus. Diese interne Repräsentation ist nicht deterministisch, sondern variiert zufällig. Die interne Repräsentation demzufolge eine Zufallsvariable <span class="math inline">\(X\)</span>. Wir nehmen an, dass die interne Repräsentation normalverteilt ist, mit einer bekannten Standardabweichung <span class="math inline">\(\sigma\)</span> (der Einfachheit halber nehmen wir an, dass <span class="math inline">\(\sigma=1\)</span>).</p></li>
+<li><p>Die Zufallsvariable <span class="math inline">\(X\)</span> repräsentiert die Information, die die Person über den Stimulus hat, also die Evidenz.</p></li>
+<li><p>Die Person weiss, dass die <span class="math inline">\(X\)</span> aus einer von zwei Verteilungen gezogen wurde, die sich nur in ihrer Lage (in ihrem Mittelwert) unterscheiden. Welche Verteilung es war, weiss die Person jedoch nicht – dies muss sie anhand eines Kriteriums entscheiden.</p></li>
+<li><p>Die Person hat ein Kriterium <span class="math inline">\(k\)</span>, das sie verwendet, um zu entscheiden, ob der Stimulus alt oder neu ist. Eine einfache Entscheidungsregel lautet: Wenn <span class="math inline">\(X &gt; k\)</span>, dann ist der Stimulus alt, andernfalls ist er neu.</p></li>
+</ol>
+<aside>
+Beispiel Recognition Memory: Wenn der Versuchsperson ein Bild gezeigt wird, ruft dies ein Gefühl von ‘Vertrautheit’ (familiarity) hervor. Dies ist eine latente Variable.
+</aside><div class="cell">
+<div class="cell-output-display">
+<p><img src="signal-detection-1_files/figure-html/unnamed-chunk-1-1.png" class="quarto-discovered-preview-image img-fluid" width="672"></p>
+</div>
+</div>
+<p>Noch nie gesehene Stimuli (neu) produzieren eine niedrige Vertrautheit (familiarity), während alte Stimuli eine hohe Vertrautheit produzieren. Um einen Stimulus zu klassifizieren, braucht die Person eine Entscheidungsregel.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="signal-detection-1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Eine einfache Entscheidungsregel lautet: Wenn die Vertrautheit grösser als das Kriterium ist, wenn also <span class="math inline">\(x &gt; k\)</span>, dann ist der Stimulus alt, andernfalls ist er neu.</p>
+</section></section><section id="die-perspektive-desder-externen-beobachterin" class="level3"><h3 class="anchored" data-anchor-id="die-perspektive-desder-externen-beobachterin">Die Perspektive des/der externen Beobachter*in</h3>
+<p>Die Leistung der Versuchsperson kann durch die Wahrscheinlichkeit beschrieben werden, dass sie einen Treffer (<code>Hit</code>) oder einen <code>False Alarm</code> produziert. Diese Wahrscheinlichkeiten werden als <em>Hit Rate</em> und <em>False Alarm Rate</em> bezeichnet. Die <em>Hit Rate</em> ist die Wahrscheinlichkeit, dass die Person einen Treffer produziert, wenn der Stimulus alt ist. Die <em>False Alarm Rate</em> ist die Wahrscheinlichkeit, dass die Person einen Falschalarm produziert, wenn der Stimulus neu ist.</p>
+<p>Die Antworten der Versuchspersonen können in einer Tabelle zusammengefasst werden, mit vier möglichen Ergebnissen. Wir nennen hier die Antwortoptionen der Einfachheit halber <code>ja</code> und <code>nein</code>; die Frage an die Versuchsperson lautet: “Hast du den Stimulus schon einmal gesehen?”.</p>
 <table class="table">
 <thead><tr class="header">
 <th></th>
-<th>Signal</th>
+<th><strong>Signal</strong></th>
 <th></th>
 </tr></thead>
 <tbody>
 <tr class="odd">
-<td><strong>Response</strong></td>
-<td>A (yes)</td>
-<td>B (no)</td>
+<td><strong>Antwort</strong></td>
+<td>Ja</td>
+<td>Nein</td>
 </tr>
 <tr class="even">
-<td>A (yes)</td>
+<td>Ja</td>
 <td>Hit</td>
 <td>False alarm (FA)</td>
 </tr>
 <tr class="odd">
-<td>B (no)</td>
+<td>Nein</td>
 <td>Miss</td>
 <td>Correct rejection (CR)</td>
 </tr>
@@ -517,103 +597,92 @@ Lösung
 </table>
 <ul>
 <li>
-<strong>Hit</strong>: Stimulus is <code>A</code>, subject responds <code>A</code>
+<strong>Hit</strong>: Stimulus ist <code>alt</code>, Antwort ist <code>Ja</code>
 </li>
-<li>Miss: Stimulus is <code>A</code>, subject responds <code>B</code>
+<li>Miss: Stimulus ist <code>alt</code>, Antwort ist <code>Nein</code>
 </li>
 <li>
-<strong>False alarm</strong>: Stimulus is <code>B</code>, subject responds <code>A</code>
+<strong>False alarm</strong>: Stimulus ist <code>neu</code>, Antwort ist <code>Ja</code>
 </li>
-<li>Correct rejection: Stimulus is <code>B</code>, subject responds <code>B</code>
+<li>Correct rejection: Stimulus is <code>neu</code>, Antwort ist <code>Nein</code>
 </li>
 </ul>
-<pre><code>The hit rate equals the proportion of the signal distribution that exceeds the criterion, whereas the false alarm rate equals the proportion of the noise distribution that exceeds the criterion.</code></pre>
-<blockquote class="blockquote">
-<p>Given the stimulus, the subject has two response options. Therefore, we consider only the <code>A</code> responses when the stimulus is <code>A</code> (hits) or <code>B</code> (false alarms).</p>
-</blockquote>
+<p>Als Forscher*in interessiert uns nicht nur, wie oft die Versuchsperson Hits und False ALarms produziert, sondern vor allem folgende Fragen:</p>
 <ul>
-<li><p>The SDT model assumes that on each trial <span class="math inline">\(i\)</span>, a person’s information about a stimulus can be modeled as a random variable <span class="math inline">\(X_i\)</span>.</p></li>
-<li><p>This is drawn from one of two possible distributions, which (in equal variance SDT) differ only in their location, but not their scale ( we assume that <span class="math inline">\(\sigma = 1\)</span>).</p></li>
+<li>Wie gut kann die Person Stimuli klassifizieren?</li>
+<li>Hat die Person eine Vorliebe für eine der beiden Antwortoptionen?</li>
 </ul>
-<blockquote class="blockquote">
-<p>Example: familiarity. When the subject is shown an image, this evokes a feeling of ’familiarity`. This is a latent <em>strength variable</em>.</p>
-</blockquote>
-<aside>
-SDT does not require any particular distributions, but in practise, Gaussians are often chosen.
-</aside><blockquote class="blockquote">
-<p>Thought experiment: you are a subject in a memory experiment. You were previously shown a number of images, and now you are presented with a mixture of old and new items, and have to say whether you have previously seen the test image.</p>
-</blockquote>
-<p>This can be formulated as the following statistical problem:</p>
-<ol type="1">
-<li><p>You are given a random variable <span class="math inline">\(X\)</span>, i.e.&nbsp;a draw from a normal distribution with a known standard deviation. You also know that distribution can have either of two known means, you just don’t know which one. The two distributions differ only in their mean, and the difference in means is called <code>d'</code>.</p></li>
-<li><p>You are asked to say which distribution that <span class="math inline">\(X\)</span> is most likely to have come from. This is a decision, so you need some sort of decision rule. In this case you can choose a criterion, and compare <span class="math inline">\(X\)</span> to this.</p></li>
-<li><p>You will produce four types of responses: you will either correctly classifiy the presented stimulus, or its internal representation <span class="math inline">\(X\)</span>, as either <code>old</code> or <code>new</code>. You will do this correctly (<code>hits</code> / <code>correct rejections</code>), or you will produce a missclassification (<code>false alarms</code> / <code>misses</code>).</p></li>
-<li><p>From your behavioural data, the number of <code>hits</code> and <code>false alarms</code>, we want to estimate your hit rate and false alarm rate, and then compute your internal (latent) quantities that guided your behaviour.</p></li>
-</ol>
-<p>The internal signal evoked by old and new items is often shown like this:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="signal-detection-1_files/figure-html/unnamed-chunk-1-1.png" class="quarto-discovered-preview-image img-fluid" width="672"></p>
+<p>Diese beiden Fragen können wir mit den Signal Detection Theory (SDT) Parametern beschreiben.</p>
+<p>Die beiden wichtigsten SDT Parameter sind <span class="math inline">\(d'\)</span> und <span class="math inline">\(c\)</span>. <span class="math inline">\(d'\)</span> ist ein Mass dafür, wie weit auseinander die Verteilungen der beiden Stimuluskategorien liegen. <span class="math inline">\(c\)</span> ist ein Mass dafür, ob eine Voreingenommenheit (bias) für eine der beiden Antwortoptionen besteht. Genauer gesagt ist <span class="math inline">\(c\)</span> der Abstand vom tatsächlichen Kriterium zum Punkt welcher genau zwischen den Verteilungen liegt.</p>
+<p>Um diese beiden Parameter aus den beobachteten Antworthäufigkeiten zu schätzen, müssen wir zuerst die relativen Häufigkeiten der Hits und der False Alarms schätzen.</p>
+<p>Die Hits sind die korrekten Antworten auf alte Stimuli. Dies bedeutet, dass wir zählen, wie oft bei einem <code>alten</code> Stimulus die Antwort <code>ja</code> war. Die False Alarms sind die inkorrekten Antworten auf neue Stimuli. Dies bedeutet, dass wir zählen, wie oft bei einem <code>neuen</code> Stimulus die Antwort <code>ja</code> war. <span class="math display">\[ p_{H} = \frac{Hits}{Hits + Misses} \]</span> <span class="math display">\[ p_{FA} = \frac{False Alarms}{False Alarms + Correct Rejections} \]</span></p>
+<p>Schauen wir uns die Grafik an: Wenn der Stimulus <code>neu</code> ist, dann werden wir mit einer Wahrscheinlichkeit von <span class="math inline">\(p_{FA}\)</span> einen False Alarm produzieren.</p>
+<p><span class="math display">\[ p_{FA} = P(y = 1 | X = 0) = 1 - \Phi(k) \]</span></p>
+<p><span class="math inline">\(k\)</span> ist die die von der Person willkürlich gesetzte Klassifikationsgrenze. <span class="math inline">\(\Phi\)</span> ist die Verteilungsfunktion der Normalverteilung.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
 </div>
 </div>
-<p>New items produce less familiarity than old items, but the internal representation is noisy.</p>
-<p>In order to classify the presented stimulus, based on the evoked familiarity (decision variable), we need a decision rule:</p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="signal-detection-1_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(\Phi(k)\)</span> gibt hier die Wahrscheinlichkeit, dass eine Zufallsvariable <span class="math inline">\(x\)</span> kleiner als <span class="math inline">\(k\)</span> ist. Wir wollen eigentlich wissen, was die Wahrscheinlichkeit ist, dass <span class="math inline">\(x\)</span> grösser als <span class="math inline">\(k\)</span> ist – diese ist <span class="math inline">\(1 - \Phi(k)\)</span>.</p>
 </div>
 </div>
-<p>A simple rule is to compare the signal with a criterion <span class="math inline">\(k\)</span>. If the signal <span class="math inline">\(X &gt; k\)</span>, then respond <code>old</code> (“Yes, I have previously seen it”), otherwise respond <code>new</code> (“No, I haven’t seen it before”).</p>
-<section id="signal-detection-parameters" class="level2"><h2 class="anchored" data-anchor-id="signal-detection-parameters">Signal detection parameters</h2>
-<p>The commonly known SDT parameters are <span class="math inline">\(d'\)</span> and and <span class="math inline">\(c\)</span>.</p>
-<ul>
-<li>d’: distance between distributions</li>
-</ul>
-<p><span class="math display">\[ d' = c - \phi^{-1}(1-p_{H}) = \phi^{-1}(p_{H}) - \phi^{-1}(p_{FA}) \]</span> which can also be written as: <span class="math display">\[ d' = \phi^{-1}(P(y = 1 | old)) - \phi^{-1}(P(y = 1 | new)) \]</span></p>
-<p>The expression for <span class="math inline">\(d'\)</span></p>
-<ul>
-<li>requires estimating probabilities conditional on the identity of a signal</li>
-<li>requires taking the difference on a transformed (probit) scale</li>
-<li>this is equivalent to a contrast between levels of a factor with two levels as the linear predictor for a response in a GLM</li>
-</ul>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="signal-detection-1_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<ul>
-<li>k: decision criterion <span class="math display">\[ k = \phi^{-1}(1-p_{FA}) = -\phi^{-1}(p_{FA}) \]</span>
-</li>
-</ul>
-<p>Better: distance to optimal decision boundary (c, or bias) <span class="math display">\[ c = -\frac{1}{2} \left[\phi^{-1}(p_{H}) + \phi^{-1}(p_{FA})\right] \]</span></p>
-<blockquote class="blockquote">
-<p>What we are doing here is <strong>estimating</strong> the hit rate and false alarm rate from observed hits and false alarms, and then computing d’ and c from these estimated probabilities.</p>
-</blockquote>
-<p>We can also write this the other way round:</p>
-<p>When the stimulus is <code>new</code>, we will produce false alarms with probability:</p>
-<p><span class="math display">\[ p_{FA} = P(y = 1 | X = 0) = 1 - \Phi(k) \]</span></p>
+<p>Wenn der Stimulus <code>alt</code> ist, dann werden wir mit einer Wahrscheinlichkeit von <span class="math inline">\(p_{H}\)</span> einen Hit produzieren.</p>
+<p><span class="math display">\[ p_{H} = P(y = 1 | X=1) = 1 - \Phi(k-d') \]</span></p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="signal-detection-1_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>When the stimulus is <code>old</code>, we will produce hits with probability: <span class="math display">\[ p_{H} = P(y = 1 | X=1) = 1 - \Phi(k-d') \]</span></p>
-<div class="cell">
-<div class="cell-output-display">
-<p><img src="signal-detection-1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<ul>
-<li>We can write this in one equation:</li>
-</ul>
-<p><span class="math display">\[ P(y = 1 | X = x) = 1 - \Phi(k-d'X) = \Phi(-k + d'X) \]</span> where <span class="math inline">\(X\)</span> is an indicator variable, i.e.&nbsp;takes the value <code>1</code> for <code>old</code> and <code>0</code> for <code>new</code>.</p>
-<p>This produces the probability of giving an <code>old</code> response, given the stimulus. If the stimulus is <code>old</code>, this is the probability of a <code>hit</code>, if the stimulus is <code>new</code>, this is the probability of a <code>false alarm</code>.</p>
+<p>Wir können das auch in einer Gleichung schreiben:</p>
+<p><span class="math display">\[ P(y = 1 | X = x) = 1 - \Phi(k-d'X) = \Phi(-k + d'X) \]</span> wo <span class="math inline">\(X\)</span> eine Indikatorvariable ist, d.h. sie nimmt den Wert <code>1</code> für <code>alt</code> und <code>0</code> für <code>neu</code>.</p>
+<p>Die Gleichung gibt die bedingte Wahrheitswahrscheinlichkeit für eine <code>ja</code> Antwort, gegeben den Stimulus. Ist der Stimulus <code>alt</code>, dann ist <span class="math inline">\(X = 1\)</span> und <span class="math inline">\(d'X = d'\)</span>, ist der Stimulus <code>neu</code>, dann ist <span class="math inline">\(X = 0\)</span> und <span class="math inline">\(d'X = 0\)</span>.</p>
+<p>Hier sind beide Verteilungen nochmals in einer Grafik zusammengefasst:</p>
 <div class="cell">
 <div class="cell-output-display">
 <p><img src="signal-detection-1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section></section><section id="parameter-recovery" class="level1 page-columns page-full"><h1>Parameter recovery</h1>
+<p>Unser Ziel ist es, die Parameter <span class="math inline">\(d'\)</span> und <span class="math inline">\(c\)</span> zu schätzen, d.h. wir wollen wissen: Wie weit liegen die Mittelwerte der Verteilung auseinander, und wo hat die Person ihr Kriterium gesetzt? Wir können dies mit folgenden Gleichung machen:</p>
+<p><strong>Kriterium k</strong>: Hier wollen wir wissen: Wo liegt der Wert, für den die Wahrscheinlichkeit, über <span class="math inline">\(k\)</span> zu liegen, <span class="math inline">\(p_{FA}\)</span> entspricht? Wir brauchen dafür die Umkehrfunktion der Verteilungsfunktion <span class="math inline">\(\Phi\)</span>: <span class="math inline">\(\phi^{-1}\)</span>.</p>
+</section></section><section id="verteilungen-in-r" class="level2 callout-info"><h2 class="anchored" data-anchor-id="verteilungen-in-r">Verteilungen in R</h2>
+<p>Die Verteilungsfunktion der Normalverteilung heisst in R <code><a href="https://rdrr.io/r/stats/Normal.html">pnorm()</a></code>. Die Umkehrfunktion dazu heisst Quantilfunktion und heisst in R <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>.</p>
+<p>Die verwandten Funktionen sind die Dichtefunktion <code><a href="https://rdrr.io/r/stats/Normal.html">dnorm()</a></code> und <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>, mit der wir Zufallszahlen aus der Normalverteilung ziehen können.</p>
+<p>Die kumulative Verteilungsfunktion:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="signal-detection-1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Die Quantilfunktion sieht so aus:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="signal-detection-1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</section><p>Wir können nun umformen: <span class="math display">\[ p_{FA} = P(y = 1 | X = 0) = 1 - \Phi(k) \]</span> <span class="math display">\[ \Phi(k) = 1 - p_{FA} \]</span></p>
+<p><span class="math display">\[ k = \phi^{-1}(1-p_{FA}) = -\phi^{-1}(p_{FA}) \]</span></p>
+<p>Wir interessieren uns nun aber für den Abstand zum optimalen Kriterium: dieser Parameter wird <span class="math inline">\(c\)</span> genannt. Im optimalen Fall ist <span class="math inline">\(c = 0\)</span>, und <span class="math inline">\(k=\frac{d'}{2}\)</span>. Dann wären die Miss- und Fehlalarmrate gleich gross (anhand der Grafik selber überprüfen). <span class="math inline">\(c\)</span> ist also der Durchschnitt der Hit- und False Alarm Rate, mit <span class="math inline">\(-1\)</span> multipliziert. Negative Werte von <span class="math inline">\(c\)</span> bedeuten, dass die Person tendenziell mehr Fehlalarme produziert als Misses, positive Werte bedeuten, dass die Person tendenziell mehr Misses produziert als Fehlalarme.</p>
+<p><span class="math display">\[ c = -\frac{1}{2} \left[\phi^{-1}(p_{H}) + \phi^{-1}(p_{FA})\right] \]</span></p>
+<p>Für <span class="math inline">\(d'\)</span> gilt:</p>
+<p><span class="math display">\[ d' = k - \phi^{-1}(1-p_{H}) = \phi^{-1}(p_{H}) - \phi^{-1}(p_{FA}) \]</span></p>
+<p>oder anders ausgedrückt: <span class="math display">\[ d' = \phi^{-1}(P(y = 1 | old)) - \phi^{-1}(P(y = 1 | new)) \]</span></p>
+<p>und in Worten:</p>
+<p><span class="math inline">\(d'\)</span> = Z-Score der Hit Rate - Z-Score der False Alarm Rate.</p>
+<div class="callout-info">
+<p>Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnormalverteilung zi beziechnen.</p>
+</div>
+</section><section id="parameter-recovery" class="level1 page-columns page-full"><h1>Parameter recovery</h1>
 <p>To get a feel for how the parameters <code>c</code> and <code>d'</code> relate to observed hit and false alarm rates, we will do the following: we first simulate an observer performing a classification experiment with known parameters, i.e.&nbsp;<code>c</code> and <code>d'</code> are known to us and used to generate the data. We then attempt to recover <code>c</code> and <code>d'</code> from the observed hit and false alarm rates.</p>
 <p>To do this, we can define a function that takes <code>c</code> and <code>d'</code> as input, and then simulates <span class="math inline">\(N\)</span> signal and <span class="math inline">\(N\)</span> noise trials, giving a total of <span class="math inline">\(2\cdot N\)</span> trials.</p>
 <div class="cell">
@@ -1011,6 +1080,9 @@ Note
 
 
 </section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-decarloSignalDetectionTheory" class="csl-entry" role="listitem">
+DeCarlo, Lawrence T. n.d. <span>“Signal <span>Detection Theory</span> and <span>Generalized Linear Models</span>,”</span> 20.
+</div>
 <div id="ref-goldNeuralBasisDecision2007a" class="csl-entry" role="listitem">
 Gold, Joshua I., and Michael N. Shadlen. 2007. <span>“The <span>Neural Basis</span> of <span>Decision Making</span>.”</span> <em>Annual Review of Neuroscience</em> 30 (1): 535–74. <a href="https://doi.org/10.1146/annurev.neuro.29.051605.113038">https://doi.org/10.1146/annurev.neuro.29.051605.113038</a>.
 </div>
@@ -1020,14 +1092,8 @@ Knoblauch, Kenneth, and Laurence T. Maloney. 2012. <span>“Signal <span>Detecti
 <div id="ref-macmillanDetectionTheoryUser2004a" class="csl-entry" role="listitem">
 Macmillan, Neil A., and C. Douglas Creelman. 2004. <em>Detection <span>Theory</span>: <span>A User</span>’s <span>Guide</span></em>. 2nd ed. <span>New York</span>: <span>Psychology Press</span>. <a href="https://doi.org/10.4324/9781410611147">https://doi.org/10.4324/9781410611147</a>.
 </div>
-<div id="ref-shadlenDecisionMakingWindow2013" class="csl-entry" role="listitem">
-Shadlen, Michael N., and Roozbeh Kiani. 2013. <span>“Decision <span>Making</span> as a <span>Window</span> on <span>Cognition</span>.”</span> <em>Neuron</em> 80 (3): 791–806. <a href="https://doi.org/10.1016/j.neuron.2013.10.047">https://doi.org/10.1016/j.neuron.2013.10.047</a>.
-</div>
 <div id="ref-stanislawCalculationSignalDetection1999b" class="csl-entry" role="listitem">
 Stanislaw, Harold, and Natasha Todorov. 1999. <span>“Calculation of Signal Detection Theory Measures.”</span> <em>Behavior Research Methods, Instruments, &amp; Computers</em> 31 (1): 137–49. <a href="https://doi.org/10.3758/BF03207704">https://doi.org/10.3758/BF03207704</a>.
-</div>
-<div id="ref-wylieUsingSignalDetection2020" class="csl-entry" role="listitem">
-Wylie, Glenn R., Bing Yao, Joshua Sandry, and John DeLuca. 2020. <span>“Using <span>Signal Detection Theory</span> to <span>Better Understand Cognitive Fatigue</span>.”</span> <em>Frontiers in Psychology</em> 11: 579188. <a href="https://doi.org/10.3389/fpsyg.2020.579188">https://doi.org/10.3389/fpsyg.2020.579188</a>.
 </div>
 </div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
   author = {Ellis, Andrew},

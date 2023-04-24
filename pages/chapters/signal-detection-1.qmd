@@ -27,105 +27,113 @@ code-annotations: select
 In der heutigen Sitzung lernen wir:
 
 - Simple binäre Entscheidungen mit Signal Detection Theory modellieren
-- Konzepte der Signal Detection Theory (SDT) 
+- Konzepte der Signal Detection Theorie (SDT) 
 - SDT mit R simulieren
 :::
 
-# Entscheidungen
+# Entscheidungen unter Unsicherheit
+Entscheidungsfindung unter Unsicherheit tritt auf, wenn Sie Entscheidungen treffen müssen, ohne vollständige Informationen über mögliche Ergebnisse zu haben. Der Prozess beinhaltet:
 
-Signal detection theory (SDT) is a statistical theory of decision making that can be used to model the performance of a subject in any task requiring a binary decision. SDT has been applied to many areas of psychology and neuroscience. For a slighlty old, but still very good overview, see @goldNeuralBasisDecision2007a. This paper describes several applications of SDT, in particular to the study of random dot motion stimuli.
+- Identifizierung des Problems oder der Entscheidung. Dies bedeutet, dass wir unsere Hypothesen formulieren müssen.
+- Sammeln von Informationen (Evidenz) als Entscheidungsgrundlage.
+- Schätzung der Wahrscheinlichkeiten von Ergebnissen für jede Alternative unter Verwendung verrauschter Daten.
+- Bewertung potenzieller Kosten und Risiken unter Berücksichtigung objektiver und subjektiver Faktoren.
+- Abwägung von Faktoren und Auswahl der Option, die Ihren Zielen und Präferenzen am besten entspricht.
 
-SDT can be applied whenever two possible stimulus types must be discriminated. Psychologists first applied the theory in studies of perception, where subjects discriminated between signals (stimuli) and noise (no stimuli). The signal and noise labels remain, but SDT has since been applied in many other areas. Examples (and their corresponding signal and noise stimuli) include recognition memory (old and new items), lie detection (lies and truths), personnel selection (desirable and undesirable applicants), jury decision making (guilty and innocent defendants), medical diagnosis (diseased and well patients), industrial inspection (unacceptable and acceptable items), and information retrieval (relevant and irrelevant information
+Mehrere Modelle und Werkzeuge können bei der Bewältigung von Unsicherheit helfen:
 
-SDT assumes that the decision-maker has to make a binary choice between two alternatives (e.g., signal or noise) based on limited or uncertain information. The decision is made by comparing the received information to a criterion or threshold. If the information exceeds this threshold, the decision-maker will choose the signal; otherwise, they will choose the noise.
-
-One of the key contributions of SDT is the distinction between sensitivity and bias in the decision-making process. Sensitivity refers to the ability of the decision-maker to correctly distinguish between two different types of signals, whereas bias refers to the tendency of the decision-maker to favor one alternative over the other. By separating these two components, researchers can analyze how different factors affect decision-making performance.
-
-
-
-@goldNeuralBasisDecision2007a
-
-
-# Modelle
-
-## Elements of a Decision
-The decisions required for many sensorimotor tasks can be thought of as a form of statistical inference
-
-What is the (unknown) state of the world, given the noisy data provided by the sensory systems? 
-
-In a model, we want to make sure that the problem is simple, so we restrict the world to two possible states. These can be thought of as hypotheses.
+    - Erwartungs-Nutzen-Theorie: Schlägt vor, die Option mit dem höchsten erwarteten Nutzen zu wählen, berechnet durch Multiplikation der Wahrscheinlichkeit jedes Ergebnisses mit seinem Nutzen (Zufriedenheit oder Präferenz).
+    - Prospect-Theorie: Berücksichtigt die Verzerrungen und Heuristiken von Menschen bei der Entscheidungsfindung unter Unsicherheit, wie Verlustaversion und Wahrscheinlichkeitsgewichtung.
+    - Entscheidungsbäume: Grafische Darstellungen, die bei der Visualisierung und dem Vergleich von Optionen, Ergebnissen und Wahrscheinlichkeiten helfen.
+    - Bayesianische Entscheidungstheorie: Kombiniert vorhandenes Wissen mit neuen Informationen, um Wahrscheinlichkeiten zu aktualisieren und Entscheidungen auf der Grundlage der aktualisierten Wahrscheinlichkeiten zu treffen. 
+  
+Das Verständnis von Entscheidungsfindung unter Unsicherheit ist relevant für Bereiche wie Wirtschaft, Finanzen, Psychologie, Management und öffentliche Politik, in denen Entscheidungen oft unsichere Ergebnisse beinhalten.
 
 :::{.callout-important}
 ## Übung
+Überlegen Sie sich einige Beispiele für Entscheidungen, die Sie in Ihrem Leben treffen müssen, bei denen Sie nicht alle Informationen haben, die Sie benötigen, um eine fundierte Entscheidung zu treffen. 
+
+Welche Modelle und Werkzeuge könnten Ihnen helfen, diese Entscheidungen zu treffen? Wie unterscheiden sich die Prozesse der Entscheidungsfindung in diesen Beipielen? welche Gemeinsamkeiten gibt es?
 
 
 :::{.callout-tip collapse="true"}
-## Lösung
+## Beipiele
+- Perzeptuelle Entscheidungen
+- Kaufentscheidungen
+- 
 :::
 
 :::
 
 
 
-# Signal detection theory
+# Signal Detection Theory
 
-@shadlenDecisionMakingWindow2013 and @wylieUsingSignalDetection2020
+Wir schauen uns eine Framework an, das uns hilft, Entscheidungen unter Unsicherheit zu verstehen und zu modellieren. 
 
-@knoblauchSignalDetectionTheory2012
+Signal-Detektionstheorie (SDT) ist eine statistische Entscheidungstheorie, die verwendet werden kann, um die Leistung eines Probanden in jeder Aufgabe zu modellieren, die eine binäre Entscheidung erfordert. Die SDT wurde auf viele Bereiche der Psychologie und Neurowissenschaften angewendet. Für einen etwas älteren, aber immer noch sehr guten Überblick siehe @goldNeuralBasisDecision2007a. Dieses Papier beschreibt mehrere Anwendungen der SDT, insbesondere für die Untersuchung von Reizmustern mit zufälliger Punktverschiebung.
 
-@macmillanDetectionTheoryUser2004a
+Die SDT kann angewendet werden, wann immer zwei mögliche Stimulus-Typen unterschieden werden müssen. Die Theorie wurde zuerst in Studien zur Wahrnehmung angewandt, bei denen Probanden zwischen Signalen (Reizen) und Rauschen (keine Reize) unterschieden. Die Bezeichnungen Signal und Rauschen sind geblieben, aber die SDT wurde seitdem in vielen anderen Bereichen angewendet. Beispiele (und ihre entsprechenden Signal- und Rauschreize) sind "Recognition memory" (alte und neue Elemente), Lügendetektion (Lügen und Wahrheiten), Personalauswahl (wünschenswerte und unerwünschte Bewerber), medizinische Diagnose (kranke und gesunde Patienten), industrielle Inspektion (inakzeptable und akzeptable Produkte) und "Information retrieval" (relevante und irrelevante Informationen). In neurowissenschaftlichen Studien werden mit SDT perzeptuelle System, aber auch Entscheidungen in anderen Bereichen untersucht. Ein mögliches Anwendungsgebiet ist "value-based decision making"; hier geht Entscheidungen auf der Basis von geschätzten Kosten und Nutzen einher. Ein Beispiel dafür wäre eine Kaufentscheidung, bei der der Käufer zwischen zwei Produkten wählt, die unterschiedliche Kosten und Nutzen haben.
 
-Calculation of SDT measures @stanislawCalculationSignalDetection1999b
+Die SDT geht davon aus, dass der Entscheidungsträger eine binäre Wahl zwischen zwei Alternativen (z. B. Signal oder Rauschen) auf der Grundlage begrenzter oder unsicherer Informationen treffen muss. Die Entscheidung wird getroffen, indem die empfangenen Informationen mit einem Kriterium oder Schwellenwert verglichen werden. Wenn die Informationen diesen Schwellenwert überschreiten, wählt der Entscheidungsträger das Signal; andernfalls wählt er das Rauschen. 
 
-We consider an experiment in which a person has to classify a stimulus into one of two possible categories:
+:::{.callout-important}
+## Übung
+Inwiefern entspricht dieses Vorgehen dem, was Sie über Hypothesentests in der Statistik gelernt haben?
+:::
 
-- new / old
-- left / right
-- yes / no
-
-We can neglect the underlying task, as the math is the same. In the general case, say we present two stimulus categories `A` and `B`, that vary along some dimension. The task of the subject in our experiment is to perform a binary classification with the response options `A` and `B`. The subject's performance can be summarized in a classification table, with four possible outcomes:
+Einer der wichtigsten Beiträge der SDT ist die Unterscheidung zwischen Sensitivität und Voreingenommenheit (Bias) im Entscheidungsprozess. Sensitivität bezieht sich auf die Fähigkeit des Entscheidungsträgers, zwischen zwei verschiedenen Arten von Signalen zu unterscheiden, während der Bias die Tendenz des Entscheidungsträgers bezeichnet, eine Alternative gegenüber der anderen a priori zu bevorzugen. Durch die Trennung dieser beiden Komponenten können Forscher analysieren, wie verschiedene Faktoren die Entscheidungsleistung beeinflussen.
 
 
-|              | Signal         |                        |
-|------------- |--------------- |------------------------|
-| **Response** | A (yes)        | B (no)                 |
-| A (yes)      | Hit            | False alarm (FA)       |
-| B (no)       | Miss           | Correct rejection (CR) |
+:::{.callout-tip}
+## Literatur
+Für eine ausführlichere Einführung in die SDT, siehe @stanislawCalculationSignalDetection1999b und @macmillanDetectionTheoryUser2004a. @knoblauchSignalDetectionTheory2012 bietet eine gute Einführung in die Verwendung von R zur Durchführung von SDT-Analysen. @decarloSignalDetectionTheory diskutiert die Beziehung zwischen SDT und verallgemeinerten linearen Modellen.
+:::
 
-- **Hit**:  Stimulus is `A`, subject responds `A`
-- Miss: Stimulus is `A`, subject responds `B`
-- **False alarm**: Stimulus is `B`, subject responds `A`
-- Correct rejection: Stimulus is `B`, subject responds `B`
 
-```
-The hit rate equals the proportion of the signal distribution that exceeds the criterion, whereas the false alarm rate equals the proportion of the noise distribution that exceeds the criterion.
-```
 
-> Given the stimulus, the subject has two response options. Therefore, we consider only the `A` responses when the stimulus is `A` (hits) or `B` (false alarms).
 
-- The SDT model assumes that on each trial $i$, a person's information about a stimulus can be modeled as a random variable $X_i$. 
+## Theorie
 
-- This is drawn from one of two possible distributions, which (in equal variance SDT) differ only in their location, but not their scale ( we assume that $\sigma = 1$). 
+Die zentrale Fragestellung der SDT lautet: was ist der (unbekannte) Zustand der Welt, angesichts der verrauschten Daten, die von den Sinnessystemen bereitgestellt werden? 
 
-> Example: familiarity. When the subject is shown an image, this evokes a feeling of 'familiarity`. This is a latent _strength variable_.
+In einem Modell macht es Sinn, sicherzustellen, dass das Problem einfach ist -- wir beschränken die Welt auf zwei mögliche Zustände beschränken. Diese können als Hypothesen betrachtet werden.
+
+:::{.callout-important}
+## Beispiele
+- Signal / Rauschen
+- Links / Rechts
+- Gedächtnis: alt (schon gesehen) / neu (noch nie gesehen)
+:::
+
+
+Wir werden nun die Signal Detection Theorie anhand eine Beispiels durchgehen. Dieses werden wir aus zwei Perspektiven betrachten: 1) aus der Perspektive einer Person, welche die Aufgabe hat, Stimuli in zwei Klassen zu klassifizieren und 2) aus der Perspektive eines Modells, das die Leistung der Person in der Aufgabe vorhersagt.
+
+
+### Die Perspektive der Versuchsperson
+Wir betrachten ein Experiment, bei dem eine Person einen Stimulus in eine von zwei möglichen Kategorien einordnen muss; dies könnte ein Random Dot Experiment sein, bei dem die Stimuli entweder nach links oder rechts bewegt sind, oder ein Gedächtnisexperiment, bei dem die Stimuli entweder alt (schon gesehen wurden) oder neu sind.
+
+Die Aufgabe der Person ist es, eine binäre Klassifikation mit den Antwortoptionen `alt` und `neu` durchzuführen. Die Antwortoptionen entsprechen den beiden möglichen Zuständen der Welt, oder genauer gesagt, Hypothesen der Person über die möglichen Zustände der Welt.
+
+
+Gegeben den Reiz hat die Person zwei Antwortmöglichkeiten. Daher betrachten wir nur die `Ja`-Antworten, wenn der Reiz alt (Treffer) oder `neu` (Falschalarme) ist.
+
+
+
+#### Annahmen
+
+1) Die Person verarbeitet den Stimulus (in diesem Fall ein Wort oder ein Bild) und gelangt zu einer internen Repräsentation des Stimulus. Diese interne Repräsentation ist nicht deterministisch, sondern variiert zufällig. Die interne Repräsentation demzufolge eine Zufallsvariable $X$. Wir nehmen an, dass die interne Repräsentation normalverteilt ist, mit einer bekannten Standardabweichung $\sigma$ (der Einfachheit halber nehmen wir an, dass $\sigma=1$). 
+2) Die Zufallsvariable $X$ repräsentiert die Information, die die Person über den Stimulus hat, also die Evidenz.
+
+3) Die Person weiss, dass die $X$ aus einer von zwei Verteilungen gezogen wurde, die sich nur in ihrer Lage (in ihrem Mittelwert) unterscheiden. Welche Verteilung es war, weiss die Person jedoch nicht -- dies muss sie anhand eines Kriteriums entscheiden.
+
+4) Die Person hat ein Kriterium $k$, das sie verwendet, um zu entscheiden, ob der Stimulus alt oder neu ist. Eine einfache Entscheidungsregel lautet: Wenn $X > k$, dann ist der Stimulus alt, andernfalls ist er neu.
 
 <aside>
-SDT does not require any particular distributions, but in practise, Gaussians are often chosen.
+Beispiel Recognition Memory: Wenn der Versuchsperson ein Bild gezeigt wird, ruft dies ein Gefühl von 'Vertrautheit' (familiarity) hervor. Dies ist eine latente Variable.
 </aside>
 
-> Thought experiment: you are a subject in a memory experiment. You were previously shown a number of images, and now you are presented with a mixture of old and new items, and have to say whether you have previously seen the test image.
 
-This can be formulated as the following statistical problem:
-
-1) You are given a random variable $X$, i.e. a draw from a normal distribution with a known standard deviation. You also know that distribution can have either of two known means, you just don't know which one. The two distributions differ only in their mean, and the difference in means is called `d'`.
-
-2) You are asked to say which distribution that $X$ is most likely to have come from. This is a decision, so you need some sort of decision rule. In this case you can choose a criterion, and compare $X$ to this.
-
-3) You will produce four types of responses: you will either correctly classifiy the presented stimulus, or its internal representation $X$, as either `old` or `new`. You will do this correctly (`hits` / `correct rejections`), or you will produce a missclassification (`false alarms` / `misses`).
-
-4) From your behavioural data, the number of `hits` and `false alarms`, we want to estimate your hit rate and false alarm rate, and then compute your internal (latent) quantities that guided your behaviour.
-
-The internal signal evoked by old and new items is often shown like this:
 
 ```{r}
 #| echo: false
@@ -183,9 +191,9 @@ p1 <- tibble(x = seq(xlim[1], xlim[2], by = 0.1)) |>
 p1
 ```
 
-New items produce less familiarity than old items, but the internal representation is noisy.
+Noch nie gesehene Stimuli (neu) produzieren eine niedrige Vertrautheit (familiarity), während alte Stimuli eine hohe Vertrautheit produzieren.
+Um einen Stimulus zu klassifizieren, braucht die Person eine Entscheidungsregel.
 
-In order to classify the presented stimulus, based on the evoked familiarity (decision variable), we need a decision rule:
 
 ```{r}
 #| echo: false
@@ -213,52 +221,54 @@ p2 <- p1 +
 p2
 ```
 
-A simple rule is to compare the signal with a criterion $k$. If the signal $X > k$, then respond `old` ("Yes, I have previously seen it"), otherwise respond `new` ("No, I haven't seen it before").
+Eine einfache  Entscheidungsregel lautet: Wenn die Vertrautheit grösser als das Kriterium ist, wenn also $x > k$, dann ist der Stimulus alt, andernfalls ist er neu.
 
-## Signal detection parameters
+### Die Perspektive des/der externen Beobachter*in
 
-The commonly known SDT parameters are $d'$ and and $c$.
+Die Leistung der Versuchsperson kann durch die Wahrscheinlichkeit beschrieben werden, dass sie einen Treffer (`Hit`) oder einen `False Alarm` produziert. Diese Wahrscheinlichkeiten werden als _Hit Rate_ und _False Alarm Rate_ bezeichnet. Die _Hit Rate_ ist die Wahrscheinlichkeit, dass die Person einen Treffer produziert, wenn der Stimulus alt ist. Die _False Alarm Rate_ ist die Wahrscheinlichkeit, dass die Person einen Falschalarm produziert, wenn der Stimulus neu ist.
 
-- d': distance between distributions
+Die Antworten der Versuchspersonen können in einer Tabelle zusammengefasst werden, mit vier möglichen Ergebnissen. Wir nennen hier die Antwortoptionen der Einfachheit halber `ja` und `nein`; die Frage an die Versuchsperson lautet: "Hast du den Stimulus schon einmal gesehen?".
 
-$$ d' = c - \phi^{-1}(1-p_{H}) = \phi^{-1}(p_{H}) - \phi^{-1}(p_{FA}) $$
-which can also be written as:
-$$ d' = \phi^{-1}(P(y = 1 | old)) - \phi^{-1}(P(y = 1 | new)) $$
+|              | **Signal**     |                        |
+|------------- |--------------- |------------------------|
+| **Antwort**  | Ja             | Nein                   |
+| Ja           | Hit            | False alarm (FA)       |
+| Nein         | Miss           | Correct rejection (CR) |
 
-The expression for $d'$
+- **Hit**:  Stimulus ist `alt`, Antwort ist `Ja`
+- Miss: Stimulus ist `alt`, Antwort ist `Nein`
+- **False alarm**: Stimulus ist `neu`, Antwort ist `Ja`
+- Correct rejection: Stimulus is `neu`,  Antwort ist `Nein`
 
-- requires estimating probabilities conditional on the identity of a signal
-- requires taking the difference on a transformed (probit) scale
-- this is equivalent to a contrast between levels of a factor with two levels as the linear predictor for a response in a GLM 
 
-```{r}
-#| echo: false
+Als Forscher*in interessiert uns nicht nur, wie oft die Versuchsperson Hits und False ALarms produziert, sondern vor allem folgende Fragen:
 
-tibble(x = seq(0, 1, by = 0.01)) |> 
-  ggplot(aes(x)) +
-  stat_function(fun = qnorm, colour = "steelblue3", 
-                  args = list(mean = 0, sd = 1),
-                  size = 1.5) +
-  labs(x = "Probability", y = "Score") +
-  scale_x_continuous(limits = c(0, 1)) +
-  scale_y_continuous(limits = c(-3.5, 3.5), breaks = -3:3) + 
-  ggtitle("Probit function / quantile function / inverse cdf / qnorm()") +
-  theme_linedraw()
-```
+- Wie gut kann die Person Stimuli klassifizieren?
+- Hat die Person eine Vorliebe für eine der beiden Antwortoptionen?
 
-- k: decision criterion
-$$ k = \phi^{-1}(1-p_{FA}) = -\phi^{-1}(p_{FA}) $$
 
-Better: distance to optimal decision boundary (c, or bias)
-$$ c = -\frac{1}{2} \left[\phi^{-1}(p_{H}) + \phi^{-1}(p_{FA})\right] $$
+Diese beiden Fragen können wir mit den Signal Detection Theory (SDT) Parametern beschreiben.
 
-> What we are doing here is __estimating__ the hit rate and false alarm rate from observed hits and false alarms, and then computing d' and c from these estimated probabilities.
+Die beiden wichtigsten SDT Parameter sind $d'$ und $c$. $d'$ ist ein Mass dafür, wie weit auseinander die Verteilungen der beiden Stimuluskategorien liegen. $c$ ist ein Mass dafür, ob eine Voreingenommenheit (bias) für eine der beiden Antwortoptionen besteht. Genauer gesagt ist $c$ der Abstand vom tatsächlichen Kriterium zum Punkt welcher genau zwischen den Verteilungen liegt.
 
-We can also write this the other way round:
+Um diese beiden Parameter aus den beobachteten Antworthäufigkeiten zu schätzen, müssen wir zuerst die relativen Häufigkeiten der Hits und der False Alarms schätzen.
 
-When the stimulus is `new`, we will produce false alarms with probability:
+
+Die Hits sind die korrekten Antworten auf alte Stimuli. Dies bedeutet, dass wir zählen, wie oft bei einem `alten` Stimulus die Antwort `ja` war. Die False Alarms sind die inkorrekten Antworten auf neue Stimuli. Dies bedeutet, dass wir zählen, wie oft bei einem `neuen` Stimulus die Antwort `ja` war.
+$$ p_{H} = \frac{Hits}{Hits + Misses} $$
+$$ p_{FA} = \frac{False Alarms}{False Alarms + Correct Rejections} $$
+
+
+
+Schauen wir uns die Grafik an: Wenn der Stimulus `neu` ist, dann werden wir mit einer Wahrscheinlichkeit von $p_{FA}$ einen False Alarm produzieren. 
 
 $$ p_{FA} = P(y = 1 | X = 0) = 1 - \Phi(k) $$
+
+$k$ ist die die von der Person willkürlich gesetzte Klassifikationsgrenze. $\Phi$ ist die Verteilungsfunktion der Normalverteilung.
+
+:::{.callout-important}
+$\Phi(k)$ gibt hier die Wahrscheinlichkeit, dass eine Zufallsvariable $x$ kleiner als $k$ ist. Wir wollen eigentlich wissen, was die Wahrscheinlichkeit ist, dass $x$ grösser als $k$ ist -- diese ist $1 - \Phi(k)$. 
+:::
 
 ```{r}
 #| echo: false
@@ -285,11 +295,15 @@ tibble(x = seq(xlim[1], xlim[2], by = 0.1)) |>
     geom_vline(xintercept = criterion, size = 1, 
                linetype = 1) +
   ggtitle("False Alarms") +
+  xlab("") +
   theme_linedraw()
 ```
 
-When the stimulus is `old`, we will produce hits with probability:
+Wenn der Stimulus `alt` ist, dann werden wir mit einer Wahrscheinlichkeit von $p_{H}$ einen Hit produzieren.
+
 $$ p_{H} = P(y = 1 | X=1) = 1 - \Phi(k-d') $$
+
+
 
 ```{r}
 #| echo: false
@@ -305,22 +319,115 @@ tibble(x = seq(xlim[1], xlim[2], by = 0.1)) |>
               xlim = c(criterion, xlim[2])) +
     geom_vline(xintercept = criterion, size = 1, 
                linetype = 1) +
+    xlab("") +
   ggtitle("Hits") +
   theme_linedraw()
 ```
 
-- We can write this in one equation:
+
+Wir können das auch in einer Gleichung schreiben:
 
 $$ P(y = 1 | X = x) = 1 - \Phi(k-d'X) = \Phi(-k + d'X) $$
-where $X$ is an indicator variable, i.e. takes the value `1` for `old` and `0` for `new`. 
+wo $X$ eine Indikatorvariable ist, d.h. sie nimmt den Wert `1` für `alt` und `0` für `neu`.
 
-This produces the probability of giving an `old` response, given the stimulus. If the stimulus is `old`, this is the probability of a `hit`, if the stimulus is `new`, this is the probability of a `false alarm`.
+Die Gleichung gibt die bedingte Wahrheitswahrscheinlichkeit für eine `ja` Antwort, gegeben den Stimulus. Ist der Stimulus `alt`, dann ist $X = 1$ und $d'X = d'$, ist der Stimulus `neu`, dann ist $X = 0$ und $d'X = 0$.
+
+
+
+Hier sind beide Verteilungen nochmals in einer Grafik zusammengefasst:
+
+```{r}
 
 ```{r}
 #| echo: false
 
 p2
 ```
+
+
+Unser Ziel ist es, die Parameter $d'$ und $c$ zu schätzen, d.h. wir wollen wissen: Wie weit liegen die Mittelwerte der Verteilung auseinander, und wo hat die Person ihr Kriterium gesetzt? Wir können dies mit folgenden Gleichung machen:
+
+**Kriterium k**:
+ Hier wollen wir wissen: Wo liegt der Wert, für den die Wahrscheinlichkeit, über $k$ zu liegen, $p_{FA}$ entspricht? Wir brauchen dafür die Umkehrfunktion der Verteilungsfunktion $\Phi$: $\phi^{-1}$.
+
+
+
+:::{.callout-info}
+## Verteilungen in R
+Die Verteilungsfunktion der Normalverteilung heisst in R `pnorm()`. Die Umkehrfunktion dazu heisst Quantilfunktion und heisst in R `qnorm()`.
+
+Die verwandten Funktionen sind die Dichtefunktion `dnorm()` und `rnorm()`, mit der wir Zufallszahlen aus der Normalverteilung ziehen können.
+
+Die kumulative Verteilungsfunktion:
+```{r}
+#| echo: false
+
+tibble(x = seq(-3, 3, by = 0.01)) |> 
+  ggplot(aes(x)) +
+  stat_function(fun = pnorm, colour = "steelblue3", 
+                  args = list(mean = 0, sd = 1),
+                  size = 1.5) +
+  labs(x = "Probability", y = "Score") +
+  scale_x_continuous(limits = c(-3, 3)) +
+  scale_y_continuous(limits = c(0, 1)) + 
+  ggtitle("Distribution function / cdf / pnorm()") +
+  theme_linedraw()
+```
+
+Die Quantilfunktion sieht so aus:
+```{r}
+#| echo: false
+
+tibble(x = seq(0, 1, by = 0.01)) |> 
+  ggplot(aes(x)) +
+  stat_function(fun = qnorm, colour = "steelblue3", 
+                  args = list(mean = 0, sd = 1),
+                  size = 1.5) +
+  labs(x = "Probability", y = "Score") +
+  scale_x_continuous(limits = c(0, 1)) +
+  scale_y_continuous(limits = c(-3.5, 3.5), breaks = -3:3) + 
+  ggtitle("Probit function / quantile function / inverse cdf / qnorm()") +
+  theme_linedraw()
+```
+:::
+
+
+
+
+Wir können nun umformen:
+$$ p_{FA} = P(y = 1 | X = 0) = 1 - \Phi(k) $$
+$$ \Phi(k) = 1 - p_{FA} $$
+
+$$ k = \phi^{-1}(1-p_{FA}) = -\phi^{-1}(p_{FA}) $$
+
+
+Wir interessieren uns nun aber für den Abstand zum optimalen Kriterium: dieser Parameter wird $c$ genannt. Im optimalen Fall ist $c = 0$, und $k=\frac{d'}{2}$. Dann wären die Miss- und Fehlalarmrate gleich gross (anhand der Grafik selber überprüfen). $c$ ist also der Durchschnitt der Hit- und False Alarm Rate, mit $-1$ multipliziert. Negative Werte von $c$ bedeuten, dass die Person tendenziell mehr Fehlalarme produziert als Misses, positive Werte bedeuten, dass die Person tendenziell mehr Misses produziert als Fehlalarme.
+
+$$ c = -\frac{1}{2} \left[\phi^{-1}(p_{H}) + \phi^{-1}(p_{FA})\right] $$
+
+
+
+
+
+
+
+
+
+Für $d'$ gilt:
+
+$$ d' = k - \phi^{-1}(1-p_{H}) = \phi^{-1}(p_{H}) - \phi^{-1}(p_{FA}) $$
+
+oder anders ausgedrückt:
+$$ d' = \phi^{-1}(P(y = 1 | old)) - \phi^{-1}(P(y = 1 | new)) $$
+
+und in Worten:
+
+$d'$ = Z-Score der Hit Rate - Z-Score der False Alarm Rate.
+
+:::{.callout-info}
+Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnormalverteilung zi beziechnen.
+:::
+
 
 
 # Parameter recovery
