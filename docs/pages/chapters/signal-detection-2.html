@@ -427,7 +427,7 @@ Lernziele
 <span>  <span class="va">CR</span> <span class="op">&lt;-</span> <span class="va">nN</span><span class="op">-</span><span class="va">FA</span></span>
 <span>  <span class="va">Miss</span> <span class="op">&lt;-</span> <span class="va">nS</span><span class="op">-</span><span class="va">Hit</span></span>
 <span></span>
-<span>  <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">Hit</span>, <span class="va">Miss</span>, <span class="va">FA</span>, <span class="va">CR</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/tibble/man/tibble.html">tibble</a></span><span class="op">(</span><span class="va">Hit</span>, <span class="va">Miss</span>, <span class="va">FA</span>, <span class="va">CR</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We first calculate the probability of a hit, <code>pH</code>, and a false alarm, <code>pFA</code>, as they correspond to the area under the curve to the right of the criterion, under both signal and noise distributions, respectively.</p>
@@ -461,7 +461,7 @@ Lernziele
 <p>We can compute the observer’s accuracy as:</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">ideal_observer</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>accuracy <span class="op">=</span> <span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span> <span class="op">+</span> <span class="va">Miss</span> <span class="op">+</span> <span class="va">FA</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/summarise.html">summarise</a></span><span class="op">(</span>accuracy <span class="op">=</span> <span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span> <span class="op">+</span> <span class="va">Miss</span> <span class="op">+</span> <span class="va">FA</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   accuracy
@@ -498,7 +498,7 @@ Note
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yes_observer</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>accuracy <span class="op">=</span> <span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span> <span class="op">+</span> <span class="va">Miss</span> <span class="op">+</span> <span class="va">FA</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/summarise.html">summarise</a></span><span class="op">(</span>accuracy <span class="op">=</span> <span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span><span class="op">)</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">CR</span> <span class="op">+</span> <span class="va">Miss</span> <span class="op">+</span> <span class="va">FA</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 1
   accuracy
@@ -523,18 +523,18 @@ Tip
 <p>We can now attempt to recover the <em>known</em> parameters <code>c</code> and <code>d'</code> from the observed hit and false alarm rates.</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yes_observer</span> <span class="op">&lt;-</span> <span class="va">yes_observer</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>hit_rate <span class="op">=</span> <span class="va">Hit</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">Miss</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>hit_rate <span class="op">=</span> <span class="va">Hit</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">Miss</span><span class="op">)</span>,</span>
 <span>           fa_rate <span class="op">=</span> <span class="va">FA</span><span class="op">/</span><span class="op">(</span><span class="va">FA</span> <span class="op">+</span> <span class="va">CR</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">yes_observer</span> <span class="op">&lt;-</span> <span class="va">yes_observer</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>zhr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">hit_rate</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>zhr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">hit_rate</span><span class="op">)</span>,</span>
 <span>           zfa <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">fa_rate</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">yes_observer</span> <span class="op">&lt;-</span> <span class="va">yes_observer</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>dprime <span class="op">=</span> <span class="va">zhr</span> <span class="op">-</span> <span class="va">zfa</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>dprime <span class="op">=</span> <span class="va">zhr</span> <span class="op">-</span> <span class="va">zfa</span>,</span>
 <span>           k <span class="op">=</span> <span class="op">-</span> <span class="va">zfa</span>,</span>
 <span>           c <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> <span class="op">(</span><span class="va">zhr</span> <span class="op">+</span> <span class="va">zfa</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">dprime</span>, <span class="va">c</span><span class="op">)</span>, <span class="va">round</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">dprime</span>, <span class="va">c</span><span class="op">)</span>, <span class="va">round</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: There was 1 warning in `mutate()`.
 ℹ In argument: `across(c(dprime, c), round, 2)`.
@@ -560,7 +560,7 @@ Supply arguments directly to `.fns` through an anonymous function instead.
 </div>
 <p>For the biased observer, the valuues we used were <span class="math inline">\(d' = 1\)</span> and <span class="math inline">\(c = -1\)</span>. Are we able to recover these?</p>
 <div class="cell">
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yes_observer</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/pull.html">pull</a></span><span class="op">(</span><span class="va">c</span>, <span class="va">dprime</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">yes_observer</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/pull.html">pull</a></span><span class="op">(</span><span class="va">c</span>, <span class="va">dprime</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 0.76 
 -1.02 </code></pre>

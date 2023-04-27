@@ -354,7 +354,7 @@ Unser Ziel ist es, die Parameter $d'$ und $c$ zu schätzen, d.h. wir wollen wiss
 
 
 
-:::{.callout-important}
+:::{.callout-important collapse="true"}
 ## Verteilungen in R
 Die Verteilungsfunktion der Normalverteilung heisst in R `pnorm()`. Die Umkehrfunktion dazu heisst Quantilfunktion und heisst in R `qnorm()`.
 
@@ -426,10 +426,11 @@ und in Worten:
 
 $d'$ = Z-Score der Hit Rate - Z-Score der False Alarm Rate.
 
-:::{.callout-info}
+:::{.callout-tip}
 Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnormalverteilung zu bezeichnen.
 :::
 
+$d'$ quantifiziert die Sensitivität eines Beobachters bei der Unterscheidung zwischen zwei Stimulusklassen. Ein größerer $d'$-Wert zeigt eine grössere Sensitivität an. Dies bedeutet, dass die Verteilungen der beiden  Stimulusklassen stärker voneinander getrennt sind und somit leichter unterscheidbar sind. 
 
 # Gedächtnis-Experiment
 

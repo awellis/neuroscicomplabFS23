@@ -643,14 +643,16 @@ Important
 <p>Unser Ziel ist es, die Parameter <span class="math inline">\(d'\)</span> und <span class="math inline">\(c\)</span> zu schätzen, d.h. wir wollen wissen: Wie weit liegen die Mittelwerte der Verteilung auseinander, und wo hat die Person ihr Kriterium gesetzt? Wir können dies mit folgenden Gleichung machen:</p>
 <p><strong>Kriterium k</strong>: Hier wollen wir wissen: Wo liegt der Wert, für den die Wahrscheinlichkeit, über <span class="math inline">\(k\)</span> zu liegen, <span class="math inline">\(p_{FA}\)</span> entspricht? Wir brauchen dafür die Umkehrfunktion der Verteilungsfunktion <span class="math inline">\(\Phi\)</span>: <span class="math inline">\(\phi^{-1}\)</span>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Verteilungen in R
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Die Verteilungsfunktion der Normalverteilung heisst in R <code><a href="https://rdrr.io/r/stats/Normal.html">pnorm()</a></code>. Die Umkehrfunktion dazu heisst Quantilfunktion und heisst in R <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>.</p>
 <p>Die verwandten Funktionen sind die Dichtefunktion <code><a href="https://rdrr.io/r/stats/Normal.html">dnorm()</a></code> und <code><a href="https://rdrr.io/r/stats/Normal.html">rnorm()</a></code>, mit der wir Zufallszahlen aus der Normalverteilung ziehen können.</p>
@@ -668,6 +670,7 @@ Verteilungen in R
 </div>
 </div>
 </div>
+</div>
 <p>Wir können nun umformen: <span class="math display">\[ p_{FA} = P(y = 1 | X = 0) = 1 - \Phi(k) \]</span> <span class="math display">\[ \Phi(k) = 1 - p_{FA} \]</span></p>
 <p><span class="math display">\[ k = \phi^{-1}(1-p_{FA}) = -\phi^{-1}(p_{FA}) \]</span></p>
 <p>Wir interessieren uns nun aber für den Abstand zum optimalen Kriterium: dieser Parameter wird <span class="math inline">\(c\)</span> genannt. Im optimalen Fall ist <span class="math inline">\(c = 0\)</span>, und <span class="math inline">\(k=\frac{d'}{2}\)</span>. Dann wären die Miss- und Fehlalarmrate gleich gross (anhand der Grafik selber überprüfen). <span class="math inline">\(c\)</span> ist also der Durchschnitt der Hit- und False Alarm Rate, mit <span class="math inline">\(-1\)</span> multipliziert. Negative Werte von <span class="math inline">\(c\)</span> bedeuten, dass die Person tendenziell mehr Fehlalarme produziert als Misses, positive Werte bedeuten, dass die Person tendenziell mehr Misses produziert als Fehlalarme.</p>
@@ -677,9 +680,20 @@ Verteilungen in R
 <p>oder anders ausgedrückt: <span class="math display">\[ d' = \phi^{-1}(P(y = 1 | old)) - \phi^{-1}(P(y = 1 | new)) \]</span></p>
 <p>und in Worten:</p>
 <p><span class="math inline">\(d'\)</span> = Z-Score der Hit Rate - Z-Score der False Alarm Rate.</p>
-<div class="callout-info">
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnormalverteilung zu bezeichnen.</p>
 </div>
+</div>
+<p><span class="math inline">\(d'\)</span> quantifiziert die Sensitivität eines Beobachters bei der Unterscheidung zwischen zwei Stimulusklassen. Ein größerer <span class="math inline">\(d'\)</span>-Wert zeigt eine grössere Sensitivität an. Dies bedeutet, dass die Verteilungen der beiden Stimulusklassen stärker voneinander getrennt sind und somit leichter unterscheidbar sind.</p>
 </section></section></section><section id="gedächtnis-experiment" class="level1"><h1>Gedächtnis-Experiment</h1>
 <p>Wir schauen uns ein Beispiel an (von diesem <a href="https://vuorre.netlify.com/post/2017/10/09/bayesian-estimation-of-signal-detection-theory-models-part-1/">Blogpost</a>).</p>
 <p>Die Daten sind aus einem Experiment, in dem die Teilnehmenden Bilder von bekannten und unbekannten Gesichtern gesehen haben. Sie mussten dann entscheiden, ob sie das Gesicht schon einmal gesehen haben oder nicht. Der Datensatz <code>confcontr</code> ist in einem Package names <code>sdtalt</code> enthalten; dieses Package müsste zuerst installiert werden.</p>
@@ -699,12 +713,12 @@ Note
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="va">confcontr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"confcontr.csv"</span><span class="op">)</span></span>
+<span><span class="va">confcontr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"confcontr.csv"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># data(confcontr)</span></span>
 <span></span>
-<span><span class="va">confcontr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">confcontr</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>subno <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">subno</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">confcontr</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/tibble/man/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">confcontr</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>subno <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/forcats/man/as_factor.html">as_factor</a></span><span class="op">(</span><span class="va">subno</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">confcontr</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -729,7 +743,7 @@ Note
 <p>Zuerst klassifizieren wir die Antworten als Hits, Misses, False Alarms oder Correct Rejections.</p>
 <div class="cell">
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdt</span> <span class="op">&lt;-</span> <span class="va">confcontr</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>type <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/case_when.html">case_when</a></span><span class="op">(</span></span>
 <span>        <span class="va">isold</span><span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">sayold</span><span class="op">==</span><span class="fl">1</span> <span class="op">~</span> <span class="st">"Hit"</span>,</span>
 <span>        <span class="va">isold</span><span class="op">==</span><span class="fl">1</span> <span class="op">&amp;</span> <span class="va">sayold</span><span class="op">==</span><span class="fl">0</span> <span class="op">~</span> <span class="st">"Miss"</span>,</span>
 <span>        <span class="va">isold</span><span class="op">==</span><span class="fl">0</span> <span class="op">&amp;</span> <span class="va">sayold</span><span class="op">==</span><span class="fl">0</span> <span class="op">~</span> <span class="st">"CR"</span>,</span>
@@ -738,9 +752,9 @@ Note
 <p>Dann zählen wir die Hits, Misses, False Alarms und Correct Rejections pro Teilnehmende.</p>
 <div class="cell">
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdt_summary</span> <span class="op">&lt;-</span> <span class="va">sdt</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">subno</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html">count</a></span><span class="op">(</span><span class="va">type</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">type</span>, values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">subno</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/count.html">count</a></span><span class="op">(</span><span class="va">type</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/tidyr/man/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>names_from <span class="op">=</span> <span class="va">type</span>, values_from <span class="op">=</span> <span class="va">n</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Die folgende Funktion dient dazu, Nullen oder Einsen zu ersetzen. Da relative Häufigkeiten zwischen 0 und 1 liegen, aber nicht genau 0 oder 1 sein können, müssen wir diese Werte korrigieren: <span class="math inline">\(0 &lt; r &lt; 1\)</span>. Die Funktion <code>correct_zero_one</code> korrigiert die Werte, indem sie eine kleine Zahl hinzufügt oder subtrahiert.</p>
 <div class="cell">
@@ -776,7 +790,7 @@ Note
 <p>Wir berechnen die relative Häufigkeit der Hits und False Alarms (mit der Tabelle oben vergleichen).</p>
 <div class="cell">
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdt_summary</span> <span class="op">&lt;-</span> <span class="va">sdt_summary</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>hit_rate <span class="op">=</span> <span class="va">Hit</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">Miss</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>hit_rate <span class="op">=</span> <span class="va">Hit</span><span class="op">/</span><span class="op">(</span><span class="va">Hit</span> <span class="op">+</span> <span class="va">Miss</span><span class="op">)</span>,</span>
 <span>           fa_rate <span class="op">=</span> <span class="va">FA</span><span class="op">/</span><span class="op">(</span><span class="va">FA</span> <span class="op">+</span> <span class="va">CR</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">sdt_summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -800,7 +814,7 @@ Note
 <p>Nun korrigeren wir die Werte, damit sie zwischen 0 und 1 liegen.</p>
 <div class="cell">
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdt_summary</span> <span class="op">&lt;-</span> <span class="va">sdt_summary</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hit_rate</span>, <span class="va">fa_rate</span><span class="op">)</span>, <span class="va">correct_zero_one</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hit_rate</span>, <span class="va">fa_rate</span><span class="op">)</span>, <span class="va">correct_zero_one</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">sdt_summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 31 × 7
@@ -823,7 +837,7 @@ Note
 <p>Aus den relativen Häufigkeiten berechnen wir die Z-Scores der Hits und False Alarms mit der Quantilfunktion der Standardnormalverteilung, <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code>.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdt_summary</span> <span class="op">&lt;-</span> <span class="va">sdt_summary</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>zhr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">hit_rate</span><span class="op">)</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>zhr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">hit_rate</span><span class="op">)</span>,</span>
 <span>           zfa <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">fa_rate</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">sdt_summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -850,10 +864,10 @@ Note
 <p><span class="math display">\[ d' = \phi^{-1}(p_{H}) - \phi^{-1}(p_{FA}) \]</span></p>
 <div class="cell">
 <div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdt_summary</span> <span class="op">&lt;-</span> <span class="va">sdt_summary</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>dprime <span class="op">=</span> <span class="va">zhr</span> <span class="op">-</span> <span class="va">zfa</span>,</span>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>dprime <span class="op">=</span> <span class="va">zhr</span> <span class="op">-</span> <span class="va">zfa</span>,</span>
 <span>         k <span class="op">=</span> <span class="op">-</span><span class="va">zfa</span>,</span>
 <span>         c <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> <span class="op">(</span><span class="va">zhr</span> <span class="op">+</span> <span class="va">zfa</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">dprime</span>, <span class="va">k</span>, <span class="va">c</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">dprime</span>, <span class="va">k</span>, <span class="va">c</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">sdt_summary</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -878,13 +892,13 @@ Note
 <p>Bevor wir in der nächsten Sitzung weitermachen, schauen wir wir uns die geschätzten Parameter <span class="math inline">\(c\)</span> und <span class="math inline">\(d'\)</span> noch an.</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">sdt_summary</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">c</span>, y <span class="op">=</span> <span class="va">dprime</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="st">"blue"</span>, linetype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="st">"blue"</span>, linetype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"c"</span>, y <span class="op">=</span> <span class="st">"d'"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Bias vs. sensitivity"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">c</span>, y <span class="op">=</span> <span class="va">dprime</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_abline.html">geom_hline</a></span><span class="op">(</span>yintercept <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="st">"blue"</span>, linetype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0</span>, color <span class="op">=</span> <span class="st">"blue"</span>, linetype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">3</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"c"</span>, y <span class="op">=</span> <span class="st">"d'"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Bias vs. sensitivity"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>      <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="signal-detection-1_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
 </div>
