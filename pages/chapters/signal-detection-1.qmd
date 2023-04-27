@@ -21,6 +21,11 @@ execute:
 code-annotations: select
 ---
 
+```{r}
+#| include: false
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data/')
+```
 :::{.callout-tip collapse="false"}
 ## Lernziele
 
@@ -422,7 +427,7 @@ und in Worten:
 $d'$ = Z-Score der Hit Rate - Z-Score der False Alarm Rate.
 
 :::{.callout-info}
-Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnormalverteilung zi beziechnen.
+Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnormalverteilung zu bezeichnen.
 :::
 
 
@@ -430,21 +435,23 @@ Der Begriff Z-Score wird oftmals verwendet, und die Quantile einer Standardnorma
 
 Wir schauen uns ein Beispiel an (von diesem [Blogpost](https://vuorre.netlify.com/post/2017/10/09/bayesian-estimation-of-signal-detection-theory-models-part-1/)).
 
-Die Daten sind aus einem Experiment, in dem die Teilnehmenden Bilder von bekannten und unbekannten Gesichtern gesehen haben. Sie mussten dann entscheiden, ob sie das Gesicht schon einmal gesehen haben oder nicht. Der  Datensatz `confcontr` ist im Package `sdtalt` enthalten (muss installiert werden).
+Die Daten sind aus einem Experiment, in dem die Teilnehmenden Bilder von bekannten und unbekannten Gesichtern gesehen haben. Sie mussten dann entscheiden, ob sie das Gesicht schon einmal gesehen haben oder nicht. Der  Datensatz `confcontr` ist in einem Package names `sdtalt` enthalten; dieses Package müsste zuerst installiert werden.
+
+Da wir aber lediglich den einen Datensatz benötigen, können Sie diesen auch downloaden, in den Ordner unseres RStudio Projekts speichern und dann laden.
+
+
+:::{.callout-note}
+👉 [Daten für diese Sitzung herunterladen](../../downloadable_files/confcontr.csv)
+:::
+
 
 ```{r}
 #| message: false
 #| warning: false
-
-# You might first need to install the `remotes` package
-# install.packages("remotes")
-# install sdtalt
-# remotes::install_github("cran/sdtalt")
-
-library(sdtalt)
 library(tidyverse)
+confcontr <- read_csv("confcontr.csv")
 
-data(confcontr)
+# data(confcontr)
 
 confcontr <- as_tibble(confcontr) |> 
   mutate(subno = as_factor(subno))
