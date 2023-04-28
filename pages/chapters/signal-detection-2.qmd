@@ -2,7 +2,7 @@
 title: "Datenanalyse mit SDT"
 description: |
   SDT Kennzahlen schätzen.
-date: "2022-04-24"
+date: "2022-05-01"
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -21,17 +21,26 @@ execute:
 code-annotations: select
 ---
 
+```{r}
+#| include: false
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data/')
+```
 :::{.callout-tip collapse="false"}
 ## Lernziele
 
 In der heutigen Sitzung lernen wir:
 
-🚧
+- 🏗 🚧 ️
 :::
 
+:::{.callout-tip}
+## Wichtig
 
+👉 [Daten für diese Sitzung herunterladen](../../downloadable_files/rdkdata.csv)
+:::
 
-# Parameter Recovery
+# Simulationsstudie
 
 To get a feel for how the parameters `c` and `d'` relate to observed hit and false alarm rates, we will do the following: we first simulate an observer performing a classification experiment with known parameters, i.e. `c` and `d'` are known to us and used to generate the data. We then attempt to recover `c` and `d'` from the observed hit and false alarm rates.
 
@@ -169,6 +178,20 @@ yes_observer |> pull(c, dprime)
 :::{.callout-note}
 Why is it seemingly difficult to recover theses parameters?
 :::
+
+
+# Datenanalyse
+
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+library(sdtalt)
+# data <- read_csv("data.csv")
+data(confexp)
+```
 
 
 
