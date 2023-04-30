@@ -1,0 +1,147 @@
+---
+title: "Übung 4"
+description: |
+   Untersuchung eines prä-symptomatischen Indikators für die Alzheimer-Krankheit
+date: "2022-05-01"
+author:
+  - name: Andrew Ellis
+    url: https://github.com/awellis
+    affiliation: Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern 
+    affiliation-url: https://www.kog.psy.unibe.ch
+    orcid: 0000-0002-2788-936X
+license: CC BY
+citation: true
+bibliography: ../../bibliography.bib
+format:
+    html:
+        toc: true
+        code-link: true
+execute: 
+  cache: false
+code-annotations: select
+---
+
+```{r}
+#| include: false
+# Set working directory of R
+knitr::opts_knit$set(root.dir = '../../data/uebung-4')
+```
+
+
+
+:::{.callout-tip collapse="false"}
+## Aufgaben
+Die Übung 4 besteht aus den zwei folgenden Aufgaben:
+
+**1. RMarkdown-File erstellen und ausführen**: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen und damit eine Grafik erstellt. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.
+
+**2. Peer Feedback**: Mittels Ilias wird Ihnen das RMarkdown-File und die Grafik einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses RMarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.
+
+
+:::
+
+
+## Kommentare & Code
+
+Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. Wählen Sie aus, welche die Codechunks ausgeführt / angezeigt werden sollen.
+
+## Aufgaben
+
+- Laden Sie nötige Packages.
+
+- Laden Sie die Daten unseres Experiments. Sie finden den Datensatz `rdkdata_clean.csv` für diese Übung im Projektordner `dataviz` > `data_rdk`.
+
+- Machen Sie Textvariablen und die Personen-Id-Variable zu Faktoren und schauen Sie den Datensatz kurz an (mit `slice_head()` oder `glimpse()`), um zu überprüfen, ob die Daten richtig eingelesen wurden.
+
+- Ihre Aufgabe ist es eine Forschungsfrage zu dem vorhandenen Datensatz zu stellen, dazu eine Grafik zu plotten und die Antwort damit zu visualisieren, sowie in schriftlicher Form zu geben.
+
+    - Beschreiben Sie in Textform, welche Frage Sie mit Ihrer Grafik beantworten möchten.
+
+    - Falls nötig: Bearbeiten Sie den Datensatz / erstellen Sie einen neuen Datensatz für die Grafik.
+
+    - Erstellen Sie die Grafik, und lassen Sie diese anzeigen.
+
+    - Speichern Sie die Grafik zusätzlich als `.jpg` oder `.png` ab. So kann Ihr Peer Reviewer auch bei nicht funktionierendem Code Rückmeldung zur Grafik geben. 
+    
+    - Fügen Sie der Grafik passende Beschriftungen hinzu.
+    
+    - Beantworten Sie Ihre Forschungsfrage schriftlich.
+    
+
+
+
+## Rey auditory verbal learning test
+
+These data come from a clinical setting, and involve memory ability tests for 60 patients using the Rey auditory verbal learning test (RALVT: Bean, 2011)
+- in the recognition task, the patients study a set of 15 words, and tested on 30 words, made up of 15 old and 15 new words
+• Patients also had a cerebrospinal fluid measurement taken to classify their levels beta amyloid as “positive” or “negative”
+- amyloid positivity is thought to be a pre-symptomatic indicator of Alzheimer’s disease
+
+## Code
+
+```{r}
+library(tidyverse)
+```
+
+```{r}
+df <- read_csv("data/amyloidSDT.csv")
+```
+
+```{r}
+df <- df |>
+    mutate(
+        hit_rate = hit / (hit + miss),
+        fa_rate = fa / (fa + cr)
+    )
+
+correct_zero_one <- function(rate, e = 0.001) {
+    if (identical(rate, 0)) {
+        rate <- rate + e
+    } else if (identical(rate, 1)) {
+        rate <- rate - e
+    }
+    rate
+}
+
+df <- df |>
+    mutate(across(c(hit_rate, fa_rate), correct_zero_one))
+
+df <- df |>
+    mutate(
+        zhr = qnorm(hit_rate),
+        zfa = qnorm(fa_rate)
+    )
+
+df <- df |>
+    mutate(
+        dprime = zhr - zfa,
+        k = -zfa,
+        c = -0.5 * (zhr + zfa)
+    )
+
+df <- df |>
+    mutate(across(c(dprime, k, c), \(x) round(x, 2)))
+
+```
+
+```{r}
+se <- function(x) {
+  sd(x) / sqrt(length(x))
+}
+```
+
+
+```{r}
+dprimes <- df |>
+  select(group, dprime)
+
+dprimes_summary <- dprimes |>
+  summarize(mean = mean(dprime),
+  se = se(dprime))
+```
+
+```{r}
+cs <- df |>
+  select(group, c)
+```
+
