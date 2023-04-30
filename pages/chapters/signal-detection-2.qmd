@@ -24,7 +24,7 @@ code-annotations: select
 ```{r}
 #| include: false
 # Set working directory of R
-knitr::opts_knit$set(root.dir = '../../data/')
+knitr::opts_knit$set(root.dir = '../../')
 ```
 :::{.callout-tip collapse="false"}
 ## Lernziele
@@ -188,9 +188,10 @@ library(tidyverse)
 ```
 
 ```{r}
-library(sdtalt)
-# data <- read_csv("data.csv")
-data(confexp)
+df <- read_csv("data/rdkdata_clean.csv")
+```
+
+```{r}
 ```
 
 
