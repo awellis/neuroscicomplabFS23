@@ -192,7 +192,87 @@ df <- read_csv("data/rdkdata_clean.csv")
 ```
 
 ```{r}
+df <- df |>
+    mutate(type = case_when(
+        direction == "right" & choice == "right" ~ "Hit",
+        direction == "right" & choice == "left" ~ "Miss",
+        direction == "left" & choice == "left" ~ "CR",
+        direction == "left" & choice == "right" ~ "FA"
+    ))
 ```
 
 
 
+
+```{r}
+df_cue <- df |>
+      group_by(id, cue) |>
+      count(type) |> 
+    pivot_wider(names_from = type, values_from = n) 
+```
+
+
+```{r}
+replace_NA <- function(x) {
+    x = ifelse(is.na(x), 0, x)
+    x
+} 
+```
+
+```{r}
+df_cue <- df_cue |>
+  mutate(across(c(Hit, Miss, FA, CR), replace_NA))
+```
+
+```{r}
+correct_zero_one <- function(rate, e = 0.001) {
+    if (identical(rate, 0)) {
+        rate = rate + e
+    } else if (identical(rate, 1)) {
+        rate = rate - e
+    }
+    rate
+}
+```
+
+
+
+
+```{r}
+df_cue  <- df_cue |>
+    mutate(hit_rate = Hit/(Hit + Miss),
+           fa_rate = FA/(FA + CR))
+```
+
+```{r}
+df_cue <- df_cue |>
+    mutate(across(c(hit_rate, fa_rate), correct_zero_one))
+```
+
+```{r}
+df_cue <- df_cue |>
+  mutate(zhr = qnorm(hit_rate),
+           zfa = qnorm(fa_rate))
+```
+
+
+```{r}
+df_cue <- df_cue |>
+  mutate(dprime = zhr - zfa,
+         k = -zfa,
+         c = -0.5 * (zhr + zfa)) |>
+    mutate(across(c(dprime, k, c), \(x) round(x, 2)))
+```
+
+
+```{r}
+df_cue |>
+  ggplot(aes(x = c, y = dprime)) +
+      geom_hline(yintercept = 0, color = "blue", linetype = 2) +
+      geom_vline(xintercept = 0, color = "blue", linetype = 2) +
+      geom_point(size = 3) +
+      facet_wrap(~ cue) +
+      labs(x = "c", y = "d'") +
+      ggtitle("Bias vs. sensitivity") +
+      theme_linedraw()
+```
