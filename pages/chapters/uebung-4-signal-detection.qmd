@@ -67,13 +67,15 @@ Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text a
     
 
 
-
 ## Rey auditory verbal learning test
+In dieser Übung werden wir die Sensitivität und den Bias für zwei Gruppen von Patienten untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden. Bei 60 Patienten wurde die Anwesenheit von [Beta-Amyloid](https://de.wikipedia.org/wiki/Beta-Amyloid) durch einen [Bluttest](https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds) 
+
 
 These data come from a clinical setting, and involve memory ability tests for 60 patients using the Rey auditory verbal learning test (RALVT: Bean, 2011)
 - in the recognition task, the patients study a set of 15 words, and tested on 30 words, made up of 15 old and 15 new words
 • Patients also had a cerebrospinal fluid measurement taken to classify their levels beta amyloid as “positive” or “negative”
 - amyloid positivity is thought to be a pre-symptomatic indicator of Alzheimer’s disease
+
 
 ## Code
 
@@ -84,9 +86,6 @@ library(tidyverse)
 ```{r}
 df <- read_csv("data/amyloidSDT.csv")
 ```
-
-
-
 
 
 
@@ -115,10 +114,12 @@ df <- df |>
 ```{r}
 df |> 
   ggplot(aes(fa_rate, hit_rate, color = group)) +
-  geom_abline(a = 0, b = 1, linetype = 2) +
+  geom_abline(intercept = 0, slope = 1, linetype = 2) +
   geom_jitter() +
-  facet_wrap(~group) +
-  xlim(c(0, 1)) + ylim(c(0, 1))
+  scale_color_viridis_d(direction = -1, begin = 0.1, end = 0.8) +
+      facet_wrap(~ group) +
+      xlim(c(0, 1)) +
+      theme_linedraw())
 ```
 
 

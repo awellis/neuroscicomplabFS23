@@ -416,7 +416,7 @@ Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>👉 <a href="../../downloadable_files/rdkdata.csv">Daten für diese Sitzung herunterladen</a></p>
+<p>👉 <a href="../../downloadable_files/rdkdata_clean.csv">Daten für diese Sitzung herunterladen</a></p>
 </div>
 </div>
 <section id="daten-importieren" class="level2"><h2 class="anchored" data-anchor-id="daten-importieren">Daten importieren</h2>
@@ -666,7 +666,7 @@ Tip
 <p>In folgendem Veranschaulichung liegt das Kriterium <span class="math inline">\(k\)</span> links der Mitte zwischen beiden Verteilungen. Folglich wird <span class="math inline">\(c = k - d' &lt;0\)</span>. Ein negativer Bias führt dazu, dass die Person eher eine ‘rechts’-Antwort gibt.</p>
 <div class="cell">
 <div class="cell-output-display">
-<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid" width="672"></p>
+<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Tatsächlich scheint es eine Tendenz zu geben, dass der ‘rechts’ Hinweis zu einem negativen Bias führt, während der ‘links’ Hinweis zu einem positiven Bias führt - die Variabilität zwischen den Versuchspersonen ist jedoch gross, und es scheint einige Personen zu geben, welche genau das Gegenteil zeigen. Es scheint jedoch auch einige Personen zu geben, welche systematisch falsch geantwortet haben (negative Sensitivität).</p>
@@ -683,7 +683,7 @@ Da die Durchführung unseres Experiments schlecht kontrolliert wurde (am eigenen
 <span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"Bias vs. sensitivity"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="mittelwerte-und-standardfehler" class="level2"><h2 class="anchored" data-anchor-id="mittelwerte-und-standardfehler">Mittelwerte und Standardfehler</h2>
@@ -726,7 +726,7 @@ Da die Durchführung unseres Experiments schlecht kontrolliert wurde (am eigenen
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fl">21</span>, size <span class="op">=</span> <span class="fl">3</span>, fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"c (bias)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
+<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Zusatzlich können wir die Datenpunkte plotten; diese sind jedoch im Dataframe <code>sdt_final</code> gespeichert, und nicht im Dataframe <code>cs</code>. Daher benutzen wir das Argument <code>data = sdt_final</code> in <code>geom_jitter</code>.</p>
@@ -743,7 +743,7 @@ Da die Durchführung unseres Experiments schlecht kontrolliert wurde (am eigenen
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape <span class="op">=</span> <span class="fl">21</span>, size <span class="op">=</span> <span class="fl">3</span>, fill <span class="op">=</span> <span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span><span class="op">(</span><span class="st">"c (bias)"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
+<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Mit dem <code>patchwork</code> Package können wir die beiden Plots kombinieren.</p>
@@ -773,10 +773,10 @@ Da die Durchführung unseres Experiments schlecht kontrolliert wurde (am eigenen
 <span>  </span>
 <span><span class="va">p_dprime</span> <span class="op">/</span> <span class="va">p_bias</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="672"></p>
+<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Die obige Darstellung sieht nicht optimal aus. Vielleicht wäre es besser, die Grafiken nebeneinander anzuordnen.</p>
+<p>Falls Ihnen diese Darstellung nicht gefällt, können Sie die Grafiken mit <code>+</code> auch nebeneinander anordnen.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -793,7 +793,7 @@ Tip
 <div class="cell">
 <div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_dprime</span> <span class="op">+</span> <span class="va">p_bias</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
+<p><img src="signal-detection-2_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 </section><section id="zusammenfassung" class="level2"><h2 class="anchored" data-anchor-id="zusammenfassung">Zusammenfassung</h2>
