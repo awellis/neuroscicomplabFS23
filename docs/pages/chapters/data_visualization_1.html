@@ -335,6 +335,12 @@ div.csl-indent {
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SDT anwenden</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -477,16 +483,16 @@ Mit <code>ggplot</code>könnte man sogar Kunstwerke erstellen, wie bspw. <a href
 </ul>
 <p>Wir werden uns heute vor allem mit den Daten, Geomen und Mappings befassen. Zudem werden wir vor allem Facets und Themes genauer anschauen.</p>
 <section id="daten" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="daten">Daten</h2>
-<p>Zuerst laden wir das <code>tidyverse</code> Package und lesen das im Ordner <code>data_example</code> gespeicherte <code>.csv</code> File ein und machen die Variable <code>condition</code> zu einem Faktor. Wir schauen uns die Daten mit <code><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse()</a></code> an. Passen Sie hierzu den Datei-Pfad an Ihren Ordner an.</p>
+<p>Zuerst laden wir das <code>tidyverse</code> Package und lesen das im Ordner <code>data_example</code> gespeicherte <code>.csv</code> File ein und machen die Variable <code>condition</code> zu einem Faktor. Wir schauen uns die Daten mit <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code> an. Passen Sie hierzu den Datei-Pfad an Ihren Ordner an.</p>
 <aside>
 Der verwendete Datensatz stammt von <span class="citation" data-cites="matejka_same_2017">Matejka and Fitzmaurice (<a href="#ref-matejka_same_2017" role="doc-biblioref">2017</a>)</span>.
 </aside><div class="cell">
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data_example/DatasaurusDozen.csv"</span><span class="op">)</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data_example/DatasaurusDozen.csv"</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">condition</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,846
 Columns: 3
@@ -503,7 +509,7 @@ $ value2    &lt;dbl&gt; 61.411101, 26.186880, 30.832194, 82.533649, 45.734551, 3
 </ul>
 <p>Die hier eingelesenen Daten sind schon im <em>long</em>-Format.</p>
 <aside>
-Falls die Daten im <em>wide</em>-Format abgespeichert sind, lohnt es sich diese umzuformatieren z.B. mit <code><a href="https://rdrr.io/pkg/tidyr/man/pivot_longer.html">pivot_longer()</a></code>.
+Falls die Daten im <em>wide</em>-Format abgespeichert sind, lohnt es sich diese umzuformatieren z.B. mit <code><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer()</a></code>.
 </aside></section><section id="variablen" class="level3"><h3 class="anchored" data-anchor-id="variablen">Variablen</h3>
 <p>Bevor wir weiterfahren, müssen wir wissen, welche Variablen wir plotten möchten und welches Skalenniveau diese Variablen haben. Je nach Anzahl Variablen und den entsprechenden Skalenniveaus eignen sich andere Grafik-Formen.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -551,18 +557,18 @@ Hands-on
 <!-- ``` -->
 <p>Fürs erste entscheiden wir uns für die Bedingung <code>away</code>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_away</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="va">condition</span> <span class="op">==</span> <span class="st">"away"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_away</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">condition</span> <span class="op">==</span> <span class="st">"away"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Wir können für diese Bedingung zusätzlich <em>summary statistics</em> berechnen, hier Mittelwert und Standardabweichung.</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_away_summary</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/summarise.html">summarise</a></span><span class="op">(</span>mean_v1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value1</span><span class="op">)</span>,</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data_away_summary</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>mean_v1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value1</span><span class="op">)</span>,</span>
 <span>              sd_v1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">value1</span><span class="op">)</span>,</span>
 <span>              mean_v2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">value2</span><span class="op">)</span>,</span>
 <span>              sd_v2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">value2</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data_away_summary</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data_away_summary</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1
 Columns: 4
@@ -576,32 +582,32 @@ $ sd_v2   &lt;dbl&gt; 26.84777</code></pre>
 </section><section id="plot" class="level3"><h3 class="anchored" data-anchor-id="plot">Plot</h3>
 <p>In den folgenden Beispielen verwenden wir die Daten der Bedingung <code>away</code>. Wir geben in die Funktion <code>ggplot</code> als erstes Argument <code>data = data_away</code> ein.</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_visualization_1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
 <p>Wir haben nun die Daten eingegeben, aber noch keine Formen und kein Mapping, deshalb ist die Grafik leer.</p>
 </section></section><section id="geom-formen" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="geom-formen">Geom / Formen</h2>
-<p>In <code>ggplot</code> wird die Form mit <code>geom_</code> hinzugefügt. Beispielsweise werden mit <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point()</a></code> Punkte erstellt, mit <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line()</a></code> Linien, mit <code>geom_boxplot</code> Boxplots, usw. Bei der Wahl der passenden Form kommt es einerseits auf die Daten an. Sind die Daten nominal, ordinal, interval oder ratio skaliert? Wie viele Variablen werden gleichzeitig in die Grafik einbezogen? Andererseits ist es wichtig, was mit der Grafik gezeigt werden soll: Unterschiede? Gemeinsamkeiten? Veränderungen über Zeit?</p>
+<p>In <code>ggplot</code> wird die Form mit <code>geom_</code> hinzugefügt. Beispielsweise werden mit <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code> Punkte erstellt, mit <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line()</a></code> Linien, mit <code>geom_boxplot</code> Boxplots, usw. Bei der Wahl der passenden Form kommt es einerseits auf die Daten an. Sind die Daten nominal, ordinal, interval oder ratio skaliert? Wie viele Variablen werden gleichzeitig in die Grafik einbezogen? Andererseits ist es wichtig, was mit der Grafik gezeigt werden soll: Unterschiede? Gemeinsamkeiten? Veränderungen über Zeit?</p>
 <p>Oft verwendete Formen sind:</p>
 <ul>
-<li>Punkte / Scatterplots - <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point()</a></code>
+<li>Punkte / Scatterplots - <code><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point()</a></code>
 </li>
-<li>Linien - <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line()</a></code>
+<li>Linien - <code><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line()</a></code>
 </li>
 </ul>
 <p>Oder wenn zusammenfassende Werte geplottet werden sollen:</p>
 <ul>
-<li>Histogramme - <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_histogram.html">geom_histogram()</a></code>
+<li>Histogramme - <code><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html">geom_histogram()</a></code>
 </li>
-<li>Mittelwerte und Standardabweichungen - <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_linerange.html">geom_pointrange()</a></code>
+<li>Mittelwerte und Standardabweichungen - <code><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_pointrange()</a></code>
 </li>
-<li>Dichte - <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_density.html">geom_density()</a></code>
+<li>Dichte - <code><a href="https://ggplot2.tidyverse.org/reference/geom_density.html">geom_density()</a></code>
 </li>
-<li>Boxplots - <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_boxplot.html">geom_boxplot()</a></code>
+<li>Boxplots - <code><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html">geom_boxplot()</a></code>
 </li>
-<li>Violinplots - <code><a href="https://rdrr.io/pkg/ggplot2/man/geom_violin.html">geom_violin()</a></code>
+<li>Violinplots - <code><a href="https://ggplot2.tidyverse.org/reference/geom_violin.html">geom_violin()</a></code>
 </li>
 </ul>
 <aside>
@@ -628,8 +634,8 @@ Hands-on
 </section><section id="mapping" class="level2"><h2 class="anchored" data-anchor-id="mapping">Mapping</h2>
 <p>Jede <code>geom</code>-Funktion in <code>ggplot</code> benötigt Angaben zum <code>mapping</code>. Damit wird definiert, wie die Variablen auf die Formen (<em>aesthetics</em>) gemappt werden sollen. Am einfachsten geht das, wenn wir dies zu Beginn festlegen (wir könnten es auch in der Funktion <code>geom_</code> eingeben). Wir geben ein welche Variable auf der x-Achse und auf der y-Achse abgetragen werden soll. Eine weitere Variable könnten wir hier als <code>group = ...</code> oder <code>color = ...</code> einfügen.</p>
 <div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span>,</span>
-<span>       mapping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value1</span>,</span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value1</span>,</span>
 <span>                     y <span class="op">=</span> <span class="va">value2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_visualization_1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
@@ -637,10 +643,10 @@ Hands-on
 </div>
 <p>Jetzt können wir das <code>geom</code> hinzufügen:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span>,</span>
-<span>       mapping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value1</span>,</span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value1</span>,</span>
 <span>                     y <span class="op">=</span> <span class="va">value2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_visualization_1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -648,14 +654,14 @@ Hands-on
 </section><section id="beschriftungen-und-themes" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="beschriftungen-und-themes">Beschriftungen und Themes</h2>
 <p>Schönere und informativere Plots lassen sich gestalten, wenn wir einen Titel hinzufügen, die Achsenbeschriftung anpassen und das <code>theme</code> verändern:</p>
 <div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span>,</span>
-<span>       mapping <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value1</span>,</span>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">data_away</span>,</span>
+<span>       mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">value1</span>,</span>
 <span>                     y <span class="op">=</span> <span class="va">value2</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">ggtitle</a></span> <span class="op">(</span><span class="st">"Ein etwas schönerer Plot"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Wert 1 [a.u.]"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Wert 2 [a.u.]"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ggtitle</a></span> <span class="op">(</span><span class="st">"Ein etwas schönerer Plot"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">xlab</a></span><span class="op">(</span><span class="st">"Wert 1 [a.u.]"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Wert 2 [a.u.]"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_visualization_1_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -677,7 +683,7 @@ GUI
 <p>Falls Sie ein GUI verwenden möchten, gehen Sie wie folgt vor:</p>
 <ul>
 <li><p>Installieren Sie das package <code>esquisse</code> mit <code>install.packages("esquisse")</code> in Ihrer Konsole oder über <code>Tools</code> &gt; <code>Install packages...</code></p></li>
-<li><p>Geben Sie in Ihrer Konsole <code><a href="https://rdrr.io/pkg/esquisse/man/esquisser.html">esquisse::esquisser()</a></code> ein und wählen Sie dann unter <code>Import Data</code> den Datensatz <code>DatasaurusDozen.csv</code> aus</p></li>
+<li><p>Geben Sie in Ihrer Konsole <code><a href="https://dreamrs.github.io/esquisse/reference/esquisser.html">esquisse::esquisser()</a></code> ein und wählen Sie dann unter <code>Import Data</code> den Datensatz <code>DatasaurusDozen.csv</code> aus</p></li>
 </ul>
 </div>
 </div>

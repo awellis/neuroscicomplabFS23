@@ -316,6 +316,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SDT anwenden</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -527,7 +533,7 @@ Important
 </ul>
 </div>
 </div>
-<p>Um unsere Daten einzulesen verwenden wir die Funktion <code>map</code> vom Package <code>purrr</code>. Diese Funktion ist sehr praktisch. Sie nimmt als Parameter unsere Liste mit den Datensätzen und wendet für jeden Punkt in der Liste das an, was wir in Klammern angeben. Wir wollen Daten einlesen also schreiben wir hier: <code>read.csv</code>. Anschliessend müssen wir die Listen noch zu einem Datensatz umwandeln indem wir alle untereinander anordnen, also die <code>List</code>en <code>r</code>eihenweise <code>bind</code>en: <code><a href="https://rdrr.io/pkg/purrr/man/list_c.html">list_rbind()</a></code>.</p>
+<p>Um unsere Daten einzulesen verwenden wir die Funktion <code>map</code> vom Package <code>purrr</code>. Diese Funktion ist sehr praktisch. Sie nimmt als Parameter unsere Liste mit den Datensätzen und wendet für jeden Punkt in der Liste das an, was wir in Klammern angeben. Wir wollen Daten einlesen also schreiben wir hier: <code>read.csv</code>. Anschliessend müssen wir die Listen noch zu einem Datensatz umwandeln indem wir alle untereinander anordnen, also die <code>List</code>en <code>r</code>eihenweise <code>bind</code>en: <code><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind()</a></code>.</p>
 <aside>
 Falls Sie das Package <code>purrr</code> noch nicht installiert haben, können Sie in der Konsole <code>install.packages("purrr")</code> eingeben. Jedes Package muss nur einmal installiert werden. Will man es verwenden, muss es aber mit <code><a href="https://purrr.tidyverse.org/">library(purrr)</a></code> geladen werden. Statt <code>list_rbind</code>zu verwenden könnten wir auch <code>map_dfr</code>nutzen, dann wäre der Code noch kompakter.
 </aside><div class="cell" data-hash="functions_and_loops-2_cache/html/unnamed-chunk-8_901ab7777c0bebeb95c29758cd11d399">
@@ -546,11 +552,11 @@ Falls Sie das Package <code>purrr</code> noch nicht installiert haben, können S
 </div>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://purrr.tidyverse.org/">purrr</a></span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="va">myFiles</span> <span class="op"><a href="https://rdrr.io/pkg/magrittr/man/pipe.html">%&gt;%</a></span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/purrr/man/map.html">map</a></span><span class="op">(</span><span class="va">read.csv</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/purrr/man/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="va">myFiles</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span></span>
+<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">read.csv</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">d</span>, width <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">d</span>, width <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,503
 Columns: 40

@@ -24,8 +24,7 @@ code-annotations: select
 ```{r}
 #| include: false
 # Set working directory of R
-knitr::opts_knit$set(root.dir = '../../data/rdk_decision_experiment')
-getwd()
+knitr::opts_knit$set(root.dir = "../../data/rdk_decision_experiment")
 ```
 
 <!-- :::{.callout-note}
@@ -187,7 +186,6 @@ Wir wollen wir nicht mehr nur den Mittelwert betrachten, sondern auch die Standa
 
 Wir können eine solche Funktion einfach selber definieren. `sd()` berechnet die Standardabweichung eines Vektors, und die Anzahl Datenpunkte ist die Länge des Vektors (`length()`), den wir als Argument übergeben.
 
-```{r}
 ```{r}
 se <- function(x) {
   sd(x) / sqrt(length(x))
