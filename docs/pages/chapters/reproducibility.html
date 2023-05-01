@@ -6,8 +6,12 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Andrew Ellis">
+<meta name="author" content="Gerda Wyssen">
+<meta name="dcterms.date" content="2023-03-20">
+<meta name="description" content="Datenverarbeitung reproduzierbar machen.">
 
-<title>Neurowissenschaft Computerlab</title>
+<title>Neurowissenschaft Computerlab - Reproducibility</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,27 +24,47 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href=".//assets/logo_landing.png" rel="icon" type="image/png">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../..//assets/logo_landing.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,20 +86,20 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="./styles/global.css">
+<link rel="stylesheet" href="../../styles/global.css">
 </head>
 
-<body class="nav-sidebar floating nav-fixed fullcontent">
+<body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="./index.html" class="navbar-brand navbar-brand-logo">
-    <img src="./assets/logo.png" alt="" class="navbar-logo">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../assets/logo.png" alt="" class="navbar-logo">
     </a>
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Neurowissenschaft Computerlab</span>
     </a>
   </div>
@@ -91,15 +115,15 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">    
         <li>
-    <a class="dropdown-item" href="./pages/admin/syllabus.html" rel="" target="">
+    <a class="dropdown-item" href="../../pages/admin/syllabus.html" rel="" target="">
  <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./pages/admin/leistungsnachweise.html" rel="" target="">
+    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html" rel="" target="">
  <span class="dropdown-text">📝 Leistungsnachweise</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="./pages/admin/dozierende.html" rel="" target="">
+    <a class="dropdown-item" href="../../pages/admin/dozierende.html" rel="" target="">
  <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
     </ul>
@@ -121,7 +145,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Neurowissenschaft Computerlab</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../pages/chapters/reproducibility.html">Data wrangling</a></li><li class="breadcrumb-item"><a href="../../pages/chapters/reproducibility.html">Reproducibility</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -152,19 +176,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/software.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Programmiersprachen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ChatGPT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataCamp</span></a>
   </div>
 </li>
@@ -181,19 +205,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verhaltensexperiment mit PsychoPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Experiment erstellen: Step by step</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 1</span></a>
   </div>
 </li>
@@ -210,37 +234,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Reproducibility</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten importieren: Teil 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Automatisieren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten importieren: Teil 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aggregierte Statistiken</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 2</span></a>
   </div>
 </li>
@@ -257,25 +281,25 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Markdown</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Grafiken erstellen mit <code>ggplot</code></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten Visualisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 3</span></a>
   </div>
 </li>
@@ -292,13 +316,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/signal-detection-1.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/signal-detection-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
+  <a href="../../pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SDT anwenden</span></a>
   </div>
 </li>
@@ -313,33 +337,178 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#replizierbarkeit" id="toc-replizierbarkeit" class="nav-link active" data-scroll-target="#replizierbarkeit">Replizierbarkeit</a></li>
+  <li><a href="#reproduzierbarkeit" id="toc-reproduzierbarkeit" class="nav-link" data-scroll-target="#reproduzierbarkeit">Reproduzierbarkeit</a></li>
+  <li><a href="#hindernisse-bei-der-reproduzierbarkeit" id="toc-hindernisse-bei-der-reproduzierbarkeit" class="nav-link" data-scroll-target="#hindernisse-bei-der-reproduzierbarkeit">Hindernisse bei der Reproduzierbarkeit</a></li>
+  <li><a href="#tools-für-reproduzierbarkeit" id="toc-tools-für-reproduzierbarkeit" class="nav-link" data-scroll-target="#tools-für-reproduzierbarkeit">Tools für Reproduzierbarkeit</a></li>
+  <li><a href="#code-kommentieren" id="toc-code-kommentieren" class="nav-link" data-scroll-target="#code-kommentieren">Code kommentieren</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla">
-  <img src="assets/logo_landing.png" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content page-columns page-full" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Neurowissenschaft Computerlab</h1>
+<h1 class="title">Reproducibility</h1>
 </div>
-<div class="quarto-title-meta">
+
+<div>
+  <div class="description">
+    Datenverarbeitung reproduzierbar machen.
   </div>
-</header><main class="content" id="quarto-document-content">
-<p>Frühjahrssemester 2023</p>
+</div>
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://github.com/awellis">Andrew Ellis</a> <a href="https://orcid.org/0000-0002-2788-936X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.kog.psy.unibe.ch">
+            Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern
+            </a>
+          </p>
+      </div>
+      <div class="quarto-title-meta-contents">
+    <p class="author">Gerda Wyssen <a href="https://orcid.org/0000-0001-7427-3149" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://www.kog.psy.unibe.ch">
+            Kognitive Psychologie, Wahrnehmung und Methodenlehre, Universität Bern
+            </a>
+          </p>
+      </div>
+    </div>
+
+<div class="quarto-title-meta">
+
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">March 20, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Die Replikationskrise hat in der Psychologie, aber auch in den kognitiven Neurowissenschaften ein Umdenken ausgelöst. Reproduzierbarkeit und Replizierbarkeit sind zu wichtigen Konzepten für nachhaltige Forschung geworden. Die Begriffe werden verwirrenderweise aber oft unterschiedlich definiert (<span class="citation" data-cites="plesser_reproducibility_2018">Plesser (<a href="#ref-plesser_reproducibility_2018" role="doc-biblioref">2018</a>)</span>).</p>
+<section id="replizierbarkeit" class="level1">
+<h1>Replizierbarkeit</h1>
+<p><em>Replizierbarkeit (replicability)</em> bedeutet, dass ein Experiment von einer anderen Forschungsgruppe mit einer neuen Stichprobe durchgeführt werden kann, und ähnliche oder dieselben Resultate hervorbringt, wie die Originalstudie. Wird eine Studie mehrmals repliziert, steigt die Wahrscheinlichkeit, dass kein Zufallsbefund vorliegt.</p>
+<blockquote class="blockquote">
+<p>Replicability refers to the ability of a researcher to duplicate the results of a prior study if the same procedures are followed but new data are collected. <span class="citation" data-cites="cacioppo_social_2015">Cacioppo et al. (<a href="#ref-cacioppo_social_2015" role="doc-biblioref">2015</a>)</span></p>
+</blockquote>
+</section>
+<section id="reproduzierbarkeit" class="level1">
+<h1>Reproduzierbarkeit</h1>
+<p><em>Reproduzierbarkeit</em> <em>(reproducibility)</em> hängt eng mit der Replizierbarkeit zusammen, ist aber nicht dasselbe. Der Begriff wird teilweise sehr allgemein verwendet, und bedeutet so dass Forschungsergebnisse wiederholt gefunden werden auch von anderen Forschenden mit neuen Stichproben.</p>
+<p>Reproduzierbarkeit im engeren Sinn hingegen bezieht sich darauf, ob die durchgeführte Analyse wiederholt werden kann. Die Reproduzierbarkeit ist somit hoch, wenn Forschende die Daten und Datenanalyseskripts bereitstellen und andere Forschende damit dieselben Analysen durchführen können und zu gleichen Resultaten kommen.</p>
+<blockquote class="blockquote">
+<p>Reproducibility refers to the ability of a researcher to duplicate the results of a prior study using the same materials as were used by the original investigator. That is, a second researcher might use the same raw data to build the same analysis files and implement the same statistical analysis in an attempt to yield the same results…. Reproducibility is a minimum necessary condition for a finding to be believable and informative. <span class="citation" data-cites="cacioppo_social_2015">Cacioppo et al. (<a href="#ref-cacioppo_social_2015" role="doc-biblioref">2015</a>)</span></p>
+</blockquote>
+<p>Um die Begriffe zusammenzufassen schlugen <span class="citation" data-cites="goodman_what_2016">Goodman, Fanelli, and Ionnidis (<a href="#ref-goodman_what_2016" role="doc-biblioref">2016</a>)</span> vor von <em>Reproduzierbarkeit der Methoden</em> (Daten und Prozesse können exakt wiederholt werden), <em>Reproduzierbarkeit der Resultate</em> (andere Studien kommen auf dieselben Resultate) und <em>Reproduzierbarkeit der wissenschaftlichen Schlussfolgerung</em> (bei Repetition der Analyse oder der Experimente werden dieselben Schlüsse gezogen) zu sprechens.</p>
+<p>Grundsätzlich besteht das Ziel, dass in der Forschung möglichst viel Evidenz für eine Schlussfolgerung gesammelt werden kann. Dies gelingt, wenn die Prozesse transparent, fehlerfrei und wiederholbar sind.</p>
+</section>
+<section id="hindernisse-bei-der-reproduzierbarkeit" class="level1">
+<h1>Hindernisse bei der Reproduzierbarkeit</h1>
+<p>Reproduzierbarkeit kann laut <span class="citation" data-cites="nosek_replicability_2022">Nosek et al. (<a href="#ref-nosek_replicability_2022" role="doc-biblioref">2022</a>)</span> vor allem aus zwei Gründen nicht gegeben sein: Weil die Daten/Skripte nicht zur Verfügung stehen, oder weil diese Fehler enthalten:</p>
+<blockquote class="blockquote">
+<p>In principle, all reported evidence should be reproducible. If someone applies the same analysis to the same data, the same result should occur. Reproducibility tests can fail for two reasons. A process reproducibility failure occurs when the original analysis cannot be repeated because of the unavailability of data, code, information needed to recreate the code, or necessary software or tools. An outcome reproducibility failure occurs when the reanalysis obtains a different result than the one reported originally. This can occur because of an error in either the original or the reproduction study.</p>
+</blockquote>
+<p>Führt die Reproduktion nicht zum selben Resultat, löst das Zweifel am Forschungsergebnis aus. Wenn die Reproduzierbarkeit am Prozess scheitert, etwa weil die Daten nicht vorhanden sind, kann kein Schluss gezogen werden, ob die Resultate stimmen.</p>
+<blockquote class="blockquote">
+<p>Achieving reproducibility is a basic foundation of credibility, and yet many efforts to test reproducibility reveal success rates below 100%. … Whereas an outcome reproducibility failure suggests that the original result may be wrong, a process reproducibility failure merely indicates that the original result cannot be verified. Either reason challenges credibility and increases uncertainty about the value of investing additional resources to replicate or extend the findings (Nuijten et al.&nbsp;2018). Sharing data and code reduces process reproducibility failures (Kidwell et al.&nbsp;2016), which can reveal more outcome reproducibility failures (Hardwicke et al.&nbsp;2018, 2021; Wicherts et al.&nbsp;2011). <span class="citation" data-cites="nosek_replicability_2022">Nosek et al. (<a href="#ref-nosek_replicability_2022" role="doc-biblioref">2022</a>)</span></p>
+</blockquote>
+<p>Das Teilen von Daten und Datenverarbeitungsskripten erhöht die Wahrscheinlichkeit, dass mögliche Fehler im Prozess gefunden werden, da auch andere Forschende die Daten/Skripts verwenden können. Das ist vorerst unangenehm, gehört aber zum Prozess der Wissenschaft dazu. Reproduzierbarkeit erhöht also indirekt auch die Replizierbarkeit.</p>
+</section>
+<section id="tools-für-reproduzierbarkeit" class="level1 page-columns page-full">
+<h1>Tools für Reproduzierbarkeit</h1>
+<p>Für reproduzierbare Forschung gibt es inzwischen viele gute Tools:</p>
+<ul>
+<li>Website der <a href="https://osf.io/">Open Science Foundation</a>: Eine kostenfreie und unkomplizierte Möglichkeit Daten und Skripts zu teilen, und diese in Projekten abzulegen. Es lässt sich dafür sogar ein <em>doi</em> erstellen. Auch Preregistrationsformulare sind hier implementiert.</li>
+</ul>
+<p>Beim Veröffentlichen von wissenschaftlichen Artikeln ist es empfohlen, die Daten (falls anonymisiert möglich) sowie die Analyseskripts mitzuveröffentlichen.</p>
+<ul>
+<li>Für Datensätze gelten die <em>FAIR Guiding Principles</em> (<span class="citation" data-cites="wilkinson_fair_2016">Wilkinson et al. (<a href="#ref-wilkinson_fair_2016" role="doc-biblioref">2016</a>)</span>):
+<ul>
+<li><strong>F</strong> indability: Es ist klar unter welchen Umständen und wie die Daten zugänglich sind</li>
+<li><strong>A</strong> ccessibility: Daten sind zugänglich bzw. es ist klar wo sie zu finden wären</li>
+<li><strong>I</strong> nteroperability: Verwendbare Datenformate/strukturen</li>
+<li><strong>R</strong> eusability: gute Beschreibung des Datensatzes/der enthaltenen Variablen</li>
+</ul></li>
+</ul>
+<aside>
+<a href="https://www.go-fair.org/fair-principles">Hier</a> finden Sie weitere Informationen zu <em>FAIR</em>.
+</aside>
+<ul>
+<li>Für Neuroimaging-Daten gibt es beispielsweise vorgegebene Konventionen, wie ein Datensatz und die Verarbeitungsskripts abgespeichert werden. Ein Beispiel dafür ist <a href="https://bids.neuroimaging.io">Brain Imaging Data Structure (BIDS)</a>. So können Datensätze mit einer für alle verständlichen Struktur veröffentlicht und geteilt werden.</li>
+</ul>
+<aside>
+<a href="https://andysbrainbook.readthedocs.io/en/latest/OpenScience/OS/BIDS_Overview.html">Hier</a> finden Sie weitere Informationen zu <em>BIDS</em>.
+</aside>
+<ul>
+<li>Für das Veröffentlichen von Analyseskripts eignen sich Formate wie <em>RMarkdown</em> in <em>R</em>, oder <em>LiveScripts</em> in <em>MATLAB</em> sehr gut. Aber auch <code>.r</code>-Skripte, wie Sie sie in dieser Veranstaltung verwenden können veröffentlicht werden.</li>
+</ul>
+<aside>
+<a href="https://djnavarro.net/slides-starting-rmarkdown/#1">Hier</a> finden Sie eine sehr gut erklärte Einführung zu <em>RMarkdown</em>.
+</aside>
+</section>
+<section id="code-kommentieren" class="level1">
+<h1>Code kommentieren</h1>
+<p>Das Teilen von Skripts macht am meisten Sinn, wenn sie verständlich strukturiert und kommentiert sind. Beim Kommentieren von Code sollte folgendes beachtet werden:</p>
+<ul>
+<li><p>Kommentare sollten geschrieben werden, wenn der Code erstellt wird und laufend überarbeitet werden. Oft wird es sonst nicht nachgeholt.</p></li>
+<li><p>Wenn man nicht genau kommentieren kann, was man im Code macht, dann ist evtl. der Code unklar, oder man versteht ihn noch nicht. Vielleicht kann man Variablennamen vereinfachen/präzisieren und es braucht weniger Kommentare?</p></li>
+<li><p>Wenn Code kopiert wird, sollte die Quelle angegeben werden.</p></li>
+<li><p>Vor dem Veröffentlichen, lohnt es sich jemanden den Code ausführen lassen. So zeigt sich wo noch unklare Stellen sind, die Kommentare benötigen.</p></li>
+</ul>
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="mailto:andrew.ellis@unibe.ch" class="about-link" rel="" target="">
-     <span class="about-link-text">Andrew Ellis</span>
-  </a>
-  <a href="mailto:gerda.wyssen@unibe.ch" class="about-link" rel="" target="">
-     <span class="about-link-text">Gerda Wyssen</span>
-  </a>
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-cacioppo_social_2015" class="csl-entry" role="listitem">
+Cacioppo, J. T., R. M. Kaplan, J. A. Krosnick, J. L. Olds, and H. Dean. 2015. <span>“Social, <span>Behavioral</span>, and <span>Economic</span> <span>Sciences</span> <span>Perspectives</span> on <span>Robust</span> and <span>Reliable</span> <span>Science</span>.”</span> <em>Report of the Subcommittee on Replicability in Science Advisory Committee to the National Science Foundation Directorate for Social, Behavioral, and Economic Sciences</em>.
 </div>
+<div id="ref-goodman_what_2016" class="csl-entry" role="listitem">
+Goodman, Steven N., Daniele Fanelli, and John P. A. Ionnidis. 2016. <span>“What Does Research Reproducibility Mean?”</span> <em>Science Translational Medicine</em> 341. <a href="https://doi.org/10.1126/scitranslmed.aaf5027">https://doi.org/10.1126/scitranslmed.aaf5027</a>.
 </div>
- <!-- /main -->
+<div id="ref-nosek_replicability_2022" class="csl-entry" role="listitem">
+Nosek, Brian A, Tom E Hardwicke, Hannah Moshontz, Aurélien Allard, Katherine S Corker, Anna Dreber, Fiona Fidler, et al. 2022. <span>“Replicability, <span>Robustness</span>, and <span>Reproducibility</span> in <span>Psychological</span> <span>Science</span>.”</span> <em>Annual Review of Psychology</em> 73: 719–48. <a href="https://doi.org/10.1146/annurev-psych-020821-114157">https://doi.org/10.1146/annurev-psych-020821-114157</a>.
+</div>
+<div id="ref-plesser_reproducibility_2018" class="csl-entry" role="listitem">
+Plesser, Hans E. 2018. <span>“Reproducibility Vs. <span>Replicability</span>: <span>A</span> <span>Brief</span> <span>History</span> of a <span>Confused</span> <span>Terminology</span>.”</span> <em>Frontiers in Neuroinformatics</em> 11 (January): 76. <a href="https://doi.org/10.3389/fninf.2017.00076">https://doi.org/10.3389/fninf.2017.00076</a>.
+</div>
+<div id="ref-wilkinson_fair_2016" class="csl-entry" role="listitem">
+Wilkinson, Mark D., Michel Dumontier, IJsbrand Jan Aalbersberg, Gabrielle Appleton, Myles Axton, Arie Baak, Niklas Blomberg, et al. 2016. <span>“The <span>FAIR</span> <span>Guiding</span> <span>Principles</span> for Scientific Data Management and Stewardship.”</span> <em>Scientific Data</em> 3 (1): 160018. <a href="https://doi.org/10.1038/sdata.2016.18">https://doi.org/10.1038/sdata.2016.18</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2023,
+  author = {Ellis, Andrew and Wyssen, Gerda},
+  title = {Reproducibility},
+  date = {2023-03-20},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/reproducibility.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2023" class="csl-entry quarto-appendix-citeas" role="listitem">
+Ellis, Andrew, and Gerda Wyssen. 2023. <span>“Reproducibility.”</span>
+March 20, 2023. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/reproducibility.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/reproducibility.html</a>.
+</div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -475,6 +644,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   } else {
     toggleColorMode(false);
   }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
