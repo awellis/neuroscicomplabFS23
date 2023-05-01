@@ -55,7 +55,6 @@ df <- read_csv("data/rdkdata_clean.csv")
 
 Zur Sicherheit schauen wir uns die ersten 10 Zeilen an.
 ```{r}
-```{r}
 df
 ``` 
 

@@ -67,7 +67,7 @@ website:
         contents:
           - pages/chapters/signal-detection-1.qmd
           - pages/chapters/signal-detection-2.qmd
-          - pages/chapters/uebung-4-signal-detection.qmd
+          # - pages/chapters/uebung-4-signal-detection.qmd
 
       - section: "Bayesianische Datenanalyse"
         contents:

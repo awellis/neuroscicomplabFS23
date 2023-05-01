@@ -33,11 +33,9 @@ knitr::opts_knit$set(root.dir = '../../data/uebung-4')
 ## Aufgaben
 Die Übung 4 besteht aus den zwei folgenden Aufgaben:
 
-**1. RMarkdown-File erstellen und ausführen**: In diesem Skript werden die Daten unseres PsychoPy-Experiments eingelesen und damit eine Grafik erstellt. Das Skript muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.
+**1. RMarkdown-File erstellen und ausführen**: In diesem File werden die Daten eingelesen, SDT Kennzahlen und damit eine Grafik erstellt. Das RMarkdown-File muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.
 
 **2. Peer Feedback**: Mittels Ilias wird Ihnen das RMarkdown-File und die Grafik einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses RMarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.
-
-
 :::
 
 
@@ -46,7 +44,7 @@ Die Übung 4 besteht aus den zwei folgenden Aufgaben:
 Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. Wählen Sie aus, welche die Codechunks ausgeführt / angezeigt werden sollen.
 
 ## Aufgaben
-
+ 
 - Laden Sie nötige Packages.
 
 - Laden Sie die Daten unseres Experiments. Sie finden den Datensatz `rdkdata_clean.csv` für diese Übung im Projektordner `dataviz` > `data_rdk`.
