@@ -38,7 +38,7 @@ In der heutigen Sitzung lernen wir:
 :::{.callout-tip}
 ## Wichtig
 
-👉 [Daten für diese Sitzung herunterladen](../../downloadable_files/rdkdata.csv)
+👉 [Daten für diese Sitzung herunterladen](../../downloadable_files/rdkdata_clean.csv)
 :::
 
 
