@@ -316,6 +316,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SDT anwenden</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übung 4</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -474,7 +486,7 @@ In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert.
 [9] "data/VPN02_rdk-discrimination_2022_Mar_01_2208.csv"</code></pre>
 </div>
 </div>
-<p><code>csv_files</code> enthält nun die “Pfade” zu allen <code>.csv</code> Files im Ordner <code>data</code>. Diese Pfade können nun einzeln and <code><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv()</a></code> übergeben werden.</p>
+<p><code>csv_files</code> enthält nun die “Pfade” zu allen <code>.csv</code> Files im Ordner <code>data</code>. Diese Pfade können nun einzeln and <code><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv()</a></code> übergeben werden.</p>
 </section><section id="mit-for-loop" class="level2"><h2 class="anchored" data-anchor-id="mit-for-loop">Mit <code>for</code>-Loop</h2>
 <p>Zuerst brauchen wir eine Liste, in die wir die Daten einlesen können. Wir erstellen eine Liste mit der Länge der Anzahl Files, die wir haben.</p>
 <div class="cell">
@@ -483,7 +495,7 @@ In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert.
 <p>Nun können wir entweder über die Elemente der Liste iterieren, oder über die Indizes. Wir wählen letzteres, da wir die Indizes später für die Zuweisung der Daten verwenden können.</p>
 <div class="cell">
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw">for</span> <span class="op">(</span><span class="va">i</span> <span class="kw">in</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq_along</a></span><span class="op">(</span><span class="va">csv_files</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
-<span>            <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/readr/man/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">csv_files</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
+<span>            <span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="va">csv_files</span><span class="op">[</span><span class="va">i</span><span class="op">]</span><span class="op">)</span></span>
 <span>            <span class="va">data_list</span><span class="op">[[</span><span class="va">i</span><span class="op">]</span><span class="op">]</span> <span class="op">&lt;-</span> <span class="va">df</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -521,15 +533,15 @@ In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert.
 </div>
 </section><section id="mit-map-und-list_rbind" class="level2"><h2 class="anchored" data-anchor-id="mit-map-und-list_rbind">Mit <code>map</code> und <code>list_rbind</code>
 </h2>
-<p>Dasselbe können wir auch mit <code><a href="https://rdrr.io/pkg/purrr/man/map.html">map()</a></code> machen. Da auch hier der Output eine Liste ist, müssen wir diese auch zu einem Dataframe zusammenfügen. Dazu können wir <code><a href="https://rdrr.io/pkg/purrr/man/list_c.html">list_rbind()</a></code> verwenden.</p>
+<p>Dasselbe können wir auch mit <code><a href="https://purrr.tidyverse.org/reference/map.html">map()</a></code> machen. Da auch hier der Output eine Liste ist, müssen wir diese auch zu einem Dataframe zusammenfügen. Dazu können wir <code><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind()</a></code> verwenden.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">csv_files</span> <span class="op">|&gt;</span> </span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/purrr/man/map.html">map</a></span><span class="op">(</span><span class="va">read_csv</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/purrr/man/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/map.html">map</a></span><span class="op">(</span><span class="va">read_csv</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://purrr.tidyverse.org/reference/list_c.html">list_rbind</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 40
    cue   direction practice_block_loop.thisRepN practice_block_loop.thisTrialN
@@ -566,23 +578,23 @@ In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert.
 <p>Nun können wir wie in Teil 1 die Practice Trials entfernen.</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span>  <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span>  </span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">main_blocks_loop.thisN</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>        <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"practice_block_loop"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">main_blocks_loop.thisN</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>        <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"practice_block_loop"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="variablen-auswählen-und-umbennen" class="level2"><h2 class="anchored" data-anchor-id="variablen-auswählen-und-umbennen">Variablen auswählen und umbennen</h2>
 <p>Wir eliminieren die Variablen, die wir nicht brauchen (ISI, Fixationskreuz, Zeitangaben der Bilder, etc.).</p>
 <div class="cell">
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"static"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"fixation"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"image"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"instruction"</span><span class="op">)</span>,</span>
-<span>           <span class="op">-</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"feedback"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"static"</span><span class="op">)</span>,</span>
+<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"fixation"</span><span class="op">)</span>,</span>
+<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"image"</span><span class="op">)</span>,</span>
+<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"instruction"</span><span class="op">)</span>,</span>
+<span>           <span class="op">-</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/starts_with.html">contains</a></span><span class="op">(</span><span class="st">"feedback"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Zum Schluss geben wir den Variablen, die wir behalten, noch deskriptivere Namen.</p>
 <div class="cell">
 <div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/select.html">select</a></span><span class="op">(</span>trial <span class="op">=</span> <span class="va">main_blocks_loop.thisN</span>,</span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>trial <span class="op">=</span> <span class="va">main_blocks_loop.thisN</span>,</span>
 <span>           ID <span class="op">=</span> <span class="va">Pseudonym</span>,</span>
 <span>           <span class="va">cue</span>,</span>
 <span>           <span class="va">direction</span>,</span>
@@ -591,7 +603,7 @@ In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert.
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 6
    trial ID    cue   direction response    rt
@@ -623,8 +635,8 @@ In Ihrem Rstudio Projekt sind die Files im Ordner <code>data</code> gespeichert.
 <section id="korrekte-antworten" class="level3"><h3 class="anchored" data-anchor-id="korrekte-antworten">Korrekte Antworten</h3>
 <div class="cell">
 <div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>choice <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/if_else.html">if_else</a></span><span class="op">(</span><span class="va">response</span> <span class="op">==</span> <span class="st">"j"</span>, <span class="st">"right"</span>, <span class="st">"left"</span><span class="op">)</span>,</span>
-<span>           response <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/if_else.html">if_else</a></span><span class="op">(</span><span class="va">choice</span> <span class="op">==</span> <span class="st">"right"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>choice <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">response</span> <span class="op">==</span> <span class="st">"j"</span>, <span class="st">"right"</span>, <span class="st">"left"</span><span class="op">)</span>,</span>
+<span>           response <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">choice</span> <span class="op">==</span> <span class="st">"right"</span>, <span class="fl">1</span>, <span class="fl">0</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><code>correct</code> ist <code>TRUE</code> wenn <code>choice == direction</code>, <code>FALSE</code> wenn nicht. Wir konvertieren diese logische Variable mit <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> in eine numerische Variable. <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> konvertiert <code>TRUE</code> in 1 und <code>FALSE</code> in 0.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -647,10 +659,10 @@ Tip
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>correct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">choice</span> <span class="op">==</span> <span class="va">direction</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>correct <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">choice</span> <span class="op">==</span> <span class="va">direction</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,440
 Columns: 8
@@ -667,7 +679,7 @@ $ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 <p>Wir schauen uns die ersten 20 Zeilen an.</p>
 <div class="cell">
 <div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 8
    trial ID    cue   direction response    rt choice correct
@@ -695,16 +707,16 @@ $ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 </div>
 </div>
 </section><section id="cue-bedingungsvariable" class="level3"><h3 class="anchored" data-anchor-id="cue-bedingungsvariable">Cue-Bedingungsvariable</h3>
-<p>Nun brauchen wir eine Variable, die angibt, ob die Bedingung “neutral”, “valid” oder “invalid” ist. Wir erstellen eine neue Variable <code>condition</code> und füllen sie mit <code><a href="https://rdrr.io/pkg/dplyr/man/case_when.html">case_when()</a></code> mit den Werten “neutral”, “valid” oder “invalid”. <code><a href="https://rdrr.io/pkg/dplyr/man/case_when.html">case_when()</a></code> erlaubt, mehrere <code><a href="https://rdrr.io/pkg/dplyr/man/if_else.html">if_else()</a></code>-Bedingungen zu kombinieren. So wird hier der Variablen <code>condition</code> der Wert <code>neutral</code> zugewiesen, wenn <code>cue == "none"</code> ist. Falls <code>cue == direction</code> ist, wird der Wert <code>valid</code> zugewiesen. Falls <code>cue != direction</code> ist, wird der Wert <code>invalid</code> zugewiesen.</p>
+<p>Nun brauchen wir eine Variable, die angibt, ob die Bedingung “neutral”, “valid” oder “invalid” ist. Wir erstellen eine neue Variable <code>condition</code> und füllen sie mit <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> mit den Werten “neutral”, “valid” oder “invalid”. <code><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when()</a></code> erlaubt, mehrere <code><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else()</a></code>-Bedingungen zu kombinieren. So wird hier der Variablen <code>condition</code> der Wert <code>neutral</code> zugewiesen, wenn <code>cue == "none"</code> ist. Falls <code>cue == direction</code> ist, wird der Wert <code>valid</code> zugewiesen. Falls <code>cue != direction</code> ist, wird der Wert <code>invalid</code> zugewiesen.</p>
 <div class="cell">
 <div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/case_when.html">case_when</a></span><span class="op">(</span><span class="va">cue</span> <span class="op">==</span> <span class="st">"none"</span> <span class="op">~</span> <span class="st">"neutral"</span>,</span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>condition <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/case_when.html">case_when</a></span><span class="op">(</span><span class="va">cue</span> <span class="op">==</span> <span class="st">"none"</span> <span class="op">~</span> <span class="st">"neutral"</span>,</span>
 <span>                                 <span class="va">cue</span> <span class="op">==</span> <span class="va">direction</span> <span class="op">~</span> <span class="st">"valid"</span>,</span>
 <span>                                 <span class="va">cue</span> <span class="op">!=</span> <span class="va">direction</span> <span class="op">~</span> <span class="st">"invalid"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 20 × 9
    trial ID    cue   direction response    rt choice correct condition
@@ -734,16 +746,16 @@ $ correct   &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,
 </section><section id="daten-als-csv-speichern" class="level3"><h3 class="anchored" data-anchor-id="daten-als-csv-speichern">Daten als CSV speichern</h3>
 <p>An dieser Stelle speichern wir den neu kreierten Datensatz als <code>.csv</code> File in einen Ordner names <code>data_clean</code>. Somit können wir zu einem späteren Zeitpunkt die Daten einfach importieren, ohne die ganzen Schritte wiederholen zu müssen.</p>
 <div class="cell">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/pkg/readr/man/write_delim.html">write_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data_clean/rdkdata.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"data_clean/rdkdata.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="gruppierungsvariablen" class="level2"><h2 class="anchored" data-anchor-id="gruppierungsvariablen">Gruppierungsvariablen</h2>
 <p>Alle Gruppierungsvariablen sollten nun zu Faktoren konvertiert werden.</p>
 <div class="cell">
 <div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/tidyselect/man/where.html">where</a></span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span>, <span class="va">as_factor</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://tidyselect.r-lib.org/reference/where.html">where</a></span><span class="op">(</span><span class="va">is.character</span><span class="op">)</span>, <span class="va">as_factor</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/pillar/man/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 1,440
 Columns: 9
@@ -759,12 +771,12 @@ $ condition &lt;fct&gt; valid, valid, neutral, neutral, valid, neutral, neutral,
 </div>
 </div>
 </section><section id="daten-überprüfen" class="level2"><h2 class="anchored" data-anchor-id="daten-überprüfen">Daten überprüfen</h2>
-<p>Wir überprüfen, ob die Daten korrekt sind. Dazu schauen wir uns die Anzahl der Trials pro Person und pro Bedingung an. Sie können mehr Zeilen anzeigen, indem sie <code>n =</code> in der Funktion <code><a href="https://rdrr.io/pkg/dplyr/man/slice.html">slice_head()</a></code> ändern.</p>
+<p>Wir überprüfen, ob die Daten korrekt sind. Dazu schauen wir uns die Anzahl der Trials pro Person und pro Bedingung an. Sie können mehr Zeilen anzeigen, indem sie <code>n =</code> in der Funktion <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head()</a></code> ändern.</p>
 <div class="cell">
 <div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/summarise.html">summarise</a></span><span class="op">(</span>n_trials <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>n_trials <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">20</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'ID'. You can override using the `.groups`
 argument.</code></pre>
@@ -791,8 +803,8 @@ argument.</code></pre>
 <p>Nun berechnen wir pro Person und pro Bedingung die Anzahl der korrekten Antworten und die Accuracy. Die Accuracy ist die Anzahl der korrekten Antworten geteilt durch die Anzahl der Trials.</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/summarise.html">summarise</a></span><span class="op">(</span>N <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/pkg/dplyr/man/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">ID</span>, <span class="va">condition</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span><span class="op">(</span>N <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/context.html">n</a></span><span class="op">(</span><span class="op">)</span>,</span>
 <span>              ncorrect <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">correct</span><span class="op">)</span>,</span>
 <span>              accuracy <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">correct</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -823,19 +835,19 @@ argument.</code></pre>
 </section><section id="visualisieren" class="level2"><h2 class="anchored" data-anchor-id="visualisieren">Visualisieren</h2>
 <div class="cell">
 <div class="sourceCode" id="cb43"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">accuracy</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">accuracy</span>, fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">ID</span><span class="op">)</span>, linewidth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>invalid <span class="op">=</span> <span class="st">"#9E0142"</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">condition</span>, y <span class="op">=</span> <span class="va">accuracy</span>, fill <span class="op">=</span> <span class="va">condition</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html">geom_col</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>group <span class="op">=</span> <span class="va">ID</span><span class="op">)</span>, linewidth <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html">scale_fill_manual</a></span><span class="op">(</span>values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span>invalid <span class="op">=</span> <span class="st">"#9E0142"</span>,</span>
 <span>                    neutral <span class="op">=</span> <span class="st">"#C4C4B7"</span>,</span>
 <span>                    valid <span class="op">=</span> <span class="st">"#2EC762"</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Cue"</span>,</span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Cue"</span>,</span>
 <span>      y <span class="op">=</span> <span class="st">"Proportion correct"</span>,</span>
 <span>      title <span class="op">=</span> <span class="st">"Accuracy per person/condition"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">ID</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/ggtheme.html">theme_linedraw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">28</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/pkg/ggplot2/man/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span><span class="va">ID</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span>base_size <span class="op">=</span> <span class="fl">28</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="importing_data-2_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid" width="1440"></p>
 </div>

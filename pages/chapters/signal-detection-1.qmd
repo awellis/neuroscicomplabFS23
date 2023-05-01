@@ -338,7 +338,6 @@ Die Gleichung gibt die bedingte Wahrheitswahrscheinlichkeit für eine `ja` Antwo
 
 Hier sind beide Verteilungen nochmals in einer Grafik zusammengefasst:
 
-```{r}
 
 ```{r}
 #| echo: false

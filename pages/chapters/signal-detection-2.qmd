@@ -1,7 +1,7 @@
 ---
-title: "Signal Detection Theory "
+title: "SDT anwenden"
 description: |
-  Understanding signal detection theory with pseudoscience.
+  Bias im RDK Experiment untersuchen.
 date: "2022-05-01"
 author:
   - name: Andrew Ellis
@@ -31,7 +31,8 @@ knitr::opts_knit$set(root.dir = "../../data/session-10")
 
 In der heutigen Sitzung lernen wir:
 
-- 🏗 🚧 ️
+- SDT auf einen Datensatz mit mehreren Bedingungen anwenden.
+- Sensitivität $d'$ und Bias $c$ grafisch darstellen und zwischen 'within'-Bedingungen vergleichen.
 :::
 
 :::{.callout-tip}
@@ -41,25 +42,45 @@ In der heutigen Sitzung lernen wir:
 :::
 
 
-# Pseudoscience
-
-@andersonTeachingSignalDetection2015
-
-
-# Datenanalyse
+## Daten importieren
 
 ```{r}
 library(tidyverse)
 ```
 
+Wir importieren die Daten aus dem RDK Experiment.
 ```{r}
 df <- read_csv("data/rdkdata_clean.csv")
 ```
 
+Zur Sicherheit schauen wir uns die ersten 10 Zeilen an.
+```{r}
+```{r}
+df
+``` 
+
+
+## Daten vorbereiten
+
+Die Variablen `id, condition, cue, direction, choice` sind kategorisch. Wir konvertieren sie zu Faktoren.
+```{r}
 ```{r}
 df  <- df |>
-  mutate(across(c(id, condition, cue, direction), as_factor))
+  mutate(across(c(id, condition, cue, direction, choice), as_factor))
 ```
+
+
+
+## Signal Detection Theory Kennzahlen berechnen
+
+Die Vpn sollten die Richtung des RDKs angeben; diese war entweder 'right' oder 'left' und ist in der Variablen `choice` gespeichert. Wir können die Antworten der Vpn mit der tatsächlichen Richtung des RDKs vergleichen, um zu bestimmen, ob die Vpn richtig oder falsch geantwortet haben. Wir können die Antworten der Vpn und die Richtung des RDKs in vier Kategorien einteilen: Hit, Miss, False Alarm, und Correct Rejection.
+
+Wir definieren nun korrekte rechts-Antworten als `Hit`, falsche rechts-Antworten als `Miss`, korrekte links-Antworten als `Correct Rejection`, und falsche links-Antworten als `False Alarm`. 
+
+<aside>
+Dies ist willkürlich - wir könnten genauso gut links und rechts vertauschen.
+</aside>
+
 
 ```{r}
 df <- df |>
@@ -72,15 +93,32 @@ df <- df |>
 ```
 
 
-
+Nun zählen wir die Anzahl `Hit`, `Miss`, `FA`, und `CR` für jede Vp und Bedingung. Wir können dies mit `count()` machen.
 
 ```{r}
 df_cue <- df |>
       group_by(id, cue) |>
-      count(type) |> 
+      count(type)
+```
+
+
+```{r}
+df_cue
+```
+
+Anschliessend können wir die Daten mit `pivot_wider()` in ein `wide` Format umwandeln, so dass jede Kennzahl eine eigene Spalte erhält. 
+
+```{r}
+df_cue  <- df_cue |>
     pivot_wider(names_from = type, values_from = n) 
 ```
 
+```{r}
+df_cue
+```
+
+
+Es gibt noch `NA` Werte - deis bedeutet, dass die Vp keine Antworten des entsprechenden Typs gegeben hat. Diese `NA`s müssen wir durch 0 ersetzen, damit wir die Kennzahlen berechnen können.
 
 ```{r}
 replace_NA <- function(x) {
@@ -95,6 +133,32 @@ df_cue <- df_cue |>
 ```
 
 ```{r}
+df_cue
+```
+
+
+Nun berechnen wir die relativen Häufigkeiten, mit denen `Hit` und `FA` auftreten.  
+
+:::{.callout-tip}
+Die Hit Rate ist die Anzahl `Hits` geteilt durch die Anzahl `Hits` und `Misses` (wie oft hat die Versuchsperson korrekterweise 'rechts' gesagt, wenn der Stimulus tatsächlich 'rechts' war?) Die False Alarm Rate ist die Anzahl `FAs` geteilt durch die Anzahl `FAs` und `CRs` (wie oft hat die Versuchsperson fälschlicherweise 'rechts' gesagt, wenn der Stimulus tatsächlich 'links' war?).
+:::
+
+
+```{r}
+df_cue  <- df_cue |>
+    mutate(hit_rate = Hit/(Hit + Miss),
+           fa_rate = FA/(FA + CR))
+```
+
+
+
+```{r}
+df_cue
+``` 
+
+Nun gibts es noch eine kleines Problem: Falls es irgendwo eine `hit_rate` oder eine `fa_rate` von 0 oder 1 gibt, können wir nicht weiterrechnen. Relative Häufigkeiten sind Schätzungen von Wahrscheinlichkeiten und müssen daher zwischen 0 oder 1 liegen. Wir können dieses Problem lösen, indem wir die `hit_rate` und `fa_rate` um _einen kleinen Wert_ erhöhen oder verringern, falls sie 0 oder 1 sind. 
+
+```{r}
 correct_zero_one <- function(rate, e = 0.001) {
     if (identical(rate, 0)) {
         rate = rate + e
@@ -104,26 +168,30 @@ correct_zero_one <- function(rate, e = 0.001) {
     rate
 }
 ```
-
-
-
-
-```{r}
-df_cue  <- df_cue |>
-    mutate(hit_rate = Hit/(Hit + Miss),
-           fa_rate = FA/(FA + CR))
-```
-
 ```{r}
 df_cue <- df_cue |>
     mutate(across(c(hit_rate, fa_rate), correct_zero_one))
 ```
 
 ```{r}
+df_cue
+``` 
+
+Damit wir nun $d'$ und $c$ berechnen können, müssen die `hit_rate` und `fa_rate` in $z$-Werte umgewandelt werden. 
+
+```{r}
 df_cue <- df_cue |>
   mutate(zhr = qnorm(hit_rate),
            zfa = qnorm(fa_rate))
 ```
+
+
+
+
+Mit den z-transformierten Werten können wir nun $d'$ und $c$ berechnen.
+
+$$ c = -\frac{1}{2} \left[\phi^{-1}(p_{H}) + \phi^{-1}(p_{FA})\right] =  -\frac{1}{2} \left[zH + zFA\right] $$
+$$ d' = k - \phi^{-1}(1-p_{H}) = \phi^{-1}(p_{H}) - \phi^{-1}(p_{FA}) = zH - zFA $$
 
 
 ```{r}
@@ -133,6 +201,87 @@ df_cue <- df_cue |>
          c = -0.5 * (zhr + zfa)) |>
     mutate(across(c(dprime, k, c), \(x) round(x, 2)))
 ```
+
+## Grafische Darstellung von Bias und Sensitivität
+Um einen Überblick zu gewinnen, stellen wir $c$ und $d'$ grafisch dar. Wir erarten hier, dass die Sensitivität unverändert bleibt, da wir diese nicht manipuliert haben. Der Bias sollte sich jedoch zwischen den Bedingungen unterscheiden. In der neutralen Bedingung, d.h. wenn kein Hinweisreiz gegeben wurde, sollte der Bias bei 0 liegen. Falls der Hinweisreiz die Vp dazu bringt, eher 'rechts' zu antworten, sollte der Bias negativ sein. Falls der Hinweisreiz die Vp dazu bringt, eher 'links' zu antworten, sollte der Bias positiv sein.
+
+In folgendem Veranschaulichung liegt das Kriterium $k$ links der Mitte zwischen beiden Verteilungen. Folglich wird $c = k - d' <0$. Ein negativer Bias führt dazu, dass die Person eher eine 'rechts'-Antwort gibt. 
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+library(viridis)
+xlim <- c(-4.5, 4.5)
+alpha <- c(0.6, 0.2)
+
+dprime <- 1
+criterion <- -0.2
+colors <- viridis(n = 4, 
+                  begin = 0, 
+                  end = 0.98, 
+                  direction = -1)
+
+p1 <- tibble(x = seq(xlim[1], xlim[2], by = 0.1)) |> 
+    ggplot(aes(x)) +
+    stat_function(fun = dnorm, colour = colors[1], 
+                  args = list(mean = -dprime/2, sd = 1),
+                  size = 1.5) +
+    stat_function(fun = dnorm, colour = colors[4], 
+                  args = list(mean = dprime/2, sd = 1),
+                  size = 1.5) +
+    geom_vline(xintercept = c(-dprime/2, dprime/2), size = 1, linetype = "dotted", 
+               alpha =  0.4) +
+    scale_y_continuous(breaks = NULL) +
+    scale_x_continuous(labels = NULL) +
+    labs(x = "Evidenz", y = "") +
+    annotate("text", 
+           x = 0.1, 
+           y = dnorm(dprime/2, mean = dprime/2, sd = 1) + 0.03,
+           label = "d'", 
+           size = 8) +
+    annotate("segment", x = -dprime/2, 
+                 xend = dprime/2, 
+                 y = dnorm(dprime/2, mean = dprime/2, sd = 1) + 0.01, 
+                 yend = dnorm(dprime/2, mean = dprime/2, sd = 1) + 0.01,
+           size = 1) +
+    annotate("text", 
+           x = -1.5, 
+           y = dnorm(dprime/2, mean = dprime/2, sd = 1) + 0.03,
+           label = "links", 
+           size = 6, 
+           color = "grey60") +
+      annotate("text", 
+           x = 1.5, 
+           y = dnorm(dprime/2, mean = dprime/2, sd = 1) + 0.03,
+           label = "rechts", 
+           size = 6, 
+           color = "grey60") +
+      geom_vline(
+                 xintercept = criterion, size = 1,
+                 linetype = 1
+             ) +
+      annotate("text",
+                     x = -0.05,
+                     y = -0.02,
+                     label = "k",
+                     size = 8
+                 ) +
+  theme_linedraw()
+p1
+```
+
+
+
+
+Tatsächlich scheint es eine Tendenz zu geben, dass der 'rechts' Hinweis zu einem negativen Bias führt, während der 'links' Hinweis zu einem positiven Bias führt - die Variabilität zwischen den Versuchspersonen ist jedoch gross, und es scheint einige Personen zu geben, welche genau das Gegenteil zeigen. Es scheint jedoch auch einige Personen zu geben, welche systematisch falsch geantwortet haben (negative Sensitivität).
+
+<aside>
+Da die Durchführung unseres Experiments schlecht kontrolliert wurde (am eigenen Laptop) gehen wir hier nicht näher darauf ein. In einem richtigen Experiment würden wir solche Daten nicht zulassen.
+</aside>
+
 
 
 ```{r}
@@ -148,11 +297,18 @@ df_cue |>
 ```
 
 
+
+## Mittelwerte und Standardfehler
+
+Nun wollen wir, wie im Kapitel zum Thema 'aggregierte Statistiken', die Bedingungen bezüglich der Sensitivität und des Bias vergleichen. Wir müssen berücksichtigen, dass jede Person in 3 Bedingungen getestet wurde - die Art des Hinweisreizes ist also ein `within`-Faktor. 
+
+Wir wählen zuerst die relevanten Variablen aus.
 ```{r}
 sdt_final <- df_cue |>
     select(id, cue, dprime, k, c)
 ```
 
+Nun berechnen wir die Mittelwerte und die `within-person`-Standardfehler der Mittelwerte für den Bias und die Sensitivität.
 ```{r}
 cs <- sdt_final |>
     select(id, cue, c) |>
@@ -174,6 +330,11 @@ dprimes <- sdt_final |>
                            conf.interval = 0.95)
 ```
 
+
+## Plots
+Als Beispiel nehmen wir hier den Bias. Wir stellen die Mittelwerte als Linienplot dar, und zusätzlich als Punkte mit Fehlerbalken. Die Punkte sind die Mittelwerte, die Fehlerbalken die Standardfehler der Mittelwerte.
+
+
 ```{r}
 cs |>
     ggplot(aes(x = cue, y = c, group = 1)) + 
@@ -187,6 +348,7 @@ cs |>
     ggtitle("c (bias)")
 ```
 
+Zusatzlich können wir die Datenpunkte plotten; diese sind jedoch im Dataframe `sdt_final` gespeichert, und nicht im Dataframe `cs`. Daher benutzen wir das Argument `data = sdt_final` in `geom_jitter`. 
 ```{r}
 cs |>
     ggplot(aes(x = cue, y = c, group = 1)) + 
@@ -202,19 +364,25 @@ cs |>
 ```
 
 
+
+
+Mit dem `patchwork` Package können wir die beiden Plots kombinieren.
+
 ```{r}
 library(patchwork)
     
-p1 <- dprimes |>
+p_dprime <- dprimes |>
       ggplot(aes(x = cue, y = dprime, group = 1)) +
+      geom_jitter(aes(cue, dprime), alpha = 0.1, data = sdt_final, width = 0.05) +
       geom_line() +
       geom_errorbar(width = 0.1, aes(ymin = dprime - ci,
                                        ymax = dprime + ci)) +
-        geom_point(shape = 21, size = 3, fill = "white") +
-   ggtitle("D'")
+      geom_point(shape = 21, size = 3, fill = "white") +
+          ggtitle("Sensitivity")
       
-p2 <- cs |>
+p_bias <- cs |>
         ggplot(aes(x = cue, y = c, group = 1)) + 
+        geom_jitter(aes(cue, c), alpha = 0.1, data = sdt_final, width = 0.05) +
         geom_hline(yintercept = 0, 
                    linetype = "dashed",
                    color = "grey60") +
@@ -224,11 +392,21 @@ p2 <- cs |>
         geom_point(shape = 21, size = 3, fill = "white") +
         ggtitle("Bias")
   
-  p1 / p2
+p_dprime / p_bias
 ```
+
+
+Die obige Darstellung sieht nicht optimal aus. Vielleicht wäre es besser, die Grafiken nebeneinander anzuordnen.
+
+:::{.callout-tip}
+Mit `/` werden die Grafiken untereinander angeordnet, mit `+` nebeneinander.
+:::
 
 
 ```{r}
-p1 + p2
+p_dprime + p_bias
 ```
 
+## Zusammenfassung
+
+Die Bedingungen unterscheiden sich bezüglich der Sensitivität kaum. Bezüglich des Bias sehen wir das erwartete Muster; in der neutralen Bedingung ist der Bias über die Personen aggregiert nahe bei 0, in der 'rechts'-Bedingung negativ und in der 'links'-Bedingung positiv. Ob dies einer statistischen Untersuchung standhält könnten z.B. wir mit einer 'repeated-measures' ANOVA untersuchen.

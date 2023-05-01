@@ -87,42 +87,70 @@ library(tidyverse)
 df <- read_csv("data/amyloidSDT.csv")
 ```
 
+
+
+
+
+
+```{r}
+add_half_count <- function(count) {
+  count + 0.5
+}
+```
+
+
+```{r}
+df <- df |> 
+  mutate(across(c(hit, miss, fa, cr), add_half_count))
+```
+
+
 ```{r}
 df <- df |>
     mutate(
         hit_rate = hit / (hit + miss),
         fa_rate = fa / (fa + cr)
     )
+```
 
-correct_zero_one <- function(rate, e = 0.001) {
-    if (identical(rate, 0)) {
-        rate <- rate + e
-    } else if (identical(rate, 1)) {
-        rate <- rate - e
-    }
-    rate
-}
 
-df <- df |>
-    mutate(across(c(hit_rate, fa_rate), correct_zero_one))
+```{r}
+df |> 
+  ggplot(aes(fa_rate, hit_rate, color = group)) +
+  geom_abline(a = 0, b = 1, linetype = 2) +
+  geom_jitter() +
+  facet_wrap(~group) +
+  xlim(c(0, 1)) + ylim(c(0, 1))
+```
 
+
+```{r}
 df <- df |>
     mutate(
         zhr = qnorm(hit_rate),
         zfa = qnorm(fa_rate)
     )
+```
 
+```{r}
 df <- df |>
     mutate(
         dprime = zhr - zfa,
         k = -zfa,
         c = -0.5 * (zhr + zfa)
     )
+```
 
+```{r}
 df <- df |>
     mutate(across(c(dprime, k, c), \(x) round(x, 2)))
-
 ```
+
+
+```{r}
+df
+```
+
 
 ```{r}
 se <- function(x) {
@@ -133,15 +161,50 @@ se <- function(x) {
 
 ```{r}
 dprimes <- df |>
-  select(group, dprime)
-
-dprimes_summary <- dprimes |>
+  select(group, dprime) |> 
+  group_by(group) |> 
   summarize(mean = mean(dprime),
-  se = se(dprime))
+            se = se(dprime))
 ```
 
 ```{r}
-cs <- df |>
-  select(group, c)
+cs <- df |> 
+  select(group, c) |> 
+  group_by(group) |> 
+  summarize(mean = mean(c),
+            se = se(c))
 ```
 
+
+
+
+```{r}
+p_dprimes <- dprimes |>
+  ggplot(aes(x=group, y=mean, group=1)) +
+    geom_line() +
+    geom_errorbar(width=.1, aes(ymin=mean-se, ymax=mean+se), colour="black") +
+    geom_point(shape=21, size=3, fill="white") +
+    ylab("Sensitivity")
+```
+
+```{r}
+p_cs <- cs |>
+    ggplot(aes(x=group, y=mean, group=1)) +
+    geom_line() +
+    geom_errorbar(width=.1, aes(ymin=mean-se, ymax=mean+se), colour="black") +
+    geom_point(shape=21, size=3, fill="white") +
+    ylab("Bias")
+```
+
+
+```{r}
+library(patchwork)
+```
+
+```{r}
+p_dprimes + p_cs
+```
+
+
+- for healthy amyloid negative patients on the left, and potentially impaired amyloid positive patients on the right
+- the basic data change of more misses, but not many more false alarms, is captured by the model
