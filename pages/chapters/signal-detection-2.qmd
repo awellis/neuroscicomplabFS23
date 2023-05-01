@@ -62,7 +62,7 @@ df
 ## Daten vorbereiten
 
 Die Variablen `id, condition, cue, direction, choice` sind kategorisch. Wir konvertieren sie zu Faktoren.
-```{r}
+
 ```{r}
 df  <- df |>
   mutate(across(c(id, condition, cue, direction, choice), as_factor))
@@ -395,7 +395,7 @@ p_dprime / p_bias
 ```
 
 
-Die obige Darstellung sieht nicht optimal aus. Vielleicht wäre es besser, die Grafiken nebeneinander anzuordnen.
+Falls Ihnen diese Darstellung nicht gefällt, können Sie die Grafiken mit `+` auch nebeneinander anordnen.
 
 :::{.callout-tip}
 Mit `/` werden die Grafiken untereinander angeordnet, mit `+` nebeneinander.
