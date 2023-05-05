@@ -322,6 +322,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">SDT anwenden</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übung 4</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -697,7 +703,7 @@ Da die Durchführung unseres Experiments schlecht kontrolliert wurde (am eigenen
 <div class="cell">
 <div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cs</span> <span class="op">&lt;-</span> <span class="va">sdt_final</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">cue</span>, <span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"c"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySEwithin</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"c"</span>,</span>
 <span>                           withinvars <span class="op">=</span> <span class="st">"cue"</span>,</span>
 <span>                           idvar <span class="op">=</span> <span class="st">"id"</span>,</span>
 <span>                           na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -706,7 +712,7 @@ Da die Durchführung unseres Experiments schlecht kontrolliert wurde (am eigenen
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dprimes</span> <span class="op">&lt;-</span> <span class="va">sdt_final</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">id</span>, <span class="va">cue</span>, <span class="va">dprime</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"dprime"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySEwithin</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"dprime"</span>,</span>
 <span>                           withinvars <span class="op">=</span> <span class="st">"cue"</span>,</span>
 <span>                           idvar <span class="op">=</span> <span class="st">"id"</span>,</span>
 <span>                           na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
