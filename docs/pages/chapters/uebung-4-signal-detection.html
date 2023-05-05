@@ -360,6 +360,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#frage-4" id="toc-frage-4" class="nav-link" data-scroll-target="#frage-4">Frage 4</a></li>
   </ul>
 </li>
+  <li><a href="#fragen-f%C3%BCr-peer-review" id="toc-fragen-für-peer-review" class="nav-link" data-scroll-target="#fragen-f%C3%BCr-peer-review">Fragen für Peer Review</a></li>
+  <li><a href="#hochladen" id="toc-hochladen" class="nav-link" data-scroll-target="#hochladen">Hochladen</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -414,6 +416,7 @@ RStudio Projekt
 </div>
 <div class="callout-body-container callout-body">
 <p>👉 <a href="../../downloadable_files/amyloidSDT.zip">RStudio Projekt für diese Übung herunterladen</a></p>
+<p>Sie finden darin ein Rmarkdown-File, welches Sie bearbeiten müssen, und den Datensatz.</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -435,7 +438,7 @@ Aufgaben
 </div>
 </div>
 <section id="einleitung" class="level2"><h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
-<p>In Übung arbeiten wir mit einem klinischen Datensatz. Das Ziel ist es, Sensitivität und Bias für zwei Gruppen von insgesamt 60 Patienten zu untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden.</p>
+<p>In Übung 4 arbeiten wir mit einem klinischen Datensatz. Das Ziel ist es, Sensitivität und Bias für zwei Gruppen von insgesamt 60 Patienten zu untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden.</p>
 <p>Die Anwesenheit von <a href="https://de.wikipedia.org/wiki/Beta-Amyloid">Beta-Amyloid</a> wurde durch einen <a href="https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds">Bluttest</a> untersucht. Ein positiver Beta-Amyloid Test gilt als präsymptomatischer Indikator für die Alzheimer-Krankheit.</p>
 <p>Aufgrund dieses Bluttests wurden die Patienten in zwei Gruppen eingeteilt. Es soll nun untersucht werden, ob sich die beiden in ihrer Gedächtnisleistung unterscheiden.</p>
 <p>Dazu wurde der “Rey auditory verbal learning test” (RALVT: Bean, 2011) durchgeführt.</p>
@@ -483,7 +486,7 @@ dbl (5): ID, hit, miss, fa, cr
 <p>Im Datensatz halben wir folgende Variablen:</p>
 <ul>
 <li>
-<code>ID</code>: Patientien-ID</li>
+<code>ID</code>: Patienten-ID</li>
 <li>
 <code>group</code>: Indikator für Beta-Amyloid Bluttest (Negative oder Positive)</li>
 <li>
@@ -510,7 +513,7 @@ dbl (5): ID, hit, miss, fa, cr
 <pre><code>[1] 0.03125</code></pre>
 </div>
 </div>
-<p>Dies bedeudet, dass wir einen kleine Wahrscheinlochkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> einsetzen.</p>
+<p>Dies bedeutet, dass wir einen kleine Wahrscheinlichkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> einsetzen.</p>
 <div class="cell">
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.03125</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -663,9 +666,13 @@ dbl (5): ID, hit, miss, fa, cr
 <p><img src="uebung-4-signal-detection_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+</section></section><section id="fragen-für-peer-review" class="level2"><h2 class="anchored" data-anchor-id="fragen-für-peer-review">Fragen für Peer Review</h2>
+<p>Öffnen Sie das <code>.Rmd</code>-File und führen Sie es mit <code>Knit</code> oder von oben bis unten aus und schreiben Sie zu den Antworten eine Rückmeldung in ein Word/Text-File.</p>
+</section><section id="hochladen" class="level2"><h2 class="anchored" data-anchor-id="hochladen">Hochladen</h2>
+<p>Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch.</p>
 
 
-</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
   author = {Ellis, Andrew},
   title = {Übung 4},
   date = {2022-05-05},

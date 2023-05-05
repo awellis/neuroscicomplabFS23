@@ -84,7 +84,7 @@ d
 Im Datensatz halben wir folgende Variablen: 
 
 
-- `ID`: Patientien-ID
+- `ID`: Patienten-ID
 - `group`: Indikator für Beta-Amyloid Bluttest (Negative oder Positive)
 - `hit`: Anzahl hits
 - `miss`: Anzahl misses
@@ -107,7 +107,7 @@ Damit können wir nicht weiterrechnen. Wir wenden daher einen Trick an: wir addi
 ```
 
 
-Dies bedeutet, dass wir einen kleine Wahrscheinlochkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in `qnorm()` einsetzen.
+Dies bedeutet, dass wir einen kleine Wahrscheinlichkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in `qnorm()` einsetzen.
 
 ```{r}
 qnorm(0.03125)
@@ -404,3 +404,14 @@ p4 <- p3 +
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 p2 / p4
 ```
+
+
+
+## Fragen für Peer Review
+
+Öffnen Sie das `.Rmd`-File und führen Sie es mit `Knit` oder von oben bis unten aus und schreiben Sie zu den Antworten eine Rückmeldung in ein Word/Text-File.
+
+
+## Hochladen
+
+Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch.
