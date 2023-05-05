@@ -341,6 +341,12 @@ div.csl-indent {
  <span class="menu-text">SDT anwenden</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übung 4</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -500,7 +506,7 @@ Hands-on
 <p>Hierbei ist es wichtig, vor allem systematisch fehlende Datenpunkte zu entdecken: Fehlt bei einer Person die Hälfte der Antworten? Möchten wir diese ausschliessen?</p>
 <p>Diese können mit dem Package <code>naniar</code> relativ schnell sichtbar gemacht werden.</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">naniar</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">naniar</span><span class="fu">::</span><span class="fu">vis_miss</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_visualization_2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -546,7 +552,7 @@ Fehlende Werte
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">rt</span> <span class="op">!=</span> <span class="st">"NA"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">naniar</span><span class="fu">::</span><span class="fu"><a href="https://docs.ropensci.org/visdat/reference/vis_miss.html">vis_miss</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="fu">naniar</span><span class="fu">::</span><span class="fu">vis_miss</span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="data_visualization_2_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -809,7 +815,7 @@ Hands-on
 <p>Wie in die Kapitel <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/summarizing-data.html">Aggregierte Statistiken</a> berechnen wir nun den Mittelwert und den within-subject Standardfehler für unseren Datensatz.</p>
 <div class="cell">
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum_3</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySEwithin</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               idvar <span class="op">=</span> <span class="st">"id"</span>,</span>
 <span>                               na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>

@@ -322,6 +322,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">SDT anwenden</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Übung 4</span></a>
+  </div>
+</li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -787,7 +793,7 @@ Within-person Standardfehler berechnen
 <p>Eine Alternative dazu bietet die Funktion <code>summarySE()</code> aus dem <code>Rmisc</code> Package.</p>
 <div class="cell">
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Instead of summarySEwithin, use summarySE, which treats condition as though it were a between-subjects variable</span></span>
-<span><span class="va">dflsum_between</span> <span class="op">&lt;-</span> <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySE.html">summarySE</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">dfl</span>, </span>
+<span><span class="va">dflsum_between</span> <span class="op">&lt;-</span> <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySE</span><span class="op">(</span>data <span class="op">=</span> <span class="va">dfl</span>, </span>
 <span>                                   measurevar <span class="op">=</span> <span class="st">"value"</span>, </span>
 <span>                                   groupvars <span class="op">=</span> <span class="st">"condition"</span>, </span>
 <span>                                   na.rm <span class="op">=</span> <span class="cn">FALSE</span>, </span>
@@ -815,7 +821,7 @@ Within-person Standardfehler berechnen
 <p>Im <code>Rmisc</code> Package gibt es eine solche Funktion: mit <code>summarySEwithin()</code> können wir korrekt Standardfehler in <strong>within</strong>-subject Designs berechnen.</p>
 <div class="cell">
 <div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum</span> <span class="op">&lt;-</span> <span class="va">dfl</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"value"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySEwithin</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"value"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               idvar <span class="op">=</span> <span class="st">"subject"</span>,</span>
 <span>                               na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -886,7 +892,7 @@ Within-person Standardfehler berechnen
 </div>
 <p><strong>Mit <code>normDataWithin()</code></strong>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfNorm_long</span> <span class="op">&lt;-</span> <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/normDataWithin.html">normDataWithin</a></span><span class="op">(</span>data<span class="op">=</span><span class="va">dfl</span>, </span>
+<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dfNorm_long</span> <span class="op">&lt;-</span> <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">normDataWithin</span><span class="op">(</span>data<span class="op">=</span><span class="va">dfl</span>, </span>
 <span>                                     idvar<span class="op">=</span><span class="st">"subject"</span>,    </span>
 <span>                                     measurevar<span class="op">=</span><span class="st">"value"</span><span class="op">)</span></span>
 <span><span class="va">dfNorm_long</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -941,7 +947,7 @@ Within-person Standardfehler berechnen
 <p>Im Output erhalten wir die Mittelwerte der <code>outcome</code> Variablen für jede Stufe der within-Variable, sowie Standardabweichungen, Standardfehler und Konfidenzintervalle.</p>
 <div class="cell">
 <div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dflsum</span> <span class="op">&lt;-</span> <span class="va">dfl</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"value"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySEwithin</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"value"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               idvar <span class="op">=</span> <span class="st">"subject"</span>,</span>
 <span>                               na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -1003,7 +1009,7 @@ Within-person Standardfehler berechnen
 <p>Mit der Funktion <code>summarySE()</code>:</p>
 <div class="cell">
 <div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum_2</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySE.html">summarySE</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySE</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
 <span>                              groupvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>                               conf.interval <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span></span>
@@ -1018,7 +1024,7 @@ Within-person Standardfehler berechnen
 <p>Wenn wir nun die <code>within</code> Standardfehler berechnen, erhalten wir folgende Ergebnisse:</p>
 <div class="cell">
 <div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">datasum_3</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySEwithin</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"correct"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               idvar <span class="op">=</span> <span class="st">"ID"</span>,</span>
 <span>                               na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>
@@ -1125,7 +1131,7 @@ Within-person Standardfehler berechnen
 <div class="cell">
 <div class="sourceCode" id="cb59"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">rtsum</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/drop_na.html">drop_na</a></span><span class="op">(</span><span class="va">rt</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/Rmisc/man/summarySEwithin.html">summarySEwithin</a></span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"rt"</span>,</span>
+<span>    <span class="fu">Rmisc</span><span class="fu">::</span><span class="fu">summarySEwithin</span><span class="op">(</span>measurevar <span class="op">=</span> <span class="st">"rt"</span>,</span>
 <span>                               withinvars <span class="op">=</span> <span class="st">"condition"</span>,</span>
 <span>                               idvar <span class="op">=</span> <span class="st">"ID"</span>,</span>
 <span>                               na.rm <span class="op">=</span> <span class="cn">FALSE</span>,</span>

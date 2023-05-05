@@ -2,7 +2,7 @@
 title: "Übung 4"
 description: |
    Untersuchung eines präsymptomatischen Indikators für die Alzheimer-Krankheit
-date: "2022-05-01"
+date: "2022-05-05"
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -29,81 +29,105 @@ knitr::opts_knit$set(root.dir = '../../data/uebung-4')
 
 
 
+:::{.callout-tip}
+## RStudio Projekt
+
+👉 [RStudio Projekt für diese Übung herunterladen](../../downloadable_files/amyloidSDT.zip)
+:::
+
+
 :::{.callout-tip collapse="false"}
 ## Aufgaben
 Die Übung 4 besteht aus den zwei folgenden Aufgaben:
 
-**1. RMarkdown-File erstellen und ausführen**: In diesem File werden die Daten eingelesen, SDT Kennzahlen und damit eine Grafik erstellt. Das RMarkdown-File muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.
+**1. Rmarkdown-File ausführen**: In diesem File werden die Daten eingelesen, SDT Kennzahlen berechnet und Grafiken erstellt. Beantworten Sie die Fragen direkt im Rmarkdown-File. Das Rmarkdown-File muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit). Zeit: 1 Woche.
 
-**2. Peer Feedback**: Mittels Ilias wird Ihnen das RMarkdown-File und die Grafik einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses RMarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.
+**2. Peer Feedback**: Mittels Ilias wird Ihnen das Rmarkdown-File einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses Rmarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.
 :::
 
 
-## Kommentare & Code
 
-Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. 
+## Einleitung
+In Übung arbeiten wir mit einem klinischen Datensatz. Das Ziel ist es, Sensitivität und Bias für zwei Gruppen von insgesamt 60 Patienten zu untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden. 
 
-## Aufgaben
- 
-- Laden Sie nötige Packages.
+Die Anwesenheit von [Beta-Amyloid](https://de.wikipedia.org/wiki/Beta-Amyloid) wurde durch einen [Bluttest](https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds) untersucht. Ein positiver Beta-Amyloid Test gilt als präsymptomatischer Indikator für die Alzheimer-Krankheit.
 
-- Laden Sie das CSV File `amyloidSDT.csv`. Sie finden den Datensatz im Projektordner `data`.
+Aufgrund dieses Bluttests wurden die Patienten in zwei Gruppen eingeteilt. Es soll nun untersucht werden, ob sich die beiden in ihrer Gedächtnisleistung unterscheiden. 
 
-- Machen Sie Textvariablen und die Personen-Id-Variable zu Faktoren und schauen Sie den Datensatz kurz an (mit `slice_head()` oder `glimpse()`), um zu überprüfen, ob die Daten richtig eingelesen wurden.
+Dazu wurde der "Rey auditory verbal learning test" (RALVT: Bean, 2011) durchgeführt. 
 
-- Ihre Aufgabe ist es eine Forschungsfrage zu dem vorhandenen Datensatz zu stellen, dazu eine Grafik zu plotten und die Antwort damit zu visualisieren, sowie in schriftlicher Form zu geben.
+In diesem Test müssen Patienten zuerst eine Liste bestehend aus 15 Wörtern lernen. Sie werden danach mit 30 Wörtern getestet (15 alte, 15 neue Wörter) und müssen angeben, ob ein Wort auf der Liste war oder nicht (alt/neu). 
 
-    - Beschreiben Sie in Textform, welche Frage Sie mit Ihrer Grafik beantworten möchten.
+Die Antworten der Patienten wurden bereits als als korrekte oder inkorrekte 'Ja'-Antworten klassifiziert (`hits`  und `false alarms`). 
 
-    - Falls nötig: Bearbeiten Sie den Datensatz / erstellen Sie einen neuen Datensatz für die Grafik.
+## Packages laden
 
-    - Erstellen Sie die Grafik, und lassen Sie diese anzeigen.
-
-    - Speichern Sie die Grafik zusätzlich als `.jpg` oder `.png` ab. So kann Ihr Peer Reviewer auch bei nicht funktionierendem Code Rückmeldung zur Grafik geben. 
-    
-    - Fügen Sie der Grafik passende Beschriftungen hinzu.
-    
-    - Beantworten Sie Ihre Forschungsfrage schriftlich.
-    
-
-
-## Rey auditory verbal learning test
-In dieser Übung werden wir die Sensitivität und den Bias für zwei Gruppen von Patienten untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden. Bei 60 Patienten wurde die Anwesenheit von [Beta-Amyloid](https://de.wikipedia.org/wiki/Beta-Amyloid) durch einen [Bluttest](https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds) 
-
-
-These data come from a clinical setting, and involve memory ability tests for 60 patients using the Rey auditory verbal learning test (RALVT: Bean, 2011)
-- in the recognition task, the patients study a set of 15 words, and tested on 30 words, made up of 15 old and 15 new words
-• Patients also had a cerebrospinal fluid measurement taken to classify their levels beta amyloid as “positive” or “negative”
-- amyloid positivity is thought to be a pre-symptomatic indicator of Alzheimer’s disease
-
-
-## Code
-
-```{r}
+```{r load-packages, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
+library(patchwork)
 ```
+
+
+## Daten laden
 
 ```{r}
-df <- read_csv("data/amyloidSDT.csv")
+d <- read_csv("data/amyloidSDT.csv")
+```
+
+Immer zuerst Daten anschauen. 
+```{r}
+d
+```
+
+Im Datensatz halben wir folgende Variablen: 
+
+
+- `ID`: Patientien-ID
+- `group`: Indikator für Beta-Amyloid Bluttest (Negative oder Positive)
+- `hit`: Anzahl hits
+- `miss`: Anzahl misses
+- `fa`: Anzahl false alarms
+- `cr`: Anzahl correct rejections
+
+
+Im Datensatz gibt es es einige Nullen -- z.B. hat die Person mit der `ID` 1 keine False Alarms. Dies ist problematisch, weil wir die relative Häufigkeiten von Hits (`hit_rate`) und False Alarms (`fa_rate`) berechnen und anschliessen diese z-transformieren wollen. Die `fa_rate` ist der Anteil 'Ja'-Antworten wenn das Wort tatsächlich aber nicht auf der Liste war, also `fa / (fa + cr)`. Bei der ersten Person wäre dies `0/(0 + 15) = 0`. 
+
+Das Problem ist nun, dass die relative Häufigkeit hier als $0$ geschätzt wird - eine Wahrscheinlichkeit darf aber eigentlich nicht $0$ sein, sondern liegt zwischen $-\infty$ und $\infty$. Wenn wir `qnorm()` (die Quantilfunktion der Normalverteilung) auf den Wert $0$ anwenden, erhalten wir:
+
+```{r}
+qnorm(0)
+```
+
+Damit können wir nicht weiterrechnen. Wir wenden daher einen Trick an: wir addieren einfach zu jeder Zelle im Datensatz den Wert $0.5$. Somit erhalten wir für die `fa_rate` der ersten Person:
+
+```{r}
+0 + 0.5 / (0 + 0.5 + 15 + 0.5)
 ```
 
 
+Dies bedeudet, dass wir einen kleine Wahrscheinlochkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in `qnorm()` einsetzen.
+
+```{r}
+qnorm(0.03125)
+```
+
+## Den Wert `0` ersetzen
 
 ```{r}
 add_half_count <- function(count) {
-  count + 0.5
+    count + 0.5
 }
 ```
 
-
 ```{r}
-df <- df |> 
-  mutate(across(c(hit, miss, fa, cr), add_half_count))
+d <- d |>
+    mutate(across(c(hit, miss, fa, cr), add_half_count))
 ```
 
+## Hit und False Alarm Rate berechnen
 
 ```{r}
-df <- df |>
+d <- d |>
     mutate(
         hit_rate = hit / (hit + miss),
         fa_rate = fa / (fa + cr)
@@ -111,28 +135,34 @@ df <- df |>
 ```
 
 
+## Hit Rate vs False Alarm Rate
+
+Bevor wir die SDT Kennzahlen berechnen, stellen wir die hit rate und false alarm rate grafisch dar:
+
 ```{r}
-df |> 
-  ggplot(aes(fa_rate, hit_rate, color = group)) +
-  geom_abline(intercept = 0, slope = 1, linetype = 2) +
-  geom_jitter() +
-  scale_color_viridis_d(direction = -1, begin = 0.1, end = 0.8) +
+d |>
+      ggplot(aes(fa_rate, hit_rate, color = group)) +
+      geom_abline(intercept = 0, slope = 1, linetype = 2) +
+      geom_jitter() +
+      scale_color_viridis_d(direction = -1, begin = 0.1, end = 0.8) +
       facet_wrap(~ group) +
       xlim(c(0, 1)) +
       theme_linedraw()
 ```
 
+## d' und bias berechnen
 
 ```{r}
-df <- df |>
+d <- d |>
     mutate(
         zhr = qnorm(hit_rate),
         zfa = qnorm(fa_rate)
     )
 ```
 
+
 ```{r}
-df <- df |>
+d <- d |>
     mutate(
         dprime = zhr - zfa,
         k = -zfa,
@@ -140,26 +170,30 @@ df <- df |>
     )
 ```
 
+Wir runden nun `dprime, k` und `c` auf zwei Nachkommastellen.
+
 ```{r}
-df <- df |>
+d <- d |>
     mutate(across(c(dprime, k, c), \(x) round(x, 2)))
 ```
 
 
 ```{r}
-df
+d
 ```
 
 
+
+
+## Aggregierte Kennzahlen
 ```{r}
 se <- function(x) {
   sd(x) / sqrt(length(x))
 }
 ```
 
-
 ```{r}
-dprimes <- df |>
+dprimes <- d |>
   select(group, dprime) |> 
   group_by(group) |> 
   summarize(mean = mean(dprime),
@@ -167,7 +201,7 @@ dprimes <- df |>
 ```
 
 ```{r}
-cs <- df |> 
+cs <- d |> 
   select(group, c) |> 
   group_by(group) |> 
   summarize(mean = mean(c),
@@ -175,11 +209,12 @@ cs <- df |>
 ```
 
 
-
+## Grafische Darstellung von `d'` und `bias`
 
 ```{r}
 p_dprimes <- dprimes |>
   ggplot(aes(x=group, y=mean, group=1)) +
+    geom_jitter(aes(group, dprime), alpha = 0.1, data = d, width = 0.05) +
     geom_line() +
     geom_errorbar(width=.1, aes(ymin=mean-se, ymax=mean+se), colour="black") +
     geom_point(shape=21, size=3, fill="white") +
@@ -189,33 +224,181 @@ p_dprimes <- dprimes |>
 ```{r}
 p_cs <- cs |>
     ggplot(aes(x=group, y=mean, group=1)) +
+    geom_jitter(aes(group, c), alpha = 0.1, data = d, width = 0.05) +
     geom_line() +
     geom_errorbar(width=.1, aes(ymin=mean-se, ymax=mean+se), colour="black") +
     geom_point(shape=21, size=3, fill="white") +
     ylab("Bias")
 ```
 
-
-```{r}
-library(patchwork)
-```
-
 ```{r}
 p_dprimes + p_cs
 ```
 
-
-- for healthy amyloid negative patients on the left, and potentially impaired amyloid positive patients on the right
-- the basic data change of more misses, but not many more false alarms, is captured by the model
-
 ## Fragen
 
-- Was testet der Rey auditory verbal learning test (RALVT: Bean, 2011)?
+Bitte versuchen Sie, folgende Fragen so gut wie möglich zu beantworten. Schreiben Sie Ihre Antworten direkt unter die Fragen.
+
+
+### Frage 1 
+>Wie unterscheiden sich die Gruppen in der `hit rate` und `false alarm rate` (siehe erste Grafik)?
+
+**Antwort**:  
+
+### Frage 2 
+> Wie unterscheidet sich die Sensitivität zwischen den Gruppen im RALVT? Was könnte das bedeuten? Denken Sie, dass der Unterschied von relevanter Grösse ist?
  
-- Wie unterscheiden sich die Gruppen in der hit rate und FA rate? (siehe erste Grafik)
+**Antwort**: 
+
+### Frage 3 
+> Wie unterscheidet sich die Antworttendenz zwischen den Gruppen im RALVT? Was könnte das bedeuten? Denken Sie, dass der Unterschied von relevanter Grösse ist? 
  
-- Wie unterscheidet sich die Sensitivität zwischen den Gruppen im RALVT? Was könnte das bedeuten? Was denken Sie, ist der Unterschied von relevanter Grösse?
- 
-- Wie unterscheidet sich die Antworttendenz zwischen den Gruppen im RALVT? Was könnte das bedeuten? Was denken Sie, ist der Unterschied von relevanter Grösse?
- 
-- Wie denken Sie hängen Sensitivität und Antworttendenz in diesem Experiment zusammen? Was könnten die Gründe sein?
+**Antwort**: 
+
+### Frage 4 
+> Wie denken Sie hängen Sensitivität und Antworttendenz in diesem Experiment zusammen? Was könnten die Gründe sein? Was passiert, wenn d' kleiner wird, das Kriterium k aber konstant bleibt? Eventuell hilft diese Grafik, um darüber nachzudenken.
+
+```{r echo=FALSE}
+p_scatter <- d |>
+    ggplot(aes(c, dprime, color = group)) +
+    geom_jitter(width = 0.8) +
+    scale_color_viridis_d(direction = -1, begin = 0.1, end = 0.8) +
+    theme_linedraw() +
+    ggtitle("Scatterplot: bias vs sensitivity")
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+xlims <- c(-4.5, 4.5)
+alpha <- c(0.6, 0.2)
+
+colors <- c("orange", "purple")
+
+dprime <- 1.6
+criterion <- 1.2
+
+p1 <- tibble(x = seq(xlims[1], xlims[2], by = 0.1)) |> 
+    ggplot(aes(x)) +
+    stat_function(fun = dnorm, colour = colors[1], 
+                  args = list(mean = 0, sd = 1),
+                  linewidth = 1.5) +
+    stat_function(fun = dnorm, colour = colors[2], 
+                  args = list(mean = dprime, sd = 1),
+                  linewidth = 1.5) +
+    geom_vline(xintercept = c(0, dprime), linewidth = 1,
+               linetype = "dotted", alpha =  0.4) +
+    scale_y_continuous(breaks = NULL) +
+    scale_x_continuous(labels = NULL) +
+    labs(x = "Familarity", y = "") +
+    annotate("text", 
+           x = 0.5, 
+           y = dnorm(dprime, mean = dprime, sd = 1) + 0.03,
+           label = "d'", 
+           size = 6) +
+    annotate("segment", x = 0, 
+                 xend = dprime, 
+                 y = dnorm(dprime, mean = dprime, sd = 1) + 0.01, 
+                 yend = dnorm(dprime/2, mean = dprime/2, sd = 1) + 0.01,
+           linewidth = 1) +
+    annotate("text", 
+           x = -0.4, 
+           y = dnorm(dprime, mean = dprime, sd = 1) + 0.03,
+           label = "new", 
+           size = 6, 
+           color = "grey60") +
+      annotate("text", 
+           x = 1.8, 
+           y = dnorm(dprime, mean = dprime, sd = 1) + 0.03,
+           label = "old", 
+           size = 6, 
+           color = "grey60") +
+    xlim(c(xlims[1], xlims[2])) +
+  theme_linedraw()
+p2 <- p1 + 
+  geom_vline(xintercept = 0, linewidth = 1, 
+               alpha = 0.4,
+             linetype = "dashed") +
+  geom_area(stat = "function", fun = dnorm, 
+              args = list(mean = 0, sd = 1),
+              fill = colors[1], alpha = 0.6,
+              xlim = c(criterion, xlims[2])) +
+
+  geom_area(stat = "function", fun = dnorm, 
+              args = list(mean = dprime, sd = 1),
+              fill = colors[2], alpha = alpha[2],
+              xlim = c(criterion, xlims[2])) +
+  geom_vline(xintercept = criterion, linewidth = 1, 
+               linetype = 1) +
+    annotate("text", 
+           x = 1,
+           y = 0.02,
+           label = "k", 
+           size = 6)
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+dprime <- 0.6
+criterion <- 1.2
+
+p3 <- tibble(x = seq(xlims[1], xlims[2], by = 0.1)) |> 
+    ggplot(aes(x)) +
+    stat_function(fun = dnorm, colour = colors[1], 
+                  args = list(mean = 0, sd = 1),
+                  linewidth = 1.5) +
+    stat_function(fun = dnorm, colour = colors[2], 
+                  args = list(mean = dprime, sd = 1),
+                  linewidth = 1.5) +
+    geom_vline(xintercept = c(0, dprime), linewidth = 1,
+               linetype = "dotted", alpha =  0.4) +
+    scale_y_continuous(breaks = NULL) +
+    scale_x_continuous(labels = NULL) +
+    labs(x = "Familarity", y = "") +
+    annotate("text", 
+           x = 0.5, 
+           y = dnorm(dprime, mean = dprime, sd = 1) + 0.03,
+           label = "d'", 
+           size = 6) +
+    annotate("segment", x = 0, 
+                 xend = dprime, 
+                 y = dnorm(dprime, mean = dprime, sd = 1) + 0.01, 
+                 yend = dnorm(dprime/2, mean = dprime/2, sd = 1) + 0.01,
+           linewidth = 1) +
+    annotate("text", 
+           x = -0.4, 
+           y = dnorm(dprime, mean = dprime, sd = 1) + 0.03,
+           label = "new", 
+           size = 6, 
+           color = "grey60") +
+      annotate("text", 
+           x = 1.8, 
+           y = dnorm(dprime, mean = dprime, sd = 1) + 0.03,
+           label = "old", 
+           size = 6, 
+           color = "grey60") +
+    xlim(c(xlims[1], xlims[2])) +
+  theme_linedraw()
+p4 <- p3 + 
+  geom_vline(xintercept = 0, linewidth = 1, 
+               alpha = 0.4,
+             linetype = "dashed") +
+  geom_area(stat = "function", fun = dnorm, 
+              args = list(mean = 0, sd = 1),
+              fill = colors[1], alpha = 0.6,
+              xlim = c(criterion, xlims[2])) +
+
+  geom_area(stat = "function", fun = dnorm, 
+              args = list(mean = dprime, sd = 1),
+              fill = colors[2], alpha = alpha[2],
+              xlim = c(criterion, xlims[2])) +
+  geom_vline(xintercept = criterion, linewidth = 1, 
+               linetype = 1) +
+    annotate("text", 
+           x = 1,
+           y = 0.02,
+           label = "k", 
+           size = 6)
+```
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+p2 / p4
+```

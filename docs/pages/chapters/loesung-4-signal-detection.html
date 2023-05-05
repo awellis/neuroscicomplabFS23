@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.340">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Andrew Ellis">
-<meta name="dcterms.date" content="2022-05-05">
+<meta name="dcterms.date" content="2022-05-01">
 <meta name="description" content="Untersuchung eines präsymptomatischen Indikators für die Alzheimer-Krankheit">
 <title>Neurowissenschaft Computerlab - Übung 4</title>
 <style>
@@ -92,7 +92,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../../styles/global.css">
+}</script><link rel="stylesheet" href="../../styles/global.css">
 </head>
 <body class="nav-sidebar floating nav-fixed">
 
@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../pages/chapters/signal-detection-1.html">Signal Detection Theory</a></li><li class="breadcrumb-item"><a href="../../pages/chapters/uebung-4-signal-detection.html">Übung 4</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Übung 4</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 4</span></a>
   </div>
 </li>
@@ -342,24 +342,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#einleitung" id="toc-einleitung" class="nav-link active" data-scroll-target="#einleitung">Einleitung</a></li>
-  <li><a href="#packages-laden" id="toc-packages-laden" class="nav-link" data-scroll-target="#packages-laden">Packages laden</a></li>
-  <li><a href="#daten-laden" id="toc-daten-laden" class="nav-link" data-scroll-target="#daten-laden">Daten laden</a></li>
-  <li><a href="#den-wert-0-ersetzen" id="toc-den-wert-0-ersetzen" class="nav-link" data-scroll-target="#den-wert-0-ersetzen">Den Wert <code>0</code> ersetzen</a></li>
-  <li><a href="#hit-und-false-alarm-rate-berechnen" id="toc-hit-und-false-alarm-rate-berechnen" class="nav-link" data-scroll-target="#hit-und-false-alarm-rate-berechnen">Hit und False Alarm Rate berechnen</a></li>
-  <li><a href="#hit-rate-vs-false-alarm-rate" id="toc-hit-rate-vs-false-alarm-rate" class="nav-link" data-scroll-target="#hit-rate-vs-false-alarm-rate">Hit Rate vs False Alarm Rate</a></li>
-  <li><a href="#d-und-bias-berechnen" id="toc-d-und-bias-berechnen" class="nav-link" data-scroll-target="#d-und-bias-berechnen">d’ und bias berechnen</a></li>
-  <li><a href="#aggregierte-kennzahlen" id="toc-aggregierte-kennzahlen" class="nav-link" data-scroll-target="#aggregierte-kennzahlen">Aggregierte Kennzahlen</a></li>
-  <li><a href="#grafische-darstellung-von-d-und-bias" id="toc-grafische-darstellung-von-d-und-bias" class="nav-link" data-scroll-target="#grafische-darstellung-von-d-und-bias">Grafische Darstellung von <code>d'</code> und <code>bias</code></a></li>
-  <li>
-<a href="#fragen" id="toc-fragen" class="nav-link" data-scroll-target="#fragen">Fragen</a>
-  <ul class="collapse">
-<li><a href="#frage-1" id="toc-frage-1" class="nav-link" data-scroll-target="#frage-1">Frage 1</a></li>
-  <li><a href="#frage-2" id="toc-frage-2" class="nav-link" data-scroll-target="#frage-2">Frage 2</a></li>
-  <li><a href="#frage-3" id="toc-frage-3" class="nav-link" data-scroll-target="#frage-3">Frage 3</a></li>
-  <li><a href="#frage-4" id="toc-frage-4" class="nav-link" data-scroll-target="#frage-4">Frage 4</a></li>
-  </ul>
-</li>
+<li><a href="#kommentare-code" id="toc-kommentare-code" class="nav-link active" data-scroll-target="#kommentare-code">Kommentare &amp; Code</a></li>
+  <li><a href="#aufgaben-1" id="toc-aufgaben-1" class="nav-link" data-scroll-target="#aufgaben-1">Aufgaben</a></li>
+  <li><a href="#rey-auditory-verbal-learning-test" id="toc-rey-auditory-verbal-learning-test" class="nav-link" data-scroll-target="#rey-auditory-verbal-learning-test">Rey auditory verbal learning test</a></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -395,7 +381,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 5, 2022</p>
+      <p class="date">May 1, 2022</p>
     </div>
   </div>
   
@@ -404,20 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header><div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-RStudio Projekt
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>👉 <a href="../../downloadable_files/amyloidSDT.zip">RStudio Projekt für diese Übung herunterladen</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -426,29 +399,53 @@ Aufgaben
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse show">
+<div id="callout-1" class="callout-1-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Die Übung 4 besteht aus den zwei folgenden Aufgaben:</p>
-<p><strong>1. Rmarkdown-File ausführen</strong>: In diesem File werden die Daten eingelesen, SDT Kennzahlen berechnet und Grafiken erstellt. Beantworten Sie die Fragen direkt im Rmarkdown-File. Das Rmarkdown-File muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit). Zeit: 1 Woche.</p>
-<p><strong>2. Peer Feedback</strong>: Mittels Ilias wird Ihnen das Rmarkdown-File einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses Rmarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.</p>
+<p><strong>1. RMarkdown-File erstellen und ausführen</strong>: In diesem File werden die Daten eingelesen, SDT Kennzahlen und damit eine Grafik erstellt. Das RMarkdown-File muss von einer anderen Person ausgeführt werden können (Reproduzierbarkeit) und gut kommentiert sein. Zeit: 1 Woche.</p>
+<p><strong>2. Peer Feedback</strong>: Mittels Ilias wird Ihnen das RMarkdown-File und die Grafik einer anderen Person zugeordnet. Ihr Auftrag ist es, dieses RMarkdown-File auszuführen und Feedback zu geben. Zeit: 1 Woche.</p>
 </div>
 </div>
 </div>
-<section id="einleitung" class="level2"><h2 class="anchored" data-anchor-id="einleitung">Einleitung</h2>
-<p>In Übung arbeiten wir mit einem klinischen Datensatz. Das Ziel ist es, Sensitivität und Bias für zwei Gruppen von insgesamt 60 Patienten zu untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden.</p>
-<p>Die Anwesenheit von <a href="https://de.wikipedia.org/wiki/Beta-Amyloid">Beta-Amyloid</a> wurde durch einen <a href="https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds">Bluttest</a> untersucht. Ein positiver Beta-Amyloid Test gilt als präsymptomatischer Indikator für die Alzheimer-Krankheit.</p>
-<p>Aufgrund dieses Bluttests wurden die Patienten in zwei Gruppen eingeteilt. Es soll nun untersucht werden, ob sich die beiden in ihrer Gedächtnisleistung unterscheiden.</p>
-<p>Dazu wurde der “Rey auditory verbal learning test” (RALVT: Bean, 2011) durchgeführt.</p>
-<p>In diesem Test müssen Patienten zuerst eine Liste bestehend aus 15 Wörtern lernen. Sie werden danach mit 30 Wörtern getestet (15 alte, 15 neue Wörter) und müssen angeben, ob ein Wort auf der Liste war oder nicht (alt/neu).</p>
-<p>Die Antworten der Patienten wurden bereits als als korrekte oder inkorrekte ‘Ja’-Antworten klassifiziert (<code>hits</code> und <code>false alarms</code>).</p>
-</section><section id="packages-laden" class="level2"><h2 class="anchored" data-anchor-id="packages-laden">Packages laden</h2>
+<section id="kommentare-code" class="level2"><h2 class="anchored" data-anchor-id="kommentare-code">Kommentare &amp; Code</h2>
+<p>Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. Wählen Sie aus, welche die Codechunks ausgeführt / angezeigt werden sollen.</p>
+</section><section id="aufgaben-1" class="level2"><h2 class="anchored" data-anchor-id="aufgaben-1">Aufgaben</h2>
+<ul>
+<li><p>Laden Sie nötige Packages.</p></li>
+<li><p>Laden Sie die Daten unseres Experiments. Sie finden den Datensatz <code>rdkdata_clean.csv</code> für diese Übung im Projektordner <code>dataviz</code> &gt; <code>data_rdk</code>.</p></li>
+<li><p>Machen Sie Textvariablen und die Personen-Id-Variable zu Faktoren und schauen Sie den Datensatz kurz an (mit <code><a href="https://dplyr.tidyverse.org/reference/slice.html">slice_head()</a></code> oder <code><a href="https://pillar.r-lib.org/reference/glimpse.html">glimpse()</a></code>), um zu überprüfen, ob die Daten richtig eingelesen wurden.</p></li>
+<li>
+<p>Ihre Aufgabe ist es eine Forschungsfrage zu dem vorhandenen Datensatz zu stellen, dazu eine Grafik zu plotten und die Antwort damit zu visualisieren, sowie in schriftlicher Form zu geben.</p>
+<ul>
+<li><p>Beschreiben Sie in Textform, welche Frage Sie mit Ihrer Grafik beantworten möchten.</p></li>
+<li><p>Falls nötig: Bearbeiten Sie den Datensatz / erstellen Sie einen neuen Datensatz für die Grafik.</p></li>
+<li><p>Erstellen Sie die Grafik, und lassen Sie diese anzeigen.</p></li>
+<li><p>Speichern Sie die Grafik zusätzlich als <code>.jpg</code> oder <code>.png</code> ab. So kann Ihr Peer Reviewer auch bei nicht funktionierendem Code Rückmeldung zur Grafik geben.</p></li>
+<li><p>Fügen Sie der Grafik passende Beschriftungen hinzu.</p></li>
+<li><p>Beantworten Sie Ihre Forschungsfrage schriftlich.</p></li>
+</ul>
+</li>
+</ul></section><section id="rey-auditory-verbal-learning-test" class="level2"><h2 class="anchored" data-anchor-id="rey-auditory-verbal-learning-test">Rey auditory verbal learning test</h2>
+<p>In dieser Übung werden wir die Sensitivität und den Bias für zwei Gruppen von Patienten untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden. Bei 60 Patienten wurde die Anwesenheit von <a href="https://de.wikipedia.org/wiki/Beta-Amyloid">Beta-Amyloid</a> durch einen <a href="https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds">Bluttest</a></p>
+<p>These data come from a clinical setting, and involve memory ability tests for 60 patients using the Rey auditory verbal learning test (RALVT: Bean, 2011) - in the recognition task, the patients study a set of 15 words, and tested on 30 words, made up of 15 old and 15 new words • Patients also had a cerebrospinal fluid measurement taken to classify their levels beta amyloid as “positive” or “negative” - amyloid positivity is thought to be a pre-symptomatic indicator of Alzheimer’s disease</p>
+</section><section id="code" class="level2"><h2 class="anchored" data-anchor-id="code">Code</h2>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.2     ✔ readr     2.1.4
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
-</section><section id="daten-laden" class="level2"><h2 class="anchored" data-anchor-id="daten-laden">Daten laden</h2>
+</div>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/amyloidSDT.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/amyloidSDT.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 60 Columns: 6
 ── Column specification ────────────────────────────────────────────────────────
@@ -460,119 +457,56 @@ dbl (5): ID, hit, miss, fa, cr
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
 </div>
-<p>Immer zuerst Daten anschauen.</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 60 × 6
-      ID group      hit  miss    fa    cr
-   &lt;dbl&gt; &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
- 1     1 Negative    13     2     0    15
- 2     2 Negative    12     3     1    14
- 3     3 Negative    14     1     0    15
- 4     4 Negative    12     3     1    14
- 5     5 Negative    11     4     2    13
- 6     6 Negative    12     3     1    14
- 7     7 Negative    10     5     2    13
- 8     8 Negative    13     2     1    14
- 9     9 Negative    12     3     0    15
-10    10 Negative    12     3     2    13
-# ℹ 50 more rows</code></pre>
-</div>
-</div>
-<p>Im Datensatz halben wir folgende Variablen:</p>
-<ul>
-<li>
-<code>ID</code>: Patientien-ID</li>
-<li>
-<code>group</code>: Indikator für Beta-Amyloid Bluttest (Negative oder Positive)</li>
-<li>
-<code>hit</code>: Anzahl hits</li>
-<li>
-<code>miss</code>: Anzahl misses</li>
-<li>
-<code>fa</code>: Anzahl false alarms</li>
-<li>
-<code>cr</code>: Anzahl correct rejections</li>
-</ul>
-<p>Im Datensatz gibt es es einige Nullen – z.B. hat die Person mit der <code>ID</code> 1 keine False Alarms. Dies ist problematisch, weil wir die relative Häufigkeiten von Hits (<code>hit_rate</code>) und False Alarms (<code>fa_rate</code>) berechnen und anschliessen diese z-transformieren wollen. Die <code>fa_rate</code> ist der Anteil ‘Ja’-Antworten wenn das Wort tatsächlich aber nicht auf der Liste war, also <code>fa / (fa + cr)</code>. Bei der ersten Person wäre dies <code>0/(0 + 15) = 0</code>.</p>
-<p>Das Problem ist nun, dass die relative Häufigkeit hier als <span class="math inline">\(0\)</span> geschätzt wird - eine Wahrscheinlichkeit darf aber eigentlich nicht <span class="math inline">\(0\)</span> sein, sondern liegt zwischen <span class="math inline">\(-\infty\)</span> und <span class="math inline">\(\infty\)</span>. Wenn wir <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> (die Quantilfunktion der Normalverteilung) auf den Wert <span class="math inline">\(0\)</span> anwenden, erhalten wir:</p>
-<div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -Inf</code></pre>
-</div>
-</div>
-<p>Damit können wir nicht weiterrechnen. Wir wenden daher einen Trick an: wir addieren einfach zu jeder Zelle im Datensatz den Wert <span class="math inline">\(0.5\)</span>. Somit erhalten wir für die <code>fa_rate</code> der ersten Person:</p>
-<div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">0</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">/</span> <span class="op">(</span><span class="fl">0</span> <span class="op">+</span> <span class="fl">0.5</span> <span class="op">+</span> <span class="fl">15</span> <span class="op">+</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.03125</code></pre>
-</div>
-</div>
-<p>Dies bedeudet, dass wir einen kleine Wahrscheinlochkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in <code><a href="https://rdrr.io/r/stats/Normal.html">qnorm()</a></code> einsetzen.</p>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="fl">0.03125</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -1.862732</code></pre>
-</div>
-</div>
-</section><section id="den-wert-0-ersetzen" class="level2"><h2 class="anchored" data-anchor-id="den-wert-0-ersetzen">Den Wert <code>0</code> ersetzen</h2>
-<div class="cell">
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_half_count</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">count</span><span class="op">)</span> <span class="op">{</span></span>
-<span>    <span class="va">count</span> <span class="op">+</span> <span class="fl">0.5</span></span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">add_half_count</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">count</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="va">count</span> <span class="op">+</span> <span class="fl">0.5</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="va">d</span> <span class="op">|&gt;</span></span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hit</span>, <span class="va">miss</span>, <span class="va">fa</span>, <span class="va">cr</span><span class="op">)</span>, <span class="va">add_half_count</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">hit</span>, <span class="va">miss</span>, <span class="va">fa</span>, <span class="va">cr</span><span class="op">)</span>, <span class="va">add_half_count</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="hit-und-false-alarm-rate-berechnen" class="level2"><h2 class="anchored" data-anchor-id="hit-und-false-alarm-rate-berechnen">Hit und False Alarm Rate berechnen</h2>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="va">d</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>        hit_rate <span class="op">=</span> <span class="va">hit</span> <span class="op">/</span> <span class="op">(</span><span class="va">hit</span> <span class="op">+</span> <span class="va">miss</span><span class="op">)</span>,</span>
 <span>        fa_rate <span class="op">=</span> <span class="va">fa</span> <span class="op">/</span> <span class="op">(</span><span class="va">fa</span> <span class="op">+</span> <span class="va">cr</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="hit-rate-vs-false-alarm-rate" class="level2"><h2 class="anchored" data-anchor-id="hit-rate-vs-false-alarm-rate">Hit Rate vs False Alarm Rate</h2>
-<p>Bevor wir die SDT Kennzahlen berechnen, stellen wir die hit rate und false alarm rate grafisch dar:</p>
 <div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">|&gt;</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">fa_rate</span>, <span class="va">hit_rate</span>, color <span class="op">=</span> <span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, slope <span class="op">=</span> <span class="fl">1</span>, linetype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, begin <span class="op">=</span> <span class="fl">0.1</span>, end <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">fa_rate</span>, <span class="va">hit_rate</span>, color <span class="op">=</span> <span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_abline</a></span><span class="op">(</span>intercept <span class="op">=</span> <span class="fl">0</span>, slope <span class="op">=</span> <span class="fl">1</span>, linetype <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span>direction <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, begin <span class="op">=</span> <span class="fl">0.1</span>, end <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
 <span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html">facet_wrap</a></span><span class="op">(</span><span class="op">~</span> <span class="va">group</span><span class="op">)</span> <span class="op">+</span></span>
 <span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/lims.html">xlim</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_linedraw</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="uebung-4-signal-detection_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid" width="672"></p>
+<p><img src="loesung-4-signal-detection_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-</section><section id="d-und-bias-berechnen" class="level2"><h2 class="anchored" data-anchor-id="d-und-bias-berechnen">d’ und bias berechnen</h2>
 <div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="va">d</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>        zhr <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">hit_rate</span><span class="op">)</span>,</span>
 <span>        zfa <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">qnorm</a></span><span class="op">(</span><span class="va">fa_rate</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="va">d</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
 <span>        dprime <span class="op">=</span> <span class="va">zhr</span> <span class="op">-</span> <span class="va">zfa</span>,</span>
 <span>        k <span class="op">=</span> <span class="op">-</span><span class="va">zfa</span>,</span>
 <span>        c <span class="op">=</span> <span class="op">-</span><span class="fl">0.5</span> <span class="op">*</span> <span class="op">(</span><span class="va">zhr</span> <span class="op">+</span> <span class="va">zfa</span><span class="op">)</span></span>
 <span>    <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Wir runden nun <code>dprime, k</code> und <code>c</code> auf zwei Nachkommastellen.</p>
 <div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="va">d</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/across.html">across</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">dprime</span>, <span class="va">k</span>, <span class="va">c</span><span class="op">)</span>, \<span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 60 × 13
       ID group   hit  miss    fa    cr hit_rate fa_rate   zhr   zfa dprime     k
@@ -591,89 +525,65 @@ dbl (5): ID, hit, miss, fa, cr
 # ℹ 1 more variable: c &lt;dbl&gt;</code></pre>
 </div>
 </div>
-</section><section id="aggregierte-kennzahlen" class="level2"><h2 class="anchored" data-anchor-id="aggregierte-kennzahlen">Aggregierte Kennzahlen</h2>
 <div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">se</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">se</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dprimes</span> <span class="op">&lt;-</span> <span class="va">d</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">dprimes</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">dprime</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">dprime</span><span class="op">)</span>,</span>
 <span>            se <span class="op">=</span> <span class="fu">se</span><span class="op">(</span><span class="va">dprime</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cs</span> <span class="op">&lt;-</span> <span class="va">d</span> <span class="op">|&gt;</span> </span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">cs</span> <span class="op">&lt;-</span> <span class="va">df</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">c</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span><span class="op">(</span><span class="va">group</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarize</a></span><span class="op">(</span>mean <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">c</span><span class="op">)</span>,</span>
 <span>            se <span class="op">=</span> <span class="fu">se</span><span class="op">(</span><span class="va">c</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="grafische-darstellung-von-d-und-bias" class="level2"><h2 class="anchored" data-anchor-id="grafische-darstellung-von-d-und-bias">Grafische Darstellung von <code>d'</code> und <code>bias</code>
-</h2>
 <div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_dprimes</span> <span class="op">&lt;-</span> <span class="va">dprimes</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_dprimes</span> <span class="op">&lt;-</span> <span class="va">dprimes</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">group</span>, y<span class="op">=</span><span class="va">mean</span>, group<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">dprime</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.1</span>, data <span class="op">=</span> <span class="va">d</span>, width <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span>width<span class="op">=</span><span class="fl">.1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin<span class="op">=</span><span class="va">mean</span><span class="op">-</span><span class="va">se</span>, ymax<span class="op">=</span><span class="va">mean</span><span class="op">+</span><span class="va">se</span><span class="op">)</span>, colour<span class="op">=</span><span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">21</span>, size<span class="op">=</span><span class="fl">3</span>, fill<span class="op">=</span><span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Sensitivity"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_cs</span> <span class="op">&lt;-</span> <span class="va">cs</span> <span class="op">|&gt;</span></span>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_cs</span> <span class="op">&lt;-</span> <span class="va">cs</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x<span class="op">=</span><span class="va">group</span>, y<span class="op">=</span><span class="va">mean</span>, group<span class="op">=</span><span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_jitter.html">geom_jitter</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">group</span>, <span class="va">c</span><span class="op">)</span>, alpha <span class="op">=</span> <span class="fl">0.1</span>, data <span class="op">=</span> <span class="va">d</span>, width <span class="op">=</span> <span class="fl">0.05</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_linerange.html">geom_errorbar</a></span><span class="op">(</span>width<span class="op">=</span><span class="fl">.1</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>ymin<span class="op">=</span><span class="va">mean</span><span class="op">-</span><span class="va">se</span>, ymax<span class="op">=</span><span class="va">mean</span><span class="op">+</span><span class="va">se</span><span class="op">)</span>, colour<span class="op">=</span><span class="st">"black"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html">geom_point</a></span><span class="op">(</span>shape<span class="op">=</span><span class="fl">21</span>, size<span class="op">=</span><span class="fl">3</span>, fill<span class="op">=</span><span class="st">"white"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">"Bias"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_dprimes</span> <span class="op">+</span> <span class="va">p_cs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="uebung-4-signal-detection_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://patchwork.data-imaginist.com">patchwork</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section><section id="fragen" class="level2"><h2 class="anchored" data-anchor-id="fragen">Fragen</h2>
-<p>Bitte versuchen Sie, folgende Fragen so gut wie möglich zu beantworten. Schreiben Sie Ihre Antworten direkt unter die Fragen.</p>
-<section id="frage-1" class="level3"><h3 class="anchored" data-anchor-id="frage-1">Frage 1</h3>
-<blockquote class="blockquote">
-<p>Wie unterscheiden sich die Gruppen in der <code>hit rate</code> und <code>false alarm rate</code> (siehe erste Grafik)?</p>
-</blockquote>
-<p><strong>Antwort</strong>:</p>
-</section><section id="frage-2" class="level3"><h3 class="anchored" data-anchor-id="frage-2">Frage 2</h3>
-<blockquote class="blockquote">
-<p>Wie unterscheidet sich die Sensitivität zwischen den Gruppen im RALVT? Was könnte das bedeuten? Denken Sie, dass der Unterschied von relevanter Grösse ist?</p>
-</blockquote>
-<p><strong>Antwort</strong>:</p>
-</section><section id="frage-3" class="level3"><h3 class="anchored" data-anchor-id="frage-3">Frage 3</h3>
-<blockquote class="blockquote">
-<p>Wie unterscheidet sich die Antworttendenz zwischen den Gruppen im RALVT? Was könnte das bedeuten? Denken Sie, dass der Unterschied von relevanter Grösse ist?</p>
-</blockquote>
-<p><strong>Antwort</strong>:</p>
-</section><section id="frage-4" class="level3"><h3 class="anchored" data-anchor-id="frage-4">Frage 4</h3>
-<blockquote class="blockquote">
-<p>Wie denken Sie hängen Sensitivität und Antworttendenz in diesem Experiment zusammen? Was könnten die Gründe sein? Was passiert, wenn d’ kleiner wird, das Kriterium k aber konstant bleibt? Eventuell hilft diese Grafik, um darüber nachzudenken.</p>
-</blockquote>
 <div class="cell">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">p_dprimes</span> <span class="op">+</span> <span class="va">p_cs</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<p><img src="uebung-4-signal-detection_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid" width="672"></p>
+<p><img src="loesung-4-signal-detection_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
+<ul>
+<li>for healthy amyloid negative patients on the left, and potentially impaired amyloid positive patients on the right</li>
+<li>the basic data change of more misses, but not many more false alarms, is captured by the model</li>
+</ul>
 
 
-</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
   author = {Ellis, Andrew},
   title = {Übung 4},
-  date = {2022-05-05},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-4-signal-detection.html},
+  date = {2022-05-01},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/loesung-4-signal-detection.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ellis, Andrew. 2022. <span>“Übung 4.”</span> May 5, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-4-signal-detection.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-4-signal-detection.html</a>.
+Ellis, Andrew. 2022. <span>“Übung 4.”</span> May 1, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/loesung-4-signal-detection.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/loesung-4-signal-detection.html</a>.
 </div></div></section></div></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
