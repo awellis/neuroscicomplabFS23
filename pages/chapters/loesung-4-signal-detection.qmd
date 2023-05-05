@@ -41,13 +41,13 @@ Die Übung 4 besteht aus den zwei folgenden Aufgaben:
 
 ## Kommentare & Code
 
-Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. 
+Achten Sie darauf, dass Sie den Code in den Codefeldern schreiben und den Text ausserhalb. Wählen Sie aus, welche die Codechunks ausgeführt / angezeigt werden sollen.
 
 ## Aufgaben
  
 - Laden Sie nötige Packages.
 
-- Laden Sie das CSV File `amyloidSDT.csv`. Sie finden den Datensatz im Projektordner `data`.
+- Laden Sie die Daten unseres Experiments. Sie finden den Datensatz `rdkdata_clean.csv` für diese Übung im Projektordner `dataviz` > `data_rdk`.
 
 - Machen Sie Textvariablen und die Personen-Id-Variable zu Faktoren und schauen Sie den Datensatz kurz an (mit `slice_head()` oder `glimpse()`), um zu überprüfen, ob die Daten richtig eingelesen wurden.
 
@@ -207,15 +207,3 @@ p_dprimes + p_cs
 
 - for healthy amyloid negative patients on the left, and potentially impaired amyloid positive patients on the right
 - the basic data change of more misses, but not many more false alarms, is captured by the model
-
-## Fragen
-
-- Was testet der Rey auditory verbal learning test (RALVT: Bean, 2011)?
- 
-- Wie unterscheiden sich die Gruppen in der hit rate und FA rate? (siehe erste Grafik)
- 
-- Wie unterscheidet sich die Sensitivität zwischen den Gruppen im RALVT? Was könnte das bedeuten? Was denken Sie, ist der Unterschied von relevanter Grösse?
- 
-- Wie unterscheidet sich die Antworttendenz zwischen den Gruppen im RALVT? Was könnte das bedeuten? Was denken Sie, ist der Unterschied von relevanter Grösse?
- 
-- Wie denken Sie hängen Sensitivität und Antworttendenz in diesem Experiment zusammen? Was könnten die Gründe sein?
