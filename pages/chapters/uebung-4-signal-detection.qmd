@@ -80,7 +80,8 @@ library(patchwork)
 d <- read_csv("data/amyloidSDT.csv")
 ```
 
-Immer zuerst Daten anschauen. 
+Wir empfehlen, immer zuerst die Daten anzuschauen.
+
 ```{r}
 d
 ```
@@ -96,9 +97,9 @@ Im Datensatz halben wir folgende Variablen:
 - `cr`: Anzahl correct rejections
 
 
-Im Datensatz gibt es es einige Nullen -- z.B. hat die Person mit der `ID` 1 keine False Alarms. Dies ist problematisch, weil wir die relative Häufigkeiten von Hits (`hit_rate`) und False Alarms (`fa_rate`) berechnen und anschliessen diese z-transformieren wollen. Die `fa_rate` ist der Anteil 'Ja'-Antworten wenn das Wort tatsächlich aber nicht auf der Liste war, also `fa / (fa + cr)`. Bei der ersten Person wäre dies `0/(0 + 15) = 0`. 
+Im Datensatz gibt es es einige Nullen -- z.B. hat die Person mit der `ID` 1 keine False Alarms. Dies ist problematisch, weil wir die relative Häufigkeiten von Hits (`hit_rate`) und False Alarms (`fa_rate`) berechnen und diese anschliessend z-transformieren wollen. Die `fa_rate` ist der Anteil 'Ja'-Antworten wenn das Wort tatsächlich gar nicht auf der Liste war, also `fa / (fa + cr)`. Bei der ersten Person wäre dies `0/(0 + 15) = 0`. 
 
-Das Problem ist nun, dass die relative Häufigkeit hier als $0$ geschätzt wird - eine Wahrscheinlichkeit darf aber eigentlich nicht $0$ sein, sondern liegt zwischen $-\infty$ und $\infty$. Wenn wir `qnorm()` (die Quantilfunktion der Normalverteilung) auf den Wert $0$ anwenden, erhalten wir:
+Das Problem ist nun, dass wir hier mit der relativen Häufigkeit eine Wahrscheinlichkeit schätzen - eine Wahrscheinlichkeit darf aber nicht $0$ sein, sondern liegt zwischen $-\infty$ und $\infty$. Wenn wir `qnorm()` (die Quantilfunktion der Normalverteilung) auf den Wert $0$ anwenden, erhalten wir:
 
 ```{r}
 qnorm(0)
@@ -128,6 +129,10 @@ add_half_count <- function(count) {
 ```{r}
 d <- d |>
     mutate(across(c(hit, miss, fa, cr), add_half_count))
+```
+
+```{r}
+d
 ```
 
 ## Hit und False Alarm Rate berechnen
