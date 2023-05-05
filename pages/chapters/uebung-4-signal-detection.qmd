@@ -33,6 +33,8 @@ knitr::opts_knit$set(root.dir = '../../data/uebung-4')
 ## RStudio Projekt
 
 👉 [RStudio Projekt für diese Übung herunterladen](../../downloadable_files/amyloidSDT.zip)
+
+Sie finden darin ein Rmarkdown-File, welches Sie bearbeiten müssen, und den Datensatz. 
 :::
 
 
@@ -48,7 +50,7 @@ Die Übung 4 besteht aus den zwei folgenden Aufgaben:
 
 
 ## Einleitung
-In Übung arbeiten wir mit einem klinischen Datensatz. Das Ziel ist es, Sensitivität und Bias für zwei Gruppen von insgesamt 60 Patienten zu untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden. 
+In Übung 4 arbeiten wir mit einem klinischen Datensatz. Das Ziel ist es, Sensitivität und Bias für zwei Gruppen von insgesamt 60 Patienten zu untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden. 
 
 Die Anwesenheit von [Beta-Amyloid](https://de.wikipedia.org/wiki/Beta-Amyloid) wurde durch einen [Bluttest](https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds) untersucht. Ein positiver Beta-Amyloid Test gilt als präsymptomatischer Indikator für die Alzheimer-Krankheit.
 
@@ -105,7 +107,7 @@ Damit können wir nicht weiterrechnen. Wir wenden daher einen Trick an: wir addi
 ```
 
 
-Dies bedeudet, dass wir einen kleine Wahrscheinlochkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in `qnorm()` einsetzen.
+Dies bedeutet, dass wir einen kleine Wahrscheinlochkeit erhalten; diese ist aber nicht Null. Diesen Wert können wir nun in `qnorm()` einsetzen.
 
 ```{r}
 qnorm(0.03125)
