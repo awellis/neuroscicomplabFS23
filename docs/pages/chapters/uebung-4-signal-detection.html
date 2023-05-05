@@ -55,7 +55,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -452,7 +471,7 @@ Aufgaben
 <p>In Übung 4 arbeiten wir mit einem klinischen Datensatz. Das Ziel ist es, Sensitivität und Bias für zwei Gruppen von insgesamt 60 Patienten zu untersuchen, die sich in ihrem Risiko für Alzheimer-Krankheit unterscheiden.</p>
 <p>Die Anwesenheit von <a href="https://de.wikipedia.org/wiki/Beta-Amyloid">Beta-Amyloid</a> wurde durch einen <a href="https://www.nia.nih.gov/news/blood-test-can-predict-presence-beta-amyloid-brain-new-study-finds">Bluttest</a> untersucht. Ein positiver Beta-Amyloid Test gilt als präsymptomatischer Indikator für die Alzheimer-Krankheit.</p>
 <p>Aufgrund dieses Bluttests wurden die Patienten in zwei Gruppen eingeteilt. Es soll nun untersucht werden, ob sich die beiden in ihrer Gedächtnisleistung unterscheiden.</p>
-<p>Dazu wurde der “Rey auditory verbal learning test” (RALVT: Bean, 2011) durchgeführt.</p>
+<p>Dazu wurde der “Rey auditory verbal learning test” <span class="citation" data-cites="beanReyAuditoryVerbal2011">(<a href="#ref-beanReyAuditoryVerbal2011" role="doc-biblioref">Bean 2011</a>)</span> durchgeführt.</p>
 <p>In diesem Test müssen Patienten zuerst eine Liste bestehend aus 15 Wörtern lernen. Sie werden danach mit 30 Wörtern getestet (15 alte, 15 neue Wörter) und müssen angeben, ob ein Wort auf der Liste war oder nicht (alt/neu).</p>
 <p>Die Antworten der Patienten wurden bereits als als korrekte oder inkorrekte ‘Ja’-Antworten klassifiziert (<code>hits</code> und <code>false alarms</code>).</p>
 </section><section id="packages-laden" class="level2"><h2 class="anchored" data-anchor-id="packages-laden">Packages laden</h2>
@@ -683,7 +702,12 @@ dbl (5): ID, hit, miss, fa, cr
 <p>Laden Sie Ihr Peer Review anschliessend als Word/Text-File auf Ilias hoch.</p>
 
 
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-beanReyAuditoryVerbal2011" class="csl-entry" role="listitem">
+Bean, Jessica. 2011. <span>“Rey <span>Auditory Verbal Learning Test</span>, <span>Rey AVLT</span>.”</span> In <em>Encyclopedia of <span>Clinical Neuropsychology</span></em>, edited by Jeffrey S. Kreutzer, John DeLuca, and Bruce Caplan, 2174–75. <span>New York, NY</span>: <span>Springer</span>. <a href="https://doi.org/10.1007/978-0-387-79948-3_1153">https://doi.org/10.1007/978-0-387-79948-3_1153</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
   author = {Ellis, Andrew and Wyssen, Gerda},
   title = {Übung 4},
   date = {2022-05-05},

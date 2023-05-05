@@ -60,7 +60,7 @@ Die Anwesenheit von [Beta-Amyloid](https://de.wikipedia.org/wiki/Beta-Amyloid) w
 
 Aufgrund dieses Bluttests wurden die Patienten in zwei Gruppen eingeteilt. Es soll nun untersucht werden, ob sich die beiden in ihrer Gedächtnisleistung unterscheiden. 
 
-Dazu wurde der "Rey auditory verbal learning test" (RALVT: Bean, 2011) durchgeführt. 
+Dazu wurde der "Rey auditory verbal learning test" [@beanReyAuditoryVerbal2011] durchgeführt. 
 
 In diesem Test müssen Patienten zuerst eine Liste bestehend aus 15 Wörtern lernen. Sie werden danach mit 30 Wörtern getestet (15 alte, 15 neue Wörter) und müssen angeben, ob ein Wort auf der Liste war oder nicht (alt/neu). 
 
