@@ -1,8 +1,8 @@
 ---
-title: "Data analysis: I"
-description: | 
-    Combining informatin from multiple participants | Intro to Bayesian data analysis.
-date: "2022-05-10"
+title: "Einführung in die Bayesianische Statistik"
+description: |
+  Eine Alternative zu Null Hypothesis Significance Testing (NHST).
+date: "2022-05-08"
 author:
   - name: Andrew Ellis
     url: https://github.com/awellis
@@ -12,194 +12,254 @@ author:
 license: CC BY
 citation: true
 bibliography: ../../bibliography.bib
-reference-location: margin
-citation-location: margin
 format:
     html:
         toc: true
         code-link: true
-        code-fold: false
-        code-tools: true
+execute: 
+  cache: false
+code-annotations: select
 ---
 
-<!-- :::{.callout-note} -->
-<!-- 👉 [R Code für dieses Kapitel downloaden](../../downloadable_files/evidence-accumulation-1.R) -->
-<!-- ::: -->
-
-<!-- t-test -->
-<!--     - Lee -->
-<!-- Signal detection -->
-<!--     - Lee -->
-<!--     - Farrell -->
-
 ```{r}
-#| label: load-packages
-#| echo: false
-#| message: false
-#| warning: false
-library(tidyverse)
-library(viridis)
+#| include: false
+# Set working directory of R
+knitr::opts_knit$set(root.dir = "../../data/session-11")
 
+library(webexercises)
 ```
 
+:::{.callout-tip}
+## Wichtig
 
+👉 [Daten (`FancyHat.csv`) herunterladen](../../downloadable_files/FancyHat.csv)
 
-## Data analysis
-In this chapter, we will tackle two important topics: 
-
-1) What methods should we use when modelling and summarizing data from multiple participants, and 
-
-2) Which alternative approaches are available when methods for null hypothesis significance testing (NHST) are not suitable. 
-
-The latter is often the case in neuroscience, where low power due to small sample sizes is a well-known problem [@buttonPowerFailureWhy2013]. The alternative approach we will discuss here is Bayesian data analysis, which also has the benefit is allowing us to provide evidence _for_ or _against_ hypotheses, something which is not possible using NHST. 
-
-
-
-## Modelling and summarizing data from multiple participants
-
-In most neuroscience experiments, we are interested in effects of manipulations at the individual level, but we also need to be sure that theses effects hold at the group level, and are not particular to certain individuals. However, reporting effects at the group level is not straightforward.In short, there are three possiblities 
-when combining informatin from multiple participants:
-
-### Complete pooling
-
-We can pretend that all our data come from 1 participant, by averaging over participants. In statistics, this is know as  _complete pooling_, meaning that all data are pooled and we are no longer interested in individual participants. The pooled data are then used to estimate parameters, and to perfom hypothesis testing. While there are cases in which it is possible to analyze averaged data, in general this approach can lead to errors, and needs to be treated with care. A classic example is shown in @fig-power-law. The thin solid lines represent individual learning curves. Each indivdial appears to learn very rapidly (and linearly), but there is a huge variation in the onset of learning. The filled circles represent a naive attempt at averaging over all individuals. The result suggests that learning is gradual and starts from the outset; however the average learning curve looks nothing like the individual learning curves. This type of analysis can lead to erroneous conclusions.
-
-![Learning curves](../../assets/images/aggregating-power-law.png){#fig-power-law}
-
-## No pooling
-
-This means that data we estimate parameters of our models for each participant separately. While this appears to be a more sensible approach, there is the danger of over-fitting. This means that we give up the ability to generalize because our models are too sensitive to noise inherent in our data. Estimating parameters at the individual level is usually followed by a group-level statistical analysis. We might estimate the parameters of a signal detection or diffusion decision model for each participant individually, and then perform hypothesis tests on those parameters at the group level. For example, in a within-person design, we estimate individual bias parameters for each person in two conditions, and then perform a t-test at the group level to discover whether there is a difference between conditions. A problem that is associated with this approach is that we have to treat the estimated parameters as "data" at the group level, thus ignoring any uncertainty associated with those parameters; this can lead to over-confidence in our results. Nevertheless, this two-stage analysis is by far the most common approach in neuroscience.
-
-## Partial pooling
-
-A principled solution to the problems associated with individual and group level analyses is to use multilevel modelling. This allows us to simultaneously estimate group level parameters (fixed effects) and individual parameters (random effects) as deviations from the group average. This leads to the phenomenon known as _shrinkage_, which means that individual estimates are "pulled" towards the group average, and are less susceptible to noise in the data. An intuitive way of thinking about this is that we are assuming that participants are all individuals, but they do share some common characteristics, and we can use information obtained from other participants to inform our estimates. This is what _partial pooling_ refers to.
- 
-While multilevel models are outside the scope of this course, we will look some basic models in our final session on Baysian data analysis. The basic idea is that each individual participant's parameters are treated as random draws from a group-level distribution, and the average effect is then simply the mean of that distribution.
-
-:::aside
-Multilevel models do not have to be Bayesian - the can just as well be estimated using maximum likelihood estimation.
+👉 [Jasp installieren]([../../downloadable_files/rdkdata_clean.csv](https://jasp-stats.org/))
 :::
 
 
 
-## Frequentist statistics
+:::{.callout-tip collapse="false"}
+## Lernziele
 
-The traditional approach to statistics is know as frequentist statistics. We will first go through the basic principles, then discuss some of the limitations associated with this approach, and then contrast this with the Bayesian approach. 
+In der heutigen Sitzung:
 
-In a traditional approach to statistics, students are usually taught a variety of different approaches (far too many to discuss here - there are enough enough different models to fill entire text books). In a nutshell, most of these approachs perform the following steps (I will use an equal-variance independent samples t-test as a running example, as well as the problem of estimating the probability of sucess parameter in a model of Bernoulli trials):
-
-1) A statistical model is assumed. In the case of the t-test all observations within both groups are assumed to be normally distributed, with the groups differing in the means of the distributions (assuming that the standard deviations of both groups are equal to $\sigma$).
-
-$$ 
-y_{ij} \sim \mathcal{N}(\mu_j, \sigma^2)
-$$
-$y_{ij}$ refers to the $i_{th}$ observation in group $j \in \{1, 2\}$. This observations are assumed to be independent random variates from a normal distribution (i.i.d)^[independent and identically distributed], with the distribution's mean $\mu_j$ depending on the group. In a t-test, we are interested in the difference between the group means, $\mu_2 - \mu_1$.
-
-2) The group means are estimated. This can be done, e.g. using maximum likelihood estimation. You will be more familiar with the technique of "simply" using the sample means to estimate $\mu_j$, which actually corresponds to the maximum likelihood estimate. The third parameter that has to be estimated is $\sigma$. This is the __parameter estimation__ step. $\sigma$ can be estimated using maximum likelihood, or simply "calculated" as the pooled standard deviation $s_p$. In either case, the parameter is estimated.
-
-3) A test statistic is calculated. In this case, the difference $\mu_1 - \mu_2$ is of interest, and using this difference, a test statistic is computed. The test statistic can be computed as 
-
-$$
-t = \frac{\bar{x_1} - \bar{x_2}}{s_p \sqrt{2/n}}
-$$
+- Brainstorming: NHST, Power
+- Welche Fagen kann NHST beantworten?
+- Einführung in die Bayes'sche Inferenz
+:::
 
 
-where $s_p \sqrt{2/n}$ is the standard error of the difference. $t$ is assumed to follow a Student-t distribution (under the null hypothesis), and we can compute the probability of observing a test statistic (estimated from the data) that is at least as extreme (depending on the hypothesis) as the observed one (or rather the t value estimated from the actually observed data), under the assumption that the null hypothesis is true. This tail probability is known as a *p-value*.
-
-### What can we discover with NHST?
-
-It is important to think about what exactly this approach can tell us. For instance, can we discover how probable the null hypothesis is? Can we ask how probable it is that the null hypothesis is false, and that therefore the alternative is true? 
-
-Unfortunately, the answer to both of these questions is **no**, we cannot. 
-
-This approach cannot tell us anything about probabilities of hypotheses - all that we can discover is how likely the data (as summarized by the parameters) are to have occured under the assumption that the null is true. In this case, how likely is the t value, given that there is no difference between the groups, or mathematically, $\mu_1 - \mu_2 = 0$. A small p-value can tell us that the data are unlikely, but that is not really the question we are asking. 
-
-What we would like to know (intuitively) is how likely are our hypotheses [@wagenmakersPracticalSolutionPervasive2007]. But this is something that frequentist statistics cannot tell us, by design. In the frequentist interpretation, a probability is the relative frequency of occurence of an event. Under this interpretation, a parameter does not have an associated probability distribution, and the question of how probable certain parameter values are is meaningless. In contrast, in Bayesian statistics, a probability is assumed to represent the degree of belief (either subjective or objective) that a certain parameter value is true. As an example, for a frequentist, talking about the probability that it will rain tomorrow is meaningless, because this is not an experiment that can be repeated infinitely many times. For a Bayesian, on the other hand, the probability of rain is merely an expression of belief, a summary of our state of knowledge.
 
 
-## Problems with NHST
+## Arbeiten in Gruppen
 
-Even scientists routinely mistake p-values for probabilities of hypotheses. This is actually one of the most common misconceptions, and lead @wassersteinASAStatementPValues2016 to write a *Statement on Statistical
-Significance and P-Values* in the American Statistical Association. They clarify:
+:::{.callout-caution collapse="false"}
+## Vorgehen
 
-  * P-values can indicate how incompatible the data are with a specified
-  statistical model.
-  * P-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.
-  * Scientific conclusions and business or policy decisions should not be based only on whether a p-value passes a specific threshold.
-  
-A further complication is that the commonly used threshold $p = 0.05$ is completely arbitrary, and based on a combination of ideas by Fisher and Pearson/Neyman. The modern usage actually reflects neither approaches, and  is often considered to be a bit of a mess [@amrheinScientistsRiseStatistical2019]. @gigerenzerMindlessStatistics2004;@gigerenzerStatisticalRitualsReplication2018a provides an interesting comment on modern usage of hypothesis testing.
-
-Apart from not being particularly intuitive and not allowing us to adress the questions we would like to  answer, NHST also has the problem that incentive structures in scientific publishing can often lead to misapplications of NHST procedures. Various questionable research practices are associated with this, including _p-hacking_. This refers to the practice of performing multiple significance tests, and selecting only those that yield significant results for reporting. In other words - NHST, if used correclty, can be a very useful tool. A big problem is that it os often not used correctly, and this can lead to misleading results.
+- Bilden Sie 2er oder 3er-Gruppen.
+- Bearbeiten Sie die folgenden Fragen gemeinsam.
+- Halten Sie Ihre Antworten in einem gemeinsamen Dokument fest.
+- Bereiten Sie sich darauf vor, Ihre Antworten im Plenum zu teilen.
+:::
 
 
-## Case studies
+### Aufgabe 1
 
-We will briefly explore the frequentist approach to data analysis using two examples:
+Überlegen Sie sich anhand folgenden Bildes, wie Konzepte aus der Signal Detection Theory mit statistischen Hypothesentests (NHST) zusammenhängen.
 
-1) an independent samples t-test, and
-2) the card game from the previous chapter, and
+![](../../assets/images/pregnant.jpg)
 
-### T-test {#sec-fancyhat}
-This example uses simulated data, but is based on an actual study. 
-In the code below, we simulate creativity scores from two groups. One group was instructed to wear a fancy hat, the other, woth no head gear, serves as a control group. We would like to know whether the fancy hat group and the control group differ in their mean creativity.
+:::{.callout-caution}
+## Fragen
+- Was sind Typ I und Typ II Fehler?
+- Was könnte hier die Null- und Alternativhypothese sein?
+- Gibt es Ähnlichkeiten/Unterschiede zwischen der Signal Detection Theory und NHST? 
+:::
 
+
+### Aufgabe 2
+Folgende Grafik versucht, einen t-Test für unabhängige Stichproben zu illustrieren.
+Versuchen Sie, die fehlenden Beschriftungen einzufügen.
 
 ```{r}
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+
 library(tidyverse)
+library(patchwork)
 
-set.seed(12)
+xlims <- c(-4.5, 6.5)
+alpha <- c(0.6, 0.2)
 
-# Number of people wearing fancy hats
-N_fancyhats <- 50 
+colors <- c("steelblue", "pink")
 
-# Number of people not wearing fancy hats
-N_nofancyhats <- 50
+effect <- 2.5
+criterion <- 1.6
 
-# Population mean of creativity for people wearing fancy hats
-mu_fancyhats <- 103 
+p1 <- tibble(x = seq(xlims[1], xlims[2], by = 0.1)) |> 
+    ggplot(aes(x)) +
+    stat_function(fun = dnorm, colour = colors[1], 
+                  args = list(mean = 0, sd = 1),
+                  linewidth = 1.5) +
+    stat_function(fun = dnorm, colour = colors[2], 
+                  args = list(mean = effect, sd = 1),
+                  linewidth = 1.5) +
+    geom_vline(xintercept = c(0, effect), linewidth = 1,
+               linetype = "dotted", alpha =  0.4) +
+    scale_y_continuous(breaks = NULL) +
+    scale_x_continuous(breaks = c(0), limits = c(xlims[1], xlims[2])) +
+    labs(x = "", y = "") +
+    annotate("text", 
+           x = 0.5, 
+           y = dnorm(effect, mean = effect, sd = 1) + 0.03,
+           label = "", 
+           size = 6) +
+    annotate("segment", x = 0, 
+                 xend = effect, 
+                 y = dnorm(effect, mean = effect, sd = 1) + 0.01, 
+                 yend = dnorm(effect/2, mean = effect/2, sd = 1) + 0.01,
+           linewidth = 1) +
+    annotate("text", 
+           x = -0.6, 
+           y = dnorm(effect, mean = effect, sd = 1) + 0.03,
+           label = "", 
+           size = 6, 
+           color = "grey20") +
+      annotate("text", 
+           x = 2.7, 
+           y = dnorm(effect, mean = effect, sd = 1) + 0.03,
+           label = "", 
+           size = 6, 
+           color = "grey20") +
+  theme_linedraw()
 
-# Population mean of creativity for people wearing no fancy hats
-mu_nofancyhats <- 98 
+p2 <- p1 + 
+  geom_vline(xintercept = 0, linewidth = 1, 
+               alpha = 0.4,
+             linetype = "dashed") +
+  geom_area(stat = "function", fun = dnorm, 
+              args = list(mean = 0, sd = 1),
+              fill = colors[1], alpha = 0.6,
+              xlim = c(criterion, xlims[2])) +
 
-# Average population standard deviation of both groups
-sigma <- 15 
+  geom_area(stat = "function", fun = dnorm, 
+              args = list(mean = effect, sd = 1),
+              fill = colors[2], alpha = alpha[2],
+              xlim = c(criterion, xlims[2])) +
+  geom_vline(xintercept = criterion, linewidth = 1, 
+               linetype = 1)
+    # annotate("text", 
+    #        x = 1,
+    #        y = 0.02,
+    #        label = "k", 
+    #        size = 6)
+```
 
-# Generate data
-fancyhats = tibble(Creativity = rnorm(N_fancyhats, mu_fancyhats, sigma),
+```{r}
+#| echo: FALSE
+#| message: FALSE
+#| warning: FALSE
+p2
+```
+
+
+:::{.callout-caution}
+## Fragen
+- Was ist eine Nullhypothese?
+- Was ist die Bedeutung der eingefärbten Flächen?
+- Was ist die Distanz zwischen den beiden Mittelwerten?
+- Was ist statistische Power?
+- Welche Rolle spielt die Stichprobengröße $n$?
+- Können Sie beschreiben, was ein _p-Wert_ ist?
+- Welche Fragen können Sie mit einem NUllhypothesen-Test beantworten?
+:::
+
+Vielleicht hilft Ihnen folgende interaktive Grafik: [Understanding Statistical Power and Significance Testing](https://rpsychologist.com/d3/nhst/) 
+
+
+### Aufgabe 3
+
+
+
+Importieren Sie das CSV File `FancyHat.csv` in `Jasp` und führen Sie einen t-Test für unabhängige Stichproben durch. 
+
+In dieser (fiktiven) Studie wurden Versuchspersonen in zwei Gruppen eingeteilt; eine Gruppe durfte während einer Kreativitäts-Aufgabe einen _fancy hat_ tragen, die andere Gruppe musste sich mit einer konventionellen Kopfbedeckung begnügen. Die abhängige Variable ist die Kreativität (diese Skala ist analog zur IQ-Skala normiert, d.h. der Mittelwert ist 100 und die Standardabweichung 15).
+
+
+:::{.callout-caution}
+## Fragen
+- Welche Fragen können Sie mit einem Nullhypothesen-Test beantworten?
+- Was sind die Ergebnisse des t-Tests?
+- Welche Fragen würden Sie gerne beantworten können?
+- Können Sie diese mit einem Signifikanztest beantworten?
+:::
+
+
+:::{.callout-tip collapse="true"}
+## Informationen zu den Daten
+Die Daten wurden von generiert, basieren aber auf einer echten Studie. Beide Gruppen wurden als normalverteilte Zufallszahlen simuliert, mit einer gemeinsamen Standardabweichung von 15. Die Gruppe mit den _fancy hats_ hat einen Mittelwert von 103, die Gruppe ohne _fancy hats_ einen Mittelwert von 98. Die Stichprobe umfasst 50 Personen pro Gruppe.
+Die wurden also so simuliert, dass es einen Unterschied zwischen den Gruppen gibt, der aber klein ist.
+
+Hier ist der R Code, um die Daten zu generieren:
+
+```{r}
+fancyhats = tibble(Creativity = rnorm(50, 103, 15),
                Group = "Fancy Hat")
 
-nofancyhats = tibble(Creativity = rnorm(N_nofancyhats, mu_nofancyhats, sigma),
+nofancyhats = tibble(Creativity = rnorm(50, 98, 15),
                  Group = "No Fancy Hat")
-
 
 FancyHat <- bind_rows(fancyhats, nofancyhats)  |>
     mutate(Group = fct_relevel(as.factor(Group), "No Fancy Hat"))
 ```
 
-We have created a dataframe called `FancyHat`. 
+Wenn Sie in R damit einen t-Test machen wollen:
 
 ```{r}
-FancyHat
+#| warning: FALSE
+#| message: FALSE
+library(tidyverse)
 ```
-We can now pretend that we don't know how the data were generated, and treat them as data from an experiment.
-
-
 
 ```{r}
 FancyHat |> 
-    ggplot() +
+    ggplot(aes(y = Creativity, x = Group, fill = Group)) +
     geom_boxplot(aes(y = Creativity, x = Group)) +
+    geom_jitter() +
+    scale_fill_manual(values = c("steelblue2", "#E7B800")) +
     labs(title= "Box Plot of Creativity Values") +
     theme_bw()
 ```
 
-Assuming that both groups are normally distributed with the same variance, we can use the t-test to determine whether the mean of the two groups is different.
-
+Two-tailed t-test:
 ```{r}
 fancyhat_ttest <- t.test(Creativity ~ Group,
        var.equal = TRUE,
        data = FancyHat)
 ```
+
+```{r}
+fancyhat_ttest
+```
+
+Es mag auf den ersten Blick nicht offensichtlich sein, was wir hier gemacht haben:
+
+1) Wir haben angenommen, dass die Daten bedingt normalverteilt sind, gegeben die Gruppenzugehörigkeit, mit gleicher Varianz.
+$$
+y_{ij} \sim \mathcal{N}(\mu_j, \sigma^2)
+$$
+
+2) Wir haben  drei Parameter geschätzt: $\mu_1$, $\mu_2$ ^[estimate1 und estimate2], und $\sigma$.
+
+3) Wir haben die Differenz zwischen den Gruppen als $\mu_1 - \mu_2$ berechnet. Dies gibt uns eine Schätzung der Differenz zwischen den Mittelwerten ^[estimate].
+
+4) Wir haben eine Teststatistik (empirischer t-Wert)^[statistic] berechnet. Dieser setzt sich aus der Mittelwertsdifferenz zusammen, geteilt durch die gemeinsame Standardabweichung der beiden Gruppen. In diese fliesst auch die Stichprobengrösse ein - je grösser die Stichprobe, desto kleiner der Standardfehler und folglich desto grösser der t-Wert.
+
+5) Wir haben die Wahrscheinlichkeit berechnet, einen dem Betrag nach mindestens so grossen t-Wert zu erhalten, unter der Nullhypothese, dass die Mittelwerte gleich sind ($\mu_1 = \mu_2$)^[p.value]. Dies ist ein zweiseitiger Test, d.h. wir haben keine Hypothese darüber, welche Gruppe den größeren Mittelwert hat.
+
+
 
 ```{r}
 fancyhat_ttest_tab <- broom::tidy(fancyhat_ttest)
@@ -211,32 +271,32 @@ fancyhat_ttest_tab |>
     round(3)
 ```
 
-It might not be obvious at first glance what we have done here:
-
-1) We assumed that the data are conditionally normally distributed, given the means, with the same variance.
-
-$$
-y_{ij} \sim \mathcal{N}(\mu_j, \sigma^2)
-$$
-
-2) we estimated three parameters: $\mu_1$, $\mu_2$ ^[`estimate1` und `estimate2`], and $\sigma$.
-
-3) We computed the difference between groups as $\mu_1 - \mu_2$. This gives us an estimate of the difference between the means ^[`estimate`].
-
-4) We compute a test statistic (empirical t value)^[`statistic`].
-
-5) We computed the probability of observing the observed difference divided by the standard error, under the null hypothesis that the means are the same ($\mu_1 = \mu_2$)^[`p.value`]. This is a two-sided test, i.e. we have no hypothesis as to which group has the larger mean.
-
-
-:::{.callout-tip}
-What does the p-value tell us? Does it tell you what you want to know? Do you know what the confidence interval tells you ^[`conf.low` and `conf.high`]? 
-
-The p-value is `r fancyhat_ttest$p.value |> round(2)` This is larger that the conventional threshold $\alpha=0.05$. What does this mean?
 :::
 
 
 
-### Card game
+```{r}
+```
+
+:::{.callout-caution}
+## Zusatzfragen
+- Was sagt uns der erhaltene p-Wert?
+- Was sagt uns dieser nicht?
+- Der p-Wert ist `r fancyhat_ttest$p.value |> round(2)`. Dies ist grösser $\alpha=0.05$. Was bedeutet das? 
+- Was würden Sie einer Forscher*in raten, welche diese Studie durchgeführt hat?
+:::
+
+
+:::{.callout-tip}
+## Weiterführende Literatur
+- Falls Sie mehr über Power in neurowissenschaftlichen Studien lesen möchten, empfehle ich Ihnen folgenden Artikel: @buttonPowerFailureWhy2013.
+- Falls Sie mehr über t-Tests erfahren möchten, empfehle ich Ihnen folgenden Artikel: @kruschkeBayesianEstimationSupersedes2013.
+:::
+
+
+## Parameterschätzung
+
+<!-- Electronic voice phenomena (EVP) -->
 
 Two players are playing a game of cards. You observe that they play 9 games, and that player A wins 6 of those. Now you would like to estimate the probability that player A will win the next game. Another way of putting it that you would to estimate the ability of player A to beat player B at this particular game.
 
@@ -325,7 +385,7 @@ What we have done so far highlights the distinction between parameter estimation
 
 
 
-## An introduction to Bayesian inference
+## Bayes'sche Inferenz
 
 So far, we haven't considered any prior knowledge we might have had about which parameters are the most likely a priori. In fact, as we will see a bit further down, we have implicitly assumed that all parameters are equally likely. We will now introduce a new concept: a prior distribution for the parameter(s) we are trying to estimate^[In frequentist statistics, the concept is meaningless - parameters cannot have distribution. In Bayesian statistics, a prior distribution should reflect everything we know about the parameter, before we consider the data. The prior reflects our belief, which can be subjective, or objective.].
 
@@ -348,21 +408,22 @@ $$
 p(\theta|y) \propto  p(y|\theta) * p(\theta) 
 $$
 
-## Recap 
 
-Bayesian inference, in a nutshell, consists of:
+:::{.callout-important}
+## Bayesian inference in a nutshell
 
 1) Represent your prior belief by a probability distribution over the possible parameter values. This is a principled way of dealing with uncertainty.
 
 2) Use the likelihood to weight the prior belief.
 
 3) Obtain a posterior belief over the possible parameter values.
+:::
 
 :::aside
 The term _belief_ is used synonymously with _probability distribution_.
 :::
  
-## Bayesian inference in the card game: a numerical example
+### Bayesian inference in the card game: a numerical example
 
 Recall that we defined a sequence of 101 points between 0 and 1, which represented the possible $\theta$ values.
 
@@ -599,8 +660,10 @@ Try out various priors. How do they affect the posterior?
 
 The posterior represents our belief about the the possible parameter values, after having observed the data. You can therefore think of Bayesian inference as a method for updating your beliefs, conditional on observed data. You are re-allocating probabilities over parameter values, depending on how well those parameter values predicted the data.
 
+:::{.callout-tip collapse="true"}
+## Analytic solution
 
-## Analytic solution for the Bernoulli/Binomial likelihood and Beta prior
+For a few problem, it is possible to derive an analytic solution. The Bernoulli/Binomial likelihood and Beta prior is one of those.
 
 In the above example, we used a technique called grid approximation to obtain the posterior distribution for a parameter. This means that we tried out various parameter values by constructing a grid, and then computed the posterior by applying Bayes' rule. This technique was used merely for educational purposes, as it does not scale well to real-world problems. In the simple example of a sequence of binary observations, the parameter of interest (the probability of success $\theta$ in a Bernoulli trial) is bounded between $0$ and $1$ ($\theta \in [0, 1]$). Furthermore, there is only $1$ parameter to estimate. In more complex models, with many parameters, using grid approximation can be very inefficient, or even impossible. In such cases, we usually use numerical methods to approximate the posterior distribution. These methods are know collectively as *Monte Carlo sampling*, or *Markov Chain Monte Carlo* (MCMC). Using MCMC, we will not obtain an analytical description of posterior distributions, but instead a collection of random numbers (samples), that are drawn from the posterior distribution. We will use these samples to represent the posterior distribution.
 
@@ -694,9 +757,9 @@ tibble(prior = prior,
   scale_color_viridis_d(end = 0.8) +
   ylab("")
 ```
+:::
 
-
-## Summarizing the posterior
+### Summarizing the posterior
 
 We now need one last step: we need to summarize the posterior distribution. We can do this, for example by computing the mean and standard deviation of the posterior distribution. 
 
