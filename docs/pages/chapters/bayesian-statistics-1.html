@@ -445,7 +445,7 @@ Wichtig
 </div>
 <div class="callout-body-container callout-body">
 <p>👉 <a href="../../downloadable_files/FancyHat.csv">Daten (<code>FancyHat.csv</code>) herunterladen</a></p>
-<p>👉 <a href="[../../downloadable_files/rdkdata_clean.csv](https://jasp-stats.org/)">Jasp installieren</a></p>
+<p>👉 <a href="https://jasp-stats.org/">Jasp installieren</a></p>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -614,13 +614,13 @@ Informationen zu den Daten
     Two Sample t-test
 
 data:  Creativity by Group
-t = -1.2085, df = 98, p-value = 0.2297
+t = 0.36903, df = 98, p-value = 0.7129
 alternative hypothesis: true difference in means between group No Fancy Hat and group Fancy Hat is not equal to 0
 95 percent confidence interval:
- -9.964141  2.421353
+ -3.882507  5.656370
 sample estimates:
 mean in group No Fancy Hat    mean in group Fancy Hat 
-                  98.55506                  102.32646 </code></pre>
+                  101.3291                   100.4422 </code></pre>
 </div>
 </div>
 <p>Es mag auf den ersten Blick nicht offensichtlich sein, was wir hier gemacht haben:</p>
@@ -644,7 +644,7 @@ y_{ij} \sim \mathcal{N}(\mu_j, \sigma^2)
 <pre><code># A tibble: 1 × 7
   estimate estimate1 estimate2 statistic p.value conf.low conf.high
      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
-1    -3.77      98.6      102.     -1.21    0.23    -9.96      2.42</code></pre>
+1    0.887      101.      100.     0.369   0.713    -3.88      5.66</code></pre>
 </div>
 </div>
 </div>
@@ -663,7 +663,7 @@ Zusatzfragen
 <ul>
 <li>Was sagt uns der erhaltene p-Wert?</li>
 <li>Was sagt uns dieser nicht?</li>
-<li>Der p-Wert ist 0.23. Dies ist grösser <span class="math inline">\(\alpha=0.05\)</span>. Was bedeutet das?</li>
+<li>Der p-Wert ist 0.71. Dies ist grösser <span class="math inline">\(\alpha=0.05\)</span>. Was bedeutet das?</li>
 <li>Was würden Sie einer Forscher*in raten, welche diese Studie durchgeführt hat?</li>
 </ul>
 </div>
@@ -1146,14 +1146,14 @@ Tip
 <div class="cell">
 <div class="sourceCode" id="cb58"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.62 0.54 0.38 0.61 0.89 0.68 0.79 0.56 0.48 0.40</code></pre>
+<pre><code> [1] 0.60 0.72 0.75 0.75 0.77 0.62 0.47 0.70 0.50 0.87</code></pre>
 </div>
 </div>
 <p>Now we can summarize the samples, e.g.&nbsp;by computing the mean or quantiles.</p>
 <div class="cell">
 <div class="sourceCode" id="cb60"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.63593</code></pre>
+<pre><code>[1] 0.64054</code></pre>
 </div>
 </div>
 <p>The following will give us the median, and a 50% <strong>credible interval</strong>, i.e.&nbsp;an interval that contains 50% of the mass of the distribution.</p>
@@ -1161,7 +1161,7 @@ Tip
 <div class="sourceCode" id="cb62"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 25%  50%  75% 
-0.54 0.65 0.74 </code></pre>
+0.55 0.65 0.74 </code></pre>
 </div>
 </div>
 <p>We can also use this approach to compute a 95% credible interval.</p>
@@ -1170,8 +1170,8 @@ Tip
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">alpha</span><span class="op">/</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">-</span><span class="va">alpha</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   2.5%   97.5% 
-0.34975 0.86025 </code></pre>
+<pre><code> 2.5% 97.5% 
+ 0.34  0.88 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
