@@ -205,6 +205,9 @@ Die wurden also so simuliert, dass es einen Unterschied zwischen den Gruppen gib
 Hier ist der R Code, um die Daten zu generieren:
 
 ```{r}
+set.seed(12)
+```
+```{r}
 fancyhats = tibble(Creativity = rnorm(50, 103, 15),
                Group = "Fancy Hat")
 
@@ -282,7 +285,8 @@ fancyhat_ttest_tab |>
 ## Zusatzfragen
 - Was sagt uns der erhaltene p-Wert?
 - Was sagt uns dieser nicht?
-- Der p-Wert ist `r fancyhat_ttest$p.value |> round(2)`. Dies ist grösser $\alpha=0.05$. Was bedeutet das? 
+- Der p-Wert ist `r fancyhat_ttest$p.value |> round(3)`. Dies ist grösser $\alpha=0.05$. Was bedeutet das? 
+<!-- - Der p-Wert ist `r fancyhat_ttest$p.value`. Dies ist grösser $\alpha=0.05$. Was bedeutet das?  -->
 - Was würden Sie einer Forscher*in raten, welche diese Studie durchgeführt hat?
 :::
 
@@ -294,7 +298,13 @@ fancyhat_ttest_tab |>
 :::
 
 
-## Parameterschätzung
+## Parameter schätzen vs Hypothesen testen
+
+Ein t-Test ist ein Beispiel für den statistischen vorherrschenden Ansatz in den Neuro- und Sozialwissenschaften. Diese Vorgehensweise wird frequentistische Statistik genannt. In der traditionellen Weise, wie diese unterrichtet wird, werden oft zwei Dinge vermischt: 1) Parameterschätzung und 2) Hypothesentests.
+
+Wir werden nun einen anderen Ansatz kennenlernen: die Bayes'sche Statistik. Dieser Ansatz ist nicht neu, hat aber erst in den letzten Jahren Verbreitung gefunden. Dies hat unter anderem damit zu tun, dass die Berechnungen, die für die Bayes'sche Statistik nötig sind, erst mit der Verfügbarkeit von schnellen Computern möglich wurden.
+
+Wir werden nun anhand eines simplen Beispiels zuerst die Bayes'sche Parameterschätzung kennenlernen. 
 
 <!-- Electronic voice phenomena (EVP) -->
 
