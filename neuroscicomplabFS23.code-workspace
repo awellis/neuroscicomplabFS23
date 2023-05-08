@@ -5,10 +5,7 @@
 		}
 	],
 	"settings": {
-		"cSpell.ignoreWords": [
-			"Psychopy",
-			"callout",
-			"knitr"
-		]
-	}
+    "cSpell.ignoreWords": ["Psychopy", "callout", "knitr"],
+    "cSpell.words": ["NHST"]
+  }
 }
