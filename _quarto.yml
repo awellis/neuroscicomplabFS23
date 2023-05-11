@@ -60,6 +60,7 @@ website:
     - section: Bayesianische Datenanalyse
       contents: 
       - pages/chapters/bayesian-statistics-1.qmd
+      # - pages/chapters/bayesian-statistics-2.qmd
   page-footer:
     right:
     - icon: github
