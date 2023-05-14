@@ -2,130 +2,134 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/index.html</loc>
-    <lastmod>2023-05-14T20:17:40.045Z</lastmod>
+    <lastmod>2023-05-14T22:29:22.205Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/01_overview.html</loc>
-    <lastmod>2023-05-14T20:17:40.946Z</lastmod>
+    <lastmod>2023-05-14T22:29:23.102Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/03_zulip_forum.html</loc>
-    <lastmod>2023-05-14T20:17:41.620Z</lastmod>
+    <lastmod>2023-05-14T22:29:23.695Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/dozierende.html</loc>
-    <lastmod>2023-05-14T20:17:42.014Z</lastmod>
+    <lastmod>2023-05-14T22:29:24.062Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/leistungsnachweise.html</loc>
-    <lastmod>2023-05-14T20:17:42.454Z</lastmod>
+    <lastmod>2023-05-14T22:29:24.478Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/admin/syllabus.html</loc>
-    <lastmod>2023-05-14T20:17:42.854Z</lastmod>
+    <lastmod>2023-05-14T22:29:24.876Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/bayesian-statistics-1.html</loc>
-    <lastmod>2023-05-14T20:21:25.785Z</lastmod>
+    <lastmod>2023-05-14T22:29:28.519Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/bayesian-statistics-2.html</loc>
-    <lastmod>2023-05-14T22:27:42.050Z</lastmod>
+    <lastmod>2023-05-14T22:29:33.500Z</lastmod>
+  </url>
+  <url>
+    <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/bayesian-statistics-3.html</loc>
+    <lastmod>2023-05-14T22:29:41.577Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/chatgpt.html</loc>
-    <lastmod>2023-05-14T20:17:51.609Z</lastmod>
+    <lastmod>2023-05-14T22:29:42.290Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/data_visualization_1.html</loc>
-    <lastmod>2023-05-14T20:17:55.298Z</lastmod>
+    <lastmod>2023-05-14T22:29:46.335Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/data_visualization_2.html</loc>
-    <lastmod>2023-05-14T20:17:59.693Z</lastmod>
+    <lastmod>2023-05-14T22:29:52.474Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/datacamp.html</loc>
-    <lastmod>2023-05-14T20:18:00.340Z</lastmod>
+    <lastmod>2023-05-14T22:29:53.089Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/experiment_stepbystep.html</loc>
-    <lastmod>2023-05-14T20:18:00.902Z</lastmod>
+    <lastmod>2023-05-14T22:29:53.673Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/functions-loops.html</loc>
-    <lastmod>2023-05-14T20:18:04.344Z</lastmod>
+    <lastmod>2023-05-14T22:29:56.224Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/functions_and_loops-2.html</loc>
-    <lastmod>2023-05-14T20:18:07.261Z</lastmod>
+    <lastmod>2023-05-14T22:29:58.804Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/importing_data-2.html</loc>
-    <lastmod>2023-05-14T20:18:10.884Z</lastmod>
+    <lastmod>2023-05-14T22:30:02.253Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/importing_data.html</loc>
-    <lastmod>2023-05-14T20:18:14.585Z</lastmod>
+    <lastmod>2023-05-14T22:30:06.242Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/loesung-4-signal-detection.html</loc>
-    <lastmod>2023-05-14T20:19:17.882Z</lastmod>
+    <lastmod>2023-05-14T22:30:09.353Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/psychopy_experiments.html</loc>
-    <lastmod>2023-05-14T20:19:19.188Z</lastmod>
+    <lastmod>2023-05-14T22:30:10.572Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/reproducibility.html</loc>
-    <lastmod>2023-05-14T20:19:20.016Z</lastmod>
+    <lastmod>2023-05-14T22:30:11.427Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/rmarkdown.html</loc>
-    <lastmod>2023-05-14T20:19:20.783Z</lastmod>
+    <lastmod>2023-05-14T22:30:12.237Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/signal-detection-1.html</loc>
-    <lastmod>2023-05-14T20:19:25.373Z</lastmod>
+    <lastmod>2023-05-14T22:30:16.449Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/signal-detection-2.html</loc>
-    <lastmod>2023-05-14T20:19:28.597Z</lastmod>
+    <lastmod>2023-05-14T22:30:20.242Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/software.html</loc>
-    <lastmod>2023-05-14T20:19:29.737Z</lastmod>
+    <lastmod>2023-05-14T22:30:21.206Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/summarizing-data.html</loc>
-    <lastmod>2023-05-14T20:19:34.629Z</lastmod>
+    <lastmod>2023-05-14T22:30:27.419Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/uebung-4-signal-detection.html</loc>
-    <lastmod>2023-05-14T20:19:37.490Z</lastmod>
+    <lastmod>2023-05-14T22:30:30.234Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/uebung_1_experiment.html</loc>
-    <lastmod>2023-05-14T20:19:38.040Z</lastmod>
+    <lastmod>2023-05-14T22:30:30.822Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/uebung_2_data_wrangling.html</loc>
-    <lastmod>2023-05-14T20:19:38.704Z</lastmod>
+    <lastmod>2023-05-14T22:30:31.529Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/uebung_3_data_visualization.html</loc>
-    <lastmod>2023-05-14T20:19:39.401Z</lastmod>
+    <lastmod>2023-05-14T22:30:32.222Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/exercises/exercise_01.html</loc>
-    <lastmod>2023-05-14T20:19:40.025Z</lastmod>
+    <lastmod>2023-05-14T22:30:32.881Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/exercises/exercise_02.html</loc>
-    <lastmod>2023-05-14T20:19:40.609Z</lastmod>
+    <lastmod>2023-05-14T22:30:33.521Z</lastmod>
   </url>
   <url>
     <loc>https://kogpsy.github.io/neuroscicomplabFS23/pages/solutions/solution_03.html</loc>
-    <lastmod>2023-05-14T20:19:43.418Z</lastmod>
+    <lastmod>2023-05-14T22:30:36.503Z</lastmod>
   </url>
 </urlset>
