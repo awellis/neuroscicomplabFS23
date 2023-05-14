@@ -44,9 +44,8 @@ library(webexercises)
 
 In der heutigen Sitzung:
 
-- Brainstorming: NHST, Power
-- Welche Fagen kann NHST beantworten?
-- Einführung in die Bayes'sche Inferenz
+- Einführung in die Bayesianische Inferenz
+- Parameterschätzung vs Modelle vergleichen
 :::
 
 
