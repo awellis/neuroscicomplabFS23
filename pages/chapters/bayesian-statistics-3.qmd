@@ -44,7 +44,7 @@ library(webexercises)
 
 In der heutigen Sitzung:
 
-- Modellevergleiche durch Bayes Factors
+- Modellvergleiche durch Bayes Factors
 - Bayes Factors mit Jasp berechnen
 :::
 
