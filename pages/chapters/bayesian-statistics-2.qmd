@@ -49,11 +49,14 @@ In der heutigen Sitzung:
 :::
 
 
+## Bayesian Inference
+
+
 ## Parameter schätzen vs Hypothesen testen
 
 Ein t-Test ist ein Beispiel für den statistischen vorherrschenden Ansatz in den Neuro- und Sozialwissenschaften. Diese Vorgehensweise wird frequentistische Statistik genannt. In der traditionellen Weise, wie diese unterrichtet wird, werden oft zwei Dinge vermischt: 1) Parameterschätzung und 2) Hypothesentests.
 
-Wir werden nun einen anderen Ansatz kennenlernen: die Bayes'sche Statistik. Dieser Ansatz ist nicht neu, hat aber erst in den letzten Jahren Verbreitung gefunden. Dies hat unter anderem damit zu tun, dass die Berechnungen, die für die Bayes'sche Statistik nötig sind, erst mit der Verfügbarkeit von schnellen Computern möglich wurden.
+Wir werden nun einen anderen Ansatz kennenlernen: die Bayesianische Statistik. Dieser Ansatz ist nicht neu, hat aber erst in den letzten Jahren Verbreitung gefunden. Dies hat unter anderem damit zu tun, dass die Berechnungen, die für die Bayes'sche Statistik nötig sind, erst mit der Verfügbarkeit von schnellen Computern möglich wurden.
 
 Wir werden nun anhand eines simplen Beispiels zuerst die Bayes'sche Parameterschätzung kennenlernen. 
 

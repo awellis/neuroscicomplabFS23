@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.340">
+<meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Andrew Ellis">
 <meta name="dcterms.date" content="2022-05-08">
@@ -356,7 +356,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#parameter-sch%C3%A4tzen-vs-hypothesen-testen" id="toc-parameter-schätzen-vs-hypothesen-testen" class="nav-link active" data-scroll-target="#parameter-sch%C3%A4tzen-vs-hypothesen-testen">Parameter schätzen vs Hypothesen testen</a></li>
+<li><a href="#bayesian-inference" id="toc-bayesian-inference" class="nav-link active" data-scroll-target="#bayesian-inference">Bayesian Inference</a></li>
+  <li><a href="#parameter-sch%C3%A4tzen-vs-hypothesen-testen" id="toc-parameter-schätzen-vs-hypothesen-testen" class="nav-link" data-scroll-target="#parameter-sch%C3%A4tzen-vs-hypothesen-testen">Parameter schätzen vs Hypothesen testen</a></li>
   <li>
 <a href="#bayessche-inferenz" id="toc-bayessche-inferenz" class="nav-link" data-scroll-target="#bayessche-inferenz">Bayes’sche Inferenz</a>
   <ul class="collapse">
@@ -435,16 +436,16 @@ Lernziele
 <div class="callout-body-container callout-body">
 <p>In der heutigen Sitzung:</p>
 <ul>
-<li>Brainstorming: NHST, Power</li>
-<li>Welche Fagen kann NHST beantworten?</li>
-<li>Einführung in die Bayes’sche Inferenz</li>
+<li>Einführung in die Bayesianische Inferenz</li>
+<li>Parameterschätzung vs Modelle vergleichen</li>
 </ul>
 </div>
 </div>
 </div>
-<section id="parameter-schätzen-vs-hypothesen-testen" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="parameter-schätzen-vs-hypothesen-testen">Parameter schätzen vs Hypothesen testen</h2>
+<section id="bayesian-inference" class="level2"><h2 class="anchored" data-anchor-id="bayesian-inference">Bayesian Inference</h2>
+</section><section id="parameter-schätzen-vs-hypothesen-testen" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="parameter-schätzen-vs-hypothesen-testen">Parameter schätzen vs Hypothesen testen</h2>
 <p>Ein t-Test ist ein Beispiel für den statistischen vorherrschenden Ansatz in den Neuro- und Sozialwissenschaften. Diese Vorgehensweise wird frequentistische Statistik genannt. In der traditionellen Weise, wie diese unterrichtet wird, werden oft zwei Dinge vermischt: 1) Parameterschätzung und 2) Hypothesentests.</p>
-<p>Wir werden nun einen anderen Ansatz kennenlernen: die Bayes’sche Statistik. Dieser Ansatz ist nicht neu, hat aber erst in den letzten Jahren Verbreitung gefunden. Dies hat unter anderem damit zu tun, dass die Berechnungen, die für die Bayes’sche Statistik nötig sind, erst mit der Verfügbarkeit von schnellen Computern möglich wurden.</p>
+<p>Wir werden nun einen anderen Ansatz kennenlernen: die Bayesianische Statistik. Dieser Ansatz ist nicht neu, hat aber erst in den letzten Jahren Verbreitung gefunden. Dies hat unter anderem damit zu tun, dass die Berechnungen, die für die Bayes’sche Statistik nötig sind, erst mit der Verfügbarkeit von schnellen Computern möglich wurden.</p>
 <p>Wir werden nun anhand eines simplen Beispiels zuerst die Bayes’sche Parameterschätzung kennenlernen.</p>
 <!-- Electronic voice phenomena (EVP) -->
 <p>Two players are playing a game of cards. You observe that they play 9 games, and that player A wins 6 of those. Now you would like to estimate the probability that player A will win the next game. Another way of putting it that you would to estimate the ability of player A to beat player B at this particular game.</p>
@@ -918,22 +919,22 @@ Tip
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.63 0.79 0.52 0.41 0.72 0.66 0.45 0.82 0.59 0.73</code></pre>
+<pre><code> [1] 0.64 0.64 0.79 0.80 0.82 0.41 0.54 0.49 0.72 0.42</code></pre>
 </div>
 </div>
 <p>Now we can summarize the samples, e.g.&nbsp;by computing the mean or quantiles.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.642</code></pre>
+<pre><code>[1] 0.63887</code></pre>
 </div>
 </div>
 <p>The following will give us the median, and a 50% <strong>credible interval</strong>, i.e.&nbsp;an interval that contains 50% of the mass of the distribution.</p>
 <div class="cell">
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 25%  50%  75% 
-0.54 0.65 0.74 </code></pre>
+<pre><code>   25%    50%    75% 
+0.5500 0.6500 0.7425 </code></pre>
 </div>
 </div>
 <p>We can also use this approach to compute a 95% credible interval.</p>
@@ -943,7 +944,7 @@ Tip
 <span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">alpha</span><span class="op">/</span><span class="fl">2</span>, <span class="fl">1</span><span class="op">-</span><span class="va">alpha</span><span class="op">/</span><span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2.5% 97.5% 
- 0.38  0.88 </code></pre>
+ 0.34  0.89 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
