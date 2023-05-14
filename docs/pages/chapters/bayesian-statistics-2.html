@@ -1030,8 +1030,7 @@ Tip
 <p>Nun ziehen wir 1000 Zufallszahlen aus der a-posteriori-Verteilung.</p>
 <aside>
 Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Sampling, welche für komplexe Probleme verwendet werden, generieren Zufallszahlen aus einer Verteilung, die der a-posteriori-Verteilung entspricht. Wir werden hier nicht auf die Details eingehen, aber Sie können sich das als eine Art “Zufallszahlengenerator” vorstellen, der Zufallszahlen aus der a-posteriori-Verteilung generiert.
-</aside><p>D</p>
-<div class="cell">
+</aside><div class="cell">
 <div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_samples</span> <span class="op">&lt;-</span> <span class="fl">1e3</span></span>
 <span></span>
 <span><span class="va">samples</span> <span class="op">&lt;-</span> <span class="va">theta_grid</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">n_samples</span>, replace <span class="op">=</span> <span class="cn">TRUE</span>, prob <span class="op">=</span> <span class="va">df</span><span class="op">$</span><span class="va">posterior</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1039,14 +1038,14 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.45 0.73 0.65 0.58 0.59 0.75 0.45 0.60 0.58 0.87</code></pre>
+<pre><code> [1] 0.65 0.57 0.65 0.80 0.73 0.54 0.46 0.56 0.64 0.92</code></pre>
 </div>
 </div>
 <p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.638</code></pre>
+<pre><code>[1] 0.64082</code></pre>
 </div>
 </div>
 <p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.</p>
@@ -1054,7 +1053,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 25%  50%  75% 
-0.54 0.65 0.74 </code></pre>
+0.55 0.65 0.74 </code></pre>
 </div>
 </div>
 <p>Wir können diesen Ansatz auch verwenden, um ein 95% <strong>credible interval</strong> zu berechnen.</p>
@@ -1062,7 +1061,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2.5% 97.5% 
- 0.37  0.89 </code></pre>
+ 0.35  0.89 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
@@ -1071,11 +1070,11 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warning
+<strong>Credible interval</strong> vs Konfidenzintervall
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dies sollte nicht mit dem 95%-Konfidenzintervall verwechselt werden. Können Sie sich daran erinnern, wie ein Konfidenzintervall definiert ist? Was ist der Unterschied zwischen einem Konfidenzintervall und einem <strong>credible interval</strong>?</p>
+<p><strong>Credible interval</strong> ist ein bayesianisches Konzept, das sich von dem Konfidenzintervall unterscheidet, das wir in der frequentistischen Statistik verwenden. Ein <strong>credible interval</strong> ist ein Intervall, das eine bestimmte Wahrscheinlichkeit enthält, dass der wahre Parameter innerhalb dieses Intervalls liegt. Dies sollte nicht mit dem Konfidenzintervall verwechselt werden. Können Sie sich daran erinnern, wie ein Konfidenzintervall definiert ist? Was ist der Unterschied zwischen einem Konfidenzintervall und einem <strong>credible interval</strong>?</p>
 </div>
 </div>
 <p>Was wir bisher gemacht haben, ist, die bayessche Inferenz für die Parameterschätzung in einem sehr einfachen Modell zu betrachten. Nennen wir dieses Modell <span class="math inline">\(\mathcal{M}\)</span>. Wir haben immer nur ein Modell betrachtet, aber im nächsten teil werden wir zwei oder mehrere Modelle <span class="math inline">\(\mathcal{M_j}\)</span> betrachten, die sich in den a-priori-Verteilungen unterscheiden. Dann werden wir Methoden zur Modellvergleich untersuchen, um Hypothesentests in einem bayesianischen Framework durchzuführen.</p>

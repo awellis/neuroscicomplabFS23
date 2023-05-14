@@ -648,7 +648,6 @@ Nun ziehen wir 1000 Zufallszahlen aus der a-posteriori-Verteilung.
 Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Sampling, welche für komplexe Probleme verwendet werden, generieren Zufallszahlen aus einer Verteilung, die der a-posteriori-Verteilung entspricht. Wir werden hier nicht auf die Details eingehen, aber Sie können sich das als eine Art "Zufallszahlengenerator" vorstellen, der Zufallszahlen aus der a-posteriori-Verteilung generiert.
 </aside>
 
-D
 
 ```{r}
 n_samples <- 1e3
@@ -680,7 +679,9 @@ quantile(samples, c(0.025, 1 - 0.025))
 
 
 :::{.callout-warning}
-Dies sollte nicht mit dem 95%-Konfidenzintervall verwechselt werden. Können Sie sich daran erinnern, wie ein Konfidenzintervall definiert ist? Was ist der Unterschied zwischen einem Konfidenzintervall und einem **credible interval**?
+## **Credible interval** vs Konfidenzintervall
+**Credible interval** ist ein bayesianisches Konzept, das sich von dem Konfidenzintervall unterscheidet, das wir in der frequentistischen Statistik verwenden. Ein **credible interval** ist ein Intervall, das eine bestimmte Wahrscheinlichkeit enthält, dass der wahre Parameter innerhalb dieses Intervalls liegt.
+Dies sollte nicht mit dem Konfidenzintervall verwechselt werden. Können Sie sich daran erinnern, wie ein Konfidenzintervall definiert ist? Was ist der Unterschied zwischen einem Konfidenzintervall und einem **credible interval**?
 :::
 
 Was wir bisher gemacht haben, ist, die bayessche Inferenz für die Parameterschätzung in einem sehr einfachen Modell zu betrachten. Nennen wir dieses Modell $\mathcal{M}$. Wir haben immer nur ein Modell betrachtet, aber im nächsten teil werden wir zwei oder mehrere Modelle $\mathcal{M_j}$ betrachten, die sich in den a-priori-Verteilungen unterscheiden. Dann werden wir Methoden zur Modellvergleich untersuchen, um Hypothesentests in einem bayesianischen Framework durchzuführen.
