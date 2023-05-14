@@ -1,5 +1,5 @@
 ---
-title: "Einführung in die Bayesianische Statistik"
+title: "Bayesianische Parameterschätzung"
 description: |
   Eine Alternative zu Null Hypothesis Significance Testing (NHST).
 date: "2022-05-08"
