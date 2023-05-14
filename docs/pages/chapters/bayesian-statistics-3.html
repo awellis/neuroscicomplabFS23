@@ -5,9 +5,9 @@
 <meta name="generator" content="quarto-1.3.353">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Andrew Ellis">
-<meta name="dcterms.date" content="2022-05-08">
+<meta name="dcterms.date" content="2022-05-15">
 <meta name="description" content="Eine Alternative zu Null Hypothesis Significance Testing (NHST).">
-<title>Neurowissenschaft Computerlab - Einführung in die Bayesianische Statistik</title>
+<title>Neurowissenschaft Computerlab - Bayes Factors: Bayesianische Hypothesentests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -146,7 +165,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Einführung in die Bayesianische Statistik</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../pages/chapters/bayesian-statistics-1.html">Bayesianische Datenanalyse</a></li><li class="breadcrumb-item"><a href="../../pages/chapters/bayesian-statistics-3.html">Bayes Factors: Bayesianische Hypothesentests</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -349,7 +368,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/bayesian-statistics-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Einführung in die Bayesianische Statistik</span></a>
+ <span class="menu-text">Bayesianische Parameterschätzung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../pages/chapters/bayesian-statistics-3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Bayes Factors: Bayesianische Hypothesentests</span></a>
   </div>
 </li>
       </ul>
@@ -362,21 +387,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#bayesian-inference-in-a-nutshell" id="toc-bayesian-inference-in-a-nutshell" class="nav-link active" data-scroll-target="#bayesian-inference-in-a-nutshell">Bayesian Inference (In A Nutshell)</a></li>
-  <li><a href="#parameter-sch%C3%A4tzen-vs-hypothesen-testen-anhand-eines-t-tests" id="toc-parameter-schätzen-vs-hypothesen-testen-anhand-eines-t-tests" class="nav-link" data-scroll-target="#parameter-sch%C3%A4tzen-vs-hypothesen-testen-anhand-eines-t-tests">Parameter schätzen vs Hypothesen testen anhand eines t-Tests</a></li>
+<li><a href="#what-have-we-done-so-far" id="toc-what-have-we-done-so-far" class="nav-link active" data-scroll-target="#what-have-we-done-so-far">What have we done so far?</a></li>
   <li>
-<a href="#bayesianische-parametersch%C3%A4tzung" id="toc-bayesianische-parameterschätzung" class="nav-link" data-scroll-target="#bayesianische-parametersch%C3%A4tzung">Bayesianische Parameterschätzung</a>
+<a href="#what-is-bayesian-data-analysis" id="toc-what-is-bayesian-data-analysis" class="nav-link" data-scroll-target="#what-is-bayesian-data-analysis">What is Bayesian data analysis?</a>
   <ul class="collapse">
-<li><a href="#vorwissen" id="toc-vorwissen" class="nav-link" data-scroll-target="#vorwissen">Vorwissen</a></li>
-  <li><a href="#bayesianische-inferenz-mit-bin%C3%A4ren-daten-ein-numerisches-beispiel" id="toc-bayesianische-inferenz-mit-binären-daten-ein-numerisches-beispiel" class="nav-link" data-scroll-target="#bayesianische-inferenz-mit-bin%C3%A4ren-daten-ein-numerisches-beispiel">Bayesianische Inferenz mit binären Daten: Ein numerisches Beispiel</a></li>
-  <li><a href="#posterior-verteilung-zusammenfassen" id="toc-posterior-verteilung-zusammenfassen" class="nav-link" data-scroll-target="#posterior-verteilung-zusammenfassen">Posterior-Verteilung Zusammenfassen</a></li>
+<li><a href="#bayesian-parameter-estimation" id="toc-bayesian-parameter-estimation" class="nav-link" data-scroll-target="#bayesian-parameter-estimation">Bayesian parameter estimation</a></li>
+  <li><a href="#bayesian-model-comparison" id="toc-bayesian-model-comparison" class="nav-link" data-scroll-target="#bayesian-model-comparison">Bayesian model comparison</a></li>
+  </ul>
+</li>
+  <li><a href="#hypothesis-testing" id="toc-hypothesis-testing" class="nav-link" data-scroll-target="#hypothesis-testing">Hypothesis testing</a></li>
+  <li><a href="#savage-dickey-density-ratio" id="toc-savage-dickey-density-ratio" class="nav-link" data-scroll-target="#savage-dickey-density-ratio">Savage-Dickey Density Ratio</a></li>
+  <li>
+<a href="#case-studies" id="toc-case-studies" class="nav-link" data-scroll-target="#case-studies">Case studies</a>
+  <ul class="collapse">
+<li><a href="#card-game" id="toc-card-game" class="nav-link" data-scroll-target="#card-game">Card game</a></li>
+  <li><a href="#exam-questions" id="toc-exam-questions" class="nav-link" data-scroll-target="#exam-questions">Exam questions</a></li>
+  <li><a href="#smart-drug-t-test" id="toc-smart-drug-t-test" class="nav-link" data-scroll-target="#smart-drug-t-test">Smart drug t-test</a></li>
   </ul>
 </li>
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Einführung in die Bayesianische Statistik</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title">Bayes Factors: Bayesianische Hypothesentests</h1>
 </div>
 
 <div>
@@ -407,7 +440,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 8, 2022</p>
+      <p class="date">May 15, 2022</p>
     </div>
   </div>
   
@@ -443,673 +476,327 @@ Lernziele
 <div class="callout-body-container callout-body">
 <p>In der heutigen Sitzung:</p>
 <ul>
-<li>Einführung in die Bayesianische Inferenz</li>
-<li>Parameterschätzung vs Modelle vergleichen</li>
+<li>Modellevergleiche durch Bayes Factors</li>
+<li>Bayes Factors mit Jasp berechnen</li>
 </ul>
 </div>
 </div>
 </div>
-<section id="bayesian-inference-in-a-nutshell" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="bayesian-inference-in-a-nutshell">Bayesian Inference (In A Nutshell)</h2>
-<blockquote class="blockquote">
-<p>“Probability theory is nothing more than common sense reduced to calculation.”</p>
-<p>― Pierre Simon Laplace, 1819</p>
-</blockquote>
-<p>In Bayesianischen Statistik geht es unter anderem, aber nicht nur, um die Anwendung von Bayes’ Theorem.</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Bayes’ Theorem
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Bayes Theorem gibt die Formel für eine bedingte Wahrscheinlichkeit an <span class="math inline">\(P(A|B)\)</span>. <span class="math display">\[ P(A|B) = \frac{P(B|A)⋅P(A)}{P(B)} \]</span></p>
-<p>In menschlicher Sprache: die Wahrscheinlichkeit eines Ereignisses A unter der Bedingung, dass ein Ereignis B wahr ist, ist gleich der a priori Wahrscheinlichkeit, dass A wahr ist, multipliziert mit der Wahrscheinlichkeit, dass B eintritt, wenn A wahr ist. Dividiert wird das ganze durch die Wahrscheinlichkeit, dass B eintritt, egal ob A wahr oder falsch ist.</p>
-<p>Man kann das auch spezifisch für Hypothesentests formulieren:</p>
-<p><span class="math display">\[ P(Hypothesis|Data) =  \frac{P(Data|Hypothesis) ⋅ P(Data)}{P(Hypothesis)} \]</span></p>
-</div>
-</div>
-</div>
-<p>Der wesentlichste Unterschied zwischen der Bayesianischen und der frequentistischen Statistik ist, dass in der Bayesianischen Statistik die Wahrscheinkeitstheorie konsequent angewandt wird, um Parameter zu schätzen.</p>
+<section id="what-have-we-done-so-far" class="level2"><h2 class="anchored" data-anchor-id="what-have-we-done-so-far">What have we done so far?</h2>
+<p>We have briefly looked at how to estimate parameters in a very simple model, and we touched upon how to quantify uncertainty in our parameter estimates.</p>
+</section><section id="what-is-bayesian-data-analysis" class="level2"><h2 class="anchored" data-anchor-id="what-is-bayesian-data-analysis">What is Bayesian data analysis?</h2>
 <ul>
-<li>In der frequentistischen Statistik wird die Wahrscheinkeitslehre vor allem angewandt, um die Wahrscheinlichkeit der Daten zu berechnen, unter der Annahme, dass die Nullhypothese wahr ist.</li>
-<li>In der Bayesianischen Statistik wird die Wahrscheinkeitslehre angewandt, um die Wahrscheinlichkeit der Parameter zu berechnen.</li>
+<li>It is important to distinguish between <em>parameter estimation</em> and <em>hypothesis testing</em>.</li>
+<li>Hypothesis testing means comparing models - thus it is more complicated than estimation.</li>
 </ul>
-<p>Dieser Unterschied hat weitreichende Konsequenzen. So kann man in der frequentistischen Statistik Parameter schätzen, aber es wird wird angenommen, dass ein Parameter einen wahren (aber unbekannten) Wert hat. Der Parameter ist aber keine Zufallszahl, und hat daher keine Wahrscheinlichkeitsverteilung. Daher darf man nicht über die Wahrscheinlichkeit eines Parameters sprechen. In der Bayesianischen Statistik ist ein Parameter eine Zufallszahl, und hat daher eine Wahrscheinlichkeitsverteilung. Wir benützen Bayes Theorem um die Wahrscheinlichkeit von Parametern zu berechnen.</p>
-<p>Im foglenden Kapitel werden uns (in einer sehr verkürzten Form) damit beschäftigen, was die Konsequenzen dieser unterschiedlichen Sichtweisen sind, und wie Bayesianische Statistik funktioniert. Am Anfang müssen wir jedoch eine zentral Frage beantworten: Was ist eigentlich der Unterschied zwischen Parameterschätzung und Modellvergleichen / Hypothesentests?</p>
-<aside>
-Modellvergleiche und Hypothesentests werden hier synomym verwendet.
-</aside><p>In der frequentistischen Statistik werden diese beiden Dinge oft gemeinsam behandelt, und es ist nicht auf Anhieb klar, dass es sich um zwei unterschiedliche Dinge handelt. Dies hat vor allem damit zu tun, dass Parameterschätzung einfach ist, weil nur eine sogennante Punkschätzung erfolgt, und weil es oft um die Anwendung eines Hypothesentests geht.</p>
-<p>In der Bayesianischen Statistik ist Parameterschätzung nicht einfach, da eine ganze Wahrscheinlichkeitsverteilung geschätzt wird. Es lohnt sich, dass wir uns klarmachen, was genau Parameterschätzung ist. Wir werden zuerst anhand eines t-Tests anschauen, wie Parameterschätzung und Hypothesentests im frequentistischen Gebrauch kombiniert werden und danach anhand eines einfachen Wahrscheinlichkeitsbeispiel die Parameterschätzung illustrieren.</p>
-</section><section id="parameter-schätzen-vs-hypothesen-testen-anhand-eines-t-tests" class="level2"><h2 class="anchored" data-anchor-id="parameter-schätzen-vs-hypothesen-testen-anhand-eines-t-tests">Parameter schätzen vs Hypothesen testen anhand eines t-Tests</h2>
-<p>Mit einem t-Test wollen wir einen Mittelwertsunterschied testen. Dies bedeutet, wir wollen wissen, ob sich zwei Mittelwerte voneinander unterscheiden (wir beschränken uns hier auf zwei unabhängige Gruppen). Diese Frage bezieht sich auf einen <strong>Modellvergleich</strong>: Wir vergleichen ein Modell, in dem die Mittelwerte gleich sind, mit einem Modell, in dem die Mittelwerte unterschiedlich sind.</p>
-<p>Bevor wir diesen Vergleich machen können, müssen wir jedoch die Mittelwerte schätzen. Dies ist eine <strong>Parameterschätzung</strong>. Im frequentistischen Ansatz benutzen wir den Stichprobenmittelwert als Schätzer für den Mittelwert, der in der Population, aus der diese Stichprobe gezogen wurde, gilt.</p>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Wie funktioniert ein frequentistischer t-Test?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Wir schauen uns hier noch einmal explizit das Vorgehen und die Annahmen eines t-Tests an.Mehr dazu finden Sie bei <a href="http://localhost:7820/pages/chapters/bayesian-statistics-1.html#sec-ttest">Aufgabe 3</a>.</p>
-<p>Wir haben zwei Gruppen, und wollen wissen, ob sich die Mittelwerte der beiden Gruppen unterscheiden.</p>
-<ol type="1">
-<li>Unser statistisches Modell lautet: Alle Beobachtungen innerhalb einer Gruppe <span class="math inline">\(j\)</span> sind normalverteilt. Die beiden Gruppen unterschieden wich in ihrem Mittelwert, aber die Standardabweichung <span class="math inline">\(\sigma\)</span> ist in beiden Gruppen dieselbe.</li>
-</ol>
+<p>A model is a set of parameters that we are using to predict the observed data. For example, in the card game, we had several different prior assumptions about the abilities of players A and B. One prior expressed our belief that both players were equally good, whereas another prior expressed the belief that either player A or player was better. These priors, together with our assumptions about the distribution of the data, form a model <span class="math inline">\(\mathcal{M}\)</span>.</p>
+<section id="bayesian-parameter-estimation" class="level3"><h3 class="anchored" data-anchor-id="bayesian-parameter-estimation">Bayesian parameter estimation</h3>
+<p>In Bayesian parameter estimation, we focus on one model <span class="math inline">\(\mathcal{M}\)</span>. The inferential goal is the posterior distribution, and we can obtain this by applying Bayes’ rule (using MCMC or other methods).</p>
 <p><span class="math display">\[
-y_{ij} \sim \mathcal{N}(\mu_j, \sigma^2)
+p(\theta | y) =  p(\theta) \cdot \frac{p(y | \theta)}{p(y)}
 \]</span></p>
-<p><span class="math inline">\(y_{ij}\)</span> ist die Beobachtung <span class="math inline">\(i\)</span> in Gruppe <span class="math inline">\(j \in \{1, 2\}\)</span>. Wir interessieren uns für den Unterschied zwischen den Mittelwerten <span class="math inline">\(\mu_1\)</span> und <span class="math inline">\(\mu_2\)</span>.</p>
-<ol start="2" type="1">
-<li><p>Wir schätzen die Gruppenmittelwerte mittels Maximum Likelihood Schätzung. In diesem Falle geht das ganz einfach; die Stichprobenmittelwerte sind Maximum Likelihood Schätzer, und können einfach berechnet werden. Der weitere Parameter wir ebenfalls geschätzt, und zwar als die gepoolte Standardabweichung <span class="math inline">\(s_p\)</span>. Dies ist der <strong>Parameterschätzung</strong>-Schritt.</p></li>
-<li><p>Wir berechnen eine Test Statistik. Diese basiert auf dem Mittelwertsunterschied <span class="math inline">\(\mu_1 - \mu_2\)</span>.</p></li>
-</ol>
+<p>We can rewrite Bayes rule, including the dependency of the parameters <span class="math inline">\(\mathbf{\theta}\)</span> on the model <span class="math inline">\(\mathcal{M}\)</span>):</p>
 <p><span class="math display">\[
-t = \frac{\bar{x_1} - \bar{x_2}}{s_p \sqrt{2/n}}
+p(\theta | y, \mathcal{M}) = \frac{p(y|\theta, \mathcal{M}) p(\theta | \mathcal{M})}{p(y | \mathcal{M})}
 \]</span></p>
-<p><span class="math inline">\(s_p \sqrt{2/n}\)</span> ist der Standardfehler der Differenz <span class="math inline">\(\bar{x_1} - \bar{x_2}\)</span>. <em>Unter der Annahme, dass die Nullhypothese gilt</em>, folgt <span class="math inline">\(t\)</span> einer Student-t Verteilung. Wir können nun berechnen, was die Wahrscheinlichkeit wäre, einen mindestens so extremen t-Wert zu erhalten. Diese Wahrscheinlichkeit nennt man den <em>p-Wert</em>. Wichtig: dies ist bereits ein <strong>Modellvergleich</strong>. Wir benutzen hier ein Modell, in dem die Mittelwerte gleich sind.</p>
-<ol start="4" type="1">
-<li>Wir können uns nun entscheiden, ob wir die Nullhypothese verwerfen oder nicht. Wir vergleichen den p-Wert mit einem vorgegebenen Signifikanzniveau <span class="math inline">\(\alpha\)</span>. Wenn der p-Wert kleiner ist als <span class="math inline">\(\alpha\)</span>, dann verwerfen wir die Nullhypothese. Dies bedeutet, dass wir die Tatsache, dass der p-Wert “genügend” klein ist, als Evidenz gegen die Nullhypothese deuten.</li>
-</ol>
-</div>
-</div>
-</div>
-</section><section id="bayesianische-parameterschätzung" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="bayesianische-parameterschätzung">Bayesianische Parameterschätzung</h2>
-<p>Wir werden nun einen anderen Ansatz kennenlernen: die Bayesianische Statistik. Dieser Ansatz ist nicht neu, hat aber erst in den letzten Jahren Verbreitung gefunden. Dies hat unter anderem damit zu tun, dass die Berechnungen, die für die Bayesianische Statistik nötig sind, erst mit der Verfügbarkeit von schnellen Computern möglich wurden.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Rechenleistung
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Bayesianische Statistik braucht sehr viel Rechenleistung, da wir durch Anwendung von Bayes Theorem die Wahrscheinlichkeitsverteilungen von Parametern schätzen müssen. Für das nachfolgende Beispiel, in dem wir einen Parameter haben, ist dies einfach. Für komplexere Modelle, mit sehr vielen Parametern, brauchen wir Methoden wie Monte Carlo Sampling, welche sehr schnelle CPU und vor allem Parallelisierung benötigen.</p>
-<p>Mittlerweile können diese Rechenoperationen auf Laptops durchgeführt werden. Dies war früher jedoch nicht der Fall; zu Zeiten, in denen die Bayesianische Statistik entwickelt wurde, war dies nur auf Grossrechnern möglich. Dies ist einer der Gründe, weshalb die Bayesianische Statistik erst in den letzten Jahren an Popularität gewonnen hat.</p>
-</div>
-</div>
-</div>
-<p>Wir werden nun anhand eines simplen Beispiels zuerst die Bayesianische Parameterschätzung kennenlernen. Ich verwende als Cover Story ein Kartenspiel, da dies ein einfaches Lehrbuchbeispiel ist. Die Cover Story selber ist jedoch nicht wichtig - es geht hier darum, dass unsere beobachteten Daten binär sind.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Weitere Beispiele für binäre Daten
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>Eine Münze wird geworfen. Wir wollen die Wahrscheinlichkeit schätzen, dass Kopf oben liegt.</li>
-<li>Eine Schüler*in beantwortet Fragen in einer Prüfung. Wir wollen die Wahrscheinlichkeit schätzen, dass die Schüler*in eine Frage richtig beantwortet, um daraus etwas über die Fähigkeit der Schüler*in zu lernen.</li>
-<li>Wir untersuchen die Wahrnehmungsleistung einer Person, welche Signale in Rauschen entdecken soll. Wir wollen die Wahrscheinlichkeit schätzen, mit der die Person ein Signal korrekt entdeckt.</li>
-<li>Wir untersuchen Kaufentscheidungen. Wir wollen die Wahrscheinlichkeit unter verschiedenen Bedingungen schätzen, mit der eine Person ein Produkt anderen Produkten vorzieht.</li>
-</ul>
-<p>Diese Beispiele haben also alle etwas gemeinsam: Wir haben eine binäre beobachtete Variable; dies bedeutet, die Variable nimmt einen von zwei möglichen Zuständen an. Wir definieren nun einen dieser Zustände als “Erfolg”, und wollen etwas über die Wahrscheinlichkeit eines Erfolgs lernen.</p>
-</div>
-</div>
-</div>
-<p>Zwei Spieler spielen ein Kartenspiel. Sie beobachten, dass sie 9 Spiele spielen und dass Spieler A 6 davon gewinnt. Jetzt möchten Sie die Wahrscheinlichkeit schätzen, dass Spieler A das nächste Spiel gewinnen wird. Anders ausgedrückt, möchten Sie die Fähigkeit von Spieler A einschätzen, Spieler B in diesem speziellen Spiel zu besiegen.</p>
-<p>Sie wissen, dass die Erfolgswahrscheinlichkeit im Bereich <span class="math inline">\([0, 1]\)</span> liegen muss. Was Ihnen vielleicht nicht bewusst ist, ist, dass Sie ein bestimmtes Wahrscheinlichkeitsmodell annehmen und die Erfolgswahrscheinlichkeit ein Parameter dieses Modells ist. Lassen Sie uns das genauer betrachten:</p>
-<p>Wir wissen, dass die Anzahl der <span class="math inline">\(k\)</span> Erfolge in <span class="math inline">\(n\)</span> Spielen einer Binomialverteilung mit den Parametern <span class="math inline">\(n\)</span> und <span class="math inline">\(\theta\)</span> folgt. Wir nehmen an, dass jedes einzelne Spiel unabhängig von den anderen ist und die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta\)</span> für jedes Spiel gleich ist. Daher können wir auch jedes Kartenspiel als Bernoulli-Experiment mit dem Wahrscheinlichkeitsparameter <span class="math inline">\(\theta\)</span> betrachten.</p>
-<p><span class="math display">\[
-y_i \sim \mathcal{Bernoulli}(\theta)
-\]</span></p>
-<div class="{callout-tip}">
-<p>Ich werde im Allgemeinen die Notation <span class="math inline">\(y\)</span> für eine Variable verwenden, die beobachtet wird, d.h. die Daten.</p>
-</div>
-<p><span class="math inline">\(y_i\)</span> ist die <span class="math inline">\(i\)</span>-te Beobachtung in den Daten, was bedeutet, dass es uns sagt, ob Spieler A das Spiel im <span class="math inline">\(i\)</span>-ten Versuch gewonnen hat oder nicht. <span class="math inline">\(\theta\)</span> ist die Erfolgswahrscheinlichkeit für jedes einzelne Spiel; dies ist ein Parameter unseres Modells (<span class="math inline">\(\mathcal{M}\)</span>).</p>
-<p>Wenn wir frequentistisch vorgehen, müssen wir nun den Wert von <span class="math inline">\(\theta\)</span> so schätzen, dass die Wahrscheinlichkeit, die Daten zu beobachten, maximiert wird.</p>
-<p>:::{callout-info collapse=“true”} ## Maximum Likelihood Schätzer</p>
-<p>Wenn wir beobachten, dass Spieler A 6 Mal in 9 Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta = 6/9 = 0.67\)</span>. Dies ist der Maximum Likelihood Schätzer für <span class="math inline">\(\theta\)</span>. :::</p>
-<p>Wir können dies auch mit in R numerisch, d.h. mit der “brute force” Methode, berechnen:</p>
-<div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wins</span> <span class="op">&lt;-</span> <span class="fl">6</span></span>
-<span><span class="va">games</span> <span class="op">&lt;-</span> <span class="fl">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Das Ziel ist es, den “besten” Wert von <span class="math inline">\(\theta\)</span> zu ermitteln, d.h. den Wert, der die Wahrscheinlichkeit maximiert, die Daten zu beobachten. Um dies zu tun, müssen wir eine Reihe von möglichen Werten von <span class="math inline">\(\theta\)</span> in Betracht ziehen (wir wissen bereits, dass dieser Bereich <span class="math inline">\([0, 1]\)</span> ist). Wir werden 101 Werte von <span class="math inline">\(\theta\)</span> zwischen 0 und 1 betrachten und die Wahrscheinlichkeit berechnen, die Daten für jeden Wert von <span class="math inline">\(\theta\)</span> zu beobachten.</p>
-<aside>
-Warum 101? Ist willkürlich, wir könnten auch 1000 oder 10000 benutzen. Je mehr Punkte wir nehmen, je feiner unser Raster, desto besser können wir die Lösung approximieren. Mehr Punkte heisst aber auch mehr Rechenoperationen, was mehr Rechenleistung benötigt.
-</aside><div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_points</span> <span class="op">&lt;-</span> <span class="fl">101</span></span>
-<span><span class="va">theta_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span> from<span class="op">=</span><span class="fl">0</span> , to<span class="op">=</span><span class="fl">1</span> , length.out <span class="op">=</span> <span class="va">n_points</span> <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Unter der Annahme, dass beide Spieler eine gleiche Gewinnchance haben, sollte der Parameter <span class="math inline">\(\theta = 0.5\)</span> sein. Die Wahrscheinlichkeit der Daten gegeben <span class="math inline">\(\theta = 0.5\)</span> ist:</p>
-<div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">wins</span>, size <span class="op">=</span> <span class="va">games</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.1640625</code></pre>
-</div>
-</div>
-<p>Die Wahrscheinlichkeit, 6 von 9 Spielen zu gewinnen, unter der Annahme, dass beide Spieler gleich wahrscheinlich gewinnen, ist 0.1640625.</p>
-<p>Wir können auch die Wahrscheinlichkeit berechnen, dass A 6, 7, 8 oder 9 Spiele gewinnt, indem wir die kumulative Verteilungsfunktion der Binomialverteilung verwenden.</p>
-<div class="cell">
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fl">1</span> <span class="op">-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">5</span>, size <span class="op">=</span> <span class="va">games</span>, prob <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2539063</code></pre>
-</div>
-</div>
-<p>oder</p>
-<div class="cell">
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">pbinom</a></span><span class="op">(</span>q <span class="op">=</span> <span class="fl">5</span>, size <span class="op">=</span> <span class="va">games</span>, prob <span class="op">=</span> <span class="fl">0.5</span>, lower.tail <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2539063</code></pre>
-</div>
-</div>
-<aside><code><a href="https://rdrr.io/r/stats/Binomial.html">pbinom()</a></code> gibt standardmässig die Wahrscheinlichkeit, dass die Anzahl der Erfolge kleiner oder gleich dem gegebenen Wert ist. Da wir die Wahrscheinlichkeit berechnen wollen, dass die Anzahl der Erfolge grösser oder gleich dem gegebenen Wert ist, müssen wir <code>lower.tail = FALSE</code> setzen.
-</aside><div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-p-Wert
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Kommt Ihnen das bekannt vor?</p>
-<p>Wenn wir unsere Null-Hypothese quantifizieren wollen, dass beide Spieler gleich wahrscheinlich gewinnen, würden wir annehmen, dass <span class="math inline">\(\theta=0.5\)</span>. Die Berechnung der Wahrscheinlichkeit der Daten unter der Null ist genau das, was wir gerade getan haben. Dann setzen wir die tatsächlichen Daten ein, d.h. 6 von 9, und die obere Schwanzwahrscheinlichkeit ist der p-Wert. In diesem Fall ist der p-Wert ungefähr <span class="math inline">\(0.25\)</span>. Mit einem Schwellenwert von 0.05 würden wir die Nullhypothese nicht ablehnen und schliessen, dass es nicht genügend Beweise dafür gibt, dass Spieler A besser ist als Spieler B (dies ist ein einseitiger Test).</p>
-</div>
-</div>
-</div>
-<p>Nun berechnen wir die Wahrscheinlichkeit der Daten unter Berücksichtigung aller möglichen Parameterwerte. Dies ist der entscheidende Schritt in Richtung Bayesianische Inferenz 🚀.</p>
-<p>In R ist dies sehr einfach, da alle Funktionen vektorisiert sind.</p>
-<div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">likelihood</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="va">wins</span> , size <span class="op">=</span> <span class="va">games</span> , prob <span class="op">=</span> <span class="va">theta_grid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Wir haben gerade die Wahrscheinlichkeit der Daten (genauer gesagt: A gewinnt 6 Mal in 9 Spielen) für jeden Wert von <span class="math inline">\(\theta\)</span> berechnet (genauer: für 101 Werte von <span class="math inline">\(\theta\)</span> zwischen 0 und 1). Wir können dies grafisch darstellen.</p>
-<div class="cell">
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">likelihood</span>, xlab <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">theta</span><span class="op">)</span>, ylab <span class="op">=</span> <span class="st">"likelihood"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">likelihood</span>, type <span class="op">=</span> <span class="st">"l"</span>, lty <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Wir können in der obigen Abbildung sehen, dass die Wahrscheinlichkeit, die Daten zu beobachten, für viele Werte von <span class="math inline">\(\theta\)</span> klein ist. Die Wahrscheinlichkeit, die Daten zu beobachten, oder die Likelihood, ist maximal für den Wert 0.6666667:</p>
-<p>Diesen finden wir auch numerisch:</p>
-<div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">theta_grid</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/which.min.html">which.max</a></span><span class="op">(</span><span class="va">likelihood</span><span class="op">)</span><span class="op">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.67</code></pre>
-</div>
-</div>
-<p>Was wir bisher gemacht haben, unterstreicht den Unterschied zwischen Parameterschätzung und Hypothesentest. Die Berechnung der Unter- und Überschreitungswahrscheinlichkeit unter der Nullhypothese (<span class="math inline">\(\theta=0.5\)</span>) ist ein <strong>Hypothesentest</strong>, und die Schätzung von <span class="math inline">\(\theta\)</span> ist die <strong>Parameterschätzung</strong>.</p>
-<section id="vorwissen" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="vorwissen">Vorwissen</h3>
-<p>die wahrscheinlichsten Parameter a priori gehabt hätten. Tatsächlich haben wir, wie wir etwas weiter unten sehen werden, implizit angenommen, dass alle Parameter gleich wahrscheinlich sind. Jetzt führen wir ein neues Konzept ein: eine a-priori-Verteilung für die Parameter, die wir versuchen zu schätzen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
-<p>Wir werden dann diesen <em>a-priori</em>-Glauben verwenden, um einen <em>a-posteriori</em>-Glauben über die möglichen Parameterwerte zu erlangen. Um dies zu tun, müssen wir die a-priori-Wahrscheinlichkeit jedes Parameterwerts mit der Likelihood der Daten, d.h. mit der bedingten Wahrscheinlichkeit, die Daten zu beobachten, gegeben diesen Parameterwert, multiplizieren. Dies ist eine Anwendung des Bayes’schen Theorems:</p>
-<p><span class="math display">\[
-p(\theta|y) = \frac{ p(y|\theta) * p(\theta) } {p(y)}
-\]</span></p>
-<p>Dies besagt, dass die a-posteriori-Wahrscheinlichkeit von <span class="math inline">\(\theta\)</span> gegeben den beobachteten Daten <span class="math inline">\(y\)</span> gleich ist der Wahrscheinlichkeit der Daten, multipliziert mit der a-priori-Wahrscheinlichkeit jedes Werts von <span class="math inline">\(\theta\)</span>. Sie können es sich so vorstellen: Jeder Parameterwert wird gewichtet, je nachdem, wie gut er die Daten vorhersagt. Das Produkt <span class="math inline">\(p(y|\theta) * p(\theta)\)</span> wird dann durch die Wahrscheinlichkeit der Daten geteilt, die in diesem Fall über alle möglichen Parameterwerte summiert wird. Dieser Schritt dient dazu, die a-posteriori-Wahrscheinlichkeit zu normalisieren, so dass sie sich zu <span class="math inline">\(1\)</span> aufaddiert. Dies verwandelt die unnormalisierte a-posteriori-Wahrscheinlichkeit im Grunde in eine richtige Wahrscheinlichkeitsverteilung.</p>
-<p><span class="math display">\[
-p(y) = \sum_{\theta}p(y|\theta) * p(\theta)
-\]</span></p>
-<p>Wenn wir daran interessiert sind, die Parameter eines gegebenen Modells zu schätzen, können wir oft den (für ein Modell konstanten) normalisierenden Term <span class="math inline">\(p(y)\)</span> vernachlässigen. Dieser Term, oft als Evidenz bezeichnet, spiegelt die Wahrscheinlichkeit der Daten wider, gemittelt über alle Parameterwerte. Ohne den normalisierenden Konstanten geschrieben, wird die Bayes-Regel oft so geschrieben:</p>
-<p><span class="math display">\[
-p(\theta|y) \propto  p(y|\theta) * p(\theta)
-\]</span></p>
+<p>where <span class="math inline">\(\mathcal{M}\)</span> refers to a specific model. This model is determined by the prior distribution of the parameters <span class="math inline">\(p(\theta | \mathcal{M}\)</span> and the distribution of the data <span class="math inline">\(p(y|\theta, \mathcal{M})\)</span>.</p>
+<p>The marginal likelihood <span class="math inline">\(p(y | \mathcal{M})\)</span> now gives the probability of the data, averaged over all possible parameter values under prior in model <span class="math inline">\(\mathcal{M}\)</span>.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Zusammenfassung
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ol type="1">
-<li><p>Repräsentieren Sie Ihre a-priori Überzeugung durch eine Wahrscheinlichkeitsverteilung über die möglichen Parameterwerte. Dies ist eine prinzipielle Methode, um mit Unsicherheit umzugehen.</p></li>
-<li><p>Verwenden Sie die Likelihood, um die a-priori Überzeugung zu gewichten.</p></li>
-<li><p>Erhalten Sie eine a-posteriori Überzeugung über die möglichen Parameterwerte.</p></li>
-</ol>
+<p>The marginal likelihood <span class="math inline">\(p(y | \mathcal{M})\)</span> is usually neglected when looking at a single model, but becomes important when comparing models.</p>
 </div>
 </div>
-<aside>
-Der Begriff <em>belief</em> wird im Englischen oft als Synomym für Wahrscheinlichkeitsverteilung verwendet. Ich übersetze <em>belief</em> hier mit <em>Überzeugung</em>.
-</aside></section><section id="bayesianische-inferenz-mit-binären-daten-ein-numerisches-beispiel" class="level3"><h3 class="anchored" data-anchor-id="bayesianische-inferenz-mit-binären-daten-ein-numerisches-beispiel">Bayesianische Inferenz mit binären Daten: Ein numerisches Beispiel</h3>
-<p>Erinnern Sie sich daran, dass wir eine Sequenz von 101 Punkten zwischen 0 und 1 definiert haben, die die möglichen <span class="math inline">\(\theta\)</span>-Werte darstellten.</p>
-<div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_points</span> <span class="op">&lt;-</span> <span class="fl">101</span></span>
-<span><span class="va">theta_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span> from<span class="op">=</span><span class="fl">0</span> , to<span class="op">=</span><span class="fl">1</span> , length.out <span class="op">=</span> <span class="va">n_points</span> <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Für jeden von diesen haben wir die Likelihood berechnet, das heißt die Wahrscheinlichkeit, die (festgelegten) Daten zu beobachten, gegeben den Parameter. Jetzt können wir unser Wissen über die Wahrscheinlichkeit jedes Parameterwerts explizit machen. Zunächst nehmen wir an, dass alle Parameter gleich wahrscheinlich sind. Wir weisen jedem Parameterwert die Wahrscheinlichkeit 1 zu. Dies ist unsere a-priori-Verteilung.</p>
-<div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">theta_grid</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior_1</span>, <span class="st">"type"</span> <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Wir könnten auch die Überzeugung ausdrücken, dass Spieler A mindestens so gut ist wie Spieler B, d.h. sie sind gleich gut oder A ist besser als B. Eine Möglichkeit, dies zu tun, besteht darin, Parameterwerten, die größer oder gleich <span class="math inline">\(0.5\)</span> sind, eine Wahrscheinlichkeit von <span class="math inline">\(2\)</span><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> zuzuweisen und den Wert <span class="math inline">\(0\)</span> für Parameterwerte kleiner als <span class="math inline">\(0.5\)</span>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior_2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">theta_grid</span> <span class="op">&lt;</span> <span class="fl">0.5</span>, <span class="fl">0</span>, <span class="fl">2</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior_2</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Eine systematischere Methode besteht darin, eine parametrisierte Wahrscheinlichkeitsverteilung zu verwenden, die unsere Überzeugungen über den Parameter ausdrückt.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Beta-Verteilung
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Eine Familie von Wahrscheinlichkeitsverteilungen, die für Parameter geeignet sind, die im Intervall <span class="math inline">\([0,1]\)</span> liegen, ist die <a href="https://de.wikipedia.org/wiki/Beta-Verteilung">Beta-Verteilung</a>. Diese Verteilung hat <span class="math inline">\(2\)</span> Parameter <span class="math inline">\(\alpha\)</span> und <span class="math inline">\(\beta\)</span>, die jeweils als die vorherige Anzahl von Erfolgen und die Anzahl der Misserfolge interpretiert werden können. Die Anzahl der Versuche beträgt daher <span class="math inline">\(\alpha + \beta\)</span>. Die Grafik zeigt eine Reihe von möglichen Beta-Verteilungen für verschiedene Einstellungen von <span class="math inline">\(\alpha\)</span> und <span class="math inline">\(\beta\)</span>. Beachten Sie, dass in R die Parameter <span class="math inline">\(\alpha\)</span> und <span class="math inline">\(\beta\)</span> als <code>shape1</code> und <code>shape2</code> bezeichnet werden.</p>
-<div class="cell">
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.2     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     
-── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
-</div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">length</span> <span class="op">&lt;-</span> <span class="fl">1e4</span></span>
-<span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tidyr.tidyverse.org/reference/expand.html">crossing</a></span><span class="op">(</span>shape1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>,</span>
-<span>           shape2 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu">tidyr</span><span class="fu">::</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/expand.html">expand</a></span><span class="op">(</span><span class="fu"><a href="https://tidyr.tidyverse.org/reference/expand.html">nesting</a></span><span class="op">(</span><span class="va">shape1</span>, <span class="va">shape2</span><span class="op">)</span>,</span>
-<span>         x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span>from <span class="op">=</span> <span class="fl">0</span>, to <span class="op">=</span> <span class="fl">1</span>, length.out <span class="op">=</span> <span class="va">length</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>a <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"a = "</span>, <span class="va">shape1</span><span class="op">)</span>,</span>
-<span>         b <span class="op">=</span> <span class="fu"><a href="https://stringr.tidyverse.org/reference/str_c.html">str_c</a></span><span class="op">(</span><span class="st">"b = "</span>, <span class="va">shape2</span><span class="op">)</span>,</span>
-<span>         group <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="va">length</span>, each <span class="op">=</span> <span class="fl">25</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">d</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">x</span>, group <span class="op">=</span> <span class="va">group</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">x</span>, shape1 <span class="op">=</span> <span class="va">shape1</span>, shape2 <span class="op">=</span> <span class="va">shape2</span><span class="op">)</span><span class="op">)</span>,</span>
-<span>            color <span class="op">=</span> <span class="st">"steelblue4"</span>, linewidth <span class="op">=</span> <span class="fl">1.1</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="va">theta</span><span class="op">)</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">.5</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span><span class="op">(</span>ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Beta distributions"</span>,</span>
-<span>       y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/expression.html">expression</a></span><span class="op">(</span><span class="fu">p</span><span class="op">(</span><span class="va">theta</span><span class="op">*</span><span class="st">"|"</span><span class="op">*</span><span class="va">a</span><span class="op">*</span><span class="st">", "</span><span class="op">*</span><span class="va">b</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>panel.grid <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_blank</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html">facet_grid</a></span><span class="op">(</span><span class="va">b</span><span class="op">~</span><span class="va">a</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Wenn wir eine Beta-Verteilung verwenden wollen, um die Überzeugung auszudrücken, dass alle Werte von <span class="math inline">\(\theta\)</span> gleich wahrscheinlich sind (uniforme a-priori-Verteilung), können wir eine Beta-Verteilung mit <span class="math inline">\(\alpha = 1\)</span> und <span class="math inline">\(\beta = 1\)</span> verwenden.</p>
-<div class="cell">
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior_3</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior_3</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Schliesslich könnten wir folgendes Vorwissen als Beta-Verteilung ausdrücken: Stellen Sie sich vor, Sie hätten zuvor 100 Spiele zwischen A und B beobachtet, und jeder hat die Hälfte der Spiele gewonnen. Sie können nun <span class="math inline">\(\alpha\)</span> der Anzahl der von A gewonnenen Spiele und <span class="math inline">\(\beta\)</span> der Anzahl der von B gewonnenen Spiele gleichsetzen. A hat 50 Spiele gewonnen und B hat 50 Spiele gewonnen:</p>
-<div class="cell">
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">50</span>, shape2 <span class="op">=</span> <span class="fl">50</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior</span>, type <span class="op">=</span> <span class="st">"l"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Nun können wir unser Vorwissen und die Wahrscheinlichkeit durch elementweises Multiplizieren kombinieren. Dies bedeutet wir müssen jeden Parameterwert mit der Wahrscheinlichkeit der Daten (gegeben diesen Parameter) multiplizieren.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Zur Erinnerung: Bayes Theorem lautet:</p>
-<p><span class="math display">\[
-p(\theta|y) = \frac{ p(y|\theta) * p(\theta) } {p(y)}
+<p>Writing out the marginal likelihood <span class="math inline">\(p(y | \mathcal{M})\)</span>: <span class="math display">\[
+p(y | \mathcal{M}) = \int{p(y | \theta, \mathcal{M}) p(\theta|\mathcal{M})d\theta}
 \]</span></p>
-</div>
-</div>
-<p>In R ist dies einfach:</p>
-<div class="cell">
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wins</span> <span class="op">&lt;-</span> <span class="fl">6</span></span>
-<span><span class="va">games</span> <span class="op">&lt;-</span> <span class="fl">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">4</span>, shape2 <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span>
-<span><span class="va">likelihood</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="va">wins</span> , size <span class="op">=</span> <span class="va">games</span> , prob <span class="op">=</span> <span class="va">theta_grid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">unstandardized_posterior</span> <span class="op">&lt;-</span> <span class="va">likelihood</span> <span class="op">*</span> <span class="va">prior</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Dies gibt uns die unnormalisierte Posterior-Verteilung.</p>
-<p><span class="math display">\[
-p(\theta|y) \propto  p(y|\theta) * p(\theta)
-\]</span></p>
-<p>Wir können diese normalisieren, indem wir sie durch die Summe der Werte teilen. Dies ist der Nenner von Bayes Theorem: <span class="math inline">\(p(y) = \sum_{\theta}p(y|\theta) * p(\theta)\)</span>.</p>
-<p>In R können wir die <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> Funktion verwenden: <code>sum(unstandardized_posterior)</code>.</p>
-<div class="cell">
-<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">posterior</span> <span class="op">&lt;-</span> <span class="va">unstandardized_posterior</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">unstandardized_posterior</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Die normalisierte Posterior-Verteilung sieht folgendermassen aus.</p>
-<div class="cell">
-<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">posterior</span>, type <span class="op">=</span> <span class="st">"l"</span>, yaxt <span class="op">=</span> <span class="st">'n'</span>, ylab <span class="op">=</span> <span class="st">'Probability'</span>, </span>
-<span>        main <span class="op">=</span> <span class="st">"Posterior"</span>, cex.lab <span class="op">=</span> <span class="fl">1.5</span>, cex.main <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Um dies wiederholbar zu machen, werden wir zwei Funktionen schreiben. Die erste, <code>compute_posterior()</code>, berechnet die Posterior-Verteilung, und gibt ein Dataframe zurück, welches Prior, Likelihood und Posterior enthält. Die zweite, <code>plot_posterior()</code>, plottet alle drei nebeneinander. Sie können auch die Maximum-Likelihood-Schätzung übergeben, z.B. 6/9, und diese wird ebenfalls geplottet.</p>
-<div class="cell">
-<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">compute_posterior</span> <span class="op">=</span> <span class="kw">function</span><span class="op">(</span><span class="va">likelihood</span>, <span class="va">prior</span><span class="op">)</span><span class="op">{</span></span>
-<span>  <span class="co"># compute product of likelihood and prior</span></span>
-<span>  <span class="va">unstandardized_posterior</span> <span class="op">&lt;-</span> <span class="va">likelihood</span> <span class="op">*</span> <span class="va">prior</span></span>
-<span>  </span>
-<span>  <span class="co"># standardize the posterior, so it sums to 1</span></span>
-<span>  <span class="va">posterior</span> <span class="op">&lt;-</span> <span class="va">unstandardized_posterior</span> <span class="op">/</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="va">unstandardized_posterior</span><span class="op">)</span></span>
-<span>  </span>
-<span>  <span class="va">out</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span><span class="va">prior</span>, <span class="va">likelihood</span>, <span class="va">posterior</span><span class="op">)</span></span>
-<span>  <span class="va">out</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb32"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">plot_posterior</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">df</span>, <span class="va">mle</span> <span class="op">=</span> <span class="fl">6</span><span class="op">/</span><span class="fl">9</span><span class="op">)</span><span class="op">{</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/base/with.html">with</a></span><span class="op">(</span><span class="va">df</span>, <span class="op">{</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/par.html">par</a></span><span class="op">(</span>mfrow<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span> , <span class="va">prior</span>, type<span class="op">=</span><span class="st">"l"</span>, main<span class="op">=</span><span class="st">"Prior"</span>, col <span class="op">=</span> <span class="st">"dodgerblue3"</span>, </span>
-<span>            lwd <span class="op">=</span> <span class="fl">4</span>, yaxt <span class="op">=</span> <span class="st">'n'</span>, ylab <span class="op">=</span> <span class="st">'Probability'</span>, cex.lab <span class="op">=</span> <span class="fl">1.5</span>, cex.main <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span> , <span class="va">likelihood</span>, type <span class="op">=</span> <span class="st">"l"</span>, main <span class="op">=</span> <span class="st">"Likelihood"</span>, col <span class="op">=</span> <span class="st">"firebrick3"</span>, </span>
-<span>            lwd <span class="op">=</span> <span class="fl">4</span>, yaxt <span class="op">=</span> <span class="st">'n'</span>, ylab <span class="op">=</span> <span class="st">''</span>, cex.lab <span class="op">=</span> <span class="fl">1.5</span>, cex.main <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span> , <span class="va">posterior</span> , type <span class="op">=</span> <span class="st">"l"</span>, main <span class="op">=</span> <span class="st">"Posterior"</span>, col <span class="op">=</span> <span class="st">"darkorchid3"</span>, </span>
-<span>            lwd <span class="op">=</span> <span class="fl">4</span>, yaxt <span class="op">=</span> <span class="st">'n'</span>, ylab <span class="op">=</span> <span class="st">''</span>, cex.lab <span class="op">=</span> <span class="fl">1.5</span>, cex.main <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span>
-<span>    <span class="fu"><a href="https://rdrr.io/r/graphics/abline.html">abline</a></span><span class="op">(</span>v <span class="op">=</span> <span class="va">mle</span>, col <span class="op">=</span> <span class="fl">4</span>, lty <span class="op">=</span> <span class="fl">2</span>, lwd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
-<span>  <span class="op">}</span> <span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Jetzt können Sie verschiedene a-priori-Verteilungen ausprobieren und die Auswirkungen auf die a-posteriori-Verteilung beobachten.</p>
-<p>Wir probieren zuerst eine uniforme a-priori-Verteilung aus:</p>
-<div class="cell">
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">likelihood</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="va">wins</span> , size <span class="op">=</span> <span class="va">games</span> , prob <span class="op">=</span> <span class="va">theta_grid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">compute_posterior</span><span class="op">(</span><span class="va">likelihood</span>, <span class="va">prior</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">plot_posterior</span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>In diesem Fall stimmt die Maximum-Likelihood-Schätzung mit dem Wert überein, der die a-posteriori-Wahrscheinlichkeit maximiert. Dies ist der Fall, weil die Maximum-Likelihood-Schätzung nur die Likelihood verwendet und keine a priori-Kenntnisse berücksichtigt. Wenn wir eine uniforme a-priori-Verteilung verwenden, bedeutet das, dass alle Werte von <span class="math inline">\(\theta\)</span> gleich wahrscheinlich sind. Mit anderen Worten haben wir keine Informationen darüber, welche Werte wahrscheinlicher sind.</p>
-</div>
-</div>
-<p>Jetzt probieren wir die a-priori-Verteilung aus, die die Überzeugung ausdrückt, dass Spieler A nicht schlechter sein kann als Spieler B:</p>
-<div class="cell">
-<div class="sourceCode" id="cb36"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/ifelse.html">ifelse</a></span><span class="op">(</span><span class="va">theta_grid</span> <span class="op">&lt;</span> <span class="fl">0.5</span>, <span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">likelihood</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="va">wins</span> , size <span class="op">=</span> <span class="va">games</span> , prob <span class="op">=</span> <span class="va">theta_grid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb37"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">compute_posterior</span><span class="op">(</span><span class="va">likelihood</span>, <span class="va">prior</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb38"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">plot_posterior</span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-<p>Die resultierende a-posteriori-Verteilung ist für alle Werte von <span class="math inline">\(\theta\)</span>, die kleiner als 0.5 sind, gleich Null. Dies liegt daran, dass unsere a-priori-Verteilung diesen Werten eine Wahrscheinlichkeit von Null zuweist.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hands-on
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Probieren Sie verschiedene a-priori-Verteilungen aus. Wie beeinflussen sie die a-posteriori-Verteilung?</p>
+<p>we see that this is averaged over all possible values of <span class="math inline">\(\theta\)</span> that the model will allow.</p>
+<p>The priors on <span class="math inline">\(\theta\)</span> are important, because they determine the probability of possible values of <span class="math inline">\(\theta\)</span>.</p>
+<p>The model evidence will depend on what kind of predictions a model can make. This gives us a measure of complexity – <strong>a complex model is a model that can make many predictions</strong>.</p>
+<p>The problem with making many predictions is that most of these predictions will turn out to be false. The complexity of a model depends on (among other things):</p>
 <ul>
-<li>Eine a-priori-Verteilung, die den Glauben ausdrückt, dass B besser ist als A.</li>
-<li>Eine a-priori-Verteilung, die den Glauben ausdrückt, dass entweder A deutlich besser oder B deutlich besser ist.</li>
-<li>Eine a-priori-Verteilung, die den Glauben ausdrückt, dass die Spieler wahrscheinlich gleich gut sind und es unwahrscheinlich ist, dass einer viel besser ist als der andere.</li>
+<li>the number of parameters (as in frequentist model comparison)</li>
+<li>the prior distributions of the model’s parameters</li>
 </ul>
+<p>When a parameter priors are broad (uninformative), those parts of the parameter space where the likelihood is high are comparatively assigned low probability (because the probability is spread out over the whole parameter space). Intuitively, if one hedges one’s bets, one has to assign low probability to parameter values that make good predictions.</p>
+<p>The following prior makes quite a strong prediction about the value of <span class="math inline">\(\theta\)</span> - it is centred on <span class="math inline">\(0.5\)</span>, and the spread is small. Both small and large values are assigned very little probability.</p>
+<div class="cell">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">theta_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length <span class="op">=</span> <span class="fl">101</span><span class="op">)</span></span>
+<span><span class="va">prior1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">200</span>, shape2 <span class="op">=</span> <span class="fl">200</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior1</span>, <span class="st">"l"</span>, lwd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Die a-posteriori-Verteilung repräsentiert unseren Glauben an die möglichen Parameterwerte, nachdem wir die Daten beobachtet haben. <strong>Man kann daher den bayesianische Inferenzprozess als eine Methode betrachten, um die Überzeugungen unter Berücksichtigung der beobachteten Daten zu aktualisieren</strong>. Dabei werden die Wahrscheinlichkeiten über die Parameterwerte neu verteilt, abhängig davon, wie gut diese Parameterwerte die Daten vorhersagten.</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<p>The next prior makes less strong predictions, in the sense that it assigns higher probability to small and large values of <span class="math inline">\(\theta\)</span> (compared to the previous prior, shown as a dashed line).</p>
+<div class="cell">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior2</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">2</span>, shape2 <span class="op">=</span> <span class="fl">2</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior1</span>, <span class="st">"l"</span>, lty<span class="op">=</span><span class="st">"dashed"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/lines.html">lines</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior2</span>, <span class="st">"l"</span>, lwd <span class="op">=</span> <span class="fl">3</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
-<div class="callout-title-container flex-fill">
-Analytische Lösung
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Für einige Probleme ist es möglich, eine analytische Lösung zu finden. Die Likelihood Bernoulli/Binomial und der Beta-Prior gehören dazu.</p>
-<p>In dem obigen Beispiel haben wir eine Technik namens Rasterapproximation verwendet, um die a-posteriori-Verteilung für einen Parameter zu erhalten. Das bedeutet, dass wir verschiedene Parameterwerte ausprobiert haben, indem wir ein Raster erstellt und dann die a-posteriori-Verteilung mit Hilfe der Bayes’schen Regel berechnet haben. Diese Technik wurde lediglich zu Bildungszwecken verwendet, da sie für reale Probleme nicht gut skalierbar ist. In dem einfachen Beispiel einer Abfolge binärer Beobachtungen ist der interessierende Parameter (die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta\)</span> bei einem Bernoulli-Versuch) zwischen <span class="math inline">\(0\)</span> und <span class="math inline">\(1\)</span> begrenzt (<span class="math inline">\(\theta \in [0, 1]\)</span>). Darüber hinaus gibt es nur einen Parameter, der geschätzt werden soll. In komplexeren Modellen mit vielen Parametern kann die Verwendung der Rasterapproximation sehr ineffizient oder sogar unmöglich sein. In solchen Fällen verwenden wir in der Regel numerische Methoden, um die a-posteriori-Verteilung anzunähern. Diese Methoden werden allgemein als Monte-Carlo-Stichproben oder Markov-Chain-Monte-Carlo (MCMC) bezeichnet. Mit Hilfe von MCMC erhalten wir keine analytische Beschreibung der a-posteriori-Verteilungen, sondern eine Sammlung von Zufallszahlen (Stichproben), die aus der a-posteriori-Verteilung gezogen wurden. Wir verwenden diese Stichproben, um die a-posteriori-Verteilung darzustellen.</p>
-<p>In diesem speziellen Fall erhalten wir jedoch die a-posteriori-Verteilung <span class="math inline">\(p(\theta|y)\)</span> analytisch. Damit meine ich, dass, wenn wir eine Beta-Verteilung verwenden, um unseren a-priori-Glauben über den Parameter <span class="math inline">\(\theta\)</span> zu beschreiben, und die Likelihood Bernoulli oder Binomial ist, die a-posteriori-Verteilung ebenfalls eine Beta-Verteilung ist.</p>
-<p>Dies wird hier für die Binomial-Likelihood mit den Daten <span class="math inline">\(k\)</span> Erfolgen in <span class="math inline">\(N\)</span> Versuchen gezeigt.</p>
+<p>A model that makes more precise predictions, i.e.&nbsp;a model with a stronger prior, is considered less complex that a model that makes many predictions.</p>
+</section><section id="bayesian-model-comparison" class="level3"><h3 class="anchored" data-anchor-id="bayesian-model-comparison">Bayesian model comparison</h3>
+<p>Now consider that we have two models, <span class="math inline">\(\mathcal{M1}\)</span> and <span class="math inline">\(\mathcal{M2}\)</span>. We would like to know which model explains the data better. We can use Bayes’ rule to calculate the posterior probability of <span class="math inline">\(\mathcal{M1}\)</span> and <span class="math inline">\(\mathcal{M2}\)</span> (marginalized over all parameters within the model).</p>
 <p><span class="math display">\[
-p(\theta|k, N) = \frac{p(y|\theta) \cdot p(\theta) = \theta^k (1-\theta)^{N-k} \cdot beta(\theta|a, b)}{p(k, N)}
+p(\mathcal{M}_1 | y) = \frac{P(y | \mathcal{M}_1) p(\mathcal{M}_1)}{p(y)}
 \]</span></p>
-<p>wo <span class="math inline">\(a, b\)</span> die Parameters der Beta-Verteilung sind.</p>
+<p>and</p>
 <p><span class="math display">\[
-p(\theta|a, b) = beta(\theta|a, b) = \frac{\theta^{a-1} (1-\theta)^{b-1}} {B(a, b)}
+p(\mathcal{M}_2 | y) = \frac{P(y | \mathcal{M}_2) p(\mathcal{M}_2)}{p(y)}
 \]</span></p>
-<p>Die Funktion <span class="math inline">\(B(a, b)\)</span> ist eine Normalisierungskonstante und stellt sicher, dass die Fläche unter der Kurve zu <span class="math inline">\(1\)</span> integriert.</p>
+<p>One way of comparing the models is by taking the ratio <span class="math inline">\(p(\mathcal{M}_1 | y) / p(\mathcal{M}_2 | y)\)</span>.</p>
 <p><span class="math display">\[
-p(\theta|k, N) = \frac{\theta^{(a+k)-1} (1-\theta)^{(b+N-k)-1}} { B(a+k, b+N-k) }
+\frac{p(\mathcal{M}_1 | y) = \frac{P(y | \mathcal{M}_1) p(\mathcal{M}_1)}{p(y)}} {p(\mathcal{M}_2 | y) = \frac{P(y | \mathcal{M}_2) p(\mathcal{M}_2)}{p(y)}}
 \]</span></p>
-<p>Einfach ausgedrückt:</p>
-<div class="callout callout-style-default callout-tip callout-titled">
+<p>The term <span class="math inline">\(p(y)\)</span> cancels out, giving us:</p>
+<p><span class="math display">\[
+\frac{p(\mathcal{M}_1 | y) = P(y | \mathcal{M}_1) p(\mathcal{M}_1)} {p(\mathcal{M}_2 | y) = P(y | \mathcal{M}_2) p(\mathcal{M}_2)}
+\]</span></p>
+<p>On the left-hand side, we have the ratio of the posterior probabilities of the two models. On the right-hand side, we have the ratio of the marginal likelihoods of the two models, multiplied by the prior probabilities of each model. The marginal likelihoods (also know as model evidence) tell how well each model explains the data.</p>
+<p><span class="math display">\[
+\underbrace{\frac{p(\mathcal{M}_1 | y)} {p(\mathcal{M}_2 | y)}}_\text{Posterior odds} = \underbrace{\frac{P(y | \mathcal{M}_1)}{P(y | \mathcal{M}_2)}}_\text{Ratio of marginal likelihoods} \cdot \underbrace{ \frac{p(\mathcal{M}_1)}{p(\mathcal{M}_2)}}_\text{Prior odds}
+\]</span></p>
+<p><span class="math inline">\(\frac{p(\mathcal{M}_1)}{p(\mathcal{M}_2)}\)</span> are the <strong>prior odds</strong>, and <span class="math inline">\(\frac{p(\mathcal{M}_1 | y)}{p(\mathcal{M}_2 | y)}\)</span> are the <strong>posterior odds</strong>. These tell us which model we believe to be mode probable a priori and a posteriori.</p>
+<p>We are particularly interested in the ratio of the marginal likelihoods:</p>
+<p><span class="math display">\[
+\frac{P(y | \mathcal{M}_1)}{P(y | \mathcal{M}_2)}
+\]</span></p>
+<p>This is the <strong>Bayes factor</strong>, and it can be interpreted as the change from prior odds to posterior odds that is indicated by the data.</p>
+<p>If we consider the prior odds to be <span class="math inline">\(1\)</span>, i.e.&nbsp;we do not favour one model over another a priori, then we are only interested in the Bayes factor. We write this as:</p>
+<p><span class="math display">\[ BF_{12} = \frac{P(y | \mathcal{M}_1)}{P(y | \mathcal{M}_2)}\]</span></p>
+<p>Here, <span class="math inline">\(BF_{12}\)</span> indicates the extent to which the data support model <span class="math inline">\(\mathcal{M}_1\)</span> over model <span class="math inline">\(\mathcal{M}_2\)</span>.</p>
+<p>As an example, if we obtain a <span class="math inline">\(BF_{12} = 5\)</span>, this mean that the data are 5 times more likely to have occured under model 1 than under model 2. Conversely, if <span class="math inline">\(BF_{12} = 0.2\)</span>, then the data are 5 times more likely to have occured under model 2.</p>
+<p>The following <a href="https://www.statology.org/bayes-factor/">interpretations</a> are sometimes used (based on <span class="citation" data-cites="andraszewiczIntroductionBayesianHypothesis">Andraszewicz et al. (<a href="#ref-andraszewiczIntroductionBayesianHypothesis" role="doc-biblioref">n.d.</a>)</span>), although it is not really necessary or helpful to classify Bayes factors.</p>
+</section></section><section id="hypothesis-testing" class="level2"><h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis testing</h2>
+<p>We usually perform model comparisons between a null hypothesis <span class="math inline">\(\mathcal{H}_0\)</span> and an alternative hypothesis <span class="math inline">\(\mathcal{H}_1\)</span>. The terms “model” and “hypothesis” are used synonymously. A null hypothesis means that we fix the value of the parameter to a certain value, e.g.&nbsp;<span class="math inline">\(\theta = 0.5\)</span>. The alternative hypothesis means that we do not fix the value of the parameter, e.g.&nbsp;we do not assume that the parameter is <span class="math inline">\(0.5\)</span>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Tip
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Wenn die a-priori-Verteilung <span class="math inline">\(beta(\theta|a, b)\)</span> ist und die Daten <span class="math inline">\(k\)</span> Erfolge in <span class="math inline">\(N\)</span> Versuchen haben, dann ist die a-posteriori-Verteilung <span class="math inline">\(beta(\theta|a + k, b + N - k)\)</span>.</p>
+<p>It is important to note that the alternative hypothesis needs to be specified. In other words, the parameter(s) need to given a prior distribution.</p>
 </div>
 </div>
-<p>Sie können daher die Parameter <span class="math inline">\(a\)</span> und <span class="math inline">\(b\)</span> als die vorherigen Erfolge und Misserfolge in <span class="math inline">\(N\)</span> Versuchen betrachten, und diese Parameter werden durch die Beobachtung von <span class="math inline">\(k\)</span> Erfolgen in <span class="math inline">\(N\)</span> Versuchen aktualisiert.</p>
-<section id="beispiel" class="level4"><h4 class="anchored" data-anchor-id="beispiel">Beispiel</h4>
-<p>Diesmal verwenden wir theta_grid nur, um die a-priori-Verteilung und die a-posteriori-Verteilung darzustellen. Angenommen, wir haben 8 Spiele beobachtet und Spieler A hat 4 davon gewonnen. Unsere a-priori-Verteilung sollte daher <span class="math inline">\(p(\theta|4,4)\)</span> sein.</p>
+<p>In JASP, we will see Bayes factors reported as either</p>
+<p><span class="math display">\[ BF_{10} = \frac{P(y | \mathcal{H}_1)}{P(y | \mathcal{H}_0)}\]</span></p>
+<p>which indicates a BF for an undirected alternative <span class="math inline">\(\mathcal{H}_1\)</span> versus the null, or</p>
+<p><span class="math display">\[ BF_{+0} = \frac{P(y | \mathcal{H}_+)}{P(y | \mathcal{H}_0)}\]</span></p>
+<p>which indicates a BF for a directed alternative <span class="math inline">\(\mathcal{H}_+\)</span> versus <span class="math inline">\(\mathcal{H}_0\)</span>.</p>
+<p>If we want a BF for the null <span class="math inline">\(\mathcal{H}_0\)</span>, we can simply take the inverse of <span class="math inline">\(BF_{10}\)</span>:</p>
+<p><span class="math display">\[ BF_{01} = \frac{1}{BF_{10}}\]</span></p>
+</section><section id="savage-dickey-density-ratio" class="level2"><h2 class="anchored" data-anchor-id="savage-dickey-density-ratio">Savage-Dickey Density Ratio</h2>
+<p>If we are comparing two nested models, i.e.&nbsp;a model with 1 free parameter and null model (in which that parameter is fixed to a certain value) we can use the Savage-Dickey density ratio to calculate the Bayes factor.</p>
+<ul>
+<li><p>Under the null model (<span class="math inline">\(\mathcal{H}_0\)</span> or <span class="math inline">\(\mathcal{M}_0\)</span>): <span class="math inline">\(\theta = \theta_0\)</span></p></li>
+<li><p>under the alternative model (<span class="math inline">\(\mathcal{H}_1\)</span> or <span class="math inline">\(\mathcal{M}_1\)</span>): <span class="math inline">\(\theta \neq \theta_0\)</span></p></li>
+</ul>
+<p>We need to specify a prior distribution of <span class="math inline">\(\theta\)</span> under <span class="math inline">\(\mathcal{H}_1\)</span>. If we consider the card game example, e.g.&nbsp;<span class="math inline">\(\theta \sim \text{Beta}(1, 1)\)</span>.</p>
+<p>The Savage-Dickey Density Ratio is a simplified manner of obtaining the Bayes factor - we simply need to consider <span class="math inline">\(\mathcal{M}_1\)</span>, and divide the posterior by the prior at the value <span class="math inline">\(\theta_0\)</span>.</p>
+<p>Let’s look at an example from <span class="citation" data-cites="wagenmakersBayesianHypothesisTesting2010a">Wagenmakers et al. (<a href="#ref-wagenmakersBayesianHypothesisTesting2010a" role="doc-biblioref">2010</a>)</span>:</p>
+<p>You observe that a person correctly answers 9 out of 10 yes-or-no questions.</p>
 <div class="cell">
-<div class="sourceCode" id="cb39"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">4</span>, shape2 <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb40"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">theta_grid</span>, <span class="va">prior</span>, <span class="st">"l"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_correct</span> <span class="op">&lt;-</span> <span class="fl">9</span></span>
+<span><span class="va">n_questions</span> <span class="op">&lt;-</span> <span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Wenn wir nun beobachten, dass Spieler A 3 von den nächsten 4 Spielen gewinnt, sollte unsere a-posteriori-Verteilung <span class="math inline">\(p(\theta|4+3,4+1)\)</span> sein.</p>
+<p>We want to know: How likely is that to occur if the person was randomly guessing (<span class="math inline">\(\theta=0.5\)</span>)?</p>
+<p>We will assume a uniform prior over <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[
+p(\theta) = Beta(1, 1)
+\]</span></p>
 <div class="cell">
-<div class="sourceCode" id="cb41"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">posterior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">7</span>, shape2 <span class="op">=</span> <span class="fl">5</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode" id="cb42"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>prior <span class="op">=</span> <span class="va">prior</span>, </span>
-<span>       posterior <span class="op">=</span> <span class="va">posterior</span>, </span>
-<span>       theta <span class="op">=</span> <span class="va">theta_grid</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">prior</span>, <span class="va">posterior</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"distribution"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">theta</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">distribution</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
+<span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, by <span class="op">=</span> <span class="fl">.01</span><span class="op">)</span>,</span>
+<span>    Prior <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">pd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">Prior</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span><span class="op">)</span>, expand <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span></span>
+<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Density"</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="va">theta</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
 </div>
 <div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid" width="672"></p>
+<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid" width="672"></p>
 </div>
 </div>
-<p>Wir können eine Funktion schreiben, die einen Beta-Prior aktualisiert, gegeben <span class="math inline">\(k\)</span> Erfolgen in <span class="math inline">\(N\)</span> Versuchen:</p>
+<p>The next step is to update our prior with the likelihood, in order to obtain the posterior distribution of <span class="math inline">\(\theta\)</span>:</p>
+<p><span class="math display">\[
+p(\theta|y) = Beta(1 + 9, 1 + 1)
+\]</span></p>
+<p>Now we can evaluate both the prior and posterior at the value <span class="math inline">\(0.5\)</span>.</p>
+<p>Prior:</p>
 <div class="cell">
-<div class="sourceCode" id="cb44"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">update_beta</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">a</span>, <span class="va">b</span>, <span class="va">k</span>, <span class="va">N</span><span class="op">)</span> <span class="op">{</span></span>
-<span>  <span class="va">theta_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, length <span class="op">=</span> <span class="fl">101</span><span class="op">)</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="va">a</span> <span class="op">+</span> <span class="va">k</span>, shape2 <span class="op">=</span> <span class="va">b</span> <span class="op">+</span> <span class="va">N</span><span class="op">-</span><span class="va">k</span><span class="op">)</span></span>
-<span><span class="op">}</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">dprior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1</code></pre>
 </div>
+</div>
+<p>Posterior:</p>
 <div class="cell">
-<div class="sourceCode" id="cb45"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">posterior</span> <span class="op">&lt;-</span> <span class="fu">update_beta</span><span class="op">(</span>a <span class="op">=</span> <span class="fl">4</span>, b <span class="op">=</span> <span class="fl">4</span>, k <span class="op">=</span> <span class="fl">3</span>, N <span class="op">=</span> <span class="fl">4</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">dposterior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1074219</code></pre>
 </div>
+</div>
+<p>The Bayes factor <span class="math inline">\(BF_{01}\)</span> is the posterior density divided by the prior density:</p>
 <div class="cell">
-<div class="sourceCode" id="cb46"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>prior <span class="op">=</span> <span class="va">prior</span>, </span>
-<span>       posterior <span class="op">=</span> <span class="va">posterior</span>, </span>
-<span>       theta <span class="op">=</span> <span class="va">theta_grid</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">prior</span>, <span class="va">posterior</span><span class="op">)</span>, names_to <span class="op">=</span> <span class="st">"distribution"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">theta</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">distribution</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">2</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">ylab</a></span><span class="op">(</span><span class="st">""</span><span class="op">)</span> <span class="op">+</span></span>
-<span>      <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid" width="672"></p>
-</div>
-</div>
-</section>
-</div>
-</div>
-</div>
-</section><section id="posterior-verteilung-zusammenfassen" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="posterior-verteilung-zusammenfassen">Posterior-Verteilung Zusammenfassen</h3>
-<p>Wir müssen jetzt noch einen letzten Schritt machen: Wir müssen die a-posteriori-Verteilung zusammenfassen. Dies können wir zum Beispiel tun, indem wir den Mittelwert und die Standardabweichung der a-posteriori-Verteilung berechnen.</p>
-<p>Um zu zeigen, wie das funktioniert, können wir tausend Stichproben aus der a-posteriori-Verteilung ziehen. Zuerst werden wir eine a-posteriori-Verteilung erstellen.</p>
-<div class="cell">
-<div class="sourceCode" id="cb47"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">theta_grid</span>, shape1 <span class="op">=</span> <span class="fl">1</span>, shape2 <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="va">likelihood</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Binomial.html">dbinom</a></span><span class="op">(</span><span class="va">wins</span>, size <span class="op">=</span> <span class="va">games</span> , prob <span class="op">=</span> <span class="va">theta_grid</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BF01</span> <span class="op">&lt;-</span> <span class="va">dposterior</span> <span class="op">/</span> <span class="va">dprior</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb48"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">df</span> <span class="op">&lt;-</span> <span class="fu">compute_posterior</span><span class="op">(</span><span class="va">likelihood</span>, <span class="va">prior</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BF01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1074219</code></pre>
 </div>
+</div>
+<p>This is not so easy to interpret, so we calculate BF10 instead:</p>
 <div class="cell">
-<div class="sourceCode" id="cb49"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu">plot_posterior</span><span class="op">(</span><span class="va">df</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid" width="672"></p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">BF10</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">/</span><span class="va">BF01</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 9.309091</code></pre>
 </div>
 </div>
-<p>Nun ziehen wir 1000 Zufallszahlen aus der a-posteriori-Verteilung.</p>
-<aside>
-Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Sampling, welche für komplexe Probleme verwendet werden, generieren Zufallszahlen aus einer Verteilung, die der a-posteriori-Verteilung entspricht. Wir werden hier nicht auf die Details eingehen, aber Sie können sich das als eine Art “Zufallszahlengenerator” vorstellen, der Zufallszahlen aus der a-posteriori-Verteilung generiert.
-</aside><p>D</p>
+<p>This means that the data are <span class="math inline">\(9.3\)</span> times more likely to have occurred under the alternative than under the null model.</p>
+<p>The following figure is how Bayes factors are usually visualized in JASP. We plot both the prior and posterior distributions, and the density under both, evaluated at <span class="math inline">\(\theta_0 = 0.5\)</span>.</p>
+<p>The density of <span class="math inline">\(\theta_0\)</span> is smaller after having taking into account the data, or in other words: the probability of <span class="math inline">\(\theta_0\)</span> has decreased after observing the data. This allows us to conclude that the data (9 out of 10) are approximately 9 times more likely to have occured under <span class="math inline">\(\mathcal{M1}\)</span>.</p>
 <div class="cell">
-<div class="sourceCode" id="cb50"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_samples</span> <span class="op">&lt;-</span> <span class="fl">1e3</span></span>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pd</span> <span class="op">&lt;-</span> <span class="va">pd</span> <span class="op">|&gt;</span> </span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Posterior <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span> <span class="op">+</span> <span class="va">n_correct</span>, <span class="fl">1</span> <span class="op">+</span> <span class="op">(</span><span class="va">n_questions</span><span class="op">-</span><span class="va">n_correct</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">samples</span> <span class="op">&lt;-</span> <span class="va">theta_grid</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span>size <span class="op">=</span> <span class="va">n_samples</span>, replace <span class="op">=</span> <span class="cn">TRUE</span>, prob <span class="op">=</span> <span class="va">df</span><span class="op">$</span><span class="va">posterior</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span><span class="va">pdw</span> <span class="op">&lt;-</span> <span class="va">pd</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"Type"</span>, </span>
+<span>               values_to <span class="op">=</span> <span class="st">"density"</span>, </span>
+<span>               <span class="va">Prior</span><span class="op">:</span><span class="va">Posterior</span><span class="op">)</span></span>
+<span><span class="va">pdw</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">density</span>, col <span class="op">=</span> <span class="va">Type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dotted"</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>size <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span><span class="fl">0.01</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Density"</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="va">theta</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"point"</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, </span>
+<span>           y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">pdw</span><span class="op">$</span><span class="va">density</span><span class="op">[</span><span class="va">pdw</span><span class="op">$</span><span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">]</span><span class="op">)</span>,</span>
+<span>           size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"label"</span>,</span>
+<span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>,</span>
+<span>    y <span class="op">=</span> <span class="va">pdw</span><span class="op">$</span><span class="va">density</span><span class="op">[</span><span class="va">pdw</span><span class="op">$</span><span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">]</span>,</span>
+<span>    label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">pdw</span><span class="op">$</span><span class="va">density</span><span class="op">[</span><span class="va">pdw</span><span class="op">$</span><span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span>,</span>
+<span>    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">.5</span></span>
+<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid" width="672"></p>
+</div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pd</span>, <span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
+<span>    BF01 <span class="op">=</span> <span class="va">Posterior</span> <span class="op">/</span> <span class="va">Prior</span>,</span>
+<span>    BF10 <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="va">BF01</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.53 0.60 0.79 0.67 0.61 0.76 0.60 0.57 0.79 0.68</code></pre>
+<pre><code># A tibble: 1 × 5
+      x Prior Posterior  BF01  BF10
+  &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1   0.5     1     0.107 0.107  9.31</code></pre>
 </div>
 </div>
-<p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
+</section><section id="case-studies" class="level2"><h2 class="anchored" data-anchor-id="case-studies">Case studies</h2>
+<p>You can generate the following datasets, and then import the <code>CSV</code> files into JASP.</p>
+<section id="card-game" class="level3"><h3 class="anchored" data-anchor-id="card-game">Card game</h3>
+<p>Player A wins 6 out of 9 games.</p>
+<ul>
+<li>Do the data provide evidence that player A is better than player B?</li>
+<li>What is the evidence that they are both equally good?</li>
+</ul>
 <div class="cell">
-<div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.63646</code></pre>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">wins</span> <span class="op">&lt;-</span> <span class="fl">6</span></span>
+<span><span class="va">games</span> <span class="op">&lt;-</span> <span class="fl">9</span></span>
+<span></span>
+<span><span class="va">cardgame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">wins</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">games</span><span class="op">-</span><span class="va">wins</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">games</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cardgame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>game <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="fl">9</span>,</span>
+<span>                   winner <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">cardgame</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"A"</span>, <span class="st">"B"</span><span class="op">)</span>,</span>
+<span>                   indicator <span class="op">=</span> <span class="va">cardgame</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">cardgame</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="st">"cardgame.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heißt ein Intervall, das 50% der Verteilungsmasse enthält.</p>
+</section><section id="exam-questions" class="level3"><h3 class="anchored" data-anchor-id="exam-questions">Exam questions</h3>
+<p>A student correctly answer 9 questions out of 10.</p>
+<ul>
+<li>What is the evidence that the student was guessing (got lucky)?</li>
+<li>What is the evidence that the student’s ability is greater than <span class="math inline">\(0.5\)</span>?</li>
+</ul>
 <div class="cell">
-<div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> 25%  50%  75% 
-0.54 0.65 0.74 </code></pre>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_correct</span> <span class="op">&lt;-</span> <span class="fl">9</span></span>
+<span><span class="va">n_questions</span> <span class="op">&lt;-</span> <span class="fl">10</span></span>
+<span></span>
+<span><span class="va">questions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="va">n_correct</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">0</span>, <span class="va">n_questions</span><span class="op">-</span><span class="va">n_correct</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/sample.html">sample</a></span><span class="op">(</span><span class="va">n_questions</span>, replace <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">questions</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>question <span class="op">=</span> <span class="fl">1</span><span class="op">:</span><span class="va">n_questions</span>,</span>
+<span>                   correct <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/if_else.html">if_else</a></span><span class="op">(</span><span class="va">questions</span> <span class="op">==</span> <span class="fl">1</span>, <span class="st">"correct"</span>, <span class="st">"error"</span><span class="op">)</span>,</span>
+<span>                   indicator <span class="op">=</span> <span class="va">questions</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">questions</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="st">"questions.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<p>Wir können diesen Ansatz auch verwenden, um ein 95% <strong>credible interval</strong> zu berechnen.</p>
+</section><section id="smart-drug-t-test" class="level3"><h3 class="anchored" data-anchor-id="smart-drug-t-test">Smart drug t-test</h3>
+<p>Generate this dataframe, and export it as <code>CSV</code> file. In this example, we want to compare two groups’ IQ scores. One of the groups has been given a drug to make them smart, the other is the control group.</p>
 <div class="cell">
-<div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> 2.5% 97.5% 
- 0.36  0.86 </code></pre>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">smart</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>IQ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">101</span>,<span class="fl">100</span>,<span class="fl">102</span>,<span class="fl">104</span>,<span class="fl">102</span>,<span class="fl">97</span>,<span class="fl">105</span>,<span class="fl">105</span>,<span class="fl">98</span>,<span class="fl">101</span>,<span class="fl">100</span>,<span class="fl">123</span>,<span class="fl">105</span>,<span class="fl">103</span>,</span>
+<span>                      <span class="fl">100</span>,<span class="fl">95</span>,<span class="fl">102</span>,<span class="fl">106</span>,<span class="fl">109</span>,<span class="fl">102</span>,<span class="fl">82</span>,<span class="fl">102</span>,<span class="fl">100</span>,<span class="fl">102</span>,<span class="fl">102</span>,<span class="fl">101</span>,<span class="fl">102</span>,<span class="fl">102</span>,</span>
+<span>                      <span class="fl">103</span>,<span class="fl">103</span>,<span class="fl">97</span>,<span class="fl">97</span>,<span class="fl">103</span>,<span class="fl">101</span>,<span class="fl">97</span>,<span class="fl">104</span>,<span class="fl">96</span>,<span class="fl">103</span>,<span class="fl">124</span>,<span class="fl">101</span>,<span class="fl">101</span>,<span class="fl">100</span>,</span>
+<span>                      <span class="fl">101</span>,<span class="fl">101</span>,<span class="fl">104</span>,<span class="fl">100</span>,<span class="fl">101</span><span class="op">)</span>,</span>
+<span>               Group <span class="op">=</span> <span class="st">"SmartDrug"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">placebo</span> <span class="op">=</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span>IQ <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">99</span>,<span class="fl">101</span>,<span class="fl">100</span>,<span class="fl">101</span>,<span class="fl">102</span>,<span class="fl">100</span>,<span class="fl">97</span>,<span class="fl">101</span>,<span class="fl">104</span>,<span class="fl">101</span>,<span class="fl">102</span>,<span class="fl">102</span>,<span class="fl">100</span>,<span class="fl">105</span>,</span>
+<span>                        <span class="fl">88</span>,<span class="fl">101</span>,<span class="fl">100</span>,<span class="fl">104</span>,<span class="fl">100</span>,<span class="fl">100</span>,<span class="fl">100</span>,<span class="fl">101</span>,<span class="fl">102</span>,<span class="fl">103</span>,<span class="fl">97</span>,<span class="fl">101</span>,<span class="fl">101</span>,<span class="fl">100</span>,</span>
+<span>                        <span class="fl">101</span>, <span class="fl">99</span>,<span class="fl">101</span>,<span class="fl">100</span>,<span class="fl">100</span>,<span class="fl">101</span>,<span class="fl">100</span>,<span class="fl">99</span>,<span class="fl">101</span>,<span class="fl">100</span>,<span class="fl">102</span>,<span class="fl">99</span>,<span class="fl">100</span>,<span class="fl">99</span><span class="op">)</span>,</span>
+<span>                 Group <span class="op">=</span> <span class="st">"Placebo"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">SmartDrug</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/bind_rows.html">bind_rows</a></span><span class="op">(</span><span class="va">smart</span>, <span class="va">placebo</span><span class="op">)</span>  <span class="op">|&gt;</span></span>
+<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Group <span class="op">=</span> <span class="fu"><a href="https://forcats.tidyverse.org/reference/fct_relevel.html">fct_relevel</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/factor.html">as.factor</a></span><span class="op">(</span><span class="va">Group</span><span class="op">)</span>, <span class="st">"Placebo"</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell">
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/write_delim.html">write_csv</a></span><span class="op">(</span><span class="va">SmartDrug</span>, file <span class="op">=</span> <span class="st">"SmartDrug.csv"</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Dies sollte nicht mit dem 95%-Konfidenzintervall verwechselt werden. Können Sie sich daran erinnern, wie ein Konfidenzintervall definiert ist? Was ist der Unterschied zwischen einem Konfidenzintervall und einem <strong>credible interval</strong>?</p>
-</div>
-</div>
-<p>Was wir bisher gemacht haben, ist, die bayessche Inferenz für die Parameterschätzung in einem sehr einfachen Modell zu betrachten. Nennen wir dieses Modell <span class="math inline">\(\mathcal{M}\)</span>. Wir haben immer nur ein Modell betrachtet, aber im nächsten teil werden wir zwei oder mehrere Modelle <span class="math inline">\(\mathcal{M_j}\)</span> betrachten, die sich in den a-priori-Verteilungen unterscheiden. Dann werden wir Methoden zur Modellvergleich untersuchen, um Hypothesentests in einem bayesianischen Framework durchzuführen.</p>
-<p>Insbesondere werden wir uns ansehen, wie der bayesianischen Modellvergleich helfen kann, wenn wir keine signifikanten Ergebnisse haben.</p>
 
 
-</section></section><div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-<ol>
-<li id="fn1"><p>In der frequentistischen Statistik ist das Konzept bedeutungslos - Parameter können keine Verteilung haben. In der Bayesschen Statistik sollte eine a-priori-Verteilung alles widerspiegeln, was wir über den Parameter wissen, bevor wir die Daten berücksichtigen. Die a-priori-Verteilung spiegelt unseren Glauben wider, der subjektiv oder objektiv sein kann.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>2 damit die Fläche zwischen 0 und 1 sich zu 1 addiert.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
+
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-andraszewiczIntroductionBayesianHypothesis" class="csl-entry" role="listitem">
+Andraszewicz, Sandra, Benjamin Scheibehenne, Jörg Rieskamp, Raoul Grasman, Josine Verhagen, and Eric-Jan Wagenmakers. n.d. <span>“An <span>Introduction</span> to <span>Bayesian Hypothesis Testing</span> for <span>Management Research</span>,”</span> 23. <a href="https://doi.org/10.1177/0149206314560412">https://doi.org/10.1177/0149206314560412</a>.
+</div>
+<div id="ref-wagenmakersBayesianHypothesisTesting2010a" class="csl-entry" role="listitem">
+Wagenmakers, Eric-Jan, Tom Lodewyckx, Himanshu Kuriyal, and Raoul Grasman. 2010. <span>“Bayesian Hypothesis Testing for Psychologists: <span>A</span> Tutorial on the <span>Savage</span>–<span>Dickey</span> Method.”</span> <em>Cognitive Psychology</em> 60 (3): 158–89. <a href="https://doi.org/10.1016/j.cogpsych.2009.12.001">https://doi.org/10.1016/j.cogpsych.2009.12.001</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
   author = {Ellis, Andrew},
-  title = {Einführung in Die {Bayesianische} {Statistik}},
-  date = {2022-05-08},
+  title = {Bayes {Factors:} {Bayesianische} {Hypothesentests}},
+  date = {2022-05-15},
   url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ellis, Andrew. 2022. <span>“Einführung in Die Bayesianische
-Statistik.”</span> May 8, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html</a>.
+Ellis, Andrew. 2022. <span>“Bayes Factors: Bayesianische
+Hypothesentests.”</span> May 15, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html</a>.
 </div></div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
