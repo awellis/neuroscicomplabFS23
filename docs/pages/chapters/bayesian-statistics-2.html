@@ -1038,14 +1038,14 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.65 0.57 0.65 0.80 0.73 0.54 0.46 0.56 0.64 0.92</code></pre>
+<pre><code> [1] 0.75 0.70 0.36 0.68 0.60 0.66 0.56 0.74 0.54 0.59</code></pre>
 </div>
 </div>
 <p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.64082</code></pre>
+<pre><code>[1] 0.6405</code></pre>
 </div>
 </div>
 <p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.</p>
@@ -1053,7 +1053,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 25%  50%  75% 
-0.55 0.65 0.74 </code></pre>
+0.54 0.65 0.74 </code></pre>
 </div>
 </div>
 <p>Wir können diesen Ansatz auch verwenden, um ein 95% <strong>credible interval</strong> zu berechnen.</p>
@@ -1061,7 +1061,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2.5% 97.5% 
- 0.35  0.89 </code></pre>
+ 0.34  0.89 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
