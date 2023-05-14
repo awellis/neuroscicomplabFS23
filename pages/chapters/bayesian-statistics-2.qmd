@@ -296,7 +296,7 @@ n_points <- 101
 theta_grid <- seq( from=0 , to=1 , length.out = n_points )
 ```
 
-Für jeden von diesen haben wir die Likelihood berechnet, das heißt die Wahrscheinlichkeit, die (festgelegten) Daten zu beobachten, gegeben den Parameter. Jetzt können wir unser Wissen über die Wahrscheinlichkeit jedes Parameterwerts explizit machen. Zunächst nehmen wir an, dass alle Parameter gleich wahrscheinlich sind. Wir weisen jedem Parameterwert die Wahrscheinlichkeit 1 zu. Dies ist unsere a-priori-Verteilung.
+Für jeden von diesen haben wir die Likelihood berechnet, das heisst die Wahrscheinlichkeit, die (festgelegten) Daten zu beobachten, gegeben den Parameter. Jetzt können wir unser Wissen über die Wahrscheinlichkeit jedes Parameterwerts explizit machen. Zunächst nehmen wir an, dass alle Parameter gleich wahrscheinlich sind. Wir weisen jedem Parameterwert die Wahrscheinlichkeit 1 zu. Dies ist unsere a-priori-Verteilung.
 
 
 ```{r}
@@ -307,7 +307,7 @@ prior_1 <- rep(1, length(theta_grid))
 plot(theta_grid, prior_1, "type" = "l")
 ```
 
-Wir könnten auch die Überzeugung ausdrücken, dass Spieler A mindestens so gut ist wie Spieler B, d.h. sie sind gleich gut oder A ist besser als B. Eine Möglichkeit, dies zu tun, besteht darin, Parameterwerten, die größer oder gleich $0.5$ sind, eine Wahrscheinlichkeit von $2$^[2 damit die Fläche zwischen 0 und 1 sich zu 1 addiert.] zuzuweisen und den Wert $0$ für Parameterwerte kleiner als $0.5$.
+Wir könnten auch die Überzeugung ausdrücken, dass Spieler A mindestens so gut ist wie Spieler B, d.h. sie sind gleich gut oder A ist besser als B. Eine Möglichkeit, dies zu tun, besteht darin, Parameterwerten, die grösser oder gleich $0.5$ sind, eine Wahrscheinlichkeit von $2$^[2 damit die Fläche zwischen 0 und 1 sich zu 1 addiert.] zuzuweisen und den Wert $0$ für Parameterwerte kleiner als $0.5$.
 
 
 
@@ -666,7 +666,7 @@ Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnun
 mean(samples)
 ```
 
-Mit dem folgenden Code erhalten wir den Median und ein 50% **credible interval**, das heißt ein Intervall, das 50% der Verteilungsmasse enthält.
+Mit dem folgenden Code erhalten wir den Median und ein 50% **credible interval**, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.
 
 
 ```{r}
