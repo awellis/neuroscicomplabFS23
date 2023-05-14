@@ -74,7 +74,7 @@ This means that data we estimate parameters of our models for each participant s
 
 A principled solution to the problems associated with individual and group level analyses is to use multilevel modelling. This allows us to simultaneously estimate group level parameters (fixed effects) and individual parameters (random effects) as deviations from the group average. This leads to the phenomenon known as _shrinkage_, which means that individual estimates are "pulled" towards the group average, and are less susceptible to noise in the data. An intuitive way of thinking about this is that we are assuming that participants are all individuals, but they do share some common characteristics, and we can use information obtained from other participants to inform our estimates. This is what _partial pooling_ refers to.
  
-While multilevel models are outside the scope of this course, we will look some basic models in our final session on Baysian data analysis. The basic idea is that each individual participant's parameters are treated as random draws from a group-level distribution, and the average effect is then simply the mean of that distribution.
+While multilevel models are outside the scope of this course, we will look some basic models in our final session on Bayesian data analysis. The basic idea is that each individual participant's parameters are treated as random draws from a group-level distribution, and the average effect is then simply the mean of that distribution.
 
 :::aside
 Multilevel models do not have to be Bayesian - the can just as well be estimated using maximum likelihood estimation.

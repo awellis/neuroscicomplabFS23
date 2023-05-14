@@ -175,7 +175,7 @@ p2
 Vielleicht hilft Ihnen folgende interaktive Grafik: [Understanding Statistical Power and Significance Testing](https://rpsychologist.com/d3/nhst/) 
 
 
-## Aufgabe 3
+## Aufgabe 3 {#sec-ttest}
 
 Importieren Sie das CSV File `FancyHat.csv` in `Jasp` und führen Sie einen t-Test für unabhängige Stichproben durch. 
 
@@ -192,7 +192,7 @@ In dieser (fiktiven) Studie wurden Versuchspersonen in zwei Gruppen eingeteilt; 
 
 
 :::{.callout-tip collapse="true"}
-## Informationen zu den Daten
+## Informationen zu den Daten 
 Die Daten wurden von generiert, basieren aber auf einer echten Studie. Beide Gruppen wurden als normalverteilte Zufallszahlen simuliert, mit einer gemeinsamen Standardabweichung von 15. Die Gruppe mit den _fancy hats_ hat einen Mittelwert von 103, die Gruppe ohne _fancy hats_ einen Mittelwert von 98. Die Stichprobe umfasst 50 Personen pro Gruppe.
 Die wurden also so simuliert, dass es einen Unterschied zwischen den Gruppen gibt, der aber klein ist.
 

@@ -26,8 +26,17 @@ code-annotations: select
 # Set working directory of R
 knitr::opts_knit$set(root.dir = "../../data/session-11")
 
-# library(webexercises)
+library(webexercises)
 ```
+
+:::{.callout-tip}
+## Wichtig
+
+👉 [Daten (`FancyHat.csv`) herunterladen](../../downloadable_files/FancyHat.csv)
+
+👉 [Jasp installieren]([../../downloadable_files/rdkdata_clean.csv](https://jasp-stats.org/))
+:::
+
 
 
 :::{.callout-tip collapse="false"}
