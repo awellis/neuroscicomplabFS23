@@ -46,7 +46,6 @@ In der heutigen Sitzung:
 
 - Brainstorming: NHST, Power
 - Welche Fagen kann NHST beantworten?
-- Einführung in die Bayes'sche Inferenz
 :::
 
 
@@ -313,7 +312,7 @@ Stellen Sie sich vor, sie untersuchen eine Person, welche behauptet, extrasensor
 ## Fragen
 - Welche Fragen könnten von Interesse sein? 
 - Wie würden Sie die Behauptung der Person überprüfen?
-- Glauben Sie, dass die Person über extrasensorische Fähigkeiten verfügt? Sind Sie skeptisch?
+- Glauben Sie, dass die Person über extra-sensorische Fähigkeiten verfügt? Sind Sie skeptisch?
 - - Unter den Dropdown Menus `Model`, `Prior and Posterior Distributions` und `Plots` gibt es verschiedene Checkboxes. Versuchen Sie herauszufinden, was diese bewirken.
 - Wie können Sie ihr Vorwissen in die Analyse einbeziehen? Wie verbinden sie ihr Vorwissen mit den beobachteten Daten?
 :::
