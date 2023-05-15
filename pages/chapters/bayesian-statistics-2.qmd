@@ -63,14 +63,14 @@ Man kann das auch spezifisch für Hypothesentests formulieren:
 $$ P(Hypothesis|Data) =  \frac{P(Data|Hypothesis) ⋅ P(Data)}{P(Hypothesis)} $$
 :::
 
-Der wesentlichste Unterschied zwischen der Bayesianischen und der frequentistischen Statistik ist, dass in der Bayesianischen Statistik die Wahrscheinkeitstheorie konsequent angewandt wird, um Parameter zu schätzen. 
+Der wesentlichste Unterschied zwischen der Bayesianischen und der frequentistischen Statistik ist, dass in der Bayesianischen Statistik die Wahrscheinlichkeitstheorie konsequent angewandt wird, um Parameter zu schätzen. 
 
 - In der frequentistischen Statistik wird die Wahrscheinkeitslehre vor allem angewandt, um die Wahrscheinlichkeit der Daten zu berechnen, unter der Annahme, dass die Nullhypothese wahr ist. 
 - In der Bayesianischen Statistik wird die Wahrscheinkeitslehre angewandt, um die Wahrscheinlichkeit der Parameter zu berechnen.
 
 Dieser Unterschied hat weitreichende Konsequenzen. So kann man in der frequentistischen Statistik Parameter schätzen, aber es wird wird angenommen, dass ein Parameter einen wahren (aber unbekannten) Wert hat. Der Parameter ist aber keine Zufallszahl, und hat daher keine Wahrscheinlichkeitsverteilung. Daher darf man nicht über die Wahrscheinlichkeit eines Parameters sprechen. In der Bayesianischen Statistik ist ein Parameter eine Zufallszahl, und hat daher eine Wahrscheinlichkeitsverteilung. Wir benützen Bayes Theorem um die Wahrscheinlichkeit von Parametern zu berechnen.
 
-Im foglenden Kapitel werden uns (in einer sehr verkürzten Form) damit beschäftigen, was die Konsequenzen dieser unterschiedlichen Sichtweisen sind, und wie Bayesianische Statistik funktioniert. Am Anfang müssen wir jedoch eine zentral Frage beantworten: Was ist eigentlich der Unterschied zwischen Parameterschätzung und Modellvergleichen / Hypothesentests? 
+Im folgenden Kapitel werden uns (in einer sehr verkürzten Form) damit beschäftigen, was die Konsequenzen dieser unterschiedlichen Sichtweisen sind, und wie Bayesianische Statistik funktioniert. Am Anfang müssen wir jedoch eine zentral Frage beantworten: Was ist eigentlich der Unterschied zwischen Parameterschätzung und Modellvergleichen / Hypothesentests? 
 
 <aside>
 Modellvergleiche und Hypothesentests werden hier synomym verwendet.
@@ -103,9 +103,9 @@ $$
 
 $y_{ij}$ ist die Beobachtung $i$ in Gruppe $j \in \{1, 2\}$. Wir interessieren uns für den Unterschied zwischen den Mittelwerten $\mu_1$ und $\mu_2$.
 
-2) Wir schätzen die Gruppenmittelwerte mittels Maximum Likelihood Schätzung. In diesem Falle geht das ganz einfach; die Stichprobenmittelwerte sind Maximum Likelihood Schätzer, und können einfach berechnet werden. Der weitere Parameter wir ebenfalls geschätzt, und zwar als die gepoolte Standardabweichung $s_p$. Dies ist der __Parameterschätzung__-Schritt.
+1) Wir schätzen die Gruppenmittelwerte mittels Maximum Likelihood Schätzung. In diesem Falle geht das ganz einfach; die Stichprobenmittelwerte sind Maximum Likelihood Schätzer, und können einfach berechnet werden. Der Parameter $\sigma$ wird ebenfalls geschätzt, und zwar als die gepoolte Standardabweichung $s_p$. Dies ist der __Parameterschätzungs__-Schritt.
 
-3) Wir berechnen eine Test Statistik. Diese basiert auf dem Mittelwertsunterschied $\mu_1 - \mu_2$.
+2) Wir berechnen eine Test Statistik. Diese basiert auf dem Mittelwertsunterschied $\mu_1 - \mu_2$.
 
 $$
 t = \frac{\bar{x_1} - \bar{x_2}}{s_p \sqrt{2/n}}
@@ -115,6 +115,13 @@ $$
 $s_p \sqrt{2/n}$ ist der Standardfehler der Differenz $\bar{x_1} - \bar{x_2}$. _Unter der Annahme, dass die Nullhypothese gilt_, folgt $t$ einer Student-t Verteilung. Wir können nun berechnen, was die Wahrscheinlichkeit wäre, einen mindestens so extremen t-Wert zu erhalten. Diese Wahrscheinlichkeit nennt man den *p-Wert*. Wichtig: dies ist bereits ein __Modellvergleich__. Wir benutzen hier ein Modell, in dem die Mittelwerte gleich sind.
 
 4) Wir können uns nun entscheiden, ob wir die Nullhypothese verwerfen oder nicht. Wir vergleichen den p-Wert mit einem vorgegebenen Signifikanzniveau $\alpha$. Wenn der p-Wert kleiner ist als $\alpha$, dann verwerfen wir die Nullhypothese. Dies bedeutet, dass wir die Tatsache, dass der p-Wert "genügend" klein ist, als Evidenz gegen die Nullhypothese deuten. 
+
+:::{.callout-caution}
+## Hands-on
+
+- Was können Sie aus dem p-Wert schliessen? 
+- Was können Sie nicht aus dem p-Wert schliessen?
+:::
 
 :::
 
@@ -172,6 +179,8 @@ Wenn wir frequentistisch vorgehen, müssen wir nun den Wert von $\theta$ so sch�
 Wenn wir beobachten, dass Spieler A sechs von neun Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit $\theta = 6/9 = 0.67$. Dies ist der Maximum Likelihood Schätzer für $\theta$. 
 
 Dieser Schätzer ist die beste Punktschätzung, die wir machen können, wenn wir nur die Daten betrachten, und kein weiteres Vorwissen berücksichtigen. Wir können jedoch auch andere Informationen in Betracht ziehen. Dies ist der Fall, wenn wir die Bayesianische Statistik verwenden.
+
+Mehr Informationen zum Thema Maximum Likelihood finden Sie auf dieser interaktiven Webseite: [rpsychologist.com/likelihood](https://rpsychologist.com/likelihood/).
 :::
 
 Wir können dies auch mit in R numerisch, d.h. mit der "brute force" Methode, berechnen:
@@ -254,7 +263,7 @@ Was wir bisher gemacht haben, unterstreicht den Unterschied zwischen Parametersc
 
 ### Vorwissen
 
-die wahrscheinlichsten Parameter a priori gehabt hätten. Tatsächlich haben wir, wie wir etwas weiter unten sehen werden, implizit angenommen, dass alle Parameter gleich wahrscheinlich sind. Jetzt führen wir ein neues Konzept ein: eine a-priori-Verteilung für die Parameter, die wir versuchen zu schätzen^[In der frequentistischen Statistik ist das Konzept bedeutungslos - Parameter können keine Verteilung haben. In der Bayesschen Statistik sollte eine a-priori-Verteilung alles widerspiegeln, was wir über den Parameter wissen, bevor wir die Daten berücksichtigen. Die a-priori-Verteilung spiegelt unseren Glauben wider, der subjektiv oder objektiv sein kann.].
+Bisher haben wir keine vorherigen Kenntnisse berücksichtigt, die wir möglicherweise über die wahrscheinlichsten Parameter a priori gehabt hätten. Tatsächlich haben wir, wie wir etwas weiter unten sehen werden, implizit angenommen, dass alle Parameter gleich wahrscheinlich sind. Jetzt führen wir ein neues Konzept ein: eine a-priori-Verteilung für die Parameter, die wir versuchen zu schätzen^[In der frequentistischen Statistik ist das Konzept bedeutungslos - Parameter können keine Verteilung haben. In der Bayesschen Statistik sollte eine a-priori-Verteilung alles widerspiegeln, was wir über den Parameter wissen, bevor wir die Daten berücksichtigen. Die a-priori-Verteilung spiegelt unseren Glauben wider, der subjektiv oder objektiv sein kann.].
 
 Wir werden dann diesen _a-priori_-Glauben verwenden, um einen _a-posteriori_-Glauben über die möglichen Parameterwerte zu erlangen. Um dies zu tun, müssen wir die a-priori-Wahrscheinlichkeit jedes Parameterwerts mit der Likelihood der Daten, d.h. mit der bedingten Wahrscheinlichkeit, die Daten zu beobachten, gegeben diesen Parameterwert, multiplizieren. Dies ist eine Anwendung des Bayes'schen Theorems:
 
@@ -287,7 +296,7 @@ $$
 :::
 
 <aside>
-Der Begriff _belief_ wird im Englischen oft als Synomym für Wahrscheinlichkeitsverteilung verwendet. Ich übersetze _belief_ hier mit _Überzeugung_.
+Der Begriff _belief_ wird im Englischen oft als Synonym für Wahrscheinlichkeitsverteilung verwendet. Ich übersetze _belief_ hier mit _Überzeugung_.
 </aside>
  
 ### Bayesianische Inferenz mit binären Daten: Ein numerisches Beispiel
@@ -299,7 +308,7 @@ n_points <- 101
 theta_grid <- seq( from=0 , to=1 , length.out = n_points )
 ```
 
-Für jeden von diesen haben wir die Likelihood berechnet, das heisst die Wahrscheinlichkeit, die (festgelegten) Daten zu beobachten, gegeben den Parameter. Jetzt können wir unser Wissen über die Wahrscheinlichkeit jedes Parameterwerts explizit machen. Zunächst nehmen wir an, dass alle Parameter gleich wahrscheinlich sind. Wir weisen jedem Parameterwert die Wahrscheinlichkeit 1 zu. Dies ist unsere a-priori-Verteilung.
+Für jeden von diesen haben wir die Likelihood berechnet, das heisst die Wahrscheinlichkeit, die (festgelegten) Daten zu beobachten, gegeben den Parametern. Jetzt können wir unser Wissen über die Wahrscheinlichkeit jedes Parameterwerts explizit machen. Zunächst nehmen wir an, dass alle Parameter gleich wahrscheinlich sind. Wir weisen jedem Parameterwert die Wahrscheinlichkeit 1 zu. Dies ist unsere a-priori-Verteilung.
 
 
 ```{r}
