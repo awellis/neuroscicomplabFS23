@@ -274,7 +274,7 @@ pd <- tibble(
     Prior = dbeta(x, 1, 1)
 )
 ggplot(pd, aes(x, Prior)) +
-    geom_line(size = 1.5) +
+    geom_line(linewidth = 1.5) +
     coord_cartesian(xlim = 0:1, ylim = c(0, 6), expand = 0.01) +
     labs(y = "Density", x = bquote(theta))
 ```
@@ -336,7 +336,7 @@ pdw <- pd |>
 pdw |> 
   ggplot(aes(x, density, col = Type)) +
   geom_vline(xintercept = 0.5, linetype = "dotted") +
-  geom_line(size = 1.5) +
+  geom_line(linewidth = 1.5) +
   scale_x_continuous(expand = expansion(0.01)) +
   scale_color_viridis_d(end = 0.8) +
   labs(y = "Density", x = bquote(theta)) +
@@ -375,6 +375,10 @@ Player A wins 6 out of 9 games.
 
 
 ```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+
 wins <- 6
 games <- 9
 
@@ -399,6 +403,10 @@ A student correctly answer 9 questions out of 10.
 
 
 ```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+
 n_correct <- 9
 n_questions <- 10
 
@@ -419,6 +427,10 @@ Generate this dataframe, and export it as `CSV` file. In this example, we want t
 
 
 ```{r}
+#| warning: false
+#| message: false
+library(tidyverse)
+
 smart = tibble(IQ = c(101,100,102,104,102,97,105,105,98,101,100,123,105,103,
                       100,95,102,106,109,102,82,102,100,102,102,101,102,102,
                       103,103,97,97,103,101,97,104,96,103,124,101,101,100,
