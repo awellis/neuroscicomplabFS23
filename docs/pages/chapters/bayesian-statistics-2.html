@@ -518,14 +518,11 @@ t = \frac{\bar{x_1} - \bar{x_2}}{s_p \sqrt{2/n}}
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Hands-on
+Missverständnisse über p-Werte
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<ul>
-<li>Was können Sie aus dem p-Wert schliessen?</li>
-<li>Was können Sie nicht aus dem p-Wert schliessen?</li>
-</ul>
+<p>p-Werte sind schwierig zu verstehen; eine sehr gute Einführung und Erklärung von Missverständnissen finden Sie im online Buch <a href="https://lakens.github.io/statistical_inferences/01-pvalue.html#sec-misconceptions">Improving Your Statistical Inferences</a> von Daniel Lakens.</p>
 </div>
 </div>
 </div>
@@ -1076,22 +1073,22 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.65 0.43 0.69 0.64 0.68 0.41 0.76 0.59 0.60 0.74</code></pre>
+<pre><code> [1] 0.67 0.66 0.80 0.53 0.48 0.75 0.72 0.56 0.85 0.91</code></pre>
 </div>
 </div>
 <p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.63082</code></pre>
+<pre><code>[1] 0.63937</code></pre>
 </div>
 </div>
 <p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.</p>
 <div class="cell">
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 25%  50%  75% 
-0.54 0.64 0.74 </code></pre>
+<pre><code>   25%    50%    75% 
+0.5475 0.6500 0.7500 </code></pre>
 </div>
 </div>
 <p>Wir können diesen Ansatz auch verwenden, um ein 95% <strong>credible interval</strong> zu berechnen.</p>
@@ -1099,7 +1096,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2.5% 97.5% 
- 0.33  0.88 </code></pre>
+ 0.35  0.88 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">

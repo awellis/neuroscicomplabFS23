@@ -117,10 +117,9 @@ $s_p \sqrt{2/n}$ ist der Standardfehler der Differenz $\bar{x_1} - \bar{x_2}$. _
 4) Wir können uns nun entscheiden, ob wir die Nullhypothese verwerfen oder nicht. Wir vergleichen den p-Wert mit einem vorgegebenen Signifikanzniveau $\alpha$. Wenn der p-Wert kleiner ist als $\alpha$, dann verwerfen wir die Nullhypothese. Dies bedeutet, dass wir die Tatsache, dass der p-Wert "genügend" klein ist, als Evidenz gegen die Nullhypothese deuten. 
 
 :::{.callout-caution}
-## Hands-on
+## Missverständnisse über p-Werte
 
-- Was können Sie aus dem p-Wert schliessen? 
-- Was können Sie nicht aus dem p-Wert schliessen?
+p-Werte sind schwierig zu verstehen; eine sehr gute Einführung und Erklärung von Missverständnissen finden Sie im online Buch [Improving Your Statistical Inferences](https://lakens.github.io/statistical_inferences/01-pvalue.html#sec-misconceptions) von Daniel Lakens.
 :::
 
 :::
