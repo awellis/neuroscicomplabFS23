@@ -88,7 +88,7 @@ Mit einem t-Test wollen wir einen Mittelwertsunterschied testen. Dies bedeutet, 
 Bevor wir diesen Vergleich machen können, müssen wir jedoch die Mittelwerte schätzen. Dies ist eine __Parameterschätzung__. Im frequentistischen Ansatz benutzen wir den Stichprobenmittelwert als Schätzer für den Mittelwert, der in der Population, aus der diese Stichprobe gezogen wurde, gilt. 
 
 
-:::{.callout-important collapse="true"}
+:::{.callout-important collapse="false"}
 ## Wie funktioniert ein frequentistischer t-Test?
 
 Wir schauen uns hier noch einmal explizit das Vorgehen und die Annahmen eines t-Tests an.Mehr dazu finden Sie bei [Aufgabe 3](http://localhost:7820/pages/chapters/bayesian-statistics-1.html#sec-ttest).

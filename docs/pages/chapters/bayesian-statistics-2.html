@@ -481,7 +481,7 @@ Modellvergleiche und Hypothesentests werden hier synomym verwendet.
 <p>Mit einem t-Test wollen wir einen Mittelwertsunterschied testen. Dies bedeutet, wir wollen wissen, ob sich zwei Mittelwerte voneinander unterscheiden (wir beschränken uns hier auf zwei unabhängige Gruppen). Diese Frage bezieht sich auf einen <strong>Modellvergleich</strong>: Wir vergleichen ein Modell, in dem die Mittelwerte gleich sind, mit einem Modell, in dem die Mittelwerte unterschiedlich sind.</p>
 <p>Bevor wir diesen Vergleich machen können, müssen wir jedoch die Mittelwerte schätzen. Dies ist eine <strong>Parameterschätzung</strong>. Im frequentistischen Ansatz benutzen wir den Stichprobenmittelwert als Schätzer für den Mittelwert, der in der Population, aus der diese Stichprobe gezogen wurde, gilt.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -490,7 +490,7 @@ Wie funktioniert ein frequentistischer t-Test?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Wir schauen uns hier noch einmal explizit das Vorgehen und die Annahmen eines t-Tests an.Mehr dazu finden Sie bei <a href="http://localhost:7820/pages/chapters/bayesian-statistics-1.html#sec-ttest">Aufgabe 3</a>.</p>
 <p>Wir haben zwei Gruppen, und wollen wissen, ob sich die Mittelwerte der beiden Gruppen unterscheiden.</p>
@@ -1044,14 +1044,14 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.64 0.59 0.42 0.60 0.73 0.67 0.71 0.84 0.61 0.52</code></pre>
+<pre><code> [1] 0.67 0.54 0.59 0.54 0.32 0.57 0.79 0.65 0.57 0.31</code></pre>
 </div>
 </div>
 <p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.63345</code></pre>
+<pre><code>[1] 0.63537</code></pre>
 </div>
 </div>
 <p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.</p>
@@ -1067,7 +1067,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2.5% 97.5% 
- 0.37  0.88 </code></pre>
+ 0.36  0.87 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
