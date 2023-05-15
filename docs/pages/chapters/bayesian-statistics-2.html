@@ -382,7 +382,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>
 <!-- main -->
 <main class="content page-columns page-full" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Einführung in die Bayesianische Statistik</h1>
+<h1 class="title">Bayesianische Parameterschätzung</h1>
 </div>
 
 <div>
@@ -568,7 +568,7 @@ y_i \sim \mathcal{Bernoulli}(\theta)
 </div>
 <p><span class="math inline">\(y_i\)</span> ist die <span class="math inline">\(i\)</span>-te Beobachtung in den Daten, was bedeutet, dass es uns sagt, ob Spieler A das Spiel im <span class="math inline">\(i\)</span>-ten Versuch gewonnen hat oder nicht. <span class="math inline">\(\theta\)</span> ist die Erfolgswahrscheinlichkeit für jedes einzelne Spiel; dies ist ein Parameter unseres Modells (<span class="math inline">\(\mathcal{M}\)</span>).</p>
 <p>Wenn wir frequentistisch vorgehen, müssen wir nun den Wert von <span class="math inline">\(\theta\)</span> so schätzen, dass die Wahrscheinlichkeit, die Daten zu beobachten, maximiert wird.</p>
-<p>:::{callout-info collapse=“true”} ## Maximum Likelihood Schätzer</p>
+<p>:::{callout-tip collapse=“true”} ## Maximum Likelihood Schätzer</p>
 <p>Wenn wir beobachten, dass Spieler A 6 Mal in 9 Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta = 6/9 = 0.67\)</span>. Dies ist der Maximum Likelihood Schätzer für <span class="math inline">\(\theta\)</span>. :::</p>
 <p>Wir können dies auch mit in R numerisch, d.h. mit der “brute force” Methode, berechnen:</p>
 <div class="cell">
@@ -1044,14 +1044,14 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.75 0.70 0.36 0.68 0.60 0.66 0.56 0.74 0.54 0.59</code></pre>
+<pre><code> [1] 0.64 0.59 0.42 0.60 0.73 0.67 0.71 0.84 0.61 0.52</code></pre>
 </div>
 </div>
 <p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.6405</code></pre>
+<pre><code>[1] 0.63345</code></pre>
 </div>
 </div>
 <p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.</p>
@@ -1059,7 +1059,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 25%  50%  75% 
-0.54 0.65 0.74 </code></pre>
+0.54 0.64 0.74 </code></pre>
 </div>
 </div>
 <p>Wir können diesen Ansatz auch verwenden, um ein 95% <strong>credible interval</strong> zu berechnen.</p>
@@ -1067,7 +1067,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 2.5% 97.5% 
- 0.34  0.89 </code></pre>
+ 0.37  0.88 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">

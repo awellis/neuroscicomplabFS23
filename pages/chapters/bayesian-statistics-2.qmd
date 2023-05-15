@@ -165,7 +165,8 @@ $y_i$ ist die $i$-te Beobachtung in den Daten, was bedeutet, dass es uns sagt, o
 
 Wenn wir frequentistisch vorgehen, müssen wir nun den Wert von $\theta$ so schätzen, dass die Wahrscheinlichkeit, die Daten zu beobachten, maximiert wird. 
 
-:::{callout-info collapse="true"}
+
+:::{callout-tip collapse="true"}
 ## Maximum Likelihood Schätzer
 
 Wenn wir beobachten, dass Spieler A 6 Mal in 9 Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit $\theta = 6/9 = 0.67$. Dies ist der Maximum Likelihood Schätzer für $\theta$.
