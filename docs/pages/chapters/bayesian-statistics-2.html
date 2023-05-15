@@ -580,7 +580,8 @@ Maximum Likelihood Schätzer
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Wenn wir beobachten, dass Spieler A 6 Mal in 9 Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta = 6/9 = 0.67\)</span>. Dies ist der Maximum Likelihood Schätzer für <span class="math inline">\(\theta\)</span>.</p>
+<p>Wenn wir beobachten, dass Spieler A sechs von neun Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta = 6/9 = 0.67\)</span>. Dies ist der Maximum Likelihood Schätzer für <span class="math inline">\(\theta\)</span>.</p>
+<p>Dieser Schätzer ist die beste Punktschätzung, die wir machen können, wenn wir nur die Daten betrachten, und kein weiteres Vorwissen berücksichtigen. Wir können jedoch auch andere Informationen in Betracht ziehen. Dies ist der Fall, wenn wir die Bayesianische Statistik verwenden.</p>
 </div>
 </div>
 </div>
@@ -1058,14 +1059,14 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.77 0.85 0.53 0.53 0.63 0.71 0.38 0.58 0.32 0.65</code></pre>
+<pre><code> [1] 0.67 0.81 0.58 0.75 0.76 0.35 0.85 0.59 0.70 0.78</code></pre>
 </div>
 </div>
 <p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.632</code></pre>
+<pre><code>[1] 0.63506</code></pre>
 </div>
 </div>
 <p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.</p>
@@ -1073,7 +1074,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> 25%  50%  75% 
-0.54 0.64 0.73 </code></pre>
+0.54 0.64 0.74 </code></pre>
 </div>
 </div>
 <p>Wir können diesen Ansatz auch verwenden, um ein 95% <strong>credible interval</strong> zu berechnen.</p>
@@ -1081,7 +1082,7 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   2.5%   97.5% 
-0.35000 0.87025 </code></pre>
+0.35000 0.89025 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">

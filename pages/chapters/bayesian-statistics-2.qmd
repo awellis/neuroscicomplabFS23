@@ -169,7 +169,9 @@ Wenn wir frequentistisch vorgehen, müssen wir nun den Wert von $\theta$ so sch�
 :::{.callout-tip collapse="true"}
 ## Maximum Likelihood Schätzer
 
-Wenn wir beobachten, dass Spieler A 6 Mal in 9 Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit $\theta = 6/9 = 0.67$. Dies ist der Maximum Likelihood Schätzer für $\theta$.
+Wenn wir beobachten, dass Spieler A sechs von neun Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit $\theta = 6/9 = 0.67$. Dies ist der Maximum Likelihood Schätzer für $\theta$. 
+
+Dieser Schätzer ist die beste Punktschätzung, die wir machen können, wenn wir nur die Daten betrachten, und kein weiteres Vorwissen berücksichtigen. Wir können jedoch auch andere Informationen in Betracht ziehen. Dies ist der Fall, wenn wir die Bayesianische Statistik verwenden.
 :::
 
 Wir können dies auch mit in R numerisch, d.h. mit der "brute force" Methode, berechnen:
