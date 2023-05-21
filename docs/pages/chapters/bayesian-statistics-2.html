@@ -352,12 +352,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Bayesianische Parameterschätzung</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/bayesian-statistics-3.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bayes Factors: Bayesianische Hypothesentests</span></a>
-  </div>
-</li>
       </ul>
 </li>
     </ul>
@@ -466,13 +460,13 @@ Bayes’ Theorem
 </div>
 </div>
 </div>
-<p>Der wesentlichste Unterschied zwischen der Bayesianischen und der frequentistischen Statistik ist, dass in der Bayesianischen Statistik die Wahrscheinkeitstheorie konsequent angewandt wird, um Parameter zu schätzen.</p>
+<p>Der wesentlichste Unterschied zwischen der Bayesianischen und der frequentistischen Statistik ist, dass in der Bayesianischen Statistik die Wahrscheinlichkeitstheorie konsequent angewandt wird, um Parameter zu schätzen.</p>
 <ul>
 <li>In der frequentistischen Statistik wird die Wahrscheinkeitslehre vor allem angewandt, um die Wahrscheinlichkeit der Daten zu berechnen, unter der Annahme, dass die Nullhypothese wahr ist.</li>
 <li>In der Bayesianischen Statistik wird die Wahrscheinkeitslehre angewandt, um die Wahrscheinlichkeit der Parameter zu berechnen.</li>
 </ul>
 <p>Dieser Unterschied hat weitreichende Konsequenzen. So kann man in der frequentistischen Statistik Parameter schätzen, aber es wird wird angenommen, dass ein Parameter einen wahren (aber unbekannten) Wert hat. Der Parameter ist aber keine Zufallszahl, und hat daher keine Wahrscheinlichkeitsverteilung. Daher darf man nicht über die Wahrscheinlichkeit eines Parameters sprechen. In der Bayesianischen Statistik ist ein Parameter eine Zufallszahl, und hat daher eine Wahrscheinlichkeitsverteilung. Wir benützen Bayes Theorem um die Wahrscheinlichkeit von Parametern zu berechnen.</p>
-<p>Im foglenden Kapitel werden uns (in einer sehr verkürzten Form) damit beschäftigen, was die Konsequenzen dieser unterschiedlichen Sichtweisen sind, und wie Bayesianische Statistik funktioniert. Am Anfang müssen wir jedoch eine zentral Frage beantworten: Was ist eigentlich der Unterschied zwischen Parameterschätzung und Modellvergleichen / Hypothesentests?</p>
+<p>Im folgenden Kapitel werden uns (in einer sehr verkürzten Form) damit beschäftigen, was die Konsequenzen dieser unterschiedlichen Sichtweisen sind, und wie Bayesianische Statistik funktioniert. Am Anfang müssen wir jedoch eine zentral Frage beantworten: Was ist eigentlich der Unterschied zwischen Parameterschätzung und Modellvergleichen / Hypothesentests?</p>
 <aside>
 Modellvergleiche und Hypothesentests werden hier synomym verwendet.
 </aside><p>In der frequentistischen Statistik werden diese beiden Dinge oft gemeinsam behandelt, und es ist nicht auf Anhieb klar, dass es sich um zwei unterschiedliche Dinge handelt. Dies hat vor allem damit zu tun, dass Parameterschätzung einfach ist, weil nur eine sogennante Punkschätzung erfolgt, und weil es oft um die Anwendung eines Hypothesentests geht.</p>
@@ -481,7 +475,7 @@ Modellvergleiche und Hypothesentests werden hier synomym verwendet.
 <p>Mit einem t-Test wollen wir einen Mittelwertsunterschied testen. Dies bedeutet, wir wollen wissen, ob sich zwei Mittelwerte voneinander unterscheiden (wir beschränken uns hier auf zwei unabhängige Gruppen). Diese Frage bezieht sich auf einen <strong>Modellvergleich</strong>: Wir vergleichen ein Modell, in dem die Mittelwerte gleich sind, mit einem Modell, in dem die Mittelwerte unterschiedlich sind.</p>
 <p>Bevor wir diesen Vergleich machen können, müssen wir jedoch die Mittelwerte schätzen. Dies ist eine <strong>Parameterschätzung</strong>. Im frequentistischen Ansatz benutzen wir den Stichprobenmittelwert als Schätzer für den Mittelwert, der in der Population, aus der diese Stichprobe gezogen wurde, gilt.</p>
 <div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -490,7 +484,7 @@ Wie funktioniert ein frequentistischer t-Test?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
 <p>Wir schauen uns hier noch einmal explizit das Vorgehen und die Annahmen eines t-Tests an.Mehr dazu finden Sie bei <a href="http://localhost:7820/pages/chapters/bayesian-statistics-1.html#sec-ttest">Aufgabe 3</a>.</p>
 <p>Wir haben zwei Gruppen, und wollen wissen, ob sich die Mittelwerte der beiden Gruppen unterscheiden.</p>
@@ -501,8 +495,8 @@ Wie funktioniert ein frequentistischer t-Test?
 y_{ij} \sim \mathcal{N}(\mu_j, \sigma^2)
 \]</span></p>
 <p><span class="math inline">\(y_{ij}\)</span> ist die Beobachtung <span class="math inline">\(i\)</span> in Gruppe <span class="math inline">\(j \in \{1, 2\}\)</span>. Wir interessieren uns für den Unterschied zwischen den Mittelwerten <span class="math inline">\(\mu_1\)</span> und <span class="math inline">\(\mu_2\)</span>.</p>
-<ol start="2" type="1">
-<li><p>Wir schätzen die Gruppenmittelwerte mittels Maximum Likelihood Schätzung. In diesem Falle geht das ganz einfach; die Stichprobenmittelwerte sind Maximum Likelihood Schätzer, und können einfach berechnet werden. Der weitere Parameter wir ebenfalls geschätzt, und zwar als die gepoolte Standardabweichung <span class="math inline">\(s_p\)</span>. Dies ist der <strong>Parameterschätzung</strong>-Schritt.</p></li>
+<ol type="1">
+<li><p>Wir schätzen die Gruppenmittelwerte mittels Maximum Likelihood Schätzung. In diesem Falle geht das ganz einfach; die Stichprobenmittelwerte sind Maximum Likelihood Schätzer, und können einfach berechnet werden. Der Parameter <span class="math inline">\(\sigma\)</span> wird ebenfalls geschätzt, und zwar als die gepoolte Standardabweichung <span class="math inline">\(s_p\)</span>. Dies ist der <strong>Parameterschätzungs</strong>-Schritt.</p></li>
 <li><p>Wir berechnen eine Test Statistik. Diese basiert auf dem Mittelwertsunterschied <span class="math inline">\(\mu_1 - \mu_2\)</span>.</p></li>
 </ol>
 <p><span class="math display">\[
@@ -512,13 +506,26 @@ t = \frac{\bar{x_1} - \bar{x_2}}{s_p \sqrt{2/n}}
 <ol start="4" type="1">
 <li>Wir können uns nun entscheiden, ob wir die Nullhypothese verwerfen oder nicht. Wir vergleichen den p-Wert mit einem vorgegebenen Signifikanzniveau <span class="math inline">\(\alpha\)</span>. Wenn der p-Wert kleiner ist als <span class="math inline">\(\alpha\)</span>, dann verwerfen wir die Nullhypothese. Dies bedeutet, dass wir die Tatsache, dass der p-Wert “genügend” klein ist, als Evidenz gegen die Nullhypothese deuten.</li>
 </ol>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Missverständnisse über p-Werte
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>p-Werte sind schwierig zu verstehen; eine sehr gute Einführung und Erklärung von Missverständnissen finden Sie im online Buch <a href="https://lakens.github.io/statistical_inferences/01-pvalue.html#sec-misconceptions">Improving Your Statistical Inferences</a> von Daniel Lakens.</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section><section id="bayesianische-parameterschätzung" class="level2 page-columns page-full"><h2 class="anchored" data-anchor-id="bayesianische-parameterschätzung">Bayesianische Parameterschätzung</h2>
 <p>Wir werden nun einen anderen Ansatz kennenlernen: die Bayesianische Statistik. Dieser Ansatz ist nicht neu, hat aber erst in den letzten Jahren Verbreitung gefunden. Dies hat unter anderem damit zu tun, dass die Berechnungen, die für die Bayesianische Statistik nötig sind, erst mit der Verfügbarkeit von schnellen Computern möglich wurden.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -527,7 +534,7 @@ Rechenleistung
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Bayesianische Statistik braucht sehr viel Rechenleistung, da wir durch Anwendung von Bayes Theorem die Wahrscheinlichkeitsverteilungen von Parametern schätzen müssen. Für das nachfolgende Beispiel, in dem wir einen Parameter haben, ist dies einfach. Für komplexere Modelle, mit sehr vielen Parametern, brauchen wir Methoden wie Monte Carlo Sampling, welche sehr schnelle CPU und vor allem Parallelisierung benötigen.</p>
 <p>Mittlerweile können diese Rechenoperationen auf Laptops durchgeführt werden. Dies war früher jedoch nicht der Fall; zu Zeiten, in denen die Bayesianische Statistik entwickelt wurde, war dies nur auf Grossrechnern möglich. Dies ist einer der Gründe, weshalb die Bayesianische Statistik erst in den letzten Jahren an Popularität gewonnen hat.</p>
@@ -536,7 +543,7 @@ Rechenleistung
 </div>
 <p>Wir werden nun anhand eines simplen Beispiels zuerst die Bayesianische Parameterschätzung kennenlernen. Ich verwende als Cover Story ein Kartenspiel, da dies ein einfaches Lehrbuchbeispiel ist. Die Cover Story selber ist jedoch nicht wichtig - es geht hier darum, dass unsere beobachteten Daten binär sind.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -545,7 +552,7 @@ Weitere Beispiele für binäre Daten
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>Eine Münze wird geworfen. Wir wollen die Wahrscheinlichkeit schätzen, dass Kopf oben liegt.</li>
@@ -569,7 +576,7 @@ y_i \sim \mathcal{Bernoulli}(\theta)
 <p><span class="math inline">\(y_i\)</span> ist die <span class="math inline">\(i\)</span>-te Beobachtung in den Daten, was bedeutet, dass es uns sagt, ob Spieler A das Spiel im <span class="math inline">\(i\)</span>-ten Versuch gewonnen hat oder nicht. <span class="math inline">\(\theta\)</span> ist die Erfolgswahrscheinlichkeit für jedes einzelne Spiel; dies ist ein Parameter unseres Modells (<span class="math inline">\(\mathcal{M}\)</span>).</p>
 <p>Wenn wir frequentistisch vorgehen, müssen wir nun den Wert von <span class="math inline">\(\theta\)</span> so schätzen, dass die Wahrscheinlichkeit, die Daten zu beobachten, maximiert wird.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -578,10 +585,11 @@ Maximum Likelihood Schätzer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Wenn wir beobachten, dass Spieler A sechs von neun Spielen gewonnen hat, dann ist die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta = 6/9 = 0.67\)</span>. Dies ist der Maximum Likelihood Schätzer für <span class="math inline">\(\theta\)</span>.</p>
 <p>Dieser Schätzer ist die beste Punktschätzung, die wir machen können, wenn wir nur die Daten betrachten, und kein weiteres Vorwissen berücksichtigen. Wir können jedoch auch andere Informationen in Betracht ziehen. Dies ist der Fall, wenn wir die Bayesianische Statistik verwenden.</p>
+<p>Mehr Informationen zum Thema Maximum Likelihood finden Sie auf dieser interaktiven Webseite: <a href="https://rpsychologist.com/likelihood/">rpsychologist.com/likelihood</a>.</p>
 </div>
 </div>
 </div>
@@ -621,7 +629,7 @@ Warum 101? Ist willkürlich, wir könnten auch 1000 oder 10000 benutzen. Je mehr
 </div>
 <aside><code><a href="https://rdrr.io/r/stats/Binomial.html">pbinom()</a></code> gibt standardmässig die Wahrscheinlichkeit, dass die Anzahl der Erfolge kleiner oder gleich dem gegebenen Wert ist. Da wir die Wahrscheinlichkeit berechnen wollen, dass die Anzahl der Erfolge grösser oder gleich dem gegebenen Wert ist, müssen wir <code>lower.tail = FALSE</code> setzen.
 </aside><div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -630,7 +638,7 @@ p-Wert
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Kommt Ihnen das bekannt vor?</p>
 <p>Wenn wir unsere Null-Hypothese quantifizieren wollen, dass beide Spieler gleich wahrscheinlich gewinnen, würden wir annehmen, dass <span class="math inline">\(\theta=0.5\)</span>. Die Berechnung der Wahrscheinlichkeit der Daten unter der Null ist genau das, was wir gerade getan haben. Dann setzen wir die tatsächlichen Daten ein, d.h. 6 von 9, und die obere Schwanzwahrscheinlichkeit ist der p-Wert. In diesem Fall ist der p-Wert ungefähr <span class="math inline">\(0.25\)</span>. Mit einem Schwellenwert von 0.05 würden wir die Nullhypothese nicht ablehnen und schliessen, dass es nicht genügend Beweise dafür gibt, dass Spieler A besser ist als Spieler B (dies ist ein einseitiger Test).</p>
@@ -660,7 +668,7 @@ p-Wert
 </div>
 <p>Was wir bisher gemacht haben, unterstreicht den Unterschied zwischen Parameterschätzung und Hypothesentest. Die Berechnung der Unter- und Überschreitungswahrscheinlichkeit unter der Nullhypothese (<span class="math inline">\(\theta=0.5\)</span>) ist ein <strong>Hypothesentest</strong>, und die Schätzung von <span class="math inline">\(\theta\)</span> ist die <strong>Parameterschätzung</strong>.</p>
 <section id="vorwissen" class="level3 page-columns page-full"><h3 class="anchored" data-anchor-id="vorwissen">Vorwissen</h3>
-<p>die wahrscheinlichsten Parameter a priori gehabt hätten. Tatsächlich haben wir, wie wir etwas weiter unten sehen werden, implizit angenommen, dass alle Parameter gleich wahrscheinlich sind. Jetzt führen wir ein neues Konzept ein: eine a-priori-Verteilung für die Parameter, die wir versuchen zu schätzen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Bisher haben wir keine vorherigen Kenntnisse berücksichtigt, die wir möglicherweise über die wahrscheinlichsten Parameter a priori gehabt hätten. Tatsächlich haben wir, wie wir etwas weiter unten sehen werden, implizit angenommen, dass alle Parameter gleich wahrscheinlich sind. Jetzt führen wir ein neues Konzept ein: eine a-priori-Verteilung für die Parameter, die wir versuchen zu schätzen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>Wir werden dann diesen <em>a-priori</em>-Glauben verwenden, um einen <em>a-posteriori</em>-Glauben über die möglichen Parameterwerte zu erlangen. Um dies zu tun, müssen wir die a-priori-Wahrscheinlichkeit jedes Parameterwerts mit der Likelihood der Daten, d.h. mit der bedingten Wahrscheinlichkeit, die Daten zu beobachten, gegeben diesen Parameterwert, multiplizieren. Dies ist eine Anwendung des Bayes’schen Theorems:</p>
 <p><span class="math display">\[
 p(\theta|y) = \frac{ p(y|\theta) * p(\theta) } {p(y)}
@@ -691,14 +699,14 @@ Zusammenfassung
 </div>
 </div>
 <aside>
-Der Begriff <em>belief</em> wird im Englischen oft als Synomym für Wahrscheinlichkeitsverteilung verwendet. Ich übersetze <em>belief</em> hier mit <em>Überzeugung</em>.
+Der Begriff <em>belief</em> wird im Englischen oft als Synonym für Wahrscheinlichkeitsverteilung verwendet. Ich übersetze <em>belief</em> hier mit <em>Überzeugung</em>.
 </aside></section><section id="bayesianische-inferenz-mit-binären-daten-ein-numerisches-beispiel" class="level3"><h3 class="anchored" data-anchor-id="bayesianische-inferenz-mit-binären-daten-ein-numerisches-beispiel">Bayesianische Inferenz mit binären Daten: Ein numerisches Beispiel</h3>
 <p>Erinnern Sie sich daran, dass wir eine Sequenz von 101 Punkten zwischen 0 und 1 definiert haben, die die möglichen <span class="math inline">\(\theta\)</span>-Werte darstellten.</p>
 <div class="cell">
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_points</span> <span class="op">&lt;-</span> <span class="fl">101</span></span>
 <span><span class="va">theta_grid</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span> from<span class="op">=</span><span class="fl">0</span> , to<span class="op">=</span><span class="fl">1</span> , length.out <span class="op">=</span> <span class="va">n_points</span> <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Für jeden von diesen haben wir die Likelihood berechnet, das heisst die Wahrscheinlichkeit, die (festgelegten) Daten zu beobachten, gegeben den Parameter. Jetzt können wir unser Wissen über die Wahrscheinlichkeit jedes Parameterwerts explizit machen. Zunächst nehmen wir an, dass alle Parameter gleich wahrscheinlich sind. Wir weisen jedem Parameterwert die Wahrscheinlichkeit 1 zu. Dies ist unsere a-priori-Verteilung.</p>
+<p>Für jeden von diesen haben wir die Likelihood berechnet, das heisst die Wahrscheinlichkeit, die (festgelegten) Daten zu beobachten, gegeben den Parametern. Jetzt können wir unser Wissen über die Wahrscheinlichkeit jedes Parameterwerts explizit machen. Zunächst nehmen wir an, dass alle Parameter gleich wahrscheinlich sind. Wir weisen jedem Parameterwert die Wahrscheinlichkeit 1 zu. Dies ist unsere a-priori-Verteilung.</p>
 <div class="cell">
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">prior_1</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">theta_grid</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -720,7 +728,7 @@ Der Begriff <em>belief</em> wird im Englischen oft als Synomym für Wahrscheinli
 </div>
 <p>Eine systematischere Methode besteht darin, eine parametrisierte Wahrscheinlichkeitsverteilung zu verwenden, die unsere Überzeugungen über den Parameter ausdrückt.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -729,7 +737,7 @@ Beta-Verteilung
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Eine Familie von Wahrscheinlichkeitsverteilungen, die für Parameter geeignet sind, die im Intervall <span class="math inline">\([0,1]\)</span> liegen, ist die <a href="https://de.wikipedia.org/wiki/Beta-Verteilung">Beta-Verteilung</a>. Diese Verteilung hat <span class="math inline">\(2\)</span> Parameter <span class="math inline">\(\alpha\)</span> und <span class="math inline">\(\beta\)</span>, die jeweils als die vorherige Anzahl von Erfolgen und die Anzahl der Misserfolge interpretiert werden können. Die Anzahl der Versuche beträgt daher <span class="math inline">\(\alpha + \beta\)</span>. Die Grafik zeigt eine Reihe von möglichen Beta-Verteilungen für verschiedene Einstellungen von <span class="math inline">\(\alpha\)</span> und <span class="math inline">\(\beta\)</span>. Beachten Sie, dass in R die Parameter <span class="math inline">\(\alpha\)</span> und <span class="math inline">\(\beta\)</span> als <code>shape1</code> und <code>shape2</code> bezeichnet werden.</p>
 <div class="cell">
@@ -930,7 +938,7 @@ Hands-on
 </div>
 <p>Die a-posteriori-Verteilung repräsentiert unseren Glauben an die möglichen Parameterwerte, nachdem wir die Daten beobachtet haben. <strong>Man kann daher den bayesianische Inferenzprozess als eine Methode betrachten, um die Überzeugungen unter Berücksichtigung der beobachteten Daten zu aktualisieren</strong>. Dabei werden die Wahrscheinlichkeiten über die Parameterwerte neu verteilt, abhängig davon, wie gut diese Parameterwerte die Daten vorhersagten.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -939,7 +947,7 @@ Analytische Lösung
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Für einige Probleme ist es möglich, eine analytische Lösung zu finden. Die Likelihood Bernoulli/Binomial und der Beta-Prior gehören dazu.</p>
 <p>In dem obigen Beispiel haben wir eine Technik namens Rasterapproximation verwendet, um die a-posteriori-Verteilung für einen Parameter zu erhalten. Das bedeutet, dass wir verschiedene Parameterwerte ausprobiert haben, indem wir ein Raster erstellt und dann die a-posteriori-Verteilung mit Hilfe der Bayes’schen Regel berechnet haben. Diese Technik wurde lediglich zu Bildungszwecken verwendet, da sie für reale Probleme nicht gut skalierbar ist. In dem einfachen Beispiel einer Abfolge binärer Beobachtungen ist der interessierende Parameter (die Erfolgswahrscheinlichkeit <span class="math inline">\(\theta\)</span> bei einem Bernoulli-Versuch) zwischen <span class="math inline">\(0\)</span> und <span class="math inline">\(1\)</span> begrenzt (<span class="math inline">\(\theta \in [0, 1]\)</span>). Darüber hinaus gibt es nur einen Parameter, der geschätzt werden soll. In komplexeren Modellen mit vielen Parametern kann die Verwendung der Rasterapproximation sehr ineffizient oder sogar unmöglich sein. In solchen Fällen verwenden wir in der Regel numerische Methoden, um die a-posteriori-Verteilung anzunähern. Diese Methoden werden allgemein als Monte-Carlo-Stichproben oder Markov-Chain-Monte-Carlo (MCMC) bezeichnet. Mit Hilfe von MCMC erhalten wir keine analytische Beschreibung der a-posteriori-Verteilungen, sondern eine Sammlung von Zufallszahlen (Stichproben), die aus der a-posteriori-Verteilung gezogen wurden. Wir verwenden diese Stichproben, um die a-posteriori-Verteilung darzustellen.</p>
@@ -1059,30 +1067,30 @@ Dies ist vielleicht nicht ganz verständlich; Methoden wie z.B. Monte Carlo Samp
 <div class="cell">
 <div class="sourceCode" id="cb51"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fl">10</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] 0.67 0.81 0.58 0.75 0.76 0.35 0.85 0.59 0.70 0.78</code></pre>
+<pre><code> [1] 0.67 0.66 0.80 0.53 0.48 0.75 0.72 0.56 0.85 0.91</code></pre>
 </div>
 </div>
 <p>Jetzt können wir die Zufallszahlen zusammenfassen, zum Beispiel durch Berechnung des Mittelwerts oder der Quantile.</p>
 <div class="cell">
 <div class="sourceCode" id="cb53"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">samples</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.63506</code></pre>
+<pre><code>[1] 0.63937</code></pre>
 </div>
 </div>
 <p>Mit dem folgenden Code erhalten wir den Median und ein 50% <strong>credible interval</strong>, das heisst ein Intervall, das 50% der Verteilungsmasse enthält.</p>
 <div class="cell">
 <div class="sourceCode" id="cb55"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">0.75</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> 25%  50%  75% 
-0.54 0.64 0.74 </code></pre>
+<pre><code>   25%    50%    75% 
+0.5475 0.6500 0.7500 </code></pre>
 </div>
 </div>
 <p>Wir können diesen Ansatz auch verwenden, um ein 95% <strong>credible interval</strong> zu berechnen.</p>
 <div class="cell">
 <div class="sourceCode" id="cb57"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/stats/quantile.html">quantile</a></span><span class="op">(</span><span class="va">samples</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0.025</span>, <span class="fl">1</span> <span class="op">-</span> <span class="fl">0.025</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   2.5%   97.5% 
-0.35000 0.89025 </code></pre>
+<pre><code> 2.5% 97.5% 
+ 0.35  0.88 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning callout-titled">
