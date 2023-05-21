@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.335">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="author" content="Andrew Ellis">
 <meta name="author" content="Gerda Wyssen">
-
-<title>Neurowissenschaft Computerlab - Syllabus</title>
+<meta name="dcterms.date" content="2022-05-22">
+<meta name="description" content="Datenanalyse mit bayesianischem T-Test in JASP.">
+<title>Neurowissenschaft Computerlab - Übung 5</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,7 +22,6 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 </style>
-
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -43,8 +41,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -62,23 +59,16 @@ ul.task-list li input[type="checkbox"] {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../../styles/global.css">
+}</script><link rel="stylesheet" href="../../styles/global.css">
 <link rel="stylesheet" href="../../include/webex.css">
 </head>
-
 <body class="nav-sidebar floating nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-    <nav class="navbar navbar-expand-lg navbar-dark ">
-      <div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../assets/logo.png" alt="" class="navbar-logo">
-    </a>
+    <img src="../../assets/logo.png" alt="" class="navbar-logo"></a>
     <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Neurowissenschaft Computerlab</span>
     </a>
@@ -88,12 +78,12 @@ ul.task-list li input[type="checkbox"] {
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item dropdown ">
+<li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">🗄️ Admin</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">    
-        <li>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">
+<li>
     <a class="dropdown-item" href="../../pages/admin/syllabus.html">
  <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
@@ -106,9 +96,9 @@ ul.task-list li input[type="checkbox"] {
  <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
     </ul>
-  </li>
+</li>
 </ul>
-              <div class="quarto-toggle-container">
+<div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
                   <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -119,36 +109,30 @@ ul.task-list li input[type="checkbox"] {
               <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Syllabus</h1>
+    </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Übung 5</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
       </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item sidebar-item-section">
+<li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung</a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">Programmiersprachen</a>
   </div>
@@ -164,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Experimente</a>
@@ -172,8 +156,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">Verhaltensexperiment mit PsychoPy</a>
   </div>
@@ -189,7 +173,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Data wrangling</a>
@@ -197,8 +181,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">Reproducibility</a>
   </div>
@@ -229,7 +213,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Visualisieren</a>
@@ -237,8 +221,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">R Markdown</a>
   </div>
@@ -259,7 +243,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Signal Detection Theory</a>
@@ -267,8 +251,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/signal-detection-1.html" class="sidebar-item-text sidebar-link">Einführung</a>
   </div>
@@ -284,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Bayesianische Datenanalyse</a>
@@ -292,8 +276,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../pages/chapters/bayesian-statistics-1.html" class="sidebar-item-text sidebar-link">Reaktivierung: Statistikwissen</a>
   </div>
@@ -307,36 +291,39 @@ ul.task-list li input[type="checkbox"] {
   pages/chapters/uebung-5_bayesian-data_analysis.qmd
   </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#sitzungen" id="toc-sitzungen" class="nav-link active" data-scroll-target="#sitzungen">Sitzungen</a>
+<li>
+<a href="#datenanalyse-in-jasp" id="toc-datenanalyse-in-jasp" class="nav-link active" data-scroll-target="#datenanalyse-in-jasp">1. Datenanalyse in JASP</a>
   <ul class="collapse">
-  <li><a href="#einführung" id="toc-einführung" class="nav-link" data-scroll-target="#einführung">1 Einführung</a></li>
-  <li><a href="#experimente-mit-python-programmieren" id="toc-experimente-mit-python-programmieren" class="nav-link" data-scroll-target="#experimente-mit-python-programmieren">2 Experimente mit Python programmieren</a></li>
-  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling">3 Data Wrangling</a></li>
-  <li><a href="#visualisieren" id="toc-visualisieren" class="nav-link" data-scroll-target="#visualisieren">4 Visualisieren</a></li>
-  <li><a href="#signal-detection-theory" id="toc-signal-detection-theory" class="nav-link" data-scroll-target="#signal-detection-theory">5 Signal Detection Theory</a></li>
-  <li><a href="#bayesianische-datenanalyse" id="toc-bayesianische-datenanalyse" class="nav-link" data-scroll-target="#bayesianische-datenanalyse">6 Bayesianische Datenanalyse</a></li>
-  </ul></li>
+<li><a href="#bayesianische-datenanalyse-in-jasp-durchf%C3%BChren" id="toc-bayesianische-datenanalyse-in-jasp-durchführen" class="nav-link" data-scroll-target="#bayesianische-datenanalyse-in-jasp-durchf%C3%BChren">Bayesianische Datenanalyse in JASP durchführen</a></li>
+  <li><a href="#ergebnisse-berichten-und-interpretieren" id="toc-ergebnisse-berichten-und-interpretieren" class="nav-link" data-scroll-target="#ergebnisse-berichten-und-interpretieren">Ergebnisse berichten und interpretieren</a></li>
   </ul>
-</nav>
+</li>
+  <li>
+<a href="#peer-feedback-erstellen" id="toc-peer-feedback-erstellen" class="nav-link" data-scroll-target="#peer-feedback-erstellen">2. Peer Feedback erstellen</a>
+  <ul class="collapse">
+<li><a href="#fragen-f%C3%BCr-peer-feedback" id="toc-fragen-für-peer-feedback" class="nav-link" data-scroll-target="#fragen-f%C3%BCr-peer-feedback">Fragen für Peer Feedback</a></li>
+  <li><a href="#peer-feedback-hochladen" id="toc-peer-feedback-hochladen" class="nav-link" data-scroll-target="#peer-feedback-hochladen">Peer Feedback hochladen</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title d-none d-lg-block">Syllabus</h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title d-none d-lg-block">Übung 5</h1>
 </div>
 
+<div>
+  <div class="description">
+    <p>Datenanalyse mit bayesianischem T-Test in JASP.</p>
+  </div>
+</div>
 
 <div class="quarto-title-meta-author">
   <div class="quarto-title-meta-heading">Authors</div>
@@ -367,83 +354,112 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
       
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 22, 2022</p>
+    </div>
+  </div>
   
     
   </div>
   
 
-</header>
-
-<section id="sitzungen" class="level1">
-<h1>Sitzungen</h1>
-<p>An den 14 Sitzungen werden wir voraussichtlich diese Themen behandeln (kleine Änderungen vorbehalten).</p>
-<section id="einführung" class="level3">
-<h3 class="anchored" data-anchor-id="einführung">1 Einführung</h3>
-<p><code>Sitzung 1</code></p>
-<ul>
-<li>Wir schauen uns ein paar in den Neurowissenschaften verwendeten Programmiersprachen (Python, R, Matlab) an, und diskutieren ChatGPT.</li>
-<li>Einführung in DataCamp (für Python/R).</li>
-</ul>
+</header><p>Die Übung 5 besteht aus den zwei folgenden Aufgaben:</p>
+<p><strong>1. Datenanalyse in JASP</strong>: Berechnen Sie in JASP mit einem T-Test, ob sich der Bias in Abhängigkeit vom Vorwissen verändert.</p>
+<p><strong>2. Peer Feedback</strong>: Geben Sie auf Ilias der Ihnen zugeordneten Person Rückmeldung zu ihrer Analyse und Einordnung einer anderen Person.</p>
+<section id="datenanalyse-in-jasp" class="level1"><h1>1. Datenanalyse in JASP</h1>
+<p>In dieser Übung nutzen wir unser Wissen über die Signalentdeckungstheorie sowie die bayesianische Statistik, um die Daten vom Entscheidungsexperiment, welches wir zu Beginn des Semsters durchgeführt haben, zu analysieren.</p>
+<p>Bei dem Random Dot Experiment wurde das Vorwissen der Person mit einem <code>cue</code> - einem nach rechts oder nach links zeigenden Pfeil - manipuliert. Einige Trials enthielten auch gar keinen Pfeil, diese werden wir hier nicht analysieren. Wir interessieren uns dafür, ob die Personen durch das gegebene Vorwissen tatsächlich beeinflusst in ihren Entscheidungen beeinflusst wurden.</p>
+<p>Als ein Mass für den Einfluss von Vorannahmen kann der “Bias” verwendet werden. Also wie stark eine Person dazu neigt, in eine bestimmte Richtung zu antworten. Mit Hilfe der Signalentdeckungstheorie haben wir <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/signal-detection-2.html">hier</a> die Sensitivität (<code>dprime</code>), das Kriterium (<code>k</code>) und den Bias (<code>c</code>) für jede Person und Bedingung berechnet.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Daten Vorverarbeitung
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Die Daten entsprechen dem Datensatz <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/signal-detection-2.html#mittelwerte-und-standardfehler"><code>sdt_final</code></a>, für die Analyse wurden die Daten ins <code>wide</code>-Format gebracht mit</p>
+<pre><code>sdt_final_wide &lt;- sdt_final |&gt; 
+    pivot_wider(names_from = cue, values_from = c(dprime, c, k))</code></pre>
+<p>und mit</p>
+<p><code>write.csv(sdt_final_wide, "rdk_bayesian.csv", row.names = FALSE))</code></p>
+<p>abgespeichert.</p>
+</div>
+</div>
+</div>
+<p>Nun möchten wir testen, ob sich die Bedingungen “Pfeil zeigt nach rechts” und “Pfeil zeigt nach links” in Bezug auf den Bias (<code>c</code>) unterscheiden. Hierzu nutzen wir die Stärken eines bayesianischen T-Tests, wie <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/bayesian-statistics-2.html">hier</a> behandelt.</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Hands-on
+Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Auf DataCamp den Python Einführungskurs ausprobieren.</p>
+<p>👉 Laden Sie hier den Datensatz herunter: <a href="../../data/uebung-5/rdk_bayesian.csv">RDK data für Übung 5</a>.</p>
+<p>👉 Für diese Übung benötigen Sie <a href="https://jasp-stats.org/">JASP</a>.</p>
 </div>
 </div>
-</section>
-<section id="experimente-mit-python-programmieren" class="level3">
-<h3 class="anchored" data-anchor-id="experimente-mit-python-programmieren">2 Experimente mit Python programmieren</h3>
-<p><code>Sitzungen 2 und 3</code></p>
+<p>Folgende Variablen sind im Datensatz <code>rdk_bayesian.csv</code>enthalten:</p>
 <ul>
-<li>Wir erstellen selber ein Experiment mit <code>Python</code> und <code>PsychoPy</code>.</li>
+<li><p><code>id</code>: Versuchspersonenidentifikation</p></li>
+<li><p><code>dprime_none</code>, <code>dprime_right</code>, <code>dprime_left</code>: <code>dprime</code> für keinen Pfeil, einen Pfeil nach rechts, und einen Pfeil nach links</p></li>
+<li><p><code>c_none</code>, <code>c_right</code>, <code>c_left</code>: Bias für jede Person und Bedingung</p></li>
+<li><p><code>k_none</code>, <code>k_right</code>, <code>k_left</code>: Kriterium für jede Person und Bedingung</p></li>
 </ul>
-</section>
-<section id="data-wrangling" class="level3">
-<h3 class="anchored" data-anchor-id="data-wrangling">3 Data Wrangling</h3>
-<p><code>Sitzungen 4, 5 und 6</code></p>
+<section id="bayesianische-datenanalyse-in-jasp-durchführen" class="level2"><h2 class="anchored" data-anchor-id="bayesianische-datenanalyse-in-jasp-durchführen">Bayesianische Datenanalyse in JASP durchführen</h2>
+<p>Wir interessieren uns dafür, ob das Vorwissen den Bias der Versuchspersonen verschoben hat. Hat die Person aufgrund des Pfeils den sie gesehen hat, eher rechts oder links gedrückt?</p>
+<p>Laden Sie den Datensatz in JASP und führen Sie einen Bayesianischen T-Test durch. Machen Sie sich Gedanken, welcher der drei auswählbaren T-Tests sich für unsere Daten am besten eignet.</p>
+</section><section id="ergebnisse-berichten-und-interpretieren" class="level2"><h2 class="anchored" data-anchor-id="ergebnisse-berichten-und-interpretieren">Ergebnisse berichten und interpretieren</h2>
+<p>Erstellen Sie ein Word oder Text-File, kopieren und beantworten Sie darin folgende Fragen:</p>
+<ol type="1">
+<li><p>Was waren die beiden Hypothesen, welche Sie getestet haben?</p></li>
+<li><p>Berichten und Interpretieren der Ergebnisse:</p></li>
+</ol>
 <ul>
-<li>Wir schauen uns an, wie wir mit <code>R</code> die Daten aus unserem selber programmierten Experiment einlesen und bearbeiten können, um damit statistische Analysen durchzuführen.</li>
+<li>Welchen Test haben Sie verwendet?</li>
+<li>Wie gross ist der Unterschied zwischen den Bedingungen?</li>
+<li>Welche Bayes Factors haben Sie gefunden? Was bedeuten diese?</li>
+<li>Was bedeutet die eingefärbte “Torte”?</li>
+<li>Haben Sie Evidenz für oder gegen eine Hypothese gefunden?</li>
 </ul>
-</section>
-<section id="visualisieren" class="level3">
-<h3 class="anchored" data-anchor-id="visualisieren">4 Visualisieren</h3>
-<p><code>Sitzungen 7 und 8</code></p>
+<ol start="3" type="1">
+<li>Diskussion und Einordnung der Erkenntnisse:</li>
+</ol>
 <ul>
-<li>Rmarkdown</li>
-<li>Explorative Datenanalyse und grafische Darstellung mit mit <code>R</code> package <code>ggplot2</code>.</li>
+<li>Die Studie, welche wir zum Vorbild genommen haben war eine fMRI Studie. Auf welche Areale könnten sich die gefundenen Resultate auswirken?</li>
+<li>Gibt es wichtige Limitationen in der Interpretierbarkeit der Ergebnisse?</li>
+<li>Was würden Sie ändern am Experiment, wenn Sie es noch einmal durchführen müssten?</li>
+<li>Welche Fragen bleiben offen?</li>
 </ul>
-</section>
-<section id="signal-detection-theory" class="level3">
-<h3 class="anchored" data-anchor-id="signal-detection-theory">5 Signal Detection Theory</h3>
-<p><code>Sitzungen 9 und 10</code></p>
-<ul>
-<li>Wir verwenden ein in den Neurowissenschaften und der Psychologie beliebtes Modell für kategoriale oder ordinale Verhaltensdaten, um Daten aus unserem Experiment zu analysieren.</li>
-</ul>
-<!-- ### 6 Reaktionszeiten 
-```Sitzung 10```
+<p>Achten Sie darauf zu allen Punkten Antworten zu geben.</p>
+</section></section><section id="peer-feedback-erstellen" class="level1"><h1>2. Peer Feedback erstellen</h1>
+<section id="fragen-für-peer-feedback" class="level2"><h2 class="anchored" data-anchor-id="fragen-für-peer-feedback">Fragen für Peer Feedback</h2>
+<p>Geben Sie im Textfeld auf Ilias der Ihnen zugeordneten Person kurz Feedback zu jedem Punkt. Das kann beispielsweise beinhalten, ob Sie auf dieselben Ergebnisse gekommen sind, oder ob Sie Ergänzungen haben.</p>
+<p>Ihr Feedback sollte also mindestens (!!) 3 Rückmeldungspunkte umfassen.</p>
+</section><section id="peer-feedback-hochladen" class="level2"><h2 class="anchored" data-anchor-id="peer-feedback-hochladen">Peer Feedback hochladen</h2>
+<p>Laden Sie Ihr Peer Feedback anschliessend als Word/Text-File auf Ilias hoch.</p>
 
-- In diesen Sitzungen schauen wir uns Analysemethoden für Reaktionszeitdaten an. -->
-</section>
-<section id="bayesianische-datenanalyse" class="level3">
-<h3 class="anchored" data-anchor-id="bayesianische-datenanalyse">6 Bayesianische Datenanalyse</h3>
-<p><code>Sitzungen 11, 12 und 13</code></p>
-<ul>
-<li>Im letzten Thema geht es um einen modernen Ansatz in der Statistik, welcher auf den Axiomen der Wahrscheinlichkeitstheorie beruht, und einige Vorteile gegenüber der herkömmlichen (frequentistischen) Statistik bietet. Wir werden hier mit dem Programm <code>Jasp</code> arbeiten.</li>
-</ul>
 
-
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section></div></main> <!-- /main -->
-<script>
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
+  author = {Andrew Ellis and Gerda Wyssen},
+  title = {Übung 5},
+  date = {2022-05-22},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-5_bayesian_data_analysis.html},
+  langid = {en}
+}
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis, and Gerda Wyssen. 2022. <span>“Übung 5.”</span> May 22,
+2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-5_bayesian_data_analysis.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-5_bayesian_data_analysis.html</a>.
+</div></div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -648,8 +664,7 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
+</script><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -912,21 +927,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-    <li class="nav-item compact">
+<li class="nav-item compact">
     <a class="nav-link" href="https://github.com/kogpsy/neuroscicomplabFS23">
       <i class="bi bi-github" role="img">
 </i> 
     </a>
   </li>  
 </ul>
-    </div>
+</div>
   </div>
 </footer>
-
 
 
 </body></html>

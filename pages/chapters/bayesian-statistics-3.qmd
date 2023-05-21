@@ -34,7 +34,7 @@ library(webexercises)
 
 👉 [Daten (`FancyHat.csv`) herunterladen](../../downloadable_files/FancyHat.csv)
 
-👉 [Jasp installieren]([../../downloadable_files/rdkdata_clean.csv](https://jasp-stats.org/))
+👉 [Jasp installieren](https://jasp-stats.org/))
 :::
 
 

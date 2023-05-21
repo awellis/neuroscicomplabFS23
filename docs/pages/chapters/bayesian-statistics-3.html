@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
+<meta name="generator" content="quarto-1.2.335">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="author" content="Andrew Ellis">
 <meta name="dcterms.date" content="2022-05-15">
@@ -17,10 +17,9 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  margin: 0 0.8em 0.2em -1.6em;
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,19 +46,48 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
+    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-/* CSS for citations */
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging-indent div.csl-entry {
+.hanging div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -73,7 +101,8 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}</style>
+}
+</style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -111,7 +140,7 @@ div.csl-indent {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../../styles/global.css">
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../../styles/global.css">
 <link rel="stylesheet" href="../../include/webex.css">
 </head>
 <body class="nav-sidebar floating nav-fixed">
@@ -125,267 +154,236 @@ div.csl-indent {
     <span class="navbar-title">Neurowissenschaft Computerlab</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
 <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-admin" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-admin" role="button" data-bs-toggle="dropdown" aria-expanded="false">
  <span class="menu-text">🗄️ Admin</span>
     </a>
     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">
 <li>
-    <a class="dropdown-item" href="../../pages/admin/syllabus.html" rel="" target="">
+    <a class="dropdown-item" href="../../pages/admin/syllabus.html">
  <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html" rel="" target="">
+    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html">
  <span class="dropdown-text">📝 Leistungsnachweise</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../pages/admin/dozierende.html" rel="" target="">
+    <a class="dropdown-item" href="../../pages/admin/dozierende.html">
  <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
     </ul>
 </li>
 </ul>
-<div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+<div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
-</div>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-        <i class="bi bi-layout-text-sidebar-reverse"></i>
-      </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Bayes Factors: Bayesianische Hypothesentests</li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
-        <i class="bi bi-search"></i>
+    </nav><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Bayes Factors: Bayesianische Hypothesentests</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
       </button>
     </div>
   </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-        </div>
+      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
- <span class="menu-text">Einführung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Einführung</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Programmiersprachen</span></a>
+  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">Programmiersprachen</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ChatGPT</span></a>
+  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">ChatGPT</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">DataCamp</span></a>
+  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">DataCamp</a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Experimente</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Experimente</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Verhaltensexperiment mit PsychoPy</span></a>
+  <a href="../../pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">Verhaltensexperiment mit PsychoPy</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Experiment erstellen: Step by step</span></a>
+  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">Experiment erstellen: Step by step</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Übung 1</span></a>
+  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">Übung 1</a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
- <span class="menu-text">Data wrangling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Data wrangling</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reproducibility</span></a>
+  <a href="../../pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">Reproducibility</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Daten importieren: Teil 1</span></a>
+  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 1</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Automatisieren</span></a>
+  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">Automatisieren</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Daten importieren: Teil 2</span></a>
+  <a href="../../pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">Daten importieren: Teil 2</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Aggregierte Statistiken</span></a>
+  <a href="../../pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">Aggregierte Statistiken</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Übung 2</span></a>
+  <a href="../../pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">Übung 2</a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Visualisieren</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Visualisieren</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">R Markdown</span></a>
+  <a href="../../pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">R Markdown</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Grafiken erstellen mit <code>ggplot</code></span></a>
+  <a href="../../pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">Grafiken erstellen mit <code>ggplot</code></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Daten Visualisierung</span></a>
+  <a href="../../pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">Daten Visualisierung</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Übung 3</span></a>
+  <a href="../../pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link">Übung 3</a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
- <span class="menu-text">Signal Detection Theory</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">Signal Detection Theory</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/signal-detection-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Einführung</span></a>
+  <a href="../../pages/chapters/signal-detection-1.html" class="sidebar-item-text sidebar-link">Einführung</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">SDT anwenden</span></a>
+  <a href="../../pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">SDT anwenden</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Übung 4</span></a>
+  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">Übung 4</a>
   </div>
 </li>
       </ul>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
- <span class="menu-text">Bayesianische Datenanalyse</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true" aria-label="Toggle section">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">Bayesianische Datenanalyse</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/bayesian-statistics-1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Reaktivierung: Statistikwissen</span></a>
+  <a href="../../pages/chapters/bayesian-statistics-1.html" class="sidebar-item-text sidebar-link">Reaktivierung: Statistikwissen</a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/bayesian-statistics-2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Bayesianische Parameterschätzung</span></a>
+  <a href="../../pages/chapters/bayesian-statistics-2.html" class="sidebar-item-text sidebar-link">Bayesianische Parameterschätzung</a>
   </div>
 </li>
+          <li class="sidebar-item">
+  pages/chapters/uebung-5_bayesian-data_analysis.qmd
+  </li>
       </ul>
 </li>
     </ul>
 </div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
    
   <ul>
-<li><a href="#what-have-we-done-so-far" id="toc-what-have-we-done-so-far" class="nav-link active" data-scroll-target="#what-have-we-done-so-far">What have we done so far?</a></li>
+<li><a href="#was-wir-bisher-gemacht-haben" id="toc-was-wir-bisher-gemacht-haben" class="nav-link active" data-scroll-target="#was-wir-bisher-gemacht-haben">Was wir bisher gemacht haben</a></li>
   <li>
-<a href="#what-is-bayesian-data-analysis" id="toc-what-is-bayesian-data-analysis" class="nav-link" data-scroll-target="#what-is-bayesian-data-analysis">What is Bayesian data analysis?</a>
+<a href="#was-ist-bayesianische-statistik" id="toc-was-ist-bayesianische-statistik" class="nav-link" data-scroll-target="#was-ist-bayesianische-statistik">Was ist Bayesianische Statistik?</a>
   <ul class="collapse">
-<li><a href="#bayesian-parameter-estimation" id="toc-bayesian-parameter-estimation" class="nav-link" data-scroll-target="#bayesian-parameter-estimation">Bayesian parameter estimation</a></li>
+<li><a href="#bayesianische-parametersch%C3%A4tzung" id="toc-bayesianische-parameterschätzung" class="nav-link" data-scroll-target="#bayesianische-parametersch%C3%A4tzung">Bayesianische Parameterschätzung</a></li>
   <li><a href="#bayesian-model-comparison" id="toc-bayesian-model-comparison" class="nav-link" data-scroll-target="#bayesian-model-comparison">Bayesian model comparison</a></li>
   </ul>
 </li>
@@ -403,7 +401,7 @@ div.csl-indent {
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title">Bayes Factors: Bayesianische Hypothesentests</h1>
+<h1 class="title d-none d-lg-block">Bayes Factors: Bayesianische Hypothesentests</h1>
 </div>
 
 <div>
@@ -417,7 +415,7 @@ div.csl-indent {
   <div class="quarto-title-meta-heading">Affiliation</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://github.com/awellis">Andrew Ellis</a> <a href="https://orcid.org/0000-0002-2788-936X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+    <a href="https://github.com/awellis">Andrew Ellis</a> <a href="https://orcid.org/0000-0002-2788-936X" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
   </div>
     <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -442,26 +440,26 @@ div.csl-indent {
   </div>
   
 
-</header><div class="callout callout-style-default callout-tip callout-titled">
+</header><div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>👉 <a href="../../downloadable_files/FancyHat.csv">Daten (<code>FancyHat.csv</code>) herunterladen</a></p>
-<p>👉 <a href="[../../downloadable_files/rdkdata_clean.csv](https://jasp-stats.org/)">Jasp installieren</a></p>
+<p>👉 <a href="https://jasp-stats.org/">Jasp installieren</a>)</p>
 </div>
 </div>
-<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-tip callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Lernziele
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
@@ -476,12 +474,12 @@ Lernziele
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
+<div class="callout-caption-container flex-fill">
 Literatur
 </div>
 </div>
@@ -489,32 +487,31 @@ Literatur
 <p><span class="citation" data-cites="keysersUsingBayesFactor2020">Keysers, Gazzola, and Wagenmakers (<a href="#ref-keysersUsingBayesFactor2020" role="doc-biblioref">2020</a>)</span></p>
 </div>
 </div>
-<section id="what-have-we-done-so-far" class="level2"><h2 class="anchored" data-anchor-id="what-have-we-done-so-far">What have we done so far?</h2>
-<p>We have briefly looked at how to estimate parameters in a very simple model, and we touched upon how to quantify uncertainty in our parameter estimates.</p>
-</section><section id="what-is-bayesian-data-analysis" class="level2"><h2 class="anchored" data-anchor-id="what-is-bayesian-data-analysis">What is Bayesian data analysis?</h2>
+<section id="was-wir-bisher-gemacht-haben" class="level2"><h2 class="anchored" data-anchor-id="was-wir-bisher-gemacht-haben">Was wir bisher gemacht haben</h2>
+<p>Wir haben uns bisher damit beschäftigt, wie man Parameter in einem einfachen Modell schätzt, und wir haben angesprochen, wie man Unsicherheit in unseren Parameterschätzungen durch Wahrscheinlichkeitsverteilungen quantifiziert.</p>
+</section><section id="was-ist-bayesianische-statistik" class="level2"><h2 class="anchored" data-anchor-id="was-ist-bayesianische-statistik">Was ist Bayesianische Statistik?</h2>
 <ul>
-<li>It is important to distinguish between <em>parameter estimation</em> and <em>hypothesis testing</em>.</li>
-<li>Hypothesis testing means comparing models - thus it is more complicated than estimation.</li>
+<li>Es ist wichtig, zwischen Parameterschätzung und Hypothesentest zu unterscheiden.</li>
+<li>Hypothesentest einen Vergleich zwischen mehreren Modellen - daher ist es komplizierter als die Schätzung.</li>
 </ul>
-<p>A model is a set of parameters that we are using to predict the observed data. For example, in the card game, we had several different prior assumptions about the abilities of players A and B. One prior expressed our belief that both players were equally good, whereas another prior expressed the belief that either player A or player was better. These priors, together with our assumptions about the distribution of the data, form a model <span class="math inline">\(\mathcal{M}\)</span>.</p>
-<section id="bayesian-parameter-estimation" class="level3"><h3 class="anchored" data-anchor-id="bayesian-parameter-estimation">Bayesian parameter estimation</h3>
-<p>In Bayesian parameter estimation, we focus on one model <span class="math inline">\(\mathcal{M}\)</span>. The inferential goal is the posterior distribution, and we can obtain this by applying Bayes’ rule (using MCMC or other methods).</p>
+<p>Ein Modell ist eine Menge von Parametern, die wir verwenden, um die beobachteten Daten vorherzusagen. Zum Beispiel hatten wir im Kartenspiel verschiedene Vorannahmen über die Fähigkeiten der Spieler A und B. Eine Vorannahme drückte unsere Überzeugung aus, dass beide Spieler gleich gut waren, während eine andere Vorannahme die Überzeugung ausdrückte, dass entweder Spieler A oder Spieler B besser war. Diese Vorannahmen, zusammen mit unseren Annahmen über die Verteilung der Daten, bilden ein Modell <span class="math inline">\(\mathcal{M}\)</span>.</p>
+<section id="bayesianische-parameterschätzung" class="level3"><h3 class="anchored" data-anchor-id="bayesianische-parameterschätzung">Bayesianische Parameterschätzung</h3>
+<p>In der Bayesianischen Parameterschätzung konzentrieren wir uns auf ein Modell <span class="math inline">\(\mathcal{M}\)</span>. Das Ziel unserer Inferenz ist die a-posteriori-Verteilung der Parameter, und wir können diese durch Anwendung von Bayes’ Theorem erhalten (unter Verwendung von MCMC oder anderen Methoden).</p>
 <p><span class="math display">\[
 p(\theta | y) =  p(\theta) \cdot \frac{p(y | \theta)}{p(y)}
 \]</span></p>
-<p>We can rewrite Bayes rule, including the dependency of the parameters <span class="math inline">\(\mathbf{\theta}\)</span> on the model <span class="math inline">\(\mathcal{M}\)</span>):</p>
-<p><span class="math display">\[
+<p>Wir können die Bayes’sche Regel umformulieren, so dass die Abhängigkeit der Parameter <span class="math inline">\(\mathbf{\theta}\)</span> vom Modell <span class="math inline">\(\mathcal{M}\)</span>) eindeutig ist: <span class="math display">\[
 p(\theta | y, \mathcal{M}) = \frac{p(y|\theta, \mathcal{M}) p(\theta | \mathcal{M})}{p(y | \mathcal{M})}
 \]</span></p>
-<p>where <span class="math inline">\(\mathcal{M}\)</span> refers to a specific model. This model is determined by the prior distribution of the parameters <span class="math inline">\(p(\theta | \mathcal{M}\)</span> and the distribution of the data <span class="math inline">\(p(y|\theta, \mathcal{M})\)</span>.</p>
-<p>The marginal likelihood <span class="math inline">\(p(y | \mathcal{M})\)</span> now gives the probability of the data, averaged over all possible parameter values under prior in model <span class="math inline">\(\mathcal{M}\)</span>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<p>wo <span class="math inline">\(\mathcal{M}\)</span> auf ein spezifisches Modell verweist. Dieses Modell wird durch die a-priori-Verteilung der Parameter <span class="math inline">\(p(\theta | \mathcal{M}\)</span> und die Verteilung der Daten <span class="math inline">\(p(y|\theta, \mathcal{M})\)</span> bestimmt.</p>
+<p>Die marginale Wahrscheinlichkeit <span class="math inline">\(p(y | \mathcal{M})\)</span> gibt nun die Wahrscheinlichkeit der Daten an, gemittelt über alle möglichen Parameterwerte unter der Vorverteilung im Modell <span class="math inline">\(\mathcal{M}\)</span>.</p>
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Important
+<div class="callout-caption-container flex-fill">
+Hands-on
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -586,13 +583,13 @@ p(\mathcal{M}_2 | y) = \frac{P(y | \mathcal{M}_2) p(\mathcal{M}_2)}{p(y)}
 <p>The following <a href="https://www.statology.org/bayes-factor/">interpretations</a> are sometimes used (based on <span class="citation" data-cites="andraszewiczIntroductionBayesianHypothesis">Andraszewicz et al. (<a href="#ref-andraszewiczIntroductionBayesianHypothesis" role="doc-biblioref">n.d.</a>)</span>), although it is not really necessary or helpful to classify Bayes factors.</p>
 </section></section><section id="hypothesis-testing" class="level2"><h2 class="anchored" data-anchor-id="hypothesis-testing">Hypothesis testing</h2>
 <p>We usually perform model comparisons between a null hypothesis <span class="math inline">\(\mathcal{H}_0\)</span> and an alternative hypothesis <span class="math inline">\(\mathcal{H}_1\)</span>. The terms “model” and “hypothesis” are used synonymously. A null hypothesis means that we fix the value of the parameter to a certain value, e.g.&nbsp;<span class="math inline">\(\theta = 0.5\)</span>. The alternative hypothesis means that we do not fix the value of the parameter, e.g.&nbsp;we do not assume that the parameter is <span class="math inline">\(0.5\)</span>.</p>
-<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-title-container flex-fill">
-Important
+<div class="callout-caption-container flex-fill">
+Hands-on
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -616,6 +613,9 @@ Important
 <p>The Savage-Dickey Density Ratio is a simplified manner of obtaining the Bayes factor - we simply need to consider <span class="math inline">\(\mathcal{M}_1\)</span>, and divide the posterior by the prior at the value <span class="math inline">\(\theta_0\)</span>.</p>
 <p>Let’s look at an example from <span class="citation" data-cites="wagenmakersBayesianHypothesisTesting2010a">Wagenmakers et al. (<a href="#ref-wagenmakersBayesianHypothesisTesting2010a" role="doc-biblioref">2010</a>)</span>:</p>
 <p>You observe that a person correctly answers 9 out of 10 yes-or-no questions.</p>
+<div class="cell">
+
+</div>
 <div class="cell">
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -787,26 +787,26 @@ p(\theta|y) = Beta(1 + 9, 1 + 1)
 
 
 
-</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-andraszewiczIntroductionBayesianHypothesis" class="csl-entry" role="listitem">
+</section></section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography">
+<div id="ref-andraszewiczIntroductionBayesianHypothesis" class="csl-entry" role="doc-biblioentry">
 Andraszewicz, Sandra, Benjamin Scheibehenne, Jörg Rieskamp, Raoul Grasman, Josine Verhagen, and Eric-Jan Wagenmakers. n.d. <span>“An <span>Introduction</span> to <span>Bayesian Hypothesis Testing</span> for <span>Management Research</span>,”</span> 23. <a href="https://doi.org/10.1177/0149206314560412">https://doi.org/10.1177/0149206314560412</a>.
 </div>
-<div id="ref-keysersUsingBayesFactor2020" class="csl-entry" role="listitem">
+<div id="ref-keysersUsingBayesFactor2020" class="csl-entry" role="doc-biblioentry">
 Keysers, Christian, Valeria Gazzola, and Eric-Jan Wagenmakers. 2020. <span>“Using <span>Bayes</span> Factor Hypothesis Testing in Neuroscience to Establish Evidence of Absence.”</span> <em>Nature Neuroscience</em> 23 (7, 7): 788–99. <a href="https://doi.org/10.1038/s41593-020-0660-4">https://doi.org/10.1038/s41593-020-0660-4</a>.
 </div>
-<div id="ref-wagenmakersBayesianHypothesisTesting2010a" class="csl-entry" role="listitem">
+<div id="ref-wagenmakersBayesianHypothesisTesting2010a" class="csl-entry" role="doc-biblioentry">
 Wagenmakers, Eric-Jan, Tom Lodewyckx, Himanshu Kuriyal, and Raoul Grasman. 2010. <span>“Bayesian Hypothesis Testing for Psychologists: <span>A</span> Tutorial on the <span>Savage</span>–<span>Dickey</span> Method.”</span> <em>Cognitive Psychology</em> 60 (3): 158–89. <a href="https://doi.org/10.1016/j.cogpsych.2009.12.001">https://doi.org/10.1016/j.cogpsych.2009.12.001</a>.
 </div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
-  author = {Ellis, Andrew},
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div quarto-reuse="quarto-reuse" class="quarto-appendix-contents"><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
+  author = {Andrew Ellis},
   title = {Bayes {Factors:} {Bayesianische} {Hypothesentests}},
   date = {2022-05-15},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//bayesian-statistics-3.html},
   langid = {en}
 }
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ellis, Andrew. 2022. <span>“Bayes Factors: Bayesianische
-Hypothesentests.”</span> May 15, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html</a>.
+</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
+Andrew Ellis. 2022. <span>“Bayes Factors: Bayesianische
+Hypothesentests.”</span> May 15, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//bayesian-statistics-3.html">https://kogpsy.github.io/neuroscicomplabFS23//bayesian-statistics-3.html</a>.
 </div></div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
@@ -1154,23 +1154,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
-  const isCodeAnnotation = (el) => {
-    for (const clz of el.classList) {
-      if (clz.startsWith('code-annotation-')) {                     
-        return true;
-      }
-    }
-    return false;
-  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
+    target: function(trigger) {
+      return trigger.previousElementSibling;
     }
   });
   clipboard.on('success', function(e) {
@@ -1235,159 +1221,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
-      let selectedAnnoteEl;
-      const selectorForAnnotation = ( cell, annotation) => {
-        let cellAttr = 'data-code-cell="' + cell + '"';
-        let lineAttr = 'data-code-annotation="' +  annotation + '"';
-        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
-        return selector;
-      }
-      const selectCodeLines = (annoteEl) => {
-        const doc = window.document;
-        const targetCell = annoteEl.getAttribute("data-target-cell");
-        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
-        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
-        const lineIds = lines.map((line) => {
-          return targetCell + "-" + line;
-        })
-        let top = null;
-        let height = null;
-        let parent = null;
-        if (lineIds.length > 0) {
-            //compute the position of the single el (top and bottom and make a div)
-            const el = window.document.getElementById(lineIds[0]);
-            top = el.offsetTop;
-            height = el.offsetHeight;
-            parent = el.parentElement.parentElement;
-          if (lineIds.length > 1) {
-            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-            height = bottom - top;
-          }
-          if (top !== null && height !== null && parent !== null) {
-            // cook up a div (if necessary) and position it 
-            let div = window.document.getElementById("code-annotation-line-highlight");
-            if (div === null) {
-              div = window.document.createElement("div");
-              div.setAttribute("id", "code-annotation-line-highlight");
-              div.style.position = 'absolute';
-              parent.appendChild(div);
-            }
-            div.style.top = top - 2 + "px";
-            div.style.height = height + 4 + "px";
-            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-            if (gutterDiv === null) {
-              gutterDiv = window.document.createElement("div");
-              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-              gutterDiv.style.position = 'absolute';
-              const codeCell = window.document.getElementById(targetCell);
-              const gutter = codeCell.querySelector('.code-annotation-gutter');
-              gutter.appendChild(gutterDiv);
-            }
-            gutterDiv.style.top = top - 2 + "px";
-            gutterDiv.style.height = height + 4 + "px";
-          }
-          selectedAnnoteEl = annoteEl;
-        }
-      };
-      const unselectCodeLines = () => {
-        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
-        elementsIds.forEach((elId) => {
-          const div = window.document.getElementById(elId);
-          if (div) {
-            div.remove();
-          }
-        });
-        selectedAnnoteEl = undefined;
-      };
-      // Handle positioning of the toggle
-      window.addEventListener(
-      "resize",
-      throttle(() => {
-        elRect = undefined;
-        if (selectedAnnoteEl) {
-          selectCodeLines(selectedAnnoteEl);
-        }
-      }, 10)
-      );
-      function throttle(fn, ms) {
-      let throttle = false;
-      let timer;
-        return (...args) => {
-          if(!throttle) { // first call gets through
-              fn.apply(this, args);
-              throttle = true;
-          } else { // all the others get throttled
-              if(timer) clearTimeout(timer); // cancel #2
-              timer = setTimeout(() => {
-                fn.apply(this, args);
-                timer = throttle = false;
-              }, ms);
-          }
-        };
-      }
-      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
-      for (let i=0; i<annoteTargets.length; i++) {
-        const annoteTarget = annoteTargets[i];
-        const targetCell = annoteTarget.getAttribute("data-target-cell");
-        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
-        const contentFn = () => {
-          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
-          if (content) {
-            const tipContent = content.cloneNode(true);
-            tipContent.classList.add("code-annotation-tip-content");
-            return tipContent.outerHTML;
-          }
-        }
-        const config = {
-          allowHTML: true,
-          content: contentFn,
-          onShow: (instance) => {
-            selectCodeLines(instance.reference);
-            instance.reference.classList.add('code-annotation-active');
-            window.tippy.hideAll();
-          },
-          onHide: (instance) => {
-            unselectCodeLines();
-            instance.reference.classList.remove('code-annotation-active');
-          },
-          maxWidth: 300,
-          delay: [50, 0],
-          duration: [200, 0],
-          offset: [5, 10],
-          arrow: true,
-          trigger: 'click',
-          appendTo: function(el) {
-            return el.parentElement.parentElement.parentElement;
-          },
-          interactive: true,
-          interactiveBorder: 10,
-          theme: 'quarto',
-          placement: 'right',
-          positionFixed: true,
-          popperOptions: {
-            modifiers: [
-            {
-              name: 'flip',
-              options: {
-                flipVariations: false, // true by default
-                allowedAutoPlacements: ['right'],
-                fallbackPlacements: ['right', 'top', 'top-start', 'top-end'],
-              },
-            },
-            {
-              name: 'preventOverflow',
-              options: {
-                mainAxis: false,
-                altAxis: false
-              }
-            }
-            ]        
-          }      
-        };
-        window.tippy(annoteTarget, config); 
-      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -1426,12 +1259,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-      var filterRegex = new RegExp("https:\/\/kogpsy\.github\.io\/neuroscicomplabFS23\/");
+      var filterRegex = new RegExp(/https:\/\/kogpsy\.github\.io\/neuroscicomplabFS23\//);
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
+    var links = window.document.querySelectorAll('a:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1443,12 +1276,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 </div> <!-- /content -->
 <footer class="footer"><div class="nav-footer">
-    <div class="nav-footer-left">
-      &nbsp;
-    </div>   
-    <div class="nav-footer-center">
-      &nbsp;
-    </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
 <li class="nav-item compact">
