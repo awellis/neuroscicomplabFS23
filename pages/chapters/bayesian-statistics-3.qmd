@@ -49,44 +49,44 @@ In der heutigen Sitzung:
 :::
 
 
+:::{.callout-important}
+## Literatur
+
+@keysersUsingBayesFactor2020
+
+:::
 
 
-## What have we done so far?
+## Was wir bisher gemacht haben
 
-We have briefly looked at how to estimate parameters in a very simple model, and we touched upon how to quantify uncertainty in our parameter estimates.
-
-
-
-## What is Bayesian data analysis?
+Wir haben uns bisher damit beschäftigt, wie man Parameter in einem einfachen Modell schätzt, und wir haben angesprochen, wie man Unsicherheit in unseren Parameterschätzungen durch Wahrscheinlichkeitsverteilungen quantifiziert.
 
 
-- It is important to distinguish between _parameter estimation_ and _hypothesis
-testing_.
-- Hypothesis testing means comparing models - thus it is more complicated than estimation.
-
-A model is a set of parameters that we are using to predict the observed data. For example, in the card game, we had several different prior assumptions about the abilities of players A and B. One prior expressed our belief that both players were equally good, whereas another prior expressed the belief that either player A or player was better. These priors, together with our assumptions about the distribution of the data, form a model $\mathcal{M}$.
+## Was ist Bayesianische Statistik?
 
 
-### Bayesian parameter estimation
+- Es ist wichtig, zwischen Parameterschätzung und Hypothesentest zu unterscheiden.
+- Hypothesentest einen Vergleich zwischen mehreren Modellen - daher ist es komplizierter als die Schätzung.
 
-In Bayesian parameter estimation, we focus on one model $\mathcal{M}$. The inferential goal is the posterior distribution, and we can obtain this by applying Bayes' rule (using MCMC or other methods).
+Ein Modell ist eine Menge von Parametern, die wir verwenden, um die beobachteten Daten vorherzusagen. Zum Beispiel hatten wir im Kartenspiel verschiedene Vorannahmen über die Fähigkeiten der Spieler A und B. Eine Vorannahme drückte unsere Überzeugung aus, dass beide Spieler gleich gut waren, während eine andere Vorannahme die Überzeugung ausdrückte, dass entweder Spieler A oder Spieler B besser war. Diese Vorannahmen, zusammen mit unseren Annahmen über die Verteilung der Daten, bilden ein Modell $\mathcal{M}$.
 
+### Bayesianische Parameterschätzung
+
+In der Bayesianischen Parameterschätzung konzentrieren wir uns auf ein Modell $\mathcal{M}$. Das Ziel unserer Inferenz ist die a-posteriori-Verteilung der Parameter, und wir können diese durch Anwendung von Bayes' Theorem erhalten (unter Verwendung von MCMC oder anderen Methoden).
 
 $$ 
 p(\theta | y) =  p(\theta) \cdot \frac{p(y | \theta)}{p(y)}
 $$
 
 
-We can rewrite Bayes rule, including the dependency of the parameters $\mathbf{\theta}$ on the model $\mathcal{M}$):
-
+Wir können die Bayes'sche Regel umformulieren, so dass die Abhängigkeit der Parameter $\mathbf{\theta}$ vom Modell $\mathcal{M}$) eindeutig ist:
 $$ 
 p(\theta | y, \mathcal{M}) = \frac{p(y|\theta, \mathcal{M}) p(\theta | \mathcal{M})}{p(y | \mathcal{M})}
 $$
 
-where $\mathcal{M}$ refers to a specific model. This model is determined by the prior distribution of the parameters $p(\theta | \mathcal{M}$ and the distribution of the data $p(y|\theta, \mathcal{M})$. 
+wo $\mathcal{M}$ auf ein spezifisches Modell verweist. Dieses Modell wird durch die a-priori-Verteilung der Parameter $p(\theta | \mathcal{M}$ und die Verteilung der Daten $p(y|\theta, \mathcal{M})$ bestimmt.
 
-The marginal likelihood $p(y | \mathcal{M})$ now gives the probability of the data, averaged over all possible parameter values under prior in model $\mathcal{M}$.
-
+Die marginale Wahrscheinlichkeit $p(y | \mathcal{M})$ gibt nun die Wahrscheinlichkeit der Daten an, gemittelt über alle möglichen Parameterwerte unter der Vorverteilung im Modell $\mathcal{M}$.
 
 :::{.callout-important}
 The marginal likelihood $p(y | \mathcal{M})$ is usually neglected when looking at a single model, but becomes important when comparing models.
