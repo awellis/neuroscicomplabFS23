@@ -65,7 +65,8 @@ In der heutigen Sitzung:
 In den Neurowissenschaftler*innen ist es wichtig zu wissen, welche experimentellen Manipulationen einen Effekt haben. Genauso wichtig ist es jedoch zu wissen, welche Manipulationen _keinen Effekt_ haben. Diese Frage zu beantworten ist jedoch mit traditionellen statistischen Ansätzen schwierig.  Nicht signifikante Ergebnisse sind schwer zu interpretieren: Unterstützen sie die Nullhypothese oder sind sie einfach nicht informativ? 
 
 :::{.callout-important}
-Überlegen Sie sich nochmals, was man mit einem p-Wert genau aussagen kann.
+## p-Werte
+p-Werte sind [schwierig](https://fivethirtyeight.com/features/not-even-scientists-can-easily-explain-p-values/) zu erklären. Überlegen Sie sich nochmals, was man mit einem p-Wert genau aussagen kann. 
 :::
 
 Als Beispiel dient folgendes Experiment aus dem Paper von @keysersUsingBayesFactor2020. Nehmen wir an, dass der vordere cinguläre Kortex (ACC) bei Ratten für die "emotionale Ansteckung" entscheidend ist und dass eine Deaktivierung des ACC durch lokale Injektion von Muscimol die emotionale Ansteckung im Vergleich zur Injektion von Kochsalzlösung verringern sollte.
