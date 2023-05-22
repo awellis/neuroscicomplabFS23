@@ -55,7 +55,7 @@ In der heutigen Sitzung:
 
 - Ein sehr gutes Lehrbuch Statistik mit JASP: [Learn Statistics with JASP](https://learnstatswithjasp.com/). Enthält ein Kapitel zur Bayesianischen Statistik.
 
-- Keysers, C., Gazzola, V., & Wagenmakers, E.-J. (2020). Using Bayes factor hypothesis testing in neuroscience to establish evidence of absence. Nature Neuroscience, 23(7), Article 7. https://doi.org/10.1038/s41593-020-0660-4
+- Keysers, C., Gazzola, V., & Wagenmakers, E.-J. (2020). Using Bayes factor hypothesis testing in neuroscience to establish evidence of absence. Nature Neuroscience, 23(7), [https://doi.org/10.1038/s41593-020-0660-4](https://www.nature.com/articles/s41593-020-0660-4)
 :::
 
 
