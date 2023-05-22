@@ -102,7 +102,7 @@ wo $\mathcal{M}$ auf ein spezifisches Modell verweist. Dieses Modell wird durch 
 
 :::{.callout-important}
 ## Wahrscheinlichkeit der Daten
-Die Randwahrscheinlichkeit $p(y | \mathcal{M})$ gibt nun die Wahrscheinlichkeit der Daten an, gemittelt über alle möglichen Parameterwerte unter der Vorverteilung im Modell $\mathcal{M}$. Sie auch **Modell-Evidenz** genannt.
+Die bedingte Wahrscheinlichkeit $p(y | \mathcal{M})$ gibt nun die Wahrscheinlichkeit der Daten an, gemittelt über alle möglichen Parameterwerte unter der Vorverteilung im Modell $\mathcal{M}$. Sie auch **Modell-Evidenz** genannt.
 :::
 
 Bei der Parameterschätzung spielt  $p(y | \mathcal{M})$ nur die Rolle eines Normalisierungsfaktors. Beim Modellvergleich ist $p(y | \mathcal{M})$ jedoch von zentraler Bedeutung.
