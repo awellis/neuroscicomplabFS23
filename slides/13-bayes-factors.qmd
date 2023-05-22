@@ -1,13 +1,13 @@
 ---
-title: "12. Sitzung"
+title: "13. Sitzung"
 subtitle: "Bayesian hypothesis testing/model comparison."
 author: "Andrew Ellis"
-institute: "Neurowissenschaft Computerlab FS 22"
+institute: "Neurowissenschaft Computerlab FS 23"
 format:
   revealjs:
     theme: [simple, ../styles/reveal.scss]
     logo: ../assets/logo.png
-    footer: <a href="/">🏠 Neurowissenschaft Computerlab FS22</a>
+    footer: <a href="/">🏠 Neurowissenschaft Computerlab FS23</a>
     # smaller: true
     slide-number: c/t
     chalkboard: true
@@ -18,7 +18,7 @@ format:
 execute:
   echo: true
   include: true
-date: "2022-05-24"
+date: "2023-05-22"
 ---
 
 ```{r}
