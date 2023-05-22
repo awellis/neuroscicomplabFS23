@@ -516,7 +516,7 @@ Beim Erstellen der Grafik sollte beachtet werden, an wen sich die Grafik richtet
 
 Das tönt simpel, wird aber oft nicht berücksichtigt. Bei einer Grafik geht es in erster Linie um die Daten. Es sollte die simpelste Form gewählt werden, welche die Informationen vermittelt. Oft braucht es keine ausgefallenen Grafikideen oder neuartigen Formate. Hierbei ist es wichtig, die Art der Daten zu berücksichtigen: Wie viele Variablen sind es? Sind diese kontinuierlich (z.B. Reaktionszeiten) oder diskret (z.B. Experimentalbedingungen)? Wie viele Dimensionen haben meine Daten? Mit zwei Achsen lassen sich zwei Dimensionen darstellen, zusätzlich können mit Farben und Formen noch weitere Dimensionen abgebildet werden (z.B. Millisekunden, Bedingung 1 und Bedingung 2). Es können Rohwerte geplottet werden oder *summary statistics* (z.B. Mittelwerte, Standardabweichungen)
 
-👉 Welche Art Grafik eignet sich für meine Frage und meine Daten? Schauen Sie z.B. [hier](datatoviz) nach oder nutzen Sie das `esquisse`-Package.
+👉 Welche Art Grafik eignet sich für meine Frage und meine Daten? Schauen Sie z.B. [hier](https://www.data-to-viz.com) nach oder nutzen Sie das `esquisse`-Package.
 
 - Beispiele für verschiedenen Plots in R sind z.B. histogram, boxplot, violin plot, scatter plot / correlogram, jitter plot, raincloud plot, percentiles / shift functions, area chart, heat map.
 
