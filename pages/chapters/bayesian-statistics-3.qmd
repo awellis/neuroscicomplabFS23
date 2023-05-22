@@ -392,3 +392,5 @@ Importieren Sie den Datensatz `SmartDrug.csv` ins JASP und führen Sie einen __B
 ## Horizontal Eye Movements
 Öffnen Sie den Datensatz `Eye Movements` in JASP: `Open > Data Library > T-Tests > Eye Movements`. In diesem Datensatz wird die Anzahl erinnerter Wörter zwischen zwei Gruppen verglichen. In der einen Gruppe wurden die Probanden instruiert, während der Erinnerungsphase auf einen zentralen Punkt zu fixieren; in der anderen Gruppe wurden die Probanden instruiert, horizontale Sakkaden auszuführen.
 :::
+
+Eine sehr gute interaktive Visualisierung eines Bayesian `two-sample t test` finden Sie unter folgendem Link: [👉 rpsychologist.com/d3/bayes](https://rpsychologist.com/d3/bayes/).

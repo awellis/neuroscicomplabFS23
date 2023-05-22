@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.353">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="author" content="Andrew Ellis">
-<meta name="dcterms.date" content="2022-05-15">
-<meta name="description" content="Eine Alternative zu Null Hypothesis Significance Testing (NHST).">
-<title>Neurowissenschaft Computerlab - Bayes Factors: Bayesianische Hypothesentests</title>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.3.353" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Andrew Ellis" />
+<meta name="dcterms.date" content="2022-05-15" />
+<meta name="description" content="Eine Alternative zu Null Hypothesis Significance Testing (NHST)." />
+
+<title>Neurowissenschaft Computerlab – Bayes Factors: Bayesianische Hypothesentests</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,25 +80,8 @@ div.csl-indent {
   margin-left: 2em;
 }</style>
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<link href="../..//assets/logo_landing.png" rel="icon" type="image/png">
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+<!-- htmldependencies:E3FAD763 -->
+<script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -111,47 +99,58 @@ div.csl-indent {
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><link rel="stylesheet" href="../../styles/global.css">
-<link rel="stylesheet" href="../../include/webex.css">
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="/styles/global.css" />
+<link rel="stylesheet" href="../../include/webex.css" />
 </head>
-<body class="nav-sidebar floating nav-fixed">
+
+<body>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg navbar-dark "><div class="navbar-container container-fluid">
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../assets/logo.png" alt="" class="navbar-logo"></a>
-    <a class="navbar-brand" href="../../index.html">
+    <a href="/index.html" class="navbar-brand navbar-brand-logo">
+    <img src="/assets/logo.png" alt="" class="navbar-logo" />
+    </a>
+    <a class="navbar-brand" href="/index.html">
     <span class="navbar-title">Neurowissenschaft Computerlab</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-<li class="nav-item dropdown ">
+  <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-admin" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
  <span class="menu-text">🗄️ Admin</span>
     </a>
-    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">
-<li>
-    <a class="dropdown-item" href="../../pages/admin/syllabus.html" rel="" target="">
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-admin">    
+        <li>
+    <a class="dropdown-item" href="/pages/admin/syllabus.html" rel="" target="">
  <span class="dropdown-text">📚 Syllabus</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../pages/admin/leistungsnachweise.html" rel="" target="">
+    <a class="dropdown-item" href="/pages/admin/leistungsnachweise.html" rel="" target="">
  <span class="dropdown-text">📝 Leistungsnachweise</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../../pages/admin/dozierende.html" rel="" target="">
+    <a class="dropdown-item" href="/pages/admin/dozierende.html" rel="" target="">
  <span class="dropdown-text">👨🏻‍🏫👩🏼‍🔬 Dozierende</span></a>
   </li>  
     </ul>
-</li>
+  </li>
 </ul>
-<div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -161,27 +160,38 @@ div.csl-indent {
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
-    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../pages/chapters/bayesian-statistics-1.html">Bayesianische Datenanalyse</a></li><li class="breadcrumb-item"><a href="../../pages/chapters/bayesian-statistics-3.html">Bayes Factors: Bayesianische Hypothesentests</a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-<li class="sidebar-item sidebar-item-section">
+        <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Einführung</span></a>
@@ -189,27 +199,27 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/software.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/software.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Programmiersprachen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/chatgpt.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">ChatGPT</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/datacamp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">DataCamp</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
@@ -218,27 +228,27 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/psychopy_experiments.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Verhaltensexperiment mit PsychoPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/experiment_stepbystep.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Experiment erstellen: Step by step</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/uebung_1_experiment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 1</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
@@ -247,45 +257,45 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/reproducibility.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reproducibility</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/importing_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten importieren: Teil 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/functions-loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Automatisieren</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/importing_data-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten importieren: Teil 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/summarizing-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Aggregierte Statistiken</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/uebung_2_data_wrangling.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 2</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
@@ -294,33 +304,33 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/rmarkdown.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R Markdown</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Grafiken erstellen mit <code>ggplot</code></span></a>
+  <a href="/pages/chapters/data_visualization_1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Grafiken erstellen mit `ggplot`</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/data_visualization_2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Daten Visualisierung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/uebung_3_data_visualization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 3</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="true">
@@ -329,27 +339,27 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/signal-detection-1.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/signal-detection-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Einführung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/signal-detection-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">SDT anwenden</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/uebung-4-signal-detection.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Übung 4</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="true">
@@ -358,49 +368,40 @@ div.csl-indent {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
-<li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/bayesian-statistics-1.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/bayesian-statistics-1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reaktivierung: Statistikwissen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/bayesian-statistics-2.html" class="sidebar-item-text sidebar-link">
+  <a href="/pages/chapters/bayesian-statistics-2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Bayesianische Parameterschätzung</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../pages/chapters/bayesian-statistics-3.html" class="sidebar-item-text sidebar-link active">
+  <a href="/pages/chapters/bayesian-statistics-3.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Bayes Factors: Bayesianische Hypothesentests</span></a>
   </div>
 </li>
       </ul>
-</li>
+  </li>
     </ul>
-</div>
-</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" ></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">On this page</h2>
-   
-  <ul>
-<li><a href="#absence-of-evidence-vs.-evidence-of-absence" id="toc-absence-of-evidence-vs.-evidence-of-absence" class="nav-link active" data-scroll-target="#absence-of-evidence-vs.-evidence-of-absence">Absence of Evidence vs.&nbsp;Evidence of Absence</a></li>
-  <li>
-<a href="#bayesianische-statistik" id="toc-bayesianische-statistik" class="nav-link" data-scroll-target="#bayesianische-statistik">Bayesianische Statistik?</a>
-  <ul class="collapse">
-<li><a href="#bayesianische-parametersch%C3%A4tzung" id="toc-bayesianische-parameterschätzung" class="nav-link" data-scroll-target="#bayesianische-parametersch%C3%A4tzung">Bayesianische Parameterschätzung</a></li>
-  <li><a href="#bayesianische-modellvergleiche" id="toc-bayesianische-modellvergleiche" class="nav-link" data-scroll-target="#bayesianische-modellvergleiche">Bayesianische Modellvergleiche</a></li>
-  </ul>
-</li>
-  <li><a href="#hypothesentesten" id="toc-hypothesentesten" class="nav-link" data-scroll-target="#hypothesentesten">Hypothesentesten</a></li>
-  <li><a href="#bayesian-t-test" id="toc-bayesian-t-test" class="nav-link" data-scroll-target="#bayesian-t-test">Bayesian t-Test</a></li>
-  </ul></nav>
+        <div id="quarto-toc-target"></div>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
 <h1 class="title">Bayes Factors: Bayesianische Hypothesentests</h1>
 </div>
 
@@ -440,10 +441,25 @@ div.csl-indent {
   </div>
   
 
-</header><div class="callout callout-style-default callout-tip callout-titled">
+</header>
+<nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#absence-of-evidence-vs.-evidence-of-absence" id="toc-absence-of-evidence-vs.-evidence-of-absence">Absence of Evidence vs. Evidence of Absence</a></li>
+  <li><a href="#bayesianische-statistik" id="toc-bayesianische-statistik">Bayesianische Statistik?</a>
+  <ul>
+  <li><a href="#bayesianische-parameterschätzung" id="toc-bayesianische-parameterschätzung">Bayesianische Parameterschätzung</a></li>
+  <li><a href="#bayesianische-modellvergleiche" id="toc-bayesianische-modellvergleiche">Bayesianische Modellvergleiche</a></li>
+  </ul></li>
+  <li><a href="#hypothesentesten" id="toc-hypothesentesten">Hypothesentesten</a></li>
+  <li><a href="#bayesian-t-test" id="toc-bayesian-t-test">Bayesian t-Test</a></li>
+  </ul>
+</nav>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Daten herunterladen
@@ -457,12 +473,12 @@ Daten herunterladen
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="true" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Lernziele
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<div class='callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end'><i class='callout-toggle'></i></div>
 </div>
 <div id="callout-2" class="callout-2-contents callout-collapse collapse show">
 <div class="callout-body-container callout-body">
@@ -477,7 +493,7 @@ Lernziele
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Weiterführende Literatur
@@ -491,12 +507,13 @@ Weiterführende Literatur
 </ul>
 </div>
 </div>
-<section id="absence-of-evidence-vs.-evidence-of-absence" class="level2"><h2 class="anchored" data-anchor-id="absence-of-evidence-vs.-evidence-of-absence">Absence of Evidence vs.&nbsp;Evidence of Absence</h2>
+<section id="absence-of-evidence-vs.-evidence-of-absence" class="level2">
+<h2>Absence of Evidence vs. Evidence of Absence</h2>
 <p>In den Neurowissenschaftler*innen ist es wichtig zu wissen, welche experimentellen Manipulationen einen Effekt haben. Genauso wichtig ist es jedoch zu wissen, welche Manipulationen <em>keinen Effekt</em> haben. Diese Frage zu beantworten ist jedoch mit traditionellen statistischen Ansätzen schwierig. Nicht signifikante Ergebnisse sind schwer zu interpretieren: Unterstützen sie die Nullhypothese oder sind sie einfach nicht informativ?</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 p-Werte
@@ -509,10 +526,13 @@ p-Werte
 <p>Als Beispiel dient folgendes Experiment aus dem Paper von <span class="citation" data-cites="keysersUsingBayesFactor2020">Keysers, Gazzola, and Wagenmakers (<a href="#ref-keysersUsingBayesFactor2020" role="doc-biblioref">2020</a>)</span>. Nehmen wir an, dass der vordere cinguläre Kortex (ACC) bei Ratten für die “emotionale Ansteckung” entscheidend ist und dass eine Deaktivierung des ACC durch lokale Injektion von Muscimol die emotionale Ansteckung im Vergleich zur Injektion von Kochsalzlösung verringern sollte.</p>
 <p>Ein injiziertes Tier beobachtete, wie ein Artgenosse Elektroschocks erhielt, und die Erstarrung wurde als Mass für die emotionale Ansteckung gemessen. Es gab auch eine nicht-soziale Kontrollbedingung, bei der das injizierte Tier einem schock-konditionierten Ton ausgesetzt wurde. In einem solchen Experiment ist es wichtig zu zeigen, dass die Manipulation (Injektion von Muscimol) die emotionale Ansteckung reduziert, aber nicht die Erstarrung im Allgemeinen. Dies bedeutet, dass in der Kontrollbedingung keinen Unterschied zwischen den Injektionen von Muscimol und Kochsalzlösung geben sollte.</p>
 <p>In diesem Kapitel lernen wir nun eine alternative Methode kennen, um Evidenz zu quantifizieren: <strong>Bayes Factors</strong>. Alternativ zu p-Werten bieten Bayes Factors Evidenz für oder gegen Hypothesen. Bayes Factors sind ein kontinuierliches Mass, welches im Prinzip angibt, um wieviel wir unsere Überzeugung für eine Hypothese ändern sollten, nachdem wir die Daten gesehen haben.</p>
-</section><section id="bayesianische-statistik" class="level2"><h2 class="anchored" data-anchor-id="bayesianische-statistik">Bayesianische Statistik?</h2>
+</section>
+<section id="bayesianische-statistik" class="level2">
+<h2>Bayesianische Statistik?</h2>
 <p>Wir wir in der letzten Sitzungen gehört haben, ist es wichtig, zwischen Parameterschätzung und Hypothesentest zu unterscheiden. Parameterschätzung bezeichnet den Prozess, einen oder mehrere Parameter in einem Modell zu schätzen. Um diese Schätzung durchzuführen, müssen wir eine a-priori-Verteilung der Parameterwerte angeben. Hypothesentesten ist einen Vergleich zwischen mehreren Modellen, welche sich in ihren a-priori-Verteilungen unterscheiden.</p>
 <p>Zum Beispiel hatten wir im Kartenspiel verschiedene Vorannahmen über die Fähigkeiten der Spieler A und B. Eine Vorannahme drückte z.B. unsere Überzeugung aus, dass beide Spieler gleich gut waren, während eine andere Vorannahme die Überzeugung ausdrückte, dass entweder Spieler A oder Spieler B besser war. Diese Vorannahmen, zusammen mit unseren Annahmen über die Verteilung der Daten, bilden ein Modell <span class="math inline">\(\mathcal{M}\)</span>.</p>
-<section id="bayesianische-parameterschätzung" class="level3"><h3 class="anchored" data-anchor-id="bayesianische-parameterschätzung">Bayesianische Parameterschätzung</h3>
+<section id="bayesianische-parameterschätzung" class="level3">
+<h3>Bayesianische Parameterschätzung</h3>
 <p>In der Bayesianischen Parameterschätzung konzentrieren wir uns auf ein Modell <span class="math inline">\(\mathcal{M}\)</span>. Das Ziel unserer Inferenz ist die a-posteriori-Verteilung der Parameter <span class="math inline">\(\theta\)</span>, und wir können diese durch Anwendung von Bayes’ Theorem erhalten (unter Verwendung von Markov Chain Monte Carlo Sampling oder anderen Methoden).</p>
 <p><span class="math display">\[
 p(\theta | y) =  p(\theta) \cdot \frac{p(y | \theta)}{p(y)}
@@ -524,7 +544,7 @@ p(\theta | y, \mathcal{M}) = \frac{p(y|\theta, \mathcal{M}) \cdot p(\theta | \ma
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Wahrscheinlichkeit der Daten
@@ -544,7 +564,9 @@ p(y | \mathcal{M}) = \int{p(y | \theta, \mathcal{M}) p(\theta|\mathcal{M})d\thet
 \]</span></p>
 <p>Dies bedeutet, dass wir die Wahrscheinlichkeit der Daten <span class="math inline">\(p(y | \mathcal{M})\)</span> erhalten, indem wir die Wahrscheinlichkeit der Daten für jeden möglichen Parameterwert <span class="math inline">\(\theta\)</span> berechnen und dann über alle möglichen Parameterwerte mitteln.</p>
 <p>Die a-priori-Verteilungen für <span class="math inline">\(\theta\)</span> sind wichtig, da sie die Wahrscheinlichkeit möglicher Werte von <span class="math inline">\(\theta\)</span> bestimmen.</p>
-</section><section id="bayesianische-modellvergleiche" class="level3"><h3 class="anchored" data-anchor-id="bayesianische-modellvergleiche">Bayesianische Modellvergleiche</h3>
+</section>
+<section id="bayesianische-modellvergleiche" class="level3">
+<h3>Bayesianische Modellvergleiche</h3>
 <p>Nun wollen wir zwei verschiedene Modelle miteinander vergleichen – wir wollen wissen, welches Modell die Daten besser erklärt. Wir können die Bayes’sche Regel verwenden, um die Wahrscheinlichkeit der Modelle <span class="math inline">\(\mathcal{M1}\)</span> und <span class="math inline">\(\mathcal{M2}\)</span> zu berechnen (gemittelt über alle möglichen Parameterwerte innerhalb des Modells):</p>
 <p><span class="math display">\[
 p(\mathcal{M}_1 | y) = \frac{P(y | \mathcal{M}_1) p(\mathcal{M}_1)}{p(y)}
@@ -565,7 +587,7 @@ p(\mathcal{M}_2 | y) = \frac{P(y | \mathcal{M}_2) p(\mathcal{M}_2)}{p(y)}
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Marginal Likelihoods
@@ -590,12 +612,15 @@ Marginal Likelihoods
 <p>Wenn wir <span class="math inline">\(BF_{12} = 0.2\)</span> erhalten, ist es einfacher, Zähler und Nenner zu vertauschen:</p>
 <p><span class="math display">\[ BF_{21} = \frac{P(y | \mathcal{M}_2)}{P(y | \mathcal{M}_1)}\]</span></p>
 <p>Die folgenden <a href="https://www.statology.org/bayes-factor/">Interpretationen</a> von Bayes Factors werden manchmal verwendet, obwohl es nicht wirklich notwendig ist, diese zu klassifizieren. Bayes Factors sind ein kontinuierliches Mass für Evidenz.</p>
-</section></section><section id="hypothesentesten" class="level2"><h2 class="anchored" data-anchor-id="hypothesentesten">Hypothesentesten</h2>
+</section>
+</section>
+<section id="hypothesentesten" class="level2">
+<h2>Hypothesentesten</h2>
 <p>Wir führen oft Modellvergleiche zwischen einer Nullhypothese <span class="math inline">\(\mathcal{H}_0\)</span> und einer alternativen Hypothese <span class="math inline">\(\mathcal{H}_1\)</span> durch (Die Begriffe “Modell” und “Hypothese” werden synonym verwendet). Eine Nullhypothese bedeutet, dass wir den Wert des Parameters auf einen bestimmten Wert festlegen, z.B. <span class="math inline">\(\theta = 0.5\)</span>. Die alternative Hypothese bedeutet, dass wir den Wert des Parameters nicht festlegen, sondern eine a-priori Verteilung annehmen.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Alternativhypothese
@@ -615,12 +640,12 @@ Alternativhypothese
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Savage-Dickey Density Ratio
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+<div class='callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end'><i class='callout-toggle'></i></div>
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
@@ -633,27 +658,27 @@ Savage-Dickey Density Ratio
 <p>Das Savage-Dickey Density Ratio ist eine verinfachte Methode, um einen Bayes Factor zu erhalten - wir müssen einfach <span class="math inline">\(\mathcal{M}_1\)</span> betrachten, und die a-posterior Verteilung durch die a-prior Verteilung an der Stelle <span class="math inline">\(\theta_0\)</span> teilen.</p>
 <p>Als Beispiel: stellen Sie sich vor, dass eine Person 9 von 10 Ja/Nein Fragen korrekt beantwortet.</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">n_correct</span> <span class="op">&lt;-</span> <span class="fl">9</span></span>
-<span><span class="va">n_questions</span> <span class="op">&lt;-</span> <span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>n_correct <span class="ot">&lt;-</span> <span class="dv">9</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>n_questions <span class="ot">&lt;-</span> <span class="dv">10</span></span></code></pre></div>
 </div>
 <p>Wir wollen wissen: wie wahrscheinlich ist es, dass die Person geraten hat (<span class="math inline">\(\theta=0.5\)</span>)?</p>
 <p>Wir nehmen nun eine uniforme a-priori Verteilung für <span class="math inline">\(\theta\)</span> an: <span class="math display">\[
 p(\theta) = Beta(1, 1)
 \]</span></p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pd</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/tibble.html">tibble</a></span><span class="op">(</span></span>
-<span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, by <span class="op">=</span> <span class="fl">.01</span><span class="op">)</span>,</span>
-<span>    Prior <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="va">pd</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">Prior</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_cartesian.html">coord_cartesian</a></span><span class="op">(</span>xlim <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">1</span>, ylim <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">6</span><span class="op">)</span>, expand <span class="op">=</span> <span class="fl">0.01</span><span class="op">)</span> <span class="op">+</span></span>
-<span>    <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Density"</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="va">theta</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">by =</span> .<span class="dv">01</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Prior =</span> <span class="fu">dbeta</span>(x, <span class="dv">1</span>, <span class="dv">1</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(pd, <span class="fu">aes</span>(x, Prior)) <span class="sc">+</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_cartesian</span>(<span class="at">xlim =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="at">expand =</span> <span class="fl">0.01</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">x =</span> <span class="fu">bquote</span>(theta))</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672"></p>
+<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid" width="672" /></p>
 </div>
 </div>
 <p>Im nächsten Schritt wenden wir Bayes Theorem an, um die a-posteriori Verteilung zu erhalten:</p>
@@ -663,31 +688,31 @@ p(\theta|y) = Beta(1 + 9, 1 + 1)
 <p>Unser “Test-Wert” ist <span class="math inline">\(θ = 0.5\)</span>. Wir können nun sowohl die a-priori als auch die a-posteriori Verteilung an dieser Stelle auswerten:</p>
 <p>Prior:</p>
 <div class="cell">
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">dprior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>(dprior <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(<span class="fl">0.5</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
 </div>
 <p>Posterior:</p>
 <div class="cell">
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">dposterior</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">10</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>(dposterior <span class="ot">&lt;-</span> <span class="fu">dbeta</span>(<span class="fl">0.5</span>, <span class="dv">10</span>, <span class="dv">2</span>))</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1074219</code></pre>
 </div>
 </div>
 <p>Der Bayes Factor für die Nullhypothese <span class="math inline">\(BF_{01}\)</span> ist die Wahrscheinlichkeit der a-posteriori Verteilung geteilt durch die Wahrscheinlichkeit der a-priori Verteilung an der Stelle <span class="math inline">\(\theta_0\)</span>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BF01</span> <span class="op">&lt;-</span> <span class="va">dposterior</span> <span class="op">/</span> <span class="va">dprior</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>BF01 <span class="ot">&lt;-</span> dposterior <span class="sc">/</span> dprior</span></code></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">BF01</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>BF01</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.1074219</code></pre>
 </div>
 </div>
 <p>Da eine Zahl <span class="math inline">\(&lt;0\)</span> nicht so leicht interpretierbar ist, berechnen wir <span class="math inline">\(BF_{10}\)</span>:</p>
 <div class="cell">
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="op">(</span><span class="va">BF10</span> <span class="op">&lt;-</span> <span class="fl">1</span><span class="op">/</span><span class="va">BF01</span><span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(BF10 <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>BF01)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 9.309091</code></pre>
 </div>
@@ -696,38 +721,38 @@ p(\theta|y) = Beta(1 + 9, 1 + 1)
 <p>In JASP wird der BF folgendermassen grafisch dargestellt. Wir plotten sowohl die a-priori als auch die a-posteriori Verteilung, und die Wahrscheinlichkeitsdichten an der Stelle <span class="math inline">\(\theta_0 = 0.5\)</span>.</p>
 <p>Die Wahrscheinlichkeitsdichte von <span class="math inline">\(\theta_0\)</span> wird kleiner, nachdem wir die Daten berücksichtigt haben. Anders formuliert: Die Wahrscheinlichkeit von <span class="math inline">\(\theta_0\)</span> hat abgenommen, nachdem wir die Daten beobachtet haben. Dies ermöglicht uns zu schlussfolgern, dass die Daten (9 von 10) etwa 9 Mal wahrscheinlicher unter <span class="math inline">\(\mathcal{M_1}\)</span> sind.</p>
 <div class="cell">
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="va">pd</span> <span class="op">&lt;-</span> <span class="va">pd</span> <span class="op">|&gt;</span> </span>
-<span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span>Posterior <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/stats/Beta.html">dbeta</a></span><span class="op">(</span><span class="va">x</span>, <span class="fl">1</span> <span class="op">+</span> <span class="va">n_correct</span>, <span class="fl">1</span> <span class="op">+</span> <span class="op">(</span><span class="va">n_questions</span><span class="op">-</span><span class="va">n_correct</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">pdw</span> <span class="op">&lt;-</span> <span class="va">pd</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>names_to <span class="op">=</span> <span class="st">"Type"</span>, </span>
-<span>               values_to <span class="op">=</span> <span class="st">"density"</span>, </span>
-<span>               <span class="va">Prior</span><span class="op">:</span><span class="va">Posterior</span><span class="op">)</span></span>
-<span><span class="va">pdw</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html">aes</a></span><span class="op">(</span><span class="va">x</span>, <span class="va">density</span>, col <span class="op">=</span> <span class="va">Type</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html">geom_vline</a></span><span class="op">(</span>xintercept <span class="op">=</span> <span class="fl">0.5</span>, linetype <span class="op">=</span> <span class="st">"dotted"</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html">geom_line</a></span><span class="op">(</span>linewidth <span class="op">=</span> <span class="fl">1.5</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html">scale_x_continuous</a></span><span class="op">(</span>expand <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/expansion.html">expansion</a></span><span class="op">(</span><span class="fl">0.01</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_viridis.html">scale_color_viridis_d</a></span><span class="op">(</span>end <span class="op">=</span> <span class="fl">0.8</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html">labs</a></span><span class="op">(</span>y <span class="op">=</span> <span class="st">"Density"</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/bquote.html">bquote</a></span><span class="op">(</span><span class="va">theta</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"point"</span>, x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>, </span>
-<span>           y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="va">pdw</span><span class="op">$</span><span class="va">density</span><span class="op">[</span><span class="va">pdw</span><span class="op">$</span><span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">]</span><span class="op">)</span>,</span>
-<span>           size <span class="op">=</span> <span class="fl">4</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/annotate.html">annotate</a></span><span class="op">(</span><span class="st">"label"</span>,</span>
-<span>    x <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">.5</span>, <span class="fl">.5</span><span class="op">)</span>,</span>
-<span>    y <span class="op">=</span> <span class="va">pdw</span><span class="op">$</span><span class="va">density</span><span class="op">[</span><span class="va">pdw</span><span class="op">$</span><span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">]</span>,</span>
-<span>    label <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="va">pdw</span><span class="op">$</span><span class="va">density</span><span class="op">[</span><span class="va">pdw</span><span class="op">$</span><span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">]</span>, <span class="fl">3</span><span class="op">)</span>,</span>
-<span>    vjust <span class="op">=</span> <span class="op">-</span><span class="fl">.5</span></span>
-<span>  <span class="op">)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> pd <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">Posterior =</span> <span class="fu">dbeta</span>(x, <span class="dv">1</span> <span class="sc">+</span> n_correct, <span class="dv">1</span> <span class="sc">+</span> (n_questions<span class="sc">-</span>n_correct)))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>pdw <span class="ot">&lt;-</span> pd <span class="sc">|&gt;</span> </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">&quot;Type&quot;</span>, </span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">values_to =</span> <span class="st">&quot;density&quot;</span>, </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>               Prior<span class="sc">:</span>Posterior)</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>pdw <span class="sc">|&gt;</span> </span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, density, <span class="at">col =</span> Type)) <span class="sc">+</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">0.5</span>, <span class="at">linetype =</span> <span class="st">&quot;dotted&quot;</span>) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="fl">0.01</span>)) <span class="sc">+</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">end =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y =</span> <span class="st">&quot;Density&quot;</span>, <span class="at">x =</span> <span class="fu">bquote</span>(theta)) <span class="sc">+</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;point&quot;</span>, <span class="at">x =</span> <span class="fu">c</span>(.<span class="dv">5</span>, .<span class="dv">5</span>), </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>           <span class="at">y =</span> <span class="fu">c</span>(pdw<span class="sc">$</span>density[pdw<span class="sc">$</span>x <span class="sc">==</span> .<span class="dv">5</span>]),</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>           <span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">&quot;label&quot;</span>,</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">c</span>(.<span class="dv">5</span>, .<span class="dv">5</span>),</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> pdw<span class="sc">$</span>density[pdw<span class="sc">$</span>x <span class="sc">==</span> .<span class="dv">5</span>],</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">round</span>(pdw<span class="sc">$</span>density[pdw<span class="sc">$</span>x <span class="sc">==</span> .<span class="dv">5</span>], <span class="dv">3</span>),</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">vjust =</span> <span class="sc">-</span>.<span class="dv">5</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
 <div class="cell-output-display">
-<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672"></p>
+<p><img src="bayesian-statistics-3_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid" width="672" /></p>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html">filter</a></span><span class="op">(</span><span class="va">pd</span>, <span class="va">x</span> <span class="op">==</span> <span class="fl">.5</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html">mutate</a></span><span class="op">(</span></span>
-<span>    BF01 <span class="op">=</span> <span class="va">Posterior</span> <span class="op">/</span> <span class="va">Prior</span>,</span>
-<span>    BF10 <span class="op">=</span> <span class="fl">1</span> <span class="op">/</span> <span class="va">BF01</span><span class="op">)</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r cell-code"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(pd, x <span class="sc">==</span> .<span class="dv">5</span>) <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">BF01 =</span> Posterior <span class="sc">/</span> Prior,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">BF10 =</span> <span class="dv">1</span> <span class="sc">/</span> BF01) </span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 5
       x Prior Posterior  BF01  BF10
@@ -741,7 +766,7 @@ p(\theta|y) = Beta(1 + 9, 1 + 1)
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Hands-on
@@ -756,12 +781,14 @@ Hands-on
 <p>Importieren Sie den Datensatz <code>ExamQuestions.csv</code> ins JASP und führen Sie einen <strong>Bayesian binomial rate test</strong> durch.</p>
 </div>
 </div>
-</section><section id="bayesian-t-test" class="level2"><h2 class="anchored" data-anchor-id="bayesian-t-test">Bayesian t-Test</h2>
+</section>
+<section id="bayesian-t-test" class="level2">
+<h2>Bayesian t-Test</h2>
 <p>Um einen Bayesianischen t-Test durchzuführen, müssen wir ebenfalls Parameter schätzen, und zwei Modelle miteinander vergleichen. Dies werden wir anhand zweier Beispiele in JASP demonstrieren.</p>
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Smart Drug
@@ -775,7 +802,7 @@ Smart Drug
 <div class="callout callout-style-default callout-caution callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Horizontal Eye Movements
@@ -786,24 +813,21 @@ Horizontal Eye Movements
 </div>
 </div>
 <p>Eine sehr gute interaktive Visualisierung eines Bayesian <code>two-sample t test</code> finden Sie unter folgendem Link: <a href="https://rpsychologist.com/d3/bayes/">👉 rpsychologist.com/d3/bayes</a>.</p>
-
-
-
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title">Neurowissenschaft Computerlab</span> <span class="hidden" data-render-id="quarto-int-navbar-title">Neurowissenschaft Computerlab</span> <span class="hidden" data-render-id="quarto-int-prev">Bayesianische Parameterschätzung</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-1">Einführung</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/software.html">Programmiersprachen</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/chatgpt.html">ChatGPT</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/datacamp.html">DataCamp</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-2">Experimente</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/psychopy_experiments.html">Verhaltensexperiment mit PsychoPy</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/experiment_stepbystep.html">Experiment erstellen: Step by step</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/uebung_1_experiment.html">Übung 1</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-3">Data wrangling</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/reproducibility.html">Reproducibility</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/importing_data.html">Daten importieren: Teil 1</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/functions-loops.html">Automatisieren</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/importing_data-2.html">Daten importieren: Teil 2</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/summarizing-data.html">Aggregierte Statistiken</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/uebung_2_data_wrangling.html">Übung 2</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-4">Visualisieren</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/rmarkdown.html">R Markdown</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/data_visualization_1.html">Grafiken erstellen mit <code>ggplot</code></span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/data_visualization_2.html">Daten Visualisierung</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/uebung_3_data_visualization.html">Übung 3</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-5">Signal Detection Theory</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/signal-detection-1.html">Einführung</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/signal-detection-2.html">SDT anwenden</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/uebung-4-signal-detection.html">Übung 4</span> <span class="hidden" data-render-id="quarto-int-sidebar:quarto-sidebar-section-6">Bayesianische Datenanalyse</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/bayesian-statistics-1.html">Reaktivierung: Statistikwissen</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/bayesian-statistics-2.html">Bayesianische Parameterschätzung</span> <span class="hidden" data-render-id="quarto-int-sidebar:/pages/chapters/bayesian-statistics-3.html">Bayes Factors: Bayesianische Hypothesentests</span> <span class="hidden" data-render-id="quarto-int-navbar:🗄️ Admin">🗄️ Admin</span> <span class="hidden" data-render-id="quarto-int-navbar:📚 Syllabus">📚 Syllabus</span> <span class="hidden" data-render-id="quarto-int-navbar:/pages/admin/syllabus.html">/pages/admin/syllabus.html</span> <span class="hidden" data-render-id="quarto-int-navbar:📝 Leistungsnachweise">📝 Leistungsnachweise</span> <span class="hidden" data-render-id="quarto-int-navbar:/pages/admin/leistungsnachweise.html">/pages/admin/leistungsnachweise.html</span> <span class="hidden" data-render-id="quarto-int-navbar:👨🏻‍🏫👩🏼‍🔬 Dozierende">👨🏻‍🏫👩🏼‍🔬 Dozierende</span> <span class="hidden" data-render-id="quarto-int-navbar:/pages/admin/dozierende.html">/pages/admin/dozierende.html</span> <span class="hidden" data-render-id="quarto-breadcrumbs-c038da928814b3ebaa3138ffc7dddfd9">Bayesianische Datenanalyse</span> <span class="hidden" data-render-id="quarto-breadcrumbs-3a9d2ba40514a666d8c3bf1a11c1d1d1">Bayes Factors: Bayesianische Hypothesentests</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle">Neurowissenschaft Computerlab - Bayes Factors: Bayesianische Hypothesentests</span> <span class="hidden" data-render-id="quarto-twittercardtitle">Neurowissenschaft Computerlab - Bayes Factors: Bayesianische Hypothesentests</span> <span class="hidden" data-render-id="quarto-ogcardtitle">Neurowissenschaft Computerlab - Bayes Factors: Bayesianische Hypothesentests</span> <span class="hidden" data-render-id="quarto-metasitename">Neurowissenschaft Computerlab</span> <span class="hidden" data-render-id="quarto-twittercarddesc">Eine Alternative zu Null Hypothesis Significance Testing (NHST).</span> <span class="hidden" data-render-id="quarto-ogcardddesc">Eine Alternative zu Null Hypothesis Significance Testing (NHST).</span></p>
+</div>
+<div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-keysersUsingBayesFactor2020" class="csl-entry" role="listitem">
 Keysers, Christian, Valeria Gazzola, and Eric-Jan Wagenmakers. 2020. <span>“Using <span>Bayes</span> Factor Hypothesis Testing in Neuroscience to Establish Evidence of Absence.”</span> <em>Nature Neuroscience</em> 23 (7, 7): 788–99. <a href="https://doi.org/10.1038/s41593-020-0660-4">https://doi.org/10.1038/s41593-020-0660-4</a>.
 </div>
-</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
-  author = {Ellis, Andrew},
-  title = {Bayes {Factors:} {Bayesianische} {Hypothesentests}},
-  date = {2022-05-15},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html},
-  langid = {en}
-}
-</code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="listitem">
-Ellis, Andrew. 2022. <span>“Bayes Factors: Bayesianische
-Hypothesentests.”</span> May 15, 2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/bayesian-statistics-3.html</a>.
-</div></div></section></div></main><!-- /main --><script>
+</div>
+</section>
+
+</main> <!-- /main -->
+<script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1008,7 +1032,8 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script><script id="quarto-html-after-body" type="application/javascript">
+</script>
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1438,7 +1463,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<footer class="footer"><div class="nav-footer">
+<footer class="footer">
+  <div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -1447,16 +1473,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
-<li class="nav-item compact">
+    <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/kogpsy/neuroscicomplabFS23">
-      <i class="bi bi-github" role="img">
+      <i 
+  class="bi bi-github" 
+  role="img" 
+>
 </i> 
     </a>
   </li>  
 </ul>
-</div>
+    </div>
   </div>
 </footer>
 
+</body>
 
-</body></html>
+</html>
