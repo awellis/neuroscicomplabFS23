@@ -164,7 +164,7 @@ Auf der linken Seite haben wir das Verhältnis der a-posteriori Wahrscheinlichke
 
 :::{.callout-tip}
 ## Marginal Likelihoods
-Diese sagt uns im Prinzip, wie wahrscheinlich die Daten sind, wenn wir alle möglichen Parameterwerte berücksichtigen. Die Marginal Likelihoods sind also die Wahrscheinlichkeit der Daten, gemittelt über alle möglichen Parameterwerte.
+Diese geben darüber Auskunft, wie wahrscheinlich die Daten sind, wenn wir alle möglichen Parameterwerte berücksichtigen. Die Marginal Likelihoods sind also die Wahrscheinlichkeit der Daten, gemittelt über alle möglichen Parameterwerte.
 :::
 
 
