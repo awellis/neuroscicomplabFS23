@@ -7,6 +7,7 @@ project:
   - pages/chapters/*.qmd
   - pages/exercises/exercise_*.qmd
   - pages/solutions/solution_*.qmd
+  # - slides/13-bayes-factors.qmd
 website:
   title: Neurowissenschaft Computerlab
   site-url: https://kogpsy.github.io/neuroscicomplabFS23/
@@ -61,7 +62,10 @@ website:
       contents: 
       - pages/chapters/bayesian-statistics-1.qmd
       - pages/chapters/bayesian-statistics-2.qmd
-      # - pages/chapters/bayesian-statistics-3.qmd
+      - pages/chapters/bayesian-statistics-3.qmd
+      # - text: "Slides (13. Sitzung)"
+      #   file: slides/13-bayes-factors.qmd
+
   page-footer:
     right:
     - icon: github

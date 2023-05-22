@@ -1,0 +1,18 @@
+{
+  "hash": "1d70bc09d19a58613256dcb7e0566672",
+  "result": {
+    "markdown": "---\ntitle: \"13. Sitzung\"\nsubtitle: \"Bayesian hypothesis testing/model comparison.\"\nauthor: \"Andrew Ellis\"\ninstitute: \"Neurowissenschaft Computerlab FS 23\"\nformat:\n  revealjs:\n    theme: [simple, ../styles/reveal.scss]\n    logo: ../assets/logo.png\n    footer: <a href=\"/\">🏠 Neurowissenschaft Computerlab FS23</a>\n    # smaller: true\n    slide-number: c/t\n    chalkboard: true\n    scrollable: true \n    code-fold: true\n    code-summary: \"Show code\"\n    code-tools: true\nexecute:\n  echo: true\n  include: true\ndate: \"2023-05-22\"\n---\n\n\n\n\n------------------------------------------------------------------------\n\n::: columns\n::: {.column width=\"35%\"}\n::: topic-number\n1\n:::\n:::\n\n::: {.column width=\"65%\"}\n::: topic-text\nBayesian hypothesis testing: Bayes factors\n:::\n:::\n:::\n\n## Theory\n\nSee [chapter 12](../pages/chapters/12_data-analysis-2.html)\n\n------------------------------------------------------------------------\n\n::: columns\n::: {.column width=\"35%\"}\n::: topic-number\n2\n:::\n:::\n\n::: {.column width=\"65%\"}\n::: topic-text\nBayesian data analysis using JASP\n:::\n:::\n:::\n\n## JASP\n\n- [Learning Statistics with JASP](https://learnstatswithjasp.com/)\n\n- [Free resources](https://jasp-stats.org/teaching-with-jasp/)\n\n- [JASP data library](https://jasp-stats.org/wp-content/uploads/2020/05/The_JASP_Data_Library_1st_Edition.pdf)\n\n    1) Frequencies: Hungry zombies (Bayesian Binomial test)\n\n    2) T-test: Horizontal eye movements\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-after-body": [
+        "\n<script>\n  // htmlwidgets need to know to resize themselves when slides are shown/hidden.\n  // Fire the \"slideenter\" event (handled by htmlwidgets.js) when the current\n  // slide changes (different for each slide format).\n  (function () {\n    // dispatch for htmlwidgets\n    function fireSlideEnter() {\n      const event = window.document.createEvent(\"Event\");\n      event.initEvent(\"slideenter\", true, true);\n      window.document.dispatchEvent(event);\n    }\n\n    function fireSlideChanged(previousSlide, currentSlide) {\n      fireSlideEnter();\n\n      // dispatch for shiny\n      if (window.jQuery) {\n        if (previousSlide) {\n          window.jQuery(previousSlide).trigger(\"hidden\");\n        }\n        if (currentSlide) {\n          window.jQuery(currentSlide).trigger(\"shown\");\n        }\n      }\n    }\n\n    // hookup for slidy\n    if (window.w3c_slidy) {\n      window.w3c_slidy.add_observer(function (slide_num) {\n        // slide_num starts at position 1\n        fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);\n      });\n    }\n\n  })();\n</script>\n\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
