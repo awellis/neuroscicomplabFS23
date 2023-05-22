@@ -54,7 +54,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -487,8 +506,9 @@ Important
 <p>Überlegen Sie sich nochmals, was man mit einem p-Wert genau aussagen kann.</p>
 </div>
 </div>
-<p>Als Beispiel dient folgendes Experiment aus dem Paper von</p>
-<p>In diesem Kapitel lernen wir nun eine alternative Methode kennen, um die Evidenz zu quantifizieren: <strong>Bayes Factors</strong>. Alternativ zu p-Werten bieten Bayes Factors Evidenz für oder gegen Hypothesen. Bayes Factors sind ein kontinuierliches Mass, welches im Prinzip angibt, um wieviel wir unsere Überzeugung für eine Hypothese ändern sollten, nachdem wir die Daten gesehen haben.</p>
+<p>Als Beispiel dient folgendes Experiment aus dem Paper von <span class="citation" data-cites="keysersUsingBayesFactor2020">Keysers, Gazzola, and Wagenmakers (<a href="#ref-keysersUsingBayesFactor2020" role="doc-biblioref">2020</a>)</span>. Nehmen wir an, dass der vordere cinguläre Kortex (ACC) bei Ratten für die “emotionale Ansteckung” entscheidend ist und dass eine Deaktivierung des ACC durch lokale Injektion von Muscimol die emotionale Ansteckung im Vergleich zur Injektion von Kochsalzlösung verringern sollte.</p>
+<p>Ein injiziertes Tier beobachtete, wie ein Artgenosse Elektroschocks erhielt, und die Erstarrung wurde als Mass für die emotionale Ansteckung gemessen. Es gab auch eine nicht-soziale Kontrollbedingung, bei der das injizierte Tier einem schock-konditionierten Ton ausgesetzt wurde. In einem solchen Experiment ist es wichtig zu zeigen, dass die Manipulation (Injektion von Muscimol) die emotionale Ansteckung reduziert, aber nicht die Erstarrung im Allgemeinen. Dies bedeutet, dass in der Kontrollbedingung keinen Unterschied zwischen den Injektionen von Muscimol und Kochsalzlösung geben sollte.</p>
+<p>In diesem Kapitel lernen wir nun eine alternative Methode kennen, um Evidenz zu quantifizieren: <strong>Bayes Factors</strong>. Alternativ zu p-Werten bieten Bayes Factors Evidenz für oder gegen Hypothesen. Bayes Factors sind ein kontinuierliches Mass, welches im Prinzip angibt, um wieviel wir unsere Überzeugung für eine Hypothese ändern sollten, nachdem wir die Daten gesehen haben.</p>
 </section><section id="bayesianische-statistik" class="level2"><h2 class="anchored" data-anchor-id="bayesianische-statistik">Bayesianische Statistik?</h2>
 <p>Wir wir in der letzten Sitzungen gehört haben, ist es wichtig, zwischen Parameterschätzung und Hypothesentest zu unterscheiden. Parameterschätzung bezeichnet den Prozess, einen oder mehrere Parameter in einem Modell zu schätzen. Um diese Schätzung durchzuführen, müssen wir eine a-priori-Verteilung der Parameterwerte angeben. Hypothesentesten ist einen Vergleich zwischen mehreren Modellen, welche sich in ihren a-priori-Verteilungen unterscheiden.</p>
 <p>Zum Beispiel hatten wir im Kartenspiel verschiedene Vorannahmen über die Fähigkeiten der Spieler A und B. Eine Vorannahme drückte z.B. unsere Überzeugung aus, dass beide Spieler gleich gut waren, während eine andere Vorannahme die Überzeugung ausdrückte, dass entweder Spieler A oder Spieler B besser war. Diese Vorannahmen, zusammen mit unseren Annahmen über die Verteilung der Daten, bilden ein Modell <span class="math inline">\(\mathcal{M}\)</span>.</p>
@@ -767,7 +787,12 @@ Horizontal Eye Movements
 </div>
 
 
-</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
+
+</section><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-keysersUsingBayesFactor2020" class="csl-entry" role="listitem">
+Keysers, Christian, Valeria Gazzola, and Eric-Jan Wagenmakers. 2020. <span>“Using <span>Bayes</span> Factor Hypothesis Testing in Neuroscience to Establish Evidence of Absence.”</span> <em>Nature Neuroscience</em> 23 (7, 7): 788–99. <a href="https://doi.org/10.1038/s41593-020-0660-4">https://doi.org/10.1038/s41593-020-0660-4</a>.
+</div>
+</div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Reuse</h2><div id="quarto-reuse" class="quarto-appendix-contents"><div><a rel="license" href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></div></div></section><section class="quarto-appendix-contents"><h2 class="anchored quarto-appendix-heading">Citation</h2><div><div class="quarto-appendix-secondary-label">BibTeX citation:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{ellis2022,
   author = {Ellis, Andrew},
   title = {Bayes {Factors:} {Bayesianische} {Hypothesentests}},
   date = {2022-05-15},
