@@ -30,11 +30,11 @@ library(webexercises)
 ```
 
 :::{.callout-tip}
-## Wichtig
+## Daten herunterladen
 
-👉 [Daten (`FancyHat.csv`) herunterladen](../../downloadable_files/FancyHat.csv)
+👉 [`ExamQuestions.csv`](../../downloadable_files/ExamQuestions.csv)
 
-👉 [Jasp installieren]([../../downloadable_files/rdkdata_clean.csv](https://jasp-stats.org/))
+👉 [`SmartDrug.csv`](../../downloadable_files/SmartDrug.csv)
 :::
 
 
@@ -44,125 +44,128 @@ library(webexercises)
 
 In der heutigen Sitzung:
 
-- Modellvergleiche durch Bayes Factors
+- Modellvergleiche mit Bayes Factors
 - Bayes Factors mit Jasp berechnen
 :::
 
 
-:::{.callout-important}
-## Literatur
+:::{.callout-tip}
+## Weiterführende Literatur
+- [Bayesian Inference in JASP: A Guide for Students](http://static.jasp-stats.org/Manuals/Bayesian_Guide_v0_12_2_1.pdf): Einführung in die Bayesianische Statistik mit JASP (mit [Datensätzen](https://osf.io/8qtu2/)).
 
-@keysersUsingBayesFactor2020
+- Ein sehr gutes Lehrbuch Statistik mit JASP: [Learn Statistics with JASP](https://learnstatswithjasp.com/). Enthält ein Kapitel zur Bayesianischen Statistik.
 
+- Keysers, C., Gazzola, V., & Wagenmakers, E.-J. (2020). Using Bayes factor hypothesis testing in neuroscience to establish evidence of absence. Nature Neuroscience, 23(7), Article 7. https://doi.org/10.1038/s41593-020-0660-4
 :::
 
 
-## Was wir bisher gemacht haben
 
-Wir haben uns bisher damit beschäftigt, wie man Parameter in einem einfachen Modell schätzt, und wir haben angesprochen, wie man Unsicherheit in unseren Parameterschätzungen durch Wahrscheinlichkeitsverteilungen quantifiziert.
+## Absence of Evidence vs. Evidence of Absence
+
+In den Neurowissenschaftler*innen ist es wichtig zu wissen, welche experimentellen Manipulationen einen Effekt haben. Genauso wichtig ist es jedoch zu wissen, welche Manipulationen _keinen Effekt_ haben. Diese Frage zu beantworten ist jedoch mit traditionellen statistischen Ansätzen schwierig.  Nicht signifikante Ergebnisse sind schwer zu interpretieren: Unterstützen sie die Nullhypothese oder sind sie einfach nicht informativ? 
+
+:::{.callout-important}
+Überlegen Sie sich nochmals, was man mit einem p-Wert genau aussagen kann.
+:::
+
+Als Beispiel dient folgendes Experiment aus dem Paper von @keysersUsingBayesFactor2020. Nehmen wir an, dass der vordere cinguläre Kortex (ACC) bei Ratten für die "emotionale Ansteckung" entscheidend ist und dass eine Deaktivierung des ACC durch lokale Injektion von Muscimol die emotionale Ansteckung im Vergleich zur Injektion von Kochsalzlösung verringern sollte.
+
+Ein injiziertes Tier beobachtete, wie ein Artgenosse Elektroschocks erhielt, und die Erstarrung wurde als Mass für die emotionale Ansteckung gemessen. Es gab auch eine nicht-soziale Kontrollbedingung, bei der das injizierte Tier einem schock-konditionierten Ton ausgesetzt wurde. In einem solchen Experiment ist es wichtig zu zeigen, dass die Manipulation (Injektion von Muscimol) die emotionale Ansteckung reduziert, aber nicht die Erstarrung im Allgemeinen. Dies bedeutet, dass in der Kontrollbedingung keinen Unterschied zwischen den Injektionen von Muscimol und Kochsalzlösung geben sollte. 
 
 
-## Was ist Bayesianische Statistik?
+In diesem Kapitel lernen wir nun eine alternative Methode kennen, um Evidenz zu quantifizieren: **Bayes Factors**. Alternativ zu p-Werten bieten Bayes Factors Evidenz für oder gegen Hypothesen. Bayes Factors sind ein kontinuierliches Mass, welches im Prinzip angibt, um wieviel wir unsere Überzeugung für eine Hypothese ändern sollten, nachdem wir die Daten gesehen haben. 
 
 
-- Es ist wichtig, zwischen Parameterschätzung und Hypothesentest zu unterscheiden.
-- Hypothesentest einen Vergleich zwischen mehreren Modellen - daher ist es komplizierter als die Schätzung.
 
-Ein Modell ist eine Menge von Parametern, die wir verwenden, um die beobachteten Daten vorherzusagen. Zum Beispiel hatten wir im Kartenspiel verschiedene Vorannahmen über die Fähigkeiten der Spieler A und B. Eine Vorannahme drückte unsere Überzeugung aus, dass beide Spieler gleich gut waren, während eine andere Vorannahme die Überzeugung ausdrückte, dass entweder Spieler A oder Spieler B besser war. Diese Vorannahmen, zusammen mit unseren Annahmen über die Verteilung der Daten, bilden ein Modell $\mathcal{M}$.
+
+## Bayesianische Statistik?
+Wir wir in der letzten Sitzungen gehört haben, ist es wichtig, zwischen Parameterschätzung und Hypothesentest zu unterscheiden. Parameterschätzung bezeichnet den Prozess, einen oder mehrere Parameter in einem Modell zu schätzen. Um diese Schätzung durchzuführen, müssen wir eine a-priori-Verteilung der Parameterwerte angeben. Hypothesentesten ist einen Vergleich zwischen mehreren Modellen, welche sich in ihren a-priori-Verteilungen unterscheiden.
+
+Zum Beispiel hatten wir im Kartenspiel verschiedene Vorannahmen über die Fähigkeiten der Spieler A und B. Eine Vorannahme drückte z.B. unsere Überzeugung aus, dass beide Spieler gleich gut waren, während eine andere Vorannahme die Überzeugung ausdrückte, dass entweder Spieler A oder Spieler B besser war. Diese Vorannahmen, zusammen mit unseren Annahmen über die Verteilung der Daten, bilden ein Modell $\mathcal{M}$.
 
 ### Bayesianische Parameterschätzung
 
-In der Bayesianischen Parameterschätzung konzentrieren wir uns auf ein Modell $\mathcal{M}$. Das Ziel unserer Inferenz ist die a-posteriori-Verteilung der Parameter, und wir können diese durch Anwendung von Bayes' Theorem erhalten (unter Verwendung von MCMC oder anderen Methoden).
+In der Bayesianischen Parameterschätzung konzentrieren wir uns auf ein Modell $\mathcal{M}$. Das Ziel unserer Inferenz ist die a-posteriori-Verteilung der Parameter $\theta$, und wir können diese durch Anwendung von Bayes' Theorem erhalten (unter Verwendung von Markov Chain Monte Carlo Sampling oder anderen Methoden).
 
 $$ 
 p(\theta | y) =  p(\theta) \cdot \frac{p(y | \theta)}{p(y)}
 $$
 
 
-Wir können die Bayes'sche Regel umformulieren, so dass die Abhängigkeit der Parameter $\mathbf{\theta}$ vom Modell $\mathcal{M}$) eindeutig ist:
+Wir können die Bayes'sche Regel umformulieren, so dass die Abhängigkeit der Parameter $\mathbf{\theta}$ vom Modell $\mathcal{M}$ eindeutig wird:
 $$ 
-p(\theta | y, \mathcal{M}) = \frac{p(y|\theta, \mathcal{M}) p(\theta | \mathcal{M})}{p(y | \mathcal{M})}
+p(\theta | y, \mathcal{M}) = \frac{p(y|\theta, \mathcal{M}) \cdot p(\theta | \mathcal{M})} {p(y | \mathcal{M})}
 $$
 
-wo $\mathcal{M}$ auf ein spezifisches Modell verweist. Dieses Modell wird durch die a-priori-Verteilung der Parameter $p(\theta | \mathcal{M}$ und die Verteilung der Daten $p(y|\theta, \mathcal{M})$ bestimmt.
-
-Die marginale Wahrscheinlichkeit $p(y | \mathcal{M})$ gibt nun die Wahrscheinlichkeit der Daten an, gemittelt über alle möglichen Parameterwerte unter der Vorverteilung im Modell $\mathcal{M}$.
+wo $\mathcal{M}$ auf ein spezifisches Modell verweist. Dieses Modell wird durch die a-priori-Verteilung der Parameter $p(\theta | \mathcal{M})$ und die Wahrscheinlichkeit der Daten $p(y|\theta, \mathcal{M})$ bestimmt.
 
 :::{.callout-important}
-The marginal likelihood $p(y | \mathcal{M})$ is usually neglected when looking at a single model, but becomes important when comparing models.
+## Wahrscheinlichkeit der Daten
+Die Randwahrscheinlichkeit $p(y | \mathcal{M})$ gibt nun die Wahrscheinlichkeit der Daten an, gemittelt über alle möglichen Parameterwerte unter der Vorverteilung im Modell $\mathcal{M}$. Sie auch **Modell-Evidenz** genannt.
 :::
 
-Writing out the marginal likelihood $p(y | \mathcal{M})$:
+Bei der Parameterschätzung spielt  $p(y | \mathcal{M})$ nur die Rolle eines Normalisierungsfaktors. Beim Modellvergleich ist $p(y | \mathcal{M})$ jedoch von zentraler Bedeutung.
+
+
+Die Randwahrscheinlichkeit $p(y | \mathcal{M})$ ist der Nenner aus der Bayes'schen Formel:
+
+$$ 
+p(\theta|y) = \frac{ p(y|\theta) * p(\theta) } {p(y)}
+$$
+
+
+
+und ist gegeben durch:
 $$ 
 p(y | \mathcal{M}) = \int{p(y | \theta, \mathcal{M}) p(\theta|\mathcal{M})d\theta}
 $$
 
-we see that this is averaged over all possible values of $\theta$ that the model will allow.
 
-The priors on $\theta$ are important, because they determine the probability of possible values of $\theta$.
-
-The model evidence will depend on what kind of predictions a model can make. This gives us a measure of complexity – **a complex model is a model that can make many predictions**.
-
-The problem with making many predictions is that most of these predictions will turn out to be false. The complexity of a model depends on (among other things):
-
-- the number of parameters (as in frequentist model comparison)
-- the prior distributions of the model's parameters
-
-When a parameter priors are broad (uninformative), those parts of the parameter space where the likelihood is high are comparatively assigned low probability (because the probability is spread out over the whole parameter space). Intuitively, if one  hedges one's bets, one has to assign low probability to parameter values that make good predictions.
+Dies bedeutet, dass wir die Wahrscheinlichkeit der Daten $p(y | \mathcal{M})$ erhalten, indem wir die Wahrscheinlichkeit der Daten für jeden möglichen Parameterwert $\theta$ berechnen und dann über alle möglichen Parameterwerte mitteln.
 
 
-The following prior makes quite a strong prediction about the value of $\theta$ - it is centred on $0.5$, and the spread is small. Both small and large values are assigned very little probability.
-
-```{r}
-theta_grid <- seq(0, 1, length = 101)
-prior1 <- dbeta(theta_grid, shape1 = 200, shape2 = 200)
-plot(theta_grid, prior1, "l", lwd = 3)
-```
-
-The next prior makes less strong predictions, in the sense that it assigns higher probability to small and large values of $\theta$ (compared to the previous prior, shown as a dashed line). 
-
-```{r}
-prior2 <- dbeta(theta_grid, shape1 = 2, shape2 = 2)
-plot(theta_grid, prior1, "l", lty="dashed")
-lines(theta_grid, prior2, "l", lwd = 3)
-```
-
-A model that makes more precise predictions, i.e. a model with a stronger prior, is considered less complex that a model that makes many predictions.
+Die a-priori-Verteilungen für $\theta$ sind wichtig, da sie die Wahrscheinlichkeit möglicher Werte von $\theta$ bestimmen.
 
 
 
 
 
-### Bayesian model comparison
+### Bayesianische Modellvergleiche
 
-Now consider that we have two models, $\mathcal{M1}$ and $\mathcal{M2}$. We would like to know which model explains the data better. We can use Bayes' rule to calculate the posterior probability of $\mathcal{M1}$ and $\mathcal{M2}$  (marginalized over all parameters within the model).
+Nun wollen wir zwei verschiedene Modelle miteinander vergleichen -- wir wollen wissen, welches Modell die Daten besser erklärt. Wir können die Bayes'sche Regel verwenden, um die Wahrscheinlichkeit der Modelle  $\mathcal{M1}$ und $\mathcal{M2}$ zu berechnen (gemittelt über alle möglichen Parameterwerte innerhalb des Modells):
 
 $$ 
 p(\mathcal{M}_1 | y) = \frac{P(y | \mathcal{M}_1) p(\mathcal{M}_1)}{p(y)} 
 $$
 
-and
+und
 
 $$ 
 p(\mathcal{M}_2 | y) = \frac{P(y | \mathcal{M}_2) p(\mathcal{M}_2)}{p(y)} 
 $$
 
 
-One way of comparing the models is by taking the ratio $p(\mathcal{M}_1 | y) / p(\mathcal{M}_2 | y)$. 
+Eine Möglichkeit wäre, das Verhältnis der beiden Wahrscheinlichkeiten zu berechnen: $p(\mathcal{M}_1 | y) / p(\mathcal{M}_2 | y)$. Dieses Verhältnis wird als **posterior odds**:
 
 $$ 
 \frac{p(\mathcal{M}_1 | y) = \frac{P(y | \mathcal{M}_1) p(\mathcal{M}_1)}{p(y)}} {p(\mathcal{M}_2 | y) = \frac{P(y | \mathcal{M}_2) p(\mathcal{M}_2)}{p(y)}}
 $$
 
 
-The term $p(y)$ cancels out, giving us:
+$p(y)$ können wir kürzen, da es in oberhalb und unterhalb des Bruchstriches im Nenner vorkommt. Wir erhalten:
 
 $$ 
 \frac{p(\mathcal{M}_1 | y) = P(y | \mathcal{M}_1) p(\mathcal{M}_1)} {p(\mathcal{M}_2 | y) = P(y | \mathcal{M}_2) p(\mathcal{M}_2)}
 $$
 
 
-On the left-hand side, we have the ratio of the posterior probabilities of the two models. On the right-hand side, we have the ratio of the marginal likelihoods of the two models, multiplied by the prior probabilities of each model. The  marginal likelihoods (also know as model evidence) tell how well each model explains the data.
+Auf der linken Seite haben wir das Verhältnis der a-posteriori Wahrscheinlichkeiten der beiden Modelle. Auf der rechten Seite haben wir das Verhältnis der **Marginal Likelihoods** der beiden Modelle, multipliziert mit den a-priori Wahrscheinlichkeiten jedes Modells. Die Marginal Likelihoods (auch bekannt als Modell-Evidenz) zeigen, wie gut jedes Modell die Daten erklärt. 
+
+:::{.callout-tip}
+## Marginal Likelihoods
+Diese sagt uns im Prinzip, wie wahrscheinlich die Daten sind, wenn wir alle möglichen Parameterwerte berücksichtigen. Die Marginal Likelihoods sind also die Wahrscheinlichkeit der Daten, gemittelt über alle möglichen Parameterwerte.
+:::
+
 
 $$
 \underbrace{\frac{p(\mathcal{M}_1 | y)} {p(\mathcal{M}_2 | y)}}_\text{Posterior odds} = \underbrace{\frac{P(y | \mathcal{M}_1)}{P(y | \mathcal{M}_2)}}_\text{Ratio of marginal likelihoods} \cdot \underbrace{ \frac{p(\mathcal{M}_1)}{p(\mathcal{M}_2)}}_\text{Prior odds}
@@ -170,75 +173,75 @@ $$
 
 
 
-$\frac{p(\mathcal{M}_1)}{p(\mathcal{M}_2)}$ are the  **prior odds**, and $\frac{p(\mathcal{M}_1 | y)}{p(\mathcal{M}_2 | y)}$ are the **posterior odds**. These tell us which model we believe to be mode probable a priori and a posteriori.
+$\frac{p(\mathcal{M}_1)}{p(\mathcal{M}_2)}$ sind nun die **Prior Odds**, und $\frac{p(\mathcal{M}_1 | y)}{p(\mathcal{M}_2 | y)}$ sind die  **Posterior Odds**. Diese sagen uns, welches Modell wir a-priori und a-posteriori für wahrscheinlicher halten. Da unsere a-priori Überzeugungen aber subjektiv sein können, sind wir eigentlich nur an dem Verhältnis der marginalen Likelihoods interessiert. Wir können annehmen, dass a-priori die beiden Modelle gleichwahrscheinlich sind; das heisst, wir setzen die Prior Odds auf 1 setzen. So erhalten wir
 
-We are particularly interested in the ratio of the marginal likelihoods:
 
 $$
 \frac{P(y | \mathcal{M}_1)}{P(y | \mathcal{M}_2)}
 $$
 
-This is the **Bayes factor**, and it can be interpreted as the change from prior odds to posterior odds that is indicated by the data.
+Dies ist der **Bayes Factor**. Falls $P(y | \mathcal{M}_1)$ grösser ist als $P(y | \mathcal{M}_2)$, dann ist der Bayes Factor grösser als 1. Falls $P(y | \mathcal{M}_1)$ kleiner ist als $P(y | \mathcal{M}_2)$, dann ist der Bayes Factor kleiner als 1. Der **Bayes Factor** gibt also direkt an, welches Modell die Daten besser erklärt.
 
-
-If we consider the prior odds to be $1$, i.e. we do not favour one model over another a priori, then we are only interested in the Bayes factor. We write this as:
+Wenn wir zwei Modelle $\mathcal{M}_1$ und $\mathcal{M}_2$ vergleichen, wird der **Bayes Factor** oftmals so geschrieben:
 
 $$ BF_{12} = \frac{P(y | \mathcal{M}_1)}{P(y | \mathcal{M}_2)}$$
 
 
-Here, $BF_{12}$ indicates the extent to which the data support model $\mathcal{M}_1$ over model $\mathcal{M}_2$.
+$BF_{12}$ ist also der Bayes Factor für $\mathcal{M}_1$ und gibt an um wieviel $\mathcal{M}_1$ die Daten besser "erklärt".
 
 
-As an example, if we obtain a $BF_{12} = 5$, this mean that the data are 5 times more likely to have occured under model 1 than under model 2. Conversely, if $BF_{12} = 0.2$, then the data are 5 times more likely to have occured under model 2.
+Als Beispiel, wenn wir ein $BF_{12} = 5$ erhalten, bedeutet dies, dass die Daten 5 Mal wahrscheinlicher unter Modell 1 als unter Modell 2 aufgetreten sind. Umgekehrt, wenn $BF_{12} = 0.2$, dann sind die Daten 5 Mal wahrscheinlicher unter Modell 2 aufgetreten.
+
+Wenn wir $BF_{12} = 0.2$ erhalten, ist es einfacher, Zähler und Nenner zu vertauschen:
+
+$$ BF_{21} = \frac{P(y | \mathcal{M}_2)}{P(y | \mathcal{M}_1)}$$
 
 
-The following [interpretations](https://www.statology.org/bayes-factor/) are sometimes used (based on @andraszewiczIntroductionBayesianHypothesis), although it is not really necessary or helpful to classify Bayes factors.
+Die folgenden [Interpretationen](https://www.statology.org/bayes-factor/) von Bayes Factors werden manchmal verwendet, obwohl es nicht wirklich notwendig ist, diese zu klassifizieren. Bayes Factors sind ein kontinuierliches Mass für Evidenz.
 
 
 
-## Hypothesis testing
+## Hypothesentesten
 
-We usually perform model comparisons between a null hypothesis $\mathcal{H}_0$ and an alternative hypothesis $\mathcal{H}_1$. The terms "model" and "hypothesis" are used synonymously. A null hypothesis means that we fix the value of the parameter to a certain value, e.g. $\theta = 0.5$. The alternative hypothesis means that we do not fix the value of the parameter, e.g. we do not assume that the parameter is $0.5$. 
+Wir führen oft Modellvergleiche zwischen einer Nullhypothese $\mathcal{H}_0$ und einer alternativen Hypothese $\mathcal{H}_1$ durch (Die Begriffe "Modell" und "Hypothese" werden synonym verwendet). Eine Nullhypothese bedeutet, dass wir den Wert des Parameters auf einen bestimmten Wert festlegen, z.B. $\theta = 0.5$. Die alternative Hypothese bedeutet, dass wir den Wert des Parameters nicht festlegen, sondern eine a-priori Verteilung annehmen.
 
 :::{.callout-important}
-It is important to note that the alternative hypothesis needs to be specified. In other words, the parameter(s) need to given a prior distribution.
+## Alternativhypothese
+Im Gegensatz zu NHST muss die Alternativhypothese spezifiziert werden. Mit anderen Worten, die Parameter müssen eine a-priori Verteilung erhalten.
 :::
 
 
-In JASP, we will see Bayes factors reported as either
+In JASP werden Bayes Factors (BF) so berichtet:
 
 $$ BF_{10} = \frac{P(y | \mathcal{H}_1)}{P(y | \mathcal{H}_0)}$$
 
-which indicates a BF for an undirected alternative $\mathcal{H}_1$ versus the null, or
-
+Dies ist ein BF für eine ungerichtete Alternative $\mathcal{H}_1$ gegen die Nullhypothese $\mathcal{H}_0$. Wenn wir einen gerichteten Test durchführen, dann wird der BF entweder so ($>0$):
 
 $$ BF_{+0} = \frac{P(y | \mathcal{H}_+)}{P(y | \mathcal{H}_0)}$$
 
-which indicates a BF for a directed alternative $\mathcal{H}_+$ versus $\mathcal{H}_0$.
+oder so ($<0$) berichtet.
+$$ BF_{-0} = \frac{P(y | \mathcal{H}_-)}{P(y | \mathcal{H}_0)}$$
 
-If we want a BF for the null $\mathcal{H}_0$, we can simply take the inverse of $BF_{10}$:
+
+Wenn wir nun einen BF für die Nullhypothese wollen, können wir einfach den Kehrwert von $BF_{10}$ nehmen:
 
 $$ BF_{01} = \frac{1}{BF_{10}}$$
 
 
-
+:::{.callout-tip collapse="true"}
 ## Savage-Dickey Density Ratio
 
-If we are comparing two nested models, i.e. a model with 1 free parameter and null model (in which that parameter is fixed to a certain value) we can use the Savage-Dickey density ratio to calculate the Bayes factor.
+Wenn wir zwei genestete Modelle vergleichen, d.h. ein Modell mit 1 freiem Parameter und ein Nullmodell (in dem dieser Parameter auf einen bestimmten Wert festgelegt ist), können wir das Savage-Dickey Density Ratio verwenden, um den Bayes-Faktor zu berechnen.
 
+- Nullmodell ($\mathcal{H}_0$ or $\mathcal{M}_0$): $\theta = \theta_0$
 
-- Under the null model ($\mathcal{H}_0$ or $\mathcal{M}_0$): $\theta = \theta_0$
+- Alternativmodell ($\mathcal{H}_1$ or $\mathcal{M}_1$): $\theta \neq \theta_0$
 
-- under the alternative model ($\mathcal{H}_1$ or $\mathcal{M}_1$): $\theta \neq \theta_0$
+$\theta$ braucht unter $\mathcal{H}_1$ eine a-priori Verteilung. Im Kartenspiel-Beispiel vom letzten Kapitel war dies eine Beta-Verteilung mit $\alpha = 1$ und $\beta = 1$: $\theta \sim \text{Beta}(1, 1)$. Diese Hypothese besagt, dass alle Parameterwerte gleich wahrscheinlich sind.
 
-We need to specify a prior distribution of $\theta$ under $\mathcal{H}_1$. If we consider the card game example, e.g. $\theta \sim \text{Beta}(1, 1)$.
+Das Savage-Dickey Density Ratio ist eine verinfachte Methode, um einen Bayes Factor zu erhalten - wir müssen einfach $\mathcal{M}_1$ betrachten, und die a-posterior Verteilung durch die a-prior Verteilung an der Stelle $\theta_0$ teilen.
 
-The Savage-Dickey Density Ratio  is a simplified manner of obtaining the Bayes factor - we simply need to consider $\mathcal{M}_1$, and divide the posterior by the prior at the value $\theta_0$.
-
-Let's look at an example from  @wagenmakersBayesianHypothesisTesting2010a:
-
-
-You observe that a person correctly answers 9 out of 10 yes-or-no questions.
+Als Beispiel: stellen Sie sich vor, dass eine Person 9 von 10 Ja/Nein Fragen korrekt beantwortet.
 
 ```{r}
 #| echo: false
@@ -259,10 +262,9 @@ n_correct <- 9
 n_questions <- 10
 ```
 
-We want to know: How likely is that to occur if the person was randomly guessing ($\theta=0.5$)?
+Wir wollen wissen: wie wahrscheinlich ist es, dass die Person geraten hat ($\theta=0.5$)?
 
-We will assume a uniform prior over $\theta$:
-
+Wir nehmen nun eine uniforme a-priori Verteilung für  $\theta$ an:
 $$
 p(\theta) = Beta(1, 1)
 $$
@@ -279,16 +281,13 @@ ggplot(pd, aes(x, Prior)) +
     labs(y = "Density", x = bquote(theta))
 ```
 
-
-
-The next step is to update our prior with the likelihood, in order to obtain the posterior distribution of $\theta$:
+Im nächsten Schritt wenden wir Bayes Theorem an, um die a-posteriori Verteilung zu erhalten:
 
 $$
 p(\theta|y) = Beta(1 + 9, 1 + 1)
 $$
 
-Now we can evaluate both the prior and posterior at the value $0.5$.
-
+Unser "Test-Wert" ist $θ = 0.5$. Wir können nun sowohl die a-priori als auch die a-posteriori Verteilung an dieser Stelle auswerten:
 
 Prior:
 
@@ -302,7 +301,7 @@ Posterior:
 (dposterior <- dbeta(0.5, 10, 2))
 ```
 
-The Bayes factor $BF_{01}$ is the posterior density divided by the prior density:
+Der Bayes Factor für die Nullhypothese $BF_{01}$ ist die Wahrscheinlichkeit der a-posteriori Verteilung geteilt durch die Wahrscheinlichkeit der a-priori Verteilung an der Stelle $\theta_0$:
 
 ```{r}
 BF01 <- dposterior / dprior
@@ -312,18 +311,17 @@ BF01 <- dposterior / dprior
 BF01
 ```
 
-
-This is not so easy to interpret, so we calculate BF10 instead:
+Da eine Zahl $<0$ nicht so leicht interpretierbar ist, berechnen wir $BF_{10}$:
 
 ```{r}
 (BF10 <- 1/BF01)
 ```
 
-This means that the data are $9.3$ times more likely to have occurred under the alternative than under the null model. 
+Die Daten (9 von 10 Fragen richtig beantwortet) sind also $9.3$ mal wahrscheinlicher unter der Alternativhypothese als unter der Nullhypothese.
 
-The following figure is how Bayes factors are usually visualized in JASP. We plot both the prior and posterior distributions, and the density under both, evaluated at $\theta_0 = 0.5$.
+In JASP wird der BF folgendermassen grafisch dargestellt. Wir plotten sowohl die a-priori als auch die a-posteriori Verteilung, und die Wahrscheinlichkeitsdichten an der Stelle $\theta_0 = 0.5$.
 
-The density of $\theta_0$ is smaller after having taking into account the data, or in other words: the probability of $\theta_0$ has decreased after observing the data. This allows us to conclude that the data (9 out of 10) are approximately 9 times more likely to have occured under $\mathcal{M1}$.
+Die Wahrscheinlichkeitsdichte von $\theta_0$ wird kleiner, nachdem wir die Daten berücksichtigt haben. Anders formuliert: Die Wahrscheinlichkeit von $\theta_0$ hat abgenommen, nachdem wir die Daten beobachtet haben. Dies ermöglicht uns zu schlussfolgern, dass die Daten (9 von 10) etwa 9 Mal wahrscheinlicher unter $\mathcal{M_1}$ sind.
 
 ```{r}
 pd <- pd |> 
@@ -360,93 +358,36 @@ filter(pd, x == .5) |>
     BF10 = 1 / BF01) 
 ```
 
-
-## Case studies
-
-You can generate the following datasets, and then import the `CSV` files into JASP.
+:::
 
 
-### Card game
+:::{.callout-caution}
+## Hands-on
 
-Player A wins 6 out of 9 games. 
+Eine Student*in beantwortet 9 von 10 Fragen korrekt.
 
-- Do the data provide evidence that player A is better than player B?
-- What is the evidence that they are both equally good?
+- Was ist die Evidenz dafür, dass die Student*in geraten hat (Glück hatte)?
+- Was ist die Evidenz dafür, dass die Wahrscheinlichkeit einer korrekten Antwort der Student*in grösser als $0.5$ ist?
 
-
-```{r}
-#| warning: false
-#| message: false
-library(tidyverse)
-
-wins <- 6
-games <- 9
-
-cardgame <- c(rep(1, wins), rep(0, games-wins)) |> 
-  sample(games, replace = FALSE)
-
-cardgame <- tibble(game = 1:9,
-                   winner = if_else(cardgame == 1, "A", "B"),
-                   indicator = cardgame)
-
-cardgame |> write_csv("cardgame.csv")
-```
+Importieren Sie den Datensatz `ExamQuestions.csv` ins JASP und führen Sie einen __Bayesian binomial rate test__ durch.
+:::
 
 
+## Bayesian t-Test
 
-### Exam questions
-
-A student correctly answer 9 questions out of 10. 
-
-- What is the evidence that the student was guessing (got lucky)?
-- What is the evidence that the student's ability is greater than $0.5$?
+Um einen Bayesianischen t-Test durchzuführen, müssen wir ebenfalls Parameter schätzen, und zwei Modelle miteinander vergleichen. Dies werden wir anhand zweier Beispiele in JASP demonstrieren.
 
 
-```{r}
-#| warning: false
-#| message: false
-library(tidyverse)
+:::{.callout-caution}
+## Smart Drug
 
-n_correct <- 9
-n_questions <- 10
+In diesem Beispiel möchten wir die IQ-Werte von zwei Gruppen vergleichen. Einer der Gruppen wurde ein Medikament zur Steigerung der Intelligenz verabreicht, die andere ist die Kontrollgruppe.
 
-questions <- c(rep(1, n_correct), rep(0, n_questions-n_correct)) |> 
-  sample(n_questions, replace = FALSE)
-
-questions <- tibble(question = 1:n_questions,
-                   correct = if_else(questions == 1, "correct", "error"),
-                   indicator = questions)
-
-questions |> write_csv("questions.csv")
-```
+Importieren Sie den Datensatz `SmartDrug.csv` ins JASP und führen Sie einen __Bayesian t-test__ durch.
+:::
 
 
-### Smart drug t-test
-
-Generate this dataframe, and export it as `CSV` file. In this example, we want to compare two groups' IQ scores. One of the groups has been given a drug to make them smart, the other is the control group.
-
-
-```{r}
-#| warning: false
-#| message: false
-library(tidyverse)
-
-smart = tibble(IQ = c(101,100,102,104,102,97,105,105,98,101,100,123,105,103,
-                      100,95,102,106,109,102,82,102,100,102,102,101,102,102,
-                      103,103,97,97,103,101,97,104,96,103,124,101,101,100,
-                      101,101,104,100,101),
-               Group = "SmartDrug")
-
-placebo = tibble(IQ = c(99,101,100,101,102,100,97,101,104,101,102,102,100,105,
-                        88,101,100,104,100,100,100,101,102,103,97,101,101,100,
-                        101, 99,101,100,100,101,100,99,101,100,102,99,100,99),
-                 Group = "Placebo")
-
-SmartDrug <- bind_rows(smart, placebo)  |>
-    mutate(Group = fct_relevel(as.factor(Group), "Placebo"))
-```
-
-
-```{r}
-write_csv(SmartDrug, file = "SmartDrug.csv")
-```
+:::{.callout-caution}
+## Horizontal Eye Movements
+Öffnen Sie den Datensatz `Eye Movements` in JASP: `Open > Data Library > T-Tests > Eye Movements`. In diesem Datensatz wird die Anzahl erinnerter Wörter zwischen zwei Gruppen verglichen. In der einen Gruppe wurden die Probanden instruiert, während der Erinnerungsphase auf einen zentralen Punkt zu fixieren; in der anderen Gruppe wurden die Probanden instruiert, horizontale Sakkaden auszuführen.
+:::
