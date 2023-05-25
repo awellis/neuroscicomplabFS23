@@ -372,11 +372,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header><p>Die Übung 5 besteht aus den zwei folgenden Aufgaben:</p>
+</header><p>In dieser Übung nutzen wir unser Wissen über die Signalentdeckungstheorie sowie die bayesianische Statistik, um die Daten von <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/psychopy_experiments.html">unserem Entscheidungsexperiment</a> zu analysieren.</p>
+<p>Die Übung 5 besteht aus den zwei folgenden Aufgaben:</p>
 <p><strong>1. Datenanalyse in JASP</strong>: Berechnen Sie in JASP mit einem t-Test, ob sich der Bias in Abhängigkeit vom Vorwissen verändert.</p>
 <p><strong>2. Peer Feedback</strong>: Geben Sie auf Ilias der Ihnen zugeordneten Person Rückmeldung zu ihrer Analyse und Einordnung einer anderen Person.</p>
 <section id="datenanalyse-in-jasp" class="level1"><h1>1. Datenanalyse in JASP</h1>
-<p>In dieser Übung nutzen wir unser Wissen über die Signalentdeckungstheorie sowie die bayesianische Statistik, um die Daten vom Entscheidungsexperiment, welches wir zu Beginn des Semsters durchgeführt haben, zu analysieren.</p>
 <p>Bei dem Random Dot Experiment wurde das Vorwissen der Person mit einem <code>cue</code> - einem nach rechts oder nach links zeigenden Pfeil - manipuliert. Einige Trials enthielten auch gar keinen Pfeil, diese werden wir hier nicht analysieren. Wir interessieren uns dafür, ob die Personen durch das gegebene Vorwissen tatsächlich beeinflusst in ihren Entscheidungen beeinflusst wurden.</p>
 <p>Als ein Mass für den Einfluss von Vorannahmen kann der “Bias” verwendet werden. Also wie stark eine Person dazu neigt, in eine bestimmte Richtung zu antworten. Mit Hilfe der Signalentdeckungstheorie haben wir <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/signal-detection-2.html">hier</a> die Sensitivität (<code>dprime</code>), das Kriterium (<code>k</code>) und den Bias (<code>c</code>) für jede Person und Bedingung berechnet.</p>
 <div class="callout-tip callout callout-style-default callout-captioned">
@@ -395,14 +395,12 @@ Daten Vorverarbeitung
 <pre><code>sdt_final_wide &lt;- sdt_final |&gt; 
     pivot_wider(names_from = cue, values_from = c(dprime, c, k))</code></pre>
 <p>und mit</p>
-<p><code>write.csv(sdt_final_wide, "rdk_bayesian.csv", row.names = FALSE))</code></p>
-<p>abgespeichert.</p>
+<pre><code>write.csv(sdt_final_wide, "rdk_bayesian.csv", row.names = FALSE))</code></pre>
+<p>abgespeichert. Sie können aber den Datensatz einfach herunterladen und müssen diese Schritte nicht ausführen.</p>
 </div>
 </div>
 </div>
-<p>Nun möchten wir testen, ob sich die Bedingungen “Pfeil zeigt nach rechts” und “Pfeil zeigt nach links” in Bezug auf den Bias (<code>c</code>) unterscheiden.</p>
-<p>Würden wir dies mit einem klassischen, frequentistischen t-Test untersuchen, würden wir folgende Resultate erhalten:</p>
-<p>[Frequentistischer t-Test in JASP](../../assets/images]</p>
+<p>Wir interessieren uns dafür, ob das Vorwissen den Bias der Versuchspersonen verschoben hat. Hat die Person aufgrund des Pfeils den sie gesehen hat, eher rechts oder links gedrückt? Dafür testen wir, ob sich die Bedingungen <code>Pfeil zeigt nach rechts</code> und <code>Pfeil zeigt nach links</code> in Bezug auf den Bias (<code>c</code>) unterscheiden.</p>
 <p>Hierzu nutzen wir die Stärken eines bayesianischen t-Tests, wie <a href="https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/bayesian-statistics-2.html">hier</a> behandelt.</p>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
@@ -426,7 +424,6 @@ Wichtig
 <li><p><code>k_none</code>, <code>k_right</code>, <code>k_left</code>: Kriterium für jede Person und Bedingung</p></li>
 </ul>
 <section id="bayesianische-datenanalyse-in-jasp-durchführen" class="level2"><h2 class="anchored" data-anchor-id="bayesianische-datenanalyse-in-jasp-durchführen">Bayesianische Datenanalyse in JASP durchführen</h2>
-<p>Wir interessieren uns dafür, ob das Vorwissen den Bias der Versuchspersonen verschoben hat. Hat die Person aufgrund des Pfeils den sie gesehen hat, eher rechts oder links gedrückt?</p>
 <p>Laden Sie den Datensatz in JASP und führen Sie einen Bayesianischen T-Test durch. Machen Sie sich Gedanken, welcher der drei auswählbaren T-Tests sich für unsere Daten am besten eignet.</p>
 </section><section id="ergebnisse-berichten-und-interpretieren" class="level2"><h2 class="anchored" data-anchor-id="ergebnisse-berichten-und-interpretieren">Ergebnisse berichten und interpretieren</h2>
 <p>Erstellen Sie ein Word oder Text-File, kopieren und beantworten Sie darin folgende Fragen:</p>
@@ -466,12 +463,12 @@ Wichtig
   author = {Andrew Ellis and Gerda Wyssen},
   title = {Übung 5},
   date = {2022-05-22},
-  url = {https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-5_bayesian_data_analysis.html},
+  url = {https://kogpsy.github.io/neuroscicomplabFS23//uebung-5_bayesian_data_analysis.html},
   langid = {en}
 }
 </code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">For attribution, please cite this work as:</div><div id="ref-ellis2022" class="csl-entry quarto-appendix-citeas" role="doc-biblioentry">
 Andrew Ellis, and Gerda Wyssen. 2022. <span>“Übung 5.”</span> May 22,
-2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-5_bayesian_data_analysis.html">https://kogpsy.github.io/neuroscicomplabFS23//pages/chapters/uebung-5_bayesian_data_analysis.html</a>.
+2022. <a href="https://kogpsy.github.io/neuroscicomplabFS23//uebung-5_bayesian_data_analysis.html">https://kogpsy.github.io/neuroscicomplabFS23//uebung-5_bayesian_data_analysis.html</a>.
 </div></div></section></div></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */

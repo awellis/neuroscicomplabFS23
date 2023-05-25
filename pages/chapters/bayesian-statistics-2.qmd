@@ -60,12 +60,12 @@ In menschlicher Sprache: die Wahrscheinlichkeit eines Ereignisses A unter der Be
 
 Man kann das auch spezifisch für Hypothesentests formulieren:
 
-$$ P(Hypothesis|Data) =  \frac{P(Data|Hypothesis) ⋅ P(Data)}{P(Hypothesis)} $$
+$$ P(Hypothesis|Data) =  \frac{P(Data|Hypothesis) ⋅ P(Hypothesis)}{P(Data)} $$
 :::
 
 Der wesentlichste Unterschied zwischen der Bayesianischen und der frequentistischen Statistik ist, dass in der Bayesianischen Statistik die Wahrscheinlichkeitstheorie konsequent angewandt wird, um Parameter zu schätzen. 
 
-- In der frequentistischen Statistik wird die Wahrscheinkeitslehre vor allem angewandt, um die Wahrscheinlichkeit der Daten zu berechnen, unter der Annahme, dass die Nullhypothese wahr ist. 
+- In der frequentistischen Statistik wird die Wahrscheinlichkeitslehre vor allem angewandt, um die Wahrscheinlichkeit der Daten zu berechnen, unter der Annahme, dass die Nullhypothese wahr ist. 
 - In der Bayesianischen Statistik wird die Wahrscheinkeitslehre angewandt, um die Wahrscheinlichkeit der Parameter zu berechnen.
 
 Dieser Unterschied hat weitreichende Konsequenzen. So kann man in der frequentistischen Statistik Parameter schätzen, aber es wird wird angenommen, dass ein Parameter einen wahren (aber unbekannten) Wert hat. Der Parameter ist aber keine Zufallszahl, und hat daher keine Wahrscheinlichkeitsverteilung. Daher darf man nicht über die Wahrscheinlichkeit eines Parameters sprechen. In der Bayesianischen Statistik ist ein Parameter eine Zufallszahl, und hat daher eine Wahrscheinlichkeitsverteilung. Wir benützen Bayes Theorem um die Wahrscheinlichkeit von Parametern zu berechnen.

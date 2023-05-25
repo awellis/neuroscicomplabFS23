@@ -31,8 +31,9 @@ code-annotations: select
 #knitr::opts_knit$set(root.dir = '../../data/uebung-5')
 ```
 
+In dieser Übung nutzen wir unser Wissen über die Signalentdeckungstheorie und die bayesianische Statistik für die Analyse der Daten von [unserem  Entscheidungsexperiment](https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/psychopy_experiments.html). 
 
-Die Übung 5 besteht aus den zwei folgenden Aufgaben:
+**Die Übung 5 besteht aus den zwei folgenden Aufgaben:**
 
 **1. Datenanalyse in JASP**: Berechnen Sie in JASP mit einem t-Test, ob sich der Bias in Abhängigkeit vom Vorwissen verändert.
 
@@ -40,8 +41,6 @@ Die Übung 5 besteht aus den zwei folgenden Aufgaben:
 
 
 # 1. Datenanalyse in JASP
-
-In dieser Übung nutzen wir unser Wissen über die Signalentdeckungstheorie sowie die bayesianische Statistik, um die Daten vom Entscheidungsexperiment, welches wir zu Beginn des Semsters durchgeführt haben, zu analysieren. 
 
 Bei dem Random Dot Experiment wurde das Vorwissen der Person mit einem `cue` - einem nach rechts oder nach links zeigenden Pfeil - manipuliert. Einige Trials enthielten auch gar keinen Pfeil, diese werden wir hier nicht analysieren. Wir interessieren uns dafür, ob die Personen durch das gegebene Vorwissen tatsächlich beeinflusst in ihren Entscheidungen beeinflusst wurden. 
 
@@ -59,14 +58,16 @@ sdt_final_wide <- sdt_final |>
 
 und mit 
 
-```write.csv(sdt_final_wide, "rdk_bayesian.csv", row.names = FALSE))```
+```
+write.csv(sdt_final_wide, "rdk_bayesian.csv", row.names = FALSE))
+```
 
-abgespeichert. 
+abgespeichert. Sie können aber den Datensatz einfach herunterladen und müssen diese Schritte nicht ausführen. 
 :::
 
-Nun möchten wir testen, ob sich die Bedingungen "Pfeil zeigt nach rechts" und "Pfeil zeigt nach links" in Bezug auf den Bias (`c`) unterscheiden. 
+Wir interessieren uns dafür, ob das Vorwissen den Bias der Versuchspersonen verschoben hat. Hat die Person aufgrund des Pfeils den sie gesehen hat, eher rechts oder links gedrückt? Dafür testen wir, ob sich die Bedingungen `Pfeil zeigt nach rechts` und `Pfeil zeigt nach links` in Bezug auf den Bias (`c`) unterscheiden. 
 
-Dafür nutzen wir die Stärken eines bayesianischen t-Tests, wie  [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/bayesian-statistics-2.html) behandelt.
+Hierzu nutzen wir die Stärken eines bayesianischen t-Tests, wie  [hier](https://kogpsy.github.io/neuroscicomplabFS23/pages/chapters/bayesian-statistics-2.html) behandelt.
 
 :::{.callout-important}
 ## Wichtig
@@ -88,8 +89,6 @@ Folgende Variablen sind im Datensatz `rdk_bayesian.csv`enthalten:
 
 
 ## Bayesianische Datenanalyse in JASP durchführen
-
-Wir interessieren uns dafür, ob das Vorwissen den Bias der Versuchspersonen verschoben hat. Hat die Person aufgrund des Pfeils den sie gesehen hat, eher rechts oder links gedrückt?
 
 Laden Sie den Datensatz in JASP und führen Sie einen Bayesianischen T-Test durch. Machen Sie sich Gedanken, welcher der drei auswählbaren T-Tests sich für unsere Daten am besten eignet.
 
