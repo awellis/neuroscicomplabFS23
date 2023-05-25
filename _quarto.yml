@@ -63,6 +63,7 @@ website:
       - pages/chapters/bayesian-statistics-1.qmd
       - pages/chapters/bayesian-statistics-2.qmd
       - pages/chapters/bayesian-statistics-3.qmd
+      - pages/chapters/uebung-5_bayesian_data_analysis.qmd
       # - text: "Slides (13. Sitzung)"
       #   file: slides/13-bayes-factors.qmd
 
